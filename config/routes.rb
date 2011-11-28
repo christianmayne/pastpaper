@@ -78,6 +78,7 @@ end
   #     resources :products
   #   end
 
+
   namespace :admin do
     resources :document_types
     resources :statuses
