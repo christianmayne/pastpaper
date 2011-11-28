@@ -1,0 +1,117 @@
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG varMarginDouble border ">
+	<div class="varPaddingDouble horPaddingDouble">
+		<div id="container-1" class="siteScaleSmall">
+    <ul class="leaf">
+        <li><a href="#person">Person</a></li>
+
+        <li><a href="#place">Place</a></li>
+        <li><a href="#date">Date</a></li>
+    </ul>
+    
+    <!-- Search by Person -->
+    <div id="person" class="block whiteBG varPaddingDouble horPaddingDouble border">
+    	
+    	<%= form_for :search_people, :url => search_results_home_index_path do |f| %>
+          <!-- Search Name -->
+        First Name
+        <%= f.text_field :first_name,{:class=>"searchIcon",:placeholder => "First Name",:size=>15} %>
+        
+                Last Name
+        <%= f.text_field :last_name,{:class=>"searchIcon",:placeholder => "Last Name",:size=>15} %><br /><br />
+
+
+          <!-- Search Birth Date -->
+
+          Birth Date 
+             <%= f.number_field :date_birth_from, 
+                 :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
+             %>
+              +/- 
+             <%= f.number_field :date_birth_to, {:placeholder=>"YY",
+                 :size => 3, :class => "searchIcon"}
+             %>
+         
+         <br /> <br />
+         
+          <!-- Search Death Date-->
+          Death Date
+             <%= f.text_field :date_death_from,  :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
+             %>
+        
+          <!-- Death +/- -->
+          <!-- Unimplemented -->
+        +/- 
+             <%= f.text_field :date_death_to,{:placeholder=>"YY",
+                 :size => 3, :class => "searchIcon"}
+              %>
+         <br /> <br />
+         
+                             <p style="text-align: center;">
+             <%= f.submit "",:class=>"search",:id=>"searchbypersion" %>
+           </p>
+        <% end %>
+
+    	    </div>
+    <!-- Search by Person End -->
+    
+    <!-- Search by Place -->
+    <div id="place" class="block whiteBG varPaddingDouble horPaddingDouble border">
+	
+	<%= form_for :search_place, :url => search_results_home_index_path do |f| %>
+          <!-- Search Name -->
+        City
+        <%= f.text_field :city,{:class=>"searchIcon",:placeholder => "City",:size=>15} %>
+        
+                County
+        <%= f.text_field :county,{:class=>"searchIcon",:placeholder => "County",:size=>15} %><br /><br />
+
+  Country
+        <%= f.text_field :country,{:class=>"searchIcon",:placeholder => "Country",:size=>20} %><br /><br />
+
+          <!-- Search Birth Date -->
+
+          Date from 
+             <%= f.number_field :date_from, 
+                 :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
+             %>
+              Date to
+             <%= f.number_field :date_to, {:placeholder=>"YYYY",
+                 :size => 10, :class => "searchIcon"}
+             %>
+<br /> <br />
+         
+                             <p style="text-align: center;">
+             <%= f.submit "",:class=>"search",:id=>"searchbyplacebtn" %>
+           </p>             <%end%>
+
+	</div>
+    <!-- Search by Place End -->
+    
+    <!-- Search by Date -->
+    <div id="date" class="block whiteBG varPaddingDouble horPaddingDouble border">
+
+		<form id="searchdate" name="searchdate" action="index.php?action=search_result" method="post">
+        	<div>
+                <input type="text" class="searchIcon" size="10" id="between" name="between" value="Between"  onblur="if(this.value == '') {this.value='Between'}" onfocus="if(this.value == 'Between'){this.value = ''}" />
+                <input type="text" name="between_date11" id="between_date11" size="15" />
+                <input type="text" name="between_date21" id="between_date21" size="15" class="horMarginLeftHign" />
+            </div>
+            
+            <div class="alignRight varMarginTop">
+            	<a href="#" class="shadeBlue">Advance Search</a>
+
+                <input type="submit" id="searchbypersion" class="search" value="" name="searchbypersion" />
+            </div>
+        </form>
+	</div>
+	<!-- Search by Date End -->
+
+</div>
+	</div>
+</div>
+</div>
+
+
+

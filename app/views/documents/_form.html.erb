@@ -1,0 +1,111 @@
+  <label>Stock Number </label><%= f.text_field :stock_number, :size=> 15  %>
+  <label>Item Name </label><%= f.text_field :name, :size => 35 %>
+  <label>Type </label><%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
+  <label>Status </label><%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %> </span>
+
+<hr />
+
+<!-- Inventory Purchase Information -->
+ <h2>Your Purchase Info</h2><span class="small"> Optional. How you acquired this item. This is used for providing you with reports, and is never made public.</span><br/>
+  <label>Date </label>
+   			<%= f.text_field :purchase_date, {:size => 10,:placeholder=>"dd/mm/yyyy"} %>
+  <label>Vendor </label>
+  			<%= f.text_field :purchase_vendor, :size => 50 %>
+  <label>Purchase Price </label>
+  			<%= f.number_field :purchase_price, :size => 10 %>
+  <hr />
+  <!-- Inventory Sale Information -->
+  <!-- Not Implemented -->
+  <h2>Your Sale Info</h2><span class="small">Optional. Sale details for this item. This is used for providing you with reports, and is never made public.</span><br/>
+  <label>Date </label><%= f.text_field :sale_date,  {:size => 10,:placeholder=>"dd/mm/yyyy"} %>
+  <label>  Purchaser </label><%= f.text_field :sale_purchaser, :size => 50 %>
+  <label>   Sale Price </label><%= f.number_field :sale_price, :size => 10 %>
+
+<hr />
+
+<!-- Document Information -->
+  <h2>Document Publishing Information</h2><span class="small">Information relating to the published aspects of your item</span><br />
+  <label>Title </label>
+  		<%= f.text_field :title, :size => 55, :class => 'input-form-input' %>
+  		<br /><br />
+  <label>  Edition </label>
+  		<%= f.number_field :edition, :size =>5, :class => 'input-form-input' %>  
+  		
+  <label>Pages </label>
+  		<%= f.number_field :pages, :size => 5, :class => 'input-form-input' %> 
+  <label>Length (mm) </label>
+  		<%= f.number_field :length, :size => 5, :class => 'input-form-input' %>
+  <label>Width (mm) </label>
+  		<%= f.number_field :width, :size => 5, :class => 'input-form-input' %> 
+  <label>Depth (mm) </label>
+  		<%= f.number_field :depth, :size => 5, :class => 'input-form-input' %> 
+  <label>Weight (g) </label>
+  		<%= f.number_field :weight, :size => 5, :class => 'input-form-input' %>
+<br /><br />
+
+  <label>Condition  </label><%= f.text_field :condition,:size => 40, :class => 'input-form-input'  %>
+  <label>Binding </label><%= f.text_field :binding, :size => 40, :class => 'input-form-input'  %>
+<br /><br />
+
+
+  <label>Comments </label><%= f.text_field :comment, :size => 50,  :class => 'input-form-input'  %>
+  <hr />
+  <%= f.fields_for :attribute_documents do |doc_attr| %>
+    <%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
+  <% end %>
+  <span class=""><%= link_to_add_fields "+ add another attribute", f, :attribute_documents %></span><br />
+  
+
+<hr />
+
+<!-- Photo Upload -->
+<div class="content-box" style="min-height:45px">
+    <span class="alt">Add Photos</span> 
+	<div style="clear:left"></div>
+	 
+	 <% if !@document.blank? && !@document.document_photos.blank? && !@document.new_record? %>
+            <% @document.document_photos.each do |photo|  %>
+			<div style="float:left; width:120px; text-align:center">
+					<%= image_tag photo.photo.url(:small) %><br />
+					<a href="/document_image_remove/<%= photo.id%>" onclick="return confirm('Are you sure?')">Remove</a>
+			</div>
+			<% end %>
+		   <div style="clear:left"></div>
+        <% else%>
+	<%= f.fields_for :document_photos do |document_photo| %>
+		<%= render :partial => 'document_photo_fields', :locals => {:f => document_photo} %>
+    <% end %>
+
+		<% end %>
+	
+     <div class="">
+        <span class=""><%= link_to_add_fields "+ Add new photo", f, :document_photos  %></span>
+     </div>	
+</div>
+
+<hr />
+
+<!-- Add person -->
+<div class="span-1 content-box">
+    <h2>Add Person</h2><span class="small">Enter details about every person listed in your document</span><br />
+    <%= f.fields_for :people do |person_attr| %>
+        <%= render :partial => 'person_fields', :locals => {:f => person_attr}  %>
+    <% end %>    
+    <div class="span-1" style="width:100%"><%= link_to_add_fields "+ add another person", f, :people  %></div>
+</div>
+
+
+<hr />
+
+<!-- Add Other Locations -->
+<div class="content-box">
+    <span class="alt">Add Other Locations</span><span class="text-info-small lightgrey">Add any other Locations mentioned in the document, not already added</span><br />
+      <%= f.fields_for :locations do |location_attr| %>
+        <%= render :partial => 'location_fields', :locals => {:f => location_attr} %>
+      <% end %>
+     <div class="">
+        <span class=""><%= link_to_add_fields "+ add another location", f, :locations  %></span>
+     </div>
+     
+</div>
+

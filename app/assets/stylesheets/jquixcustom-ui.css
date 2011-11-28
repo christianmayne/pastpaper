@@ -1,0 +1,14 @@
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default  { border:none;}
+.ui-accordion .ui-accordion-content{ background:none; border:none;}
+.ui-accordion-icons .ui-accordion-header a { border: 1px solid #CCC; color:#303f94;}
+.ui-accordion .ui-accordion-content { list-style:none;}
+.ui-accordion .ui-accordion-content  ul{ list-style:none; }
+.ui-accordion .ui-accordion-content  ul li { list-style:none;}
+.ui-widget-content { border:none; }
+.ui-tabs{ margin-top: 20px; padding:0; border:none; }
+.ui-tabs .ui-tabs-nav { background:none; border:none; margin-left:10px; }
+.ui-tabs .ui-tabs-panel { background:#FFF; padding:2em; border:1px solid #499E66; margin-top:1px; }
+.ui-tabs { background:none;}
+.ui-tabs .ui-tabs-nav li a{ color:#000; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a{ background-color:#f4f3f3;} 
+.ui-datepicker-trigger { margin: 2px 0 0 3px; position: absolute; }

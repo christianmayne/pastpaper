@@ -1,0 +1,29 @@
+<div class="fields">
+    
+    <table>
+    	<tr class="even">
+    	<td>Event type</td>
+    	<td>Date</td>
+    	<td>Street1</td>
+    	<td>Street2</td>
+    	<td>Town</td>
+    	<td>City</td>
+    	<td>Country</td>
+    	<td>&nbsp;</td>
+    	</tr>
+    	<tr class="even">
+    		<td><%= f.collection_select :event_type_id, @event_type, :id, :name, :prompt => true %></td>
+    	
+    	<td><%= f.text_field :date_event, :size => 10, :placeholder=>"dd/mm/yyyy", :class => 'input-form-input' %></td>
+    	<td><%= f.text_field :street1, :size => 10, :class => 'input-form-input' %></td>
+    	<td><%= f.text_field :street2, :size => 10, :class => 'input-form-input' %></td>
+    	<td><%= f.text_field :town, :size => 10, :class => 'input-form-input' %></td>
+    	<td><%= f.text_field :city, :size => 10, :class => 'input-form-input' %></td>
+    	<td><%= f.text_field :country, :size => 10, :class => 'input-form-input' %></td>
+    	<td><%= link_to_remove_fields "remove", f %></td>
+    		
+    	</tr>
+    </table> 
+</div>
+
+

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  person_id: 1
+  event_type_id: 1
+  date_event: 2011-11-22
+  street1: MyString
+  street2: MyString
+  city: MyString
+  town: MyString
+  county: MyString
+  country: MyString
+
+two:
+  person_id: 1
+  event_type_id: 1
+  date_event: 2011-11-22
+  street1: MyString
+  street2: MyString
+  city: MyString
+  town: MyString
+  county: MyString
+  country: MyString

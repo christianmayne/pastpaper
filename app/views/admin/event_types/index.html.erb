@@ -1,0 +1,44 @@
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG varMarginDouble leftBox floatLeft border">
+	<div class="varPaddingDouble horPaddingDouble">
+<h1>Listing event types</h1>
+
+
+<%= link_to 'New Event type', new_admin_event_type_path %>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @event_types.each do |event_type| %>
+  <tr>
+    <td><%= event_type.name %></td>
+    <td><%= event_type.description %></td>
+    
+    <td><%= link_to 'Edit', edit_admin_event_type_path(event_type) %></td>
+    <td><%= link_to 'Destroy', admin_event_type_path(event_type), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+    </div>
+</div>
+
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+		    	<%= render "shared/usermenu"%>
+	</div>
+
+</div>
+<!-- Container End -->
+
+
+
+
+

@@ -1,0 +1,17 @@
+<!-- Menubar -->
+
+  <%= link_to "Home", home_path, :class => "menu-item" %>
+  <!-- Display Logged in Functions -->    
+  <% if !current_user.blank? %>
+    <%= link_to "Your Profile", profile_user_path(current_user), :class=>"menu-item" %>
+    <%= link_to "Your Documents", documents_path, :class => "menu-item" %>
+    <%= link_to "Add your items", new_document_path, :class=> "menu-item" %>
+
+    <!-- Display Admin Functuions if applicable -->
+    <% if current_user.admin %>
+   <%= render "admin/shared/admin_menu"%>
+  <% end %> 
+
+ <% end %>
+
+

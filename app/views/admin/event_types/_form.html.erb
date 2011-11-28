@@ -1,0 +1,15 @@
+<%= form_for([:admin,@event_type]) do |f| %>
+  <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@event_type}%>
+      <%= f.label :name %>
+    <%= f.text_field :name %>
+  
+  <br />
+    <%= f.label :description %>
+    <%= f.text_area :description ,{:rows=>"3"} %>
+  
+  <br />
+  <div class="actions">
+  	<%= f.label "" %>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<% @pagetitle = "Add New Document" %>
+  
+  
+  <!-- Container -->
+<div class="container siteScale clearfix">
+
+<div class="block whiteBG clearfix varMarginDouble border">
+    <div class="varPaddingDouble horPaddingDouble clearfix">
+  <%= form_for @document, :html=>{ :multipart => true}  do |f| %>
+      <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
+      <%= render :partial => 'form', :locals => {:f => f}  %>
+
+      <p class="submit">
+        <%= f.submit "Submit" %>
+      </p>
+    <% end %>
+
+     </div>
+</div>
+  
+  
+  
+</div>  

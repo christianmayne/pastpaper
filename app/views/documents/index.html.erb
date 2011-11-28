@@ -1,0 +1,50 @@
+<% @pagetitle = "Documents" %>
+
+  <!-- Container -->
+<div class="container siteScale clearfix">
+
+<div class="block whiteBG clearfix varMarginDouble border">
+    <div class="varPaddingDouble horPaddingDouble clearfix">
+
+<div id="simple-search-box" class="span-24 last">
+   <% 
+   render :partial => "shared/search_box"
+    %>
+   
+</div>
+
+
+  <table>
+    <tr>
+      <th>Stock Number</th>
+      <th>Document Name</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <% @documents.each do |document| %>
+        <tr>
+          <td><%= link_to document.stock_number, document_path(document) %></td>
+          <td><% if document.name.blank? %>
+                <%= link_to document.title, document_path(document) %>
+              <% else %>  
+                <%= link_to document.name, document_path(document) %>
+              <% end %>
+          </td>
+          <td><%= link_to document.document_type.try(:name), document_path(document) %></td>
+          <td><%= link_to document.status.try(:name), document_path(document) %></td>
+            <% if !current_user.blank? && current_user.is_document_owner(document.user_id) %>
+              <td><%= link_to "Edit", edit_document_path(document) %> /
+                <%= link_to "Delete", document_path(document), :method => :delete, :confirm => "Are you sure?" %>
+              </td>
+          <% end %>
+        </tr>
+    <% end %>
+  </table>
+     </div>
+</div>
+  
+  
+  
+</div>  
+

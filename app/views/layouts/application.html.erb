@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>The Past on Paper | <%= @pagetitle %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application"  %>
+   <%= csrf_meta_tag %>
+<script type="text/javascript">
+$(document).ready(function(){
+$("a[rel=lightbox]").lightBox();
+
+	$('#container-1').tabs(); // Tab function
+	$('#mycarousel').jcarousel(); // Slideshow
+	
+	// Date Calendar
+	var date = new Date();
+	var currentMonth = date.getMonth();
+	var currentDate = date.getDate();
+	var currentYear = date.getFullYear();
+	
+	//Date Picker
+	$("#date1").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+	
+	$("#date2").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+	
+	$("#between_date1").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+	
+	$("#between_date2").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+	
+	$("#between_date11").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+	
+	$("#between_date21").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+	
+	$("#birth").datepicker({
+		minDate: new Date(currentYear, currentMonth, currentDate),
+		showOn: 'both',
+		buttonImage: 'assets/calendar.gif',
+		buttonImageOnly: true,
+		maxDate: "+1Y",
+		numberOfMonths: 1,
+		showButtonPanel: true,
+		showAnim: "slideDown",
+		dateFormat: 'dd/mm/yy'
+	});
+
+});
+</script>
+</head>
+
+<body>
+<div class="bgwrap">
+<!-- Header -->
+
+<div class="header siteScale textDeco clearfix">
+	<div class="logo floatLeft">
+    	<h1><a href="/"><%= image_tag("logo.png")%></a></h1>
+    </div>
+    <div class="floatRight horMarginRight varMarginTop">
+<% if !current_user %>
+        
+        <div class="userLogin">
+    		
+          
+           <%= form_tag :login ,:id=>"userLogin" do |f| %>
+         		<%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"12"} %> 
+             	<%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"12"} %> 
+                
+                <input type="submit" id="submitLogin" name="submitLogin" value="" />
+                <%= link_to "Register" ,register_path ,:id=>"registerUser" ,:class=>"medium"%>
+            <%end%>
+        </div>
+
+        <%else%>
+		        <div class="userLogin" style="width:400px;">
+		    	
+		    	</div>  
+		           <div class="varMarginTop clearfix textDeco">
+		        	<div class="floatLeft shadeWhite horMarginLeft alignCenter">
+		                       <strong class="shadeYellow medium">Hi <%= current_user.name %> (<%= current_user.username %>) </strong> 
+			            <br/>
+			            <strong class="medium">
+			            <%= link_to("Sign Out", logout_path) %> | 
+			            <%= link_to("My Account", user_home_path) %>  | 
+			           <%= link_to("Help", "#") %></strong>
+					 </div>
+		             <div class="floatRight hide">
+			            	<a href="http://facebook.com" target="_blank"><%= image_tag("facebook.png")%></a>
+			
+			                <a href="http://twitter.com" target="_blank"><%= image_tag("twitter.png")%></a>
+			         </div>
+        		</div>
+
+          
+        <%end%>
+    </div>
+</div>
+
+<div class="navigation block siteScale clearfix border whiteBG">
+    	<ul class="leaf">
+    		<li><%= link_to "Home",root_path %></li>
+    		<li><%= link_to "About Us",about_path %></li>
+            <li><%= link_to "Terms",terms_path %></li>
+            <li><%= link_to "Privacy",privacy_path %></li>
+            <li class="last"><%= link_to "Contact Us",contact_path %></li>
+        </ul>
+    </div><!-- Header End -->
+   <% if flash[:alert]%>
+	<div class="siteScale border block varMarginTop varPaddingDouble  alignCenter alert">	<%= flash[:alert]%></div>
+    <% end %>
+    <% if flash[:error]%>
+	<div class="siteScale border block varMarginTop varPaddingDouble  alignCenter error">	<%= flash[:error]%></div>
+    <% end %>
+	
+	<% if flash[:notice]%>
+	<div class="siteScale border block varMarginTop varPaddingDouble  alignCenter notice">	<%= flash[:notice]%></div>
+    <% end %>
+	<%= yield%>
+	
+<!-- Footer -->
+<div class="footer siteScale borderTop clearfix">
+	<div class="links varPaddingDouble horPaddingDouble floatLeft">
+
+    	<ul class="leaf">
+    		<li><%= link_to "Home",root_path %></li>
+    		<li><%= link_to "About Us",about_path %></li>
+            <li><%= link_to "Terms",terms_path %></li>
+            <li><%= link_to "Privacy",privacy_path %></li>
+            <li class="last"><%= link_to "Contact Us",contact_path %></li>
+        </ul>
+    </div>
+
+    
+    <div class="connectWithUs floatLeft varPaddingDouble horPaddingDouble">
+    	<span class="strong text">Connect with us</span>
+        <div class="icon">
+            <a href="http://facebook.com" target="_blank"><%= image_tag("facebook.png",:height=>"16")%></a>
+            <a href="http://twitter.com" target="_blank"><%= image_tag("twitter.png",:height=>"16")%></a>
+        </div>
+    </div>
+    
+    <div class="connectWithUs floatRight varPaddingDouble horPaddingDouble">
+
+    	&copy; 2011
+    </div>
+</div><!-- Footer End -->
+</div>
+</body>
+</html>

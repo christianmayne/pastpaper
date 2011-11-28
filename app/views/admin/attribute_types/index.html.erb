@@ -1,0 +1,52 @@
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG varMarginDouble leftBox floatLeft border">
+	<div class="varPaddingDouble horPaddingDouble">
+
+
+
+
+
+
+
+
+
+<h1>Listing Attribute Types</h1>
+
+<br />
+
+<%= link_to 'New Attribute type', new_admin_attribute_type_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attribute_types.each do |attribute_type| %>
+  <tr>
+    <td><%= attribute_type.name %></td>
+    <td><%= attribute_type.description %></td>
+    <td><%= link_to 'Show', admin_attribute_type_path(attribute_type) %></td>
+    <td><%= link_to 'Edit', edit_admin_attribute_type_path(attribute_type) %></td>
+    <td><%= link_to 'Destroy', admin_attribute_type_path(attribute_type), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+    </div>
+</div>
+
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+		    	<%= render "shared/usermenu"%>
+	</div>
+</div>
+<!-- Container End -->
+
+
+
+

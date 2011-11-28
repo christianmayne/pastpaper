@@ -1,0 +1,20 @@
+<div class="fields"> 
+    <span class="input-form-label">Title </span><%= f.text_field :title, :size => 4, :class => 'input-form-input' %></span>
+    <span class="input-form-label">Firstname </span> <%= f.text_field :first_name, :size => 15, :class => 'input-form-input' %></span>
+    <span class="input-form-label">Middlename </span><%= f.text_field :middle_name, :size => 10, :class => 'input-form-input' %></span>
+    <span class="input-form-label">Surname </span><%= f.text_field :last_name, :size => 10, :class => 'input-form-input' %></span>
+    <span class="input-form-label short-select">Sex </span><%= f.select :sex, people_gender, :prompt => true, :size => 4, :class => 'input-form-input' %></span>
+    <span class="input-form-label"><%= link_to_remove_fields "remove person", f %></span><br />
+
+<div style="margin-left:50px;">
+    <strong>    Add Life Event</strong>
+    
+    <div class="span-1 last" style="width:88%;">    
+        <%= f.fields_for :person_events do |person_event_attr| %>
+            <%= render :partial => "person_event_fields", :locals => {:f => person_event_attr} %>
+        <% end %>
+        <span class="span-3 top-25"><%= link_to_add_fields "+ add another event", f, :person_events %></span>
+    </div>  
+</div>
+</div>
+

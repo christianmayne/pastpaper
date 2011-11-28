@@ -1,0 +1,67 @@
+
+<%= form_for([:admin,@user]) do |f| %>
+  <%= render :partial=>"shared/validationerror", :locals=>{:obj=>@user} %>
+ <br />
+
+    <%= f.label :first_name  %>
+    <%= f.text_field :first_name%>*
+  <br />
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>*
+  <br />
+    <%= f.label :username, 'Username' %> 
+    <%= f.text_field :username %>*
+  <br />
+    <%= f.label :email %> 
+    <%= f.email_field :email %>*
+  <br />
+ <% if @user.new_record?%>
+    <%= f.label :password %> 
+    <%= f.password_field :password %>*
+ 
+  <br />
+      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field  :password_confirmation %>*
+ <br />
+ <%end%>
+ 
+      <%= f.label :address1 %>
+      <%= f.text_field  :address1 %>
+ <br /> 
+      <%= f.label :address2 %>
+      <%= f.text_field  :address2 %>
+   <br />
+   
+      <%= f.label :city,"City/Town" %>
+      <%= f.text_field  :city %>
+   <br />
+      <%= f.label :county,"County/State" %>
+      <%= f.text_field  :county %>
+    <br />
+    
+      <%= f.label :post_code %>
+      <%= f.text_field  :post_code ,{:size=>5}%>
+    <br />
+         <%= f.label :country %>
+      <%= f.text_field  :country %>
+   <br />
+      <%= f.label :tel_number %>
+      <%= f.number_field  :tel_number %>
+  <br />
+       <%= f.label :mobile_number %>
+      <%= f.number_field  :mobile_number %>
+  <br />
+      <%= f.label :date_of_birth %>
+      <%= f.date_select  :date_of_birth, :start_year => Date.today.year-110, :end_year => Date.today.year-1,:include_blank => true%>
+ <br />
+      <%= f.label :is_admin,"is admin?" %>
+      <%= f.check_box  :is_admin%>
+ <br />
+      <%= f.label "is active?" %>
+      <%= f.check_box  :is_active%>
+ <br />   
+  
+  <div class="varPaddingDouble horPaddingDouble alignCenter">
+    <%= f.submit(:value=>"",:class=>"submit") %>
+  </div>
+<% end %>

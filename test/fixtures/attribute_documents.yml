@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  document_id: 1
+  attribute_type_id: 1
+  value: MyString
+  on_date: 2011-11-22
+
+two:
+  document_id: 1
+  attribute_type_id: 1
+  value: MyString
+  on_date: 2011-11-22

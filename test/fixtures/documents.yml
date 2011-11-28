@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  title: MyString
+  length: 1
+  width: 1
+  depth: 1
+  edition: 1
+  pages: 1
+  condition: MyText
+  binding: MyText
+  comment: MyText
+  stock_number: MyString
+
+two:
+  name: MyString
+  title: MyString
+  length: 1
+  width: 1
+  depth: 1
+  edition: 1
+  pages: 1
+  condition: MyText
+  binding: MyText
+  comment: MyText
+  stock_number: MyString

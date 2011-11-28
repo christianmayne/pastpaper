@@ -1,0 +1,82 @@
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG leftBox varMarginDouble border floatLeft">
+	<div class="varPaddingDouble horPaddingDouble">
+    	<h1>New User Register</h1>
+      
+ <div class="registraton">     
+<%= form_for(@user)  do |f| %>
+  
+  <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
+  
+  
+    
+    <%= f.label :first_name  %>
+    <%= f.text_field :first_name%>*
+  
+  
+  <br />
+  
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>*
+  
+  
+  <br />
+    <%= f.label :username %> 
+    <%= f.text_field :username %>*
+  
+  <br />
+    <%= f.label :password %> 
+    <%= f.password_field :password %>*
+ 
+  <br />
+      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field  :password_confirmation %>*
+  <br />
+    <%= f.label :email %>
+    <%= f.text_field :email %>*
+    <br />
+      <%= f.label :address1 %>
+      <%= f.text_field  :address1 %>
+  <br />
+      <%= f.label :address2 %>
+      <%= f.text_field  :address2 %>
+    <br />
+      <%= f.label :city,"City/Town" %>
+      <%= f.text_field  :city %>
+    <br />
+      <%= f.label :county,"County/State" %>
+      <%= f.text_field  :county %>
+       <br />
+      <%= f.label :post_code %>
+      <%= f.text_field  :post_code %>
+   <br />
+      <%= f.label :country %>
+      <%= f.text_field  :country %>
+    <br />
+      <%= f.label :tel_number %>
+      <%= f.text_field  :tel_number %>
+ <br />
+      <%= f.label :mobile_number %>
+      <%= f.text_field  :mobile_number %>
+ <br />
+      <%= f.label :date_of_birth %>
+      <%= f.date_select  :date_of_birth, :start_year => Date.today.year-110, :end_year => Date.today.year-1,:include_blank => true%>
+    <br />
+    
+  <div class="varPaddingDouble horPaddingDouble alignCenter">
+    <%= f.submit(:value=>"",:class=>"submit") %>
+  </div>
+<% end %>
+</div>
+	</div>
+
+
+</div>
+<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+	    	<%= render "shared/usermenu"%>
+    </div>
+
+</div>
+<!-- Container End -->
+

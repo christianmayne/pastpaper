@@ -1,0 +1,73 @@
+<% @pagetitle = "Search by Location" %>
+<div id="simple-search-box" class="span-24 last">
+   <%= render :partial => "shared/search_box" %>
+</div>
+
+<div id="search-form" class="span-24 last">
+
+    <div id="search-box" class="span-18 search-form">
+                
+        <div class="box-margins">        
+            <span class="alt">Location Search</span>
+            <%= form_for :search_location, :url => search_results_home_index_path do |f| %>
+                <div class="span-18 last">
+                    <span class="span-6">Town or City<%= f.text_field :city, :size => 30 %></span>
+                    <span class="span-6">County<%= f.text_field :county, :size => 30 %></span>
+                    <span class="span-6 last">Country<%= f.text_field :country, :size => 30 %></span>
+                </div>
+                <hr />         
+
+                <div class="span-18 title-document date-selector">
+                    <span class="span-2">From Date
+                        <%= f.text_field :date_from, :value => "yyyy", :only_integer => true,
+                            :onfocus => '(this.value == "yyyy") ? this.value = "" : this.value',
+                            :onblur => '(this.value == "") ? this.value = "yyyy" : this.value',
+                            :class => 'date-4'
+                        %>
+                   </span>
+                   <span class="span-2">To Date
+                        <%= f.text_field :date_to, :value => "yyyy",
+                            :onfocus => '(this.value == "yy") ? this.value = "" : this.value',
+                            :onblur => '(this.value == "") ? this.value = "yy" : this.value',
+                            :class => 'date-4'
+                        %>
+                   </span>
+                </div>
+
+
+                <div class="span-22 title-document short-input">
+                    <b>Or</b>
+                </div>
+
+                <div class="span-22 title-document date-selector">
+                    <span class="span-8">
+                        <%= f.text_field :date_other_from, :value => "yyy",
+                            :onfocus => '(this.value == "yyy") ? this.value = "" : this.value',
+                            :onblur => '(this.value == "") ? this.value = "yyy" : this.value',
+                            :class => "date-4"
+                        %> Years ago +/-
+                        <%= f.text_field :date_other_to, :value => "yy",
+                            :onfocus => '(this.value == "yy") ? this.value = "" : this.value',
+                            :onblur => '(this.value == "") ? this.value = "yy" : this.value',
+                            :class => "date-2"
+                        %> years
+                    </span>
+                </div>
+
+                <p style="text-align: center;"><%= f.submit "Search" %></p>
+            <% end %>
+        </div>
+
+        <hr />
+        <div class="box-margins">
+            <span class="alt">Recent Searches</span>
+        </div>
+
+    </div>
+
+    <div id="sidebar-right" class="span-6 sidebar-right last">
+        <span class="alt">Right Sidebar</span>
+    </div>   
+
+</div>
+

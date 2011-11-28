@@ -1,0 +1,27 @@
+<div class="varMarginBottom rightLinks varPaddingBottom borderBottom">
+    	<h3 class="shadeGreen">Your Actions</h3>
+  	<ul class="leaf shadeGray textDeco">
+        	<li><%= link_to "Your Profile", user_home_path%> </li>
+        	<li><%= link_to "Change Password", changepassword_path%> </li>
+        	<li> <%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
+        	<li><%= link_to "My Items",documents_path %></li>
+        	<li><%= link_to "Add new Item", new_document_path%> </li>	
+        </ul>
+ </div>
+    
+<div class="rightLinks">
+	    <h3 class="shadeGreen">Your Saved Searches</h3>
+        <ul class="leaf shadeGray textDeco">
+        	<li><a href="#">You have 9 Saved Searches</a></li>
+            <li><a href="#">You have 0 Gedcom Files</a></li>
+
+            <li><a href="#">Uopload a new Gedcom</a></li>
+        </ul>
+</div>
+
+
+
+
+
+
+

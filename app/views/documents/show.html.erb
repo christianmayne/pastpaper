@@ -1,0 +1,139 @@
+<% @pagetitle = @document.name %>
+<!-- Show Individual Document page -->
+
+
+
+
+
+
+
+
+<div class="container siteScale clearfix">
+<div class="varMarginTop">
+	<input type="button" id="buythisitem" name="buythisitem" value="" class="buythis" />
+</div>
+
+<div class="block whiteBG clearfix varMarginDouble border">
+    <div class="varPaddingDouble horPaddingDouble clearfix">
+        <div class="floatLeft clearfix">
+            <p><%= @document.try(:name) %><br/>
+            	 <%= @document.document_type.try(:name) %>
+
+            	
+            </p>
+            <p>
+            	 <%= @document.document_type.try(:title) %>
+<br />
+           
+    <!-- Document Attributes --> 
+        <% @document.attribute_documents.each do |doc_attr| %>
+
+              <span class=""><%= doc_attr.attribute_type.try(:name) %>: <%= "#{doc_attr.value}" %><%= ", #{doc_attr.on_date.strftime('%d %b %Y')}" unless doc_attr.on_date.blank? %> </span><br/>
+
+        <% end %>
+    
+</p>
+            <div class="clearfix">
+            <div class="floatLeft"><%= @document.try(:length) %>mm x <%= @document.try(:width) %>mm x <%= @document.try(:depth) %>mm  x <%= @document.try(:weight) %>grams </div>
+
+            <div class="floatRight"> &pound; : <%= @document.try(:sell_price) %></div>
+</div>
+
+        <span class="">Binding : <%= @document.try(:binding) %></span>
+
+        <span class="">Condition : <%= @document.try(:condition) %></span><br />
+        <span class="">Comments : <%= @document.try(:comment) %></span><br />
+
+        </div>
+        <div class="floatRight">
+       <% if !@document.blank? && !@document.document_photos.blank? %>
+            <ul id="mycarousel" class="jcarousel-skin-tango">
+       
+            <% @document.document_photos.each do |photo|  %>
+					<li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
+		   
+        
+                          <% end %>
+            </ul>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix varMarginBottom">
+	<div class="floatLeft leftBox clearfix">
+    	<p class="strong">People mentioned in this item</p>
+
+        <table cellpadding="0" cellspacing="1" border="0" width="100%" class="varMarginBottom">
+            <tr>
+                <th align="left">Name </th>
+                <th align="left"> Birth Date</th>
+                <th align="left"> Died on</th>
+            </tr>
+            
+             <% if !@document.blank? && !@document.people.blank? %>
+            <% @document.people.each do |person|  %>
+               
+               <tr class="<%= cycle('odd','even') %>">
+                <td> <%= person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
+                	<%= " #{person.middle_name.titleize}" rescue '' %>
+                	<%= person.last_name rescue 'unknown' %>
+                </td>
+                <td><%= person.birth_date rescue '' %> <%= "(#{person.birth_loacation})" rescue '' %></td>
+                <td><%= person.death_date rescue '' %> <%= "(#{person.birth_loacation})" rescue '' %></td>
+            </tr>
+                  <% end %>
+        <% end %>
+        </table>
+
+        <p class="strong">Other Locations mentioned in this Document</p>
+        
+        <table cellpadding="0" cellspacing="1" border="0" width="100%" class="varMarginBottom">
+            <tr>
+
+                <th align="left">Street</th>
+                <th align="left">Town</th>
+                <th align="left">County</th>
+                <th align="left">Country</th>
+            </tr>
+            
+             <% if !@document.blank? && !@document.locations.blank? %>
+            <% @document.locations.each do |location|  %>
+       
+            <tr class="<%= cycle('odd','even') %>">
+                <td><%= location.street1%> <%= location.street2%></td>
+
+                <td><%= location.city%></td>
+                <td><%= location.county%></td>
+                <td><%= location.country%></td>
+            </tr>
+            <%end%>
+            <%end%>
+            
+                    </table>
+        
+        <div class="floatLeft">
+        	<p class="shadeWhite strong">Views: 29</p>
+        </div>
+
+        <div class="floatRight">
+        	<input type="button" id="buythisitem" name="buythisitem" value="" class="buythis" />
+        </div>
+    </div>
+    
+    <div class="block rightBox floatRight whiteBG varPaddingDouble horPaddingDouble clearfix varMarginDouble border">
+    	<h3 class="shadeGreen">Related Search</h3>
+        <ul class="leaf alignCenter">
+            <li>
+
+            </li>
+    
+            <li>
+            </li>
+        </ul>
+
+    </div>
+    
+    <div class="clear"></div>
+</div></div>
+<!-- Container End -->

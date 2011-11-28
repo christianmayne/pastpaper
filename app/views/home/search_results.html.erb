@@ -1,0 +1,15 @@
+
+<div class="container siteScale clearfix">
+<div class="block whiteBG varMarginDouble border ">
+	<div class="varPaddingDouble horPaddingDouble">
+  <span class="alt">Search Results</span>
+    <% unless @documents.blank? %>
+       <div id="document_results">
+       <%= render :partial => "document_result"%>
+       </div>
+       	<% else %>
+        <div class="span-22" style="text-align: center">
+           <p>Sorry!  We have no documents matching your search.</p>
+        </div>
+    <% end %>
+</div></div></div>
