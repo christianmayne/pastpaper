@@ -1,4 +1,4 @@
-Pastonpaper::Application.routes.draw do
+Pastpaper::Application.routes.draw do
   
   
   
