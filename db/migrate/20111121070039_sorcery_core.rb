@@ -9,7 +9,7 @@ class SorceryCore < ActiveRecord::Migration
      
      
       # custom fields
-      t.boolean :is_admin,         :default => 0
+      t.boolean :is_admin,         :default => false
       t.boolean :is_active,        :default => true
       
       t.string :first_name
