@@ -3,4 +3,4 @@ class People < ActiveRecord::Base
   has_many  :person_events, :dependent=>:destroy
   
  
-end0
+end
