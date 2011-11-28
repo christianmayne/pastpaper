@@ -6,8 +6,6 @@ gem 'rails', '3.1.0.rc8'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'pg'
-
 
 
 gem "execjs"
@@ -28,6 +26,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
+end
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
