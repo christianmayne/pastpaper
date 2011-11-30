@@ -11,5 +11,24 @@ class ApplicationController < ActionController::Base
     redirect_to user_home_url and return if current_user
   end
   
+  def require_admin
+    if !current_user
+      not_authenticated
+    else
+      if current_user && !current_user.is_admin?
+        redirect_to user_home_url, :alert => "Not authorised to access this page." and return     
+      end
+    end
+  end
+  
+  def is_admin?
+    if current_user
+      if current_user.is_admin?
+        return true
+      end
+      retrun false
+    end
+    return false
+  end
 
 end

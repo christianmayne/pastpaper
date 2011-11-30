@@ -34,6 +34,17 @@ class Document < ActiveRecord::Base
    end
  end
  
+ def is_on_sale?
+   if self.status.blank?
+    return false  
+   else
+     if "On Sale" == self.status.name
+       return true
+     else
+       return false
+     end
+   end
+ end
  
  def document_type_name
    unless self.document_type.blank?

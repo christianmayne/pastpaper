@@ -1,4 +1,6 @@
 class Admin::EventTypesController < ApplicationController
+before_filter :require_admin
+
   # GET /event_types
   # GET /event_types.json
   def index

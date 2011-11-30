@@ -1,4 +1,5 @@
 class Admin::AttributeTypesController < ApplicationController
+before_filter :require_admin
   # GET /attribute_types
   # GET /attribute_types.json
   def index

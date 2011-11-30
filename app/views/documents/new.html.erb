@@ -10,8 +10,8 @@
       <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
       <%= render :partial => 'form', :locals => {:f => f}  %>
 
-      <p class="submit">
-        <%= f.submit "Submit" %>
+      <p class="submit alignCenter">
+        <%= f.submit "" ,:class=>"submit" %>
       </p>
     <% end %>
 

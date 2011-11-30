@@ -9,10 +9,11 @@
 
 
 <div class="container siteScale clearfix">
-<div class="varMarginTop">
-	<input type="button" id="buythisitem" name="buythisitem" value="" class="buythis" />
-</div>
-
+<% if @document.is_on_sale?%>
+	<div class="varMarginTop">
+		<input type="button" id="buythisitem" name="buythisitem" value="" class="buythis" />
+	</div>
+<% end %>
 <div class="block whiteBG clearfix varMarginDouble border">
     <div class="varPaddingDouble horPaddingDouble clearfix">
         <div class="floatLeft clearfix">
@@ -115,10 +116,11 @@
         <div class="floatLeft">
         	<p class="shadeWhite strong">Views: 29</p>
         </div>
-
+<% if @document.is_on_sale?%>
         <div class="floatRight">
         	<input type="button" id="buythisitem" name="buythisitem" value="" class="buythis" />
         </div>
+        <% end %>
     </div>
     
     <div class="block rightBox floatRight whiteBG varPaddingDouble horPaddingDouble clearfix varMarginDouble border">

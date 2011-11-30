@@ -117,8 +117,7 @@ $("a[rel=lightbox]").lightBox();
     	<h1><a href="/"><%= image_tag("logo.png")%></a></h1>
     </div>
     <div class="floatRight horMarginRight varMarginTop">
-<% if !current_user %>
-        
+	<% if !current_user %>
         <div class="userLogin">
     		
           
@@ -130,41 +129,30 @@ $("a[rel=lightbox]").lightBox();
                 <%= link_to "Register" ,register_path ,:id=>"registerUser" ,:class=>"medium"%>
             <%end%>
         </div>
-
-        <%else%>
-		        <div class="userLogin" style="width:400px;">
-		    	
-		    	</div>  
-		           <div class="varMarginTop clearfix textDeco">
-		        	<div class="floatLeft shadeWhite horMarginLeft alignCenter">
-		                       <strong class="shadeYellow medium">Hi <%= current_user.name %> (<%= current_user.username %>) </strong> 
-			            <br/>
-			            <strong class="medium">
-			            <%= link_to("Sign Out", logout_path) %> | 
-			            <%= link_to("My Account", user_home_path) %>  | 
-			           <%= link_to("Help", "#") %></strong>
-					 </div>
-		             <div class="floatRight hide">
-			            	<a href="http://facebook.com" target="_blank"><%= image_tag("facebook.png")%></a>
-			
-			                <a href="http://twitter.com" target="_blank"><%= image_tag("twitter.png")%></a>
-			         </div>
-        		</div>
-
-          
-        <%end%>
+     <%else%>
+			        <div class="userLogin" style="width:400px;">
+			    	
+			    	</div>  
+		           	<div class="varMarginTop clearfix textDeco">
+			        	<div class="floatLeft shadeWhite horMarginLeft alignCenter">
+			                       <strong class="shadeYellow medium">Hi <%= current_user.name %> (<%= current_user.username %>) </strong> 
+				            <br/>
+				            <strong class="medium">
+				            <%= link_to("Sign Out", logout_path) %> | 
+				            <%= link_to("My Account", user_home_path) %>  | 
+				           <%= link_to("Help", "#") %></strong>
+						 </div>
+			             <div class="floatRight hide">
+				            	<a href="http://facebook.com" target="_blank"><%= image_tag("facebook.png")%></a>
+				
+				                <a href="http://twitter.com" target="_blank"><%= image_tag("twitter.png")%></a>
+				         </div>
+        			</div>
+     <%end%>
     </div>
-</div>
 
-<div class="navigation block siteScale clearfix border whiteBG">
-    	<ul class="leaf">
-    		<li><%= link_to "Home",root_path %></li>
-    		<li><%= link_to "About Us",about_path %></li>
-            <li><%= link_to "Terms",terms_path %></li>
-            <li><%= link_to "Privacy",privacy_path %></li>
-            <li class="last"><%= link_to "Contact Us",contact_path %></li>
-        </ul>
     </div><!-- Header End -->
+<%= render "layouts/menu_bar"%>
    <% if flash[:alert]%>
 	<div class="siteScale border block varMarginTop varPaddingDouble  alignCenter alert">	<%= flash[:alert]%></div>
     <% end %>

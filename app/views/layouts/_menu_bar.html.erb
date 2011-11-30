@@ -1,17 +1,23 @@
-<!-- Menubar -->
+<div class="navigation block siteScale clearfix border whiteBG">
+    	<ul class="leaf">
+    		<li><%= link_to "Home",root_path %></li>
+		<% if current_user %>
 
-  <%= link_to "Home", home_path, :class => "menu-item" %>
-  <!-- Display Logged in Functions -->    
-  <% if !current_user.blank? %>
-    <%= link_to "Your Profile", profile_user_path(current_user), :class=>"menu-item" %>
-    <%= link_to "Your Documents", documents_path, :class => "menu-item" %>
-    <%= link_to "Add your items", new_document_path, :class=> "menu-item" %>
-
-    <!-- Display Admin Functuions if applicable -->
-    <% if current_user.admin %>
-   <%= render "admin/shared/admin_menu"%>
-  <% end %> 
-
- <% end %>
-
-
+    		<li><%= link_to "Your Profile", user_home_path%> </li>
+        	<li><%= link_to "My Items",documents_path %></li>
+        	<li><%= link_to "Add Your Item", new_document_path%> </li>
+        	
+    		
+    	<% end %>
+		<% if current_user && current_user.is_admin? %>
+		
+    		<li class="shadeBlue"> <%= link_to "Site Administration &raquo; Users".html_safe,admin_users_path %></li>
+            
+        <%else%>
+        	<li><%= link_to "About Us",about_path %></li>
+            <li><%= link_to "Terms",terms_path %></li>
+            <li><%= link_to "Privacy",privacy_path %></li>
+            <li class="last"><%= link_to "Contact Us",contact_path %></li>
+        <%end%>
+        </ul>
+</div>
