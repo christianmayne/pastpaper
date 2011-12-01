@@ -8,102 +8,101 @@
    <%= csrf_meta_tag %>
 <script type="text/javascript">
 $(document).ready(function(){
-$("a[rel=lightbox]").lightBox();
-
+	$("a[rel=lightbox]").lightBox();
 	$('#container-1').tabs(); // Tab function
 	$('#mycarousel').jcarousel(); // Slideshow
 	
-	// Date Calendar
-	var date = new Date();
-	var currentMonth = date.getMonth();
-	var currentDate = date.getDate();
-	var currentYear = date.getFullYear();
-	
-	//Date Picker
-	$("#date1").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-	
-	$("#date2").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-	
-	$("#between_date1").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-	
-	$("#between_date2").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-	
-	$("#between_date11").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-	
-	$("#between_date21").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-	
-	$("#birth").datepicker({
-		minDate: new Date(currentYear, currentMonth, currentDate),
-		showOn: 'both',
-		buttonImage: 'assets/calendar.gif',
-		buttonImageOnly: true,
-		maxDate: "+1Y",
-		numberOfMonths: 1,
-		showButtonPanel: true,
-		showAnim: "slideDown",
-		dateFormat: 'dd/mm/yy'
-	});
-
+	// // Date Calendar
+	// var date = new Date();
+	// var currentMonth = date.getMonth();
+	// var currentDate = date.getDate();
+	// var currentYear = date.getFullYear();
+// 	
+	// //Date Picker
+	// $("#date1").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 	
+	// $("#date2").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 	
+	// $("#between_date1").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 	
+	// $("#between_date2").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 	
+	// $("#between_date11").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 	
+	// $("#between_date21").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 	
+	// $("#birth").datepicker({
+		// minDate: new Date(currentYear, currentMonth, currentDate),
+		// showOn: 'both',
+		// buttonImage: 'assets/calendar.gif',
+		// buttonImageOnly: true,
+		// maxDate: "+1Y",
+		// numberOfMonths: 1,
+		// showButtonPanel: true,
+		// showAnim: "slideDown",
+		// dateFormat: 'dd/mm/yy'
+	// });
+// 
 });
 </script>
 </head>

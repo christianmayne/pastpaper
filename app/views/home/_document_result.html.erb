@@ -1,3 +1,8 @@
+  
+  <% unless @documents.blank? %>
+  
+     <span class="alt">Search Results : <%= @documents.total_entries%>  <%= "On page #{params[:page]}" unless params[:page].blank?%></span>
+ 
   <div>
            <table>
             <tr>
@@ -27,4 +32,12 @@
             <% end %>
            </table>
         </div>          
-<%= will_paginate @documents %>
+<div class="ajaxpaging">
+	
+	<%= will_paginate @documents %>
+</div>
+	<% else %>
+        <div class="span-22" style="text-align: center">
+           <p>Sorry!  We have no documents matching your search.</p>
+        </div>
+    <% end %>

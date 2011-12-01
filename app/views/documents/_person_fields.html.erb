@@ -4,7 +4,7 @@
     <span class="input-form-label">Middlename </span><%= f.text_field :middle_name, :size => 10, :class => 'input-form-input' %></span>
     <span class="input-form-label">Surname </span><%= f.text_field :last_name, :size => 10, :class => 'input-form-input' %></span>
     <span class="input-form-label short-select">Sex </span><%= f.select :sex, people_gender, :prompt => true, :size => 4, :class => 'input-form-input' %></span>
-    <span class="input-form-label"><%= link_to_remove_fields "remove person", f %></span><br />
+    <span class="input-form-label"><%= link_to_remove_fields image_tag("deleteicon.png"), f %></span><br />
 
 
 	

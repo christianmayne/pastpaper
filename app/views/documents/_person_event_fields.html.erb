@@ -10,7 +10,7 @@
     	<td>Country</td>
     	<td>&nbsp;</td>
     	</tr>
-    	<tr class="even">
+    	<tr class="">
     		<td><%= f.collection_select :event_type_id, @event_type, :id, :name, :prompt => true %></td>
     	
     	<td><%= f.text_field :date_event, :size => 10, :placeholder=>"dd/mm/yyyy", :class => 'input-form-input' %></td>
@@ -19,7 +19,7 @@
     	<td><%= f.text_field :town, :size => 10, :class => 'input-form-input' %></td>
     	<td><%= f.text_field :city, :size => 10, :class => 'input-form-input' %></td>
     	<td><%= f.text_field :country, :size => 10, :class => 'input-form-input' %></td>
-    	<td><%= link_to_remove_fields "remove", f %></td>
+    	<td><%= link_to_remove_fields image_tag("deleteicon.png"), f %></td>
     		
     	</tr>
     </table> 

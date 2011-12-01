@@ -255,7 +255,7 @@
 		function _set_navigation() {
 			$('#lightbox-nav').show();
 
-			// Instead to define this configuration in CSS file, we define here. And it�s need to IE. Just.
+			// Instead to define this configuration in CSS file, we define here. And it's need to IE. Just.
 			$('#lightbox-nav-btnPrev,#lightbox-nav-btnNext').css({ 'background' : 'transparent url(' + settings.imageBlank + ') no-repeat' });
 			
 			// Show the prev button, if not the first image in set
