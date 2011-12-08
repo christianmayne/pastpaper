@@ -123,9 +123,11 @@ $(document).ready(function(){
            <%= form_tag :login ,:id=>"userLogin" do |f| %>
          		<%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"12"} %> 
              	<%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"12"} %> 
-                
+                <br/>
                 <input type="submit" id="submitLogin" name="submitLogin" value="" />
+                <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword" ,:class=>"medium"%>
                 <%= link_to "Register" ,register_path ,:id=>"registerUser" ,:class=>"medium"%>
+                
             <%end%>
         </div>
      <%else%>

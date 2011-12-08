@@ -1,0 +1,16 @@
+<%= form_for @user, :url => password_reset_path(@user), :html => {:method => :put} do |f| %>
+
+   <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@user}%>
+    <%= f.label :email %>
+    <%= @user.email %>
+    <br />
+    
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br />
+    
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br />
+    <%= hidden_field_tag :token, @token %>
+  	<%= f.submit "" ,:class=>"submit" %>
+<% end %>

@@ -1,0 +1,25 @@
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG leftBox varMarginDouble border floatLeft">
+	<div class="varPaddingDouble horPaddingDouble">
+    	<h1>Forgot password</h1>
+      
+ <div class="registraton">     
+
+<%= form_tag password_resets_path, :method => :post do %>
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %> <%= submit_tag "Reset my password!" %>
+  </div>
+<% end %>
+
+
+    </div>
+
+    </div>
+</div>
+
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+		    
+	</div>
+</div>

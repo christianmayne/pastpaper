@@ -1,13 +1,13 @@
 Pastpaper::Application.routes.draw do
   
   
-  
   # The priority is based upon order of creation:
   # first created -> highest priority.
   
   
   get 'logout' => 'sessions#destroy', :as => 'logout'
   post 'login' => 'sessions#create', :as => 'login'
+  match 'forgot_password' => 'password_resets#new',:as=>'forgot_password'
   get 'profile' => 'users#index', :as => 'user_home'
   
   match 'account/deactivate' => 'users#accountdeactivate' ,:as =>'deactivateaccount'
@@ -15,6 +15,8 @@ Pastpaper::Application.routes.draw do
 
   match 'user/registration' => 'users#new', :as => 'register'
   resources :users
+  resources :password_resets
+  match 'password_resets/:id/edit' => "password_resets#edit" ,:as => 'password_reset_path'
   resources :documents
   resources :home do 
    collection do
