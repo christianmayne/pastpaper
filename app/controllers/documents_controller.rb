@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
-
+  require 'active_merchant/billing/integrations/action_view_helper'
+   ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
   before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy, :show,:remove_image]
   before_filter :prepare_all_location, :only => [:new, :edit, :create, :update]
   before_filter :prepare_all_event_type, :only => [:new, :edit, :create, :update]
@@ -85,6 +86,7 @@ def remove_image
 	end
   end
   
+  
   private
 
   def prepare_document
@@ -113,6 +115,7 @@ def remove_image
   def prepare_all_document_status
     @status = Status.all
   end
+  
   
   
 end

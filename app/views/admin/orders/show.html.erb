@@ -1,0 +1,62 @@
+
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG varMarginDouble leftBox floatLeft border">
+	<div class="varPaddingDouble horPaddingDouble registraton">
+<h2>Order Detail</h2>
+<table>
+
+<% order= @order %>
+  <tr>
+    <td>Buyer Email : <%= order.buyer_email %></td>
+  </tr>
+  <tr>
+    <td>Buyer name : <%= order.buyer_first_name %> <%= order.buyer_last_name %></td>
+  </tr>
+  
+<tr>
+  
+    <td>Item : <%= order.document_name %></td>
+  </tr>
+<tr>
+  
+    <td>Item Price: &pound;<%= order.amount.to_f %></td>
+  </tr>
+<tr>
+  
+     <td>Item Owner : <%= order.user.email %> <%= link_to "View User", edit_admin_user_path(order.user) ,:target=>"_blank" %></td>
+  </tr>
+<tr>
+  
+    <td>Paypal Status : <%= order.paypal_status %></td>
+  </tr>
+<tr>
+  
+    <td>Paypal Txn No : <%= order.paypal_txn_no %></td>
+  </tr>
+<tr>
+  
+   <td>Paypal Ipn Raw Message <br />
+   	==============================<br />
+   	<%= order.paypal_ipn_msg %></td>
+  
+  </tr>
+
+</table>
+<%= link_to "Back to Order List", admin_orders_path %>
+    </div>
+</div>
+
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+		    	<%= render "shared/usermenu"%>
+	</div>
+
+
+</div>
+<!-- Container End -->
+
+
+
+
+
+

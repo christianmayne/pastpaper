@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122092715) do
+ActiveRecord::Schema.define(:version => 20111212094846) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -88,6 +88,30 @@ ActiveRecord::Schema.define(:version => 20111122092715) do
     t.string   "town"
     t.string   "country"
     t.string   "additional_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "seller_id"
+    t.integer  "buyer_id"
+    t.integer  "document_id"
+    t.string   "invoice"
+    t.string   "document_name"
+    t.string   "item_number"
+    t.string   "buyer_email"
+    t.string   "buyer_first_name"
+    t.string   "buyer_last_name"
+    t.string   "buyer_address1"
+    t.string   "buyer_address2"
+    t.string   "buyer_postcode"
+    t.string   "buyer_city"
+    t.string   "buyer_country"
+    t.decimal  "amount",           :precision => 10, :scale => 0
+    t.string   "paypal_status"
+    t.string   "paypal_txn_no"
+    t.boolean  "paid_status",                                     :default => false
+    t.text     "paypal_ipn_msg"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

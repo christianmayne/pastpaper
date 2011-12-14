@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
 before_filter :require_admin
 
   def index
-  	@users=User.all.paginate(:page =>params[:page], :order =>'id desc', :per_page =>2)    
+  	@users=User.all.paginate(:page =>params[:page], :order =>'id desc', :per_page =>20)    
   end
 
   def new

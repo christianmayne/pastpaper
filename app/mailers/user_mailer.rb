@@ -21,13 +21,12 @@ class UserMailer < ActionMailer::Base
   end
   
   #not implememnted
-  def purchase_order_notification(user, docuement)
-    @user = user
-    @document= docuement
-    @owner= @docuemnt.user
+  def purchase_order_notification(order)
+    @order= order
+    
     mail(
-      :to => @owner.email,
-      :subject => "Purchase order has been placed for your item in Pastonpaper"
+      :to => @order.user.email,
+      :subject => "Purchase order for your item: [#{@order.document_name}] in Pastonpaper"
     )
     
   end

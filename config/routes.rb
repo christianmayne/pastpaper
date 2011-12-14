@@ -1,6 +1,7 @@
 Pastpaper::Application.routes.draw do
   
   
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
   
@@ -18,6 +19,12 @@ Pastpaper::Application.routes.draw do
   resources :password_resets
   match 'password_resets/:id/edit' => "password_resets#edit" ,:as => 'password_reset_path'
   resources :documents
+  
+  match 'payments/cancel' => 'payments#paypal_cancel',:as => 'paypal_cancel'
+  match 'payments/success' => 'payments#paypal_return',:as => 'paypal_return'
+  match 'payments/ipn' => 'payments#create',:as => 'paypal_ipn'
+  
+  
   resources :home do 
    collection do
     get 'document_search','simple_location_search','date_search','simple_people_search','simple_organisation_search'
@@ -87,7 +94,7 @@ end
     resources :attribute_types
     resources :event_types
     resources :users
-
+    resources :orders
   end
 
 

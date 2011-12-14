@@ -26,7 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem "activemerchant", :git=> "git://github.com/Shopify/active_merchant.git"
 
 group :production do
   # gems specifically for Heroku go here
