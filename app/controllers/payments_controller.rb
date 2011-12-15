@@ -59,10 +59,10 @@ class PaymentsController < ApplicationController
             # All your bussiness logic goes here
             @order.update_attributes(:paid_status => true)
             @document_status= Status.find_by_name("Sold")
-            @docuemnt.update_attributes(:status_id => @document_status.id)
-            #@document.update_attributes(:status_id => 3)
+            @document.update_attributes(:status_id => @document_status.id)
+            #@@document.update_attributes(:status_id => 3)
             UserMailer.purchase_order_notification(@order).deliver
-            render :nothing => true
+            
          end
         rescue
         
@@ -70,6 +70,7 @@ class PaymentsController < ApplicationController
           #Make sure you log the exceptions you have.
        end
    end
+   render :nothing => true
   end
   
   
