@@ -1,0 +1,1942 @@
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from <top (required)> at /home/bisusubedi/projects/extraproj/pastpaper/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at 2011-12-15 12:01:05 +0545
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.2ms)[0m  SELECT `document_types`.* FROM `document_types` ORDER BY name ASC
+Rendered home/_search_form.html.erb (26.6ms)
+Rendered home/index.html.erb within layouts/application (92.9ms)
+Rendered layouts/_menu_bar.html.erb (2.1ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:16:06', `updated_at` = '2011-12-15 06:16:06' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 847ms (Views: 588.0ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /application.css - 200 OK (22ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /document_types.css - 200 OK (17ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /attribute_types.css - 200 OK (16ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /default.css - 200 OK (15ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 200 OK (18ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /event_types.css - 200 OK (7ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery.lightbox-0.5.css - 200 OK (10ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquixcustom-ui.css - 200 OK (9ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /password_resets.css - 200 OK (7ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /payments.css - 200 OK (29ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /scaffolds.css - 200 OK (3ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /statuses.css - 200 OK (5ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /style.css - 200 OK (13ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /tango/skin.css - 200 OK (14ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery.js - 200 OK (42ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery_ujs.js - 200 OK (15ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /attribute_types.js - 200 OK (2ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /document.js - 200 OK (2ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /event_types.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery.jcarousel.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /jquery.lightbox-0.5.js - 200 OK (9ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /password_resets.js - 200 OK (5ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /statuses.js - 200 OK (4ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /payments.js - 200 OK (7ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-15 12:01:06 +0545
+Served asset /logo.png - 200 OK (11ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /application.js - 200 OK (19ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /facebook.png - 200 OK (5ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /twitter.png - 200 OK (2ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /bg1.gif - 200 OK (54ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /cbg.png - 200 OK (8ms)
+
+
+Started GET "/assets/search_icon.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /search_icon.png - 200 OK (2ms)
+
+
+Started GET "/assets/button.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /button.png - 200 OK (2ms)
+
+
+Started GET "/assets/ui-bg_glass_100_f6f6f6_1x400.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /ui-bg_glass_100_f6f6f6_1x400.png - 200 OK (2ms)
+
+
+Started GET "/assets/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2011-12-15 12:01:07 +0545
+Served asset /ui-bg_glass_65_ffffff_1x400.png - 200 OK (2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2011-12-15 12:01:11 +0545
+  Processing by SessionsController#destroy as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_logout_at` = '2011-12-15 06:16:11', `updated_at` = '2011-12-15 06:16:11' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 74ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-12-15 12:01:11 +0545
+  Processing by HomeController#index as HTML
+  [1m[35mDocumentType Load (0.3ms)[0m  SELECT `document_types`.* FROM `document_types` ORDER BY name ASC
+Rendered home/_search_form.html.erb (16.8ms)
+Rendered home/index.html.erb within layouts/application (17.3ms)
+Rendered layouts/_menu_bar.html.erb (27.2ms)
+Completed 200 OK in 55ms (Views: 50.6ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:12 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2011-12-15 12:01:19 +0545
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PldMCz2TQObKoSjqnn0DSHZQEEn8Ga0tBibKt36uK0s=", "username"=>"bisusubedi", "password"=>"[FILTERED]", "submitLogin"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (username = 'bisusubedi' OR email = 'bisusubedi') LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_login_at` = '2011-12-15 06:16:20', `updated_at` = '2011-12-15 06:16:20' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/profile
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:16:20', `updated_at` = '2011-12-15 06:16:20' WHERE `users`.`id` = 2
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Completed 302 Found in 326ms
+
+
+Started GET "/profile" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Rendered shared/_usermenu.html.erb (9.7ms)
+Rendered users/index.html.erb within layouts/application (71.8ms)
+Rendered layouts/_menu_bar.html.erb (1.3ms)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:16:20', `updated_at` = '2011-12-15 06:16:20' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 100ms (Views: 91.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/linkbg.png" for 127.0.0.1 at 2011-12-15 12:01:20 +0545
+Served asset /linkbg.png - 200 OK (22ms)
+
+
+Started GET "/admin/orders" for 127.0.0.1 at 2011-12-15 12:01:24 +0545
+  Processing by Admin::OrdersController#index as HTML
+  [1m[35mOrder Load (0.5ms)[0m  SELECT `orders`.* FROM `orders` 
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered shared/_usermenu.html.erb (73.6ms)
+Rendered admin/orders/index.html.erb within layouts/application (76.1ms)
+Rendered layouts/_menu_bar.html.erb (1.2ms)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:16:24', `updated_at` = '2011-12-15 06:16:24' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 98ms (Views: 88.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:25 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+  Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered shared/_search_box.html.erb (2.0ms)
+  [1m[35mDocument Load (0.6ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 2
+Rendered documents/index.html.erb within layouts/application (90.8ms)
+Rendered layouts/_menu_bar.html.erb (1.9ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:16:28', `updated_at` = '2011-12-15 06:16:28' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 226ms (Views: 116.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:28 +0545
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/documents/new" for 127.0.0.1 at 2011-12-15 12:01:31 +0545
+  Processing by DocumentsController#new as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT `locations`.* FROM `locations` [0m
+  [1m[35mEventType Load (0.4ms)[0m  SELECT `event_types`.* FROM `event_types` 
+  [1m[36mDocumentType Load (0.4ms)[0m  [1mSELECT `document_types`.* FROM `document_types` [0m
+  [1m[35mStatus Load (0.7ms)[0m  SELECT `statuses`.* FROM `statuses` 
+  [1m[36mAttributeType Load (0.8ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` [0m
+Rendered shared/_validationerror.html.erb (0.5ms)
+  [1m[35mDocumentType Load (0.3ms)[0m  SELECT `document_types`.* FROM `document_types` ORDER BY name ASC
+  [1m[36mStatus Load (0.6ms)[0m  [1mSELECT `statuses`.* FROM `statuses` ORDER BY name ASC[0m
+Rendered documents/_attribute_document_fields.html.erb (4.7ms)
+Rendered documents/_attribute_document_fields.html.erb (0.7ms)
+Rendered documents/_document_photo_fields.html.erb (0.9ms)
+Rendered documents/_document_photo_fields.html.erb (0.3ms)
+Rendered documents/_person_event_fields.html.erb (6.9ms)
+Rendered documents/_person_event_fields.html.erb (1.2ms)
+Rendered documents/_person_fields.html.erb (17.1ms)
+Rendered documents/_person_event_fields.html.erb (1.2ms)
+Rendered documents/_person_fields.html.erb (3.3ms)
+Rendered documents/_location_fields.html.erb (1.3ms)
+Rendered documents/_location_fields.html.erb (0.8ms)
+Rendered documents/_form.html.erb (104.2ms)
+Rendered documents/new.html.erb within layouts/application (115.5ms)
+Rendered layouts/_menu_bar.html.erb (1.2ms)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:16:31', `updated_at` = '2011-12-15 06:16:31' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 884ms (Views: 134.7ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/deleteicon.png" for 127.0.0.1 at 2011-12-15 12:01:32 +0545
+Served asset /deleteicon.png - 200 OK (15ms)
+
+
+Started POST "/documents" for 127.0.0.1 at 2011-12-15 12:04:54 +0545
+  Processing by DocumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lIQsgs4RgnXwq6QXVIy3XqK7LJLz1PXRG25bNX7FsbM=", "document"=>{"stock_number"=>"201110", "name"=>"The Test book for past and paper developement", "document_type_id"=>"1", "status_id"=>"1", "purchase_date"=>"", "purchase_vendor"=>"", "purchase_price"=>"", "sale_date"=>"", "sale_purchaser"=>"", "sale_price"=>"50", "title"=>"The Test book for past and paper developement", "edition"=>"1", "pages"=>"50", "length"=>"50", "width"=>"25", "depth"=>"10", "weight"=>"250", "condition"=>"Good", "binding"=>"Good", "comment"=>"In testing", "attribute_documents_attributes"=>{"0"=>{"attribute_type_id"=>"1", "value"=>"The Pastonpaper printers", "on_date"=>"2011-11-11", "_destroy"=>"false"}, "1323929930210"=>{"attribute_type_id"=>"", "value"=>"", "on_date"=>"", "_destroy"=>"1"}}, "document_photos_attributes"=>{"0"=>{"_destroy"=>"1"}}, "people_attributes"=>{"0"=>{"title"=>"Mr", "first_name"=>"Developer", "middle_name"=>"Np", "last_name"=>"Nepal", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"", "street1"=>"", "street2"=>"", "town"=>"", "city"=>"", "country"=>"", "_destroy"=>"1"}}}}, "locations_attributes"=>{"0"=>{"street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"1"}}}, "commit"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT `locations`.* FROM `locations` 
+  [1m[36mEventType Load (0.3ms)[0m  [1mSELECT `event_types`.* FROM `event_types` [0m
+  [1m[35mDocumentType Load (0.6ms)[0m  SELECT `document_types`.* FROM `document_types` 
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT `statuses`.* FROM `statuses` [0m
+  [1m[35mAttributeType Load (0.5ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` 
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `documents` (`binding`, `comment`, `condition`, `created_at`, `depth`, `document_type_id`, `edition`, `is_hidden`, `length`, `name`, `pages`, `purchase_date`, `purchase_price`, `purchase_vendor`, `sale_date`, `sale_price`, `sale_purchaser`, `status_id`, `stock_number`, `title`, `updated_at`, `user_id`, `weight`, `width`) VALUES ('Good', 'In testing', 'Good', '2011-12-15 06:19:54', 10, 1, 1, NULL, 50, 'The Test book for past and paper developement', 50, NULL, NULL, '', NULL, 50, '', 1, '201110', 'The Test book for past and paper developement', '2011-12-15 06:19:54', 2, 250, 25)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `attribute_documents` (`attribute_type_id`, `created_at`, `document_id`, `on_date`, `updated_at`, `value`) VALUES (1, '2011-12-15 06:19:54', 1, '2011-11-11', '2011-12-15 06:19:54', 'The Pastonpaper printers')[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `people` (`created_at`, `document_id`, `first_name`, `last_name`, `maiden_name`, `middle_name`, `sex`, `title`, `updated_at`) VALUES ('2011-12-15 06:19:54', 1, 'Developer', 'Nepal', NULL, 'Np', 'Male', 'Mr', '2011-12-15 06:19:54')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/documents
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:19:54', `updated_at` = '2011-12-15 06:19:54' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 302 Found in 230ms
+
+
+Started GET "/documents" for 127.0.0.1 at 2011-12-15 12:04:54 +0545
+  Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered shared/_search_box.html.erb (1.5ms)
+  [1m[35mDocument Load (0.8ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 2
+  [1m[36mDocumentType Load (0.6ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.6ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+Rendered documents/index.html.erb within layouts/application (124.0ms)
+Rendered layouts/_menu_bar.html.erb (1.3ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:19:55', `updated_at` = '2011-12-15 06:19:55' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 198ms (Views: 124.0ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:55 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents/1" for 127.0.0.1 at 2011-12-15 12:04:58 +0545
+  Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mDocument Load (0.7ms)[0m  [1mSELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 1 LIMIT 1[0m
+  [1m[35mAttributeDocument Load (0.3ms)[0m  SELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (1)
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.2ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1
+  [1m[36mAttributeType Load (0.4ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 1 LIMIT 1[0m
+  [1m[35mDocumentPhoto Load (0.2ms)[0m  SELECT `document_photos`.* FROM `document_photos` WHERE `document_photos`.`document_id` = 1
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT `people`.* FROM `people` WHERE `people`.`document_id` = 1[0m
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 1
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT `locations`.* FROM `locations` WHERE `locations`.`document_id` = 1[0m
+Rendered documents/show.html.erb within layouts/application (236.1ms)
+Rendered layouts/_menu_bar.html.erb (1.3ms)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:19:59', `updated_at` = '2011-12-15 06:19:59' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 469ms (Views: 253.4ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:04:59 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents" for 127.0.0.1 at 2011-12-15 12:05:11 +0545
+  Processing by DocumentsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Rendered shared/_search_box.html.erb (1.5ms)
+  [1m[35mDocument Load (0.2ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 2
+  [1m[36mDocumentType Load (0.1ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1[0m
+  [1m[35mStatus Load (0.1ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+Rendered documents/index.html.erb within layouts/application (90.1ms)
+Rendered layouts/_menu_bar.html.erb (1.2ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:20:12', `updated_at` = '2011-12-15 06:20:12' WHERE `users`.`id` = 2
+  [1m[36m (0.0ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 130ms (Views: 92.8ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:12 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents/new" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+  Processing by DocumentsController#new as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT `locations`.* FROM `locations` [0m
+  [1m[35mEventType Load (0.8ms)[0m  SELECT `event_types`.* FROM `event_types` 
+  [1m[36mDocumentType Load (0.6ms)[0m  [1mSELECT `document_types`.* FROM `document_types` [0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT `statuses`.* FROM `statuses` 
+  [1m[36mAttributeType Load (0.2ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` [0m
+Rendered shared/_validationerror.html.erb (0.0ms)
+  [1m[35mDocumentType Load (0.5ms)[0m  SELECT `document_types`.* FROM `document_types` ORDER BY name ASC
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT `statuses`.* FROM `statuses` ORDER BY name ASC[0m
+Rendered documents/_attribute_document_fields.html.erb (4.1ms)
+Rendered documents/_attribute_document_fields.html.erb (0.8ms)
+Rendered documents/_document_photo_fields.html.erb (0.3ms)
+Rendered documents/_document_photo_fields.html.erb (0.3ms)
+Rendered documents/_person_event_fields.html.erb (4.3ms)
+Rendered documents/_person_event_fields.html.erb (1.2ms)
+Rendered documents/_person_fields.html.erb (8.0ms)
+Rendered documents/_person_event_fields.html.erb (1.3ms)
+Rendered documents/_person_fields.html.erb (3.1ms)
+Rendered documents/_location_fields.html.erb (0.8ms)
+Rendered documents/_location_fields.html.erb (0.7ms)
+Rendered documents/_form.html.erb (34.8ms)
+Rendered documents/new.html.erb within layouts/application (36.7ms)
+Rendered layouts/_menu_bar.html.erb (1.2ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:20:19', `updated_at` = '2011-12-15 06:20:19' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 336ms (Views: 47.9ms | ActiveRecord: 39.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:19 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started POST "/documents" for 127.0.0.1 at 2011-12-15 12:05:24 +0545
+  Processing by DocumentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lIQsgs4RgnXwq6QXVIy3XqK7LJLz1PXRG25bNX7FsbM=", "document"=>{"stock_number"=>"201110", "name"=>"", "document_type_id"=>"", "status_id"=>"", "purchase_date"=>"", "purchase_vendor"=>"", "purchase_price"=>"", "sale_date"=>"", "sale_purchaser"=>"", "sale_price"=>"", "title"=>"", "edition"=>"", "pages"=>"", "length"=>"", "width"=>"", "depth"=>"", "weight"=>"", "condition"=>"", "binding"=>"", "comment"=>"", "attribute_documents_attributes"=>{"0"=>{"attribute_type_id"=>"", "value"=>"", "on_date"=>"", "_destroy"=>"false"}}, "document_photos_attributes"=>{"0"=>{"_destroy"=>"false"}}, "people_attributes"=>{"0"=>{"title"=>"", "first_name"=>"", "middle_name"=>"", "last_name"=>"", "sex"=>"", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"", "date_event"=>"", "street1"=>"", "street2"=>"", "town"=>"", "city"=>"", "country"=>"", "_destroy"=>"false"}}}}, "locations_attributes"=>{"0"=>{"street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false"}}}, "commit"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT `locations`.* FROM `locations` 
+  [1m[36mEventType Load (0.2ms)[0m  [1mSELECT `event_types`.* FROM `event_types` [0m
+  [1m[35mDocumentType Load (0.1ms)[0m  SELECT `document_types`.* FROM `document_types` 
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT `statuses`.* FROM `statuses` [0m
+  [1m[35mAttributeType Load (0.2ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Rendered shared/_validationerror.html.erb (5.7ms)
+  [1m[36mDocumentType Load (0.2ms)[0m  [1mSELECT `document_types`.* FROM `document_types` ORDER BY name ASC[0m
+  [1m[35mStatus Load (0.2ms)[0m  SELECT `statuses`.* FROM `statuses` ORDER BY name ASC
+Rendered documents/_attribute_document_fields.html.erb (4.0ms)
+Rendered documents/_attribute_document_fields.html.erb (0.7ms)
+Rendered documents/_document_photo_fields.html.erb (0.4ms)
+Rendered documents/_person_event_fields.html.erb (34.5ms)
+Rendered documents/_person_event_fields.html.erb (1.3ms)
+Rendered documents/_person_fields.html.erb (39.7ms)
+Rendered documents/_person_event_fields.html.erb (1.2ms)
+Rendered documents/_person_fields.html.erb (3.1ms)
+Rendered documents/_location_fields.html.erb (0.9ms)
+Rendered documents/_location_fields.html.erb (0.7ms)
+Rendered documents/_form.html.erb (78.3ms)
+Rendered documents/new.html.erb within layouts/application (85.8ms)
+Rendered layouts/_menu_bar.html.erb (1.4ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:20:25', `updated_at` = '2011-12-15 06:20:25' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 312ms (Views: 93.7ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:05:25 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents" for 127.0.0.1 at 2011-12-15 12:10:19 +0545
+  Processing by DocumentsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Rendered shared/_search_box.html.erb (1.6ms)
+  [1m[36mDocument Load (0.2ms)[0m  [1mSELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 2[0m
+  [1m[35mDocumentType Load (0.4ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+Rendered documents/index.html.erb within layouts/application (94.3ms)
+Rendered layouts/_menu_bar.html.erb (1.4ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:25:20', `updated_at` = '2011-12-15 06:25:20' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 137ms (Views: 98.4ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:20 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents/1/edit" for 127.0.0.1 at 2011-12-15 12:10:24 +0545
+  Processing by DocumentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT `locations`.* FROM `locations` 
+  [1m[36mEventType Load (0.2ms)[0m  [1mSELECT `event_types`.* FROM `event_types` [0m
+  [1m[35mDocumentType Load (0.1ms)[0m  SELECT `document_types`.* FROM `document_types` 
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT `statuses`.* FROM `statuses` [0m
+  [1m[35mAttributeType Load (0.3ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` 
+  [1m[36mDocument Load (0.6ms)[0m  [1mSELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 2 AND `documents`.`id` = 1 LIMIT 1[0m
+  [1m[35mAttributeDocument Load (0.1ms)[0m  SELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (1)
+Rendered shared/_validationerror.html.erb (0.0ms)
+  [1m[36mDocumentType Load (0.4ms)[0m  [1mSELECT `document_types`.* FROM `document_types` ORDER BY name ASC[0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT `statuses`.* FROM `statuses` ORDER BY name ASC
+Rendered documents/_attribute_document_fields.html.erb (4.0ms)
+Rendered documents/_attribute_document_fields.html.erb (0.8ms)
+  [1m[36mDocumentPhoto Load (0.1ms)[0m  [1mSELECT `document_photos`.* FROM `document_photos` WHERE `document_photos`.`document_id` = 1[0m
+Rendered documents/_document_photo_fields.html.erb (0.5ms)
+  [1m[35mPerson Load (0.1ms)[0m  SELECT `people`.* FROM `people` WHERE `people`.`document_id` = 1
+  [1m[36mPersonEvent Load (0.1ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 1[0m
+Rendered documents/_person_event_fields.html.erb (4.8ms)
+Rendered documents/_person_fields.html.erb (23.5ms)
+Rendered documents/_person_event_fields.html.erb (1.3ms)
+Rendered documents/_person_fields.html.erb (3.2ms)
+  [1m[35mLocation Load (0.2ms)[0m  SELECT `locations`.* FROM `locations` WHERE `locations`.`document_id` = 1
+Rendered documents/_location_fields.html.erb (1.0ms)
+Rendered documents/_form.html.erb (136.3ms)
+Rendered documents/edit.html.erb within layouts/application (139.0ms)
+Rendered layouts/_menu_bar.html.erb (1.3ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:25:24', `updated_at` = '2011-12-15 06:25:24' WHERE `users`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 302ms (Views: 137.6ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:25 +0545
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/documents" for 127.0.0.1 at 2011-12-15 12:10:29 +0545
+  Processing by DocumentsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Rendered shared/_search_box.html.erb (1.3ms)
+  [1m[36mDocument Load (0.6ms)[0m  [1mSELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 2[0m
+  [1m[35mDocumentType Load (0.1ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1[0m
+Rendered documents/index.html.erb within layouts/application (90.8ms)
+Rendered layouts/_menu_bar.html.erb (1.2ms)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-15 06:25:30', `updated_at` = '2011-12-15 06:25:30' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Completed 200 OK in 131ms (Views: 92.9ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:30 +0545
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/documents/1" for 127.0.0.1 at 2011-12-15 12:10:32 +0545
+  Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mDocument Load (0.1ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 1 LIMIT 1
+  [1m[36mAttributeDocument Load (0.1ms)[0m  [1mSELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (1)[0m
+  [1m[35mStatus Load (0.1ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mDocumentType Load (0.1ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1[0m
+  [1m[35mAttributeType Load (0.2ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 1 LIMIT 1
+  [1m[36mDocumentPhoto Load (0.1ms)[0m  [1mSELECT `document_photos`.* FROM `document_photos` WHERE `document_photos`.`document_id` = 1[0m
+  [1m[35mPerson Load (0.1ms)[0m  SELECT `people`.* FROM `people` WHERE `people`.`document_id` = 1
+  [1m[36mPersonEvent Load (0.1ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT `locations`.* FROM `locations` WHERE `locations`.`document_id` = 1
+Rendered documents/show.html.erb within layouts/application (131.7ms)
+Rendered layouts/_menu_bar.html.erb (1.3ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-15 06:25:33', `updated_at` = '2011-12-15 06:25:33' WHERE `users`.`id` = 2
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 237ms (Views: 131.2ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-15 12:10:33 +0545
+Served asset /application.js - 304 Not Modified (0ms)

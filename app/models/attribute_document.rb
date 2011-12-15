@@ -7,4 +7,6 @@ class AttributeDocument < ActiveRecord::Base
 validates :attribute_type_id ,:presence => true
 validates :value ,:presence => true
 
+
+
 end

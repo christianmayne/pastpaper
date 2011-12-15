@@ -40,7 +40,7 @@
    <% service.notify_url paypal_ipn_url %>
    <% service.return_url paypal_return_url %>
    <% service.cancel_return_url paypal_cancel_url %>
-   <%= submit_tag("Buy now from paypal") %>
+   <%= submit_tag("Buy This Item From Paypal") %>
  <% end %>
 	</div>
 <% end %>
@@ -67,7 +67,7 @@
             <div class="clearfix">
             <div class="floatLeft"><%= @document.try(:length) %>mm x <%= @document.try(:width) %>mm x <%= @document.try(:depth) %>mm  x <%= @document.try(:weight) %>grams </div>
 
-            <div class="floatRight"> &pound; : <%= @document.try(:sell_price) %></div>
+            <div class="floatRight"> &pound; : <%= @document.try(:sale_price) %></div>
 </div>
 
         <span class="">Binding : <%= @document.try(:binding) %></span>
@@ -146,11 +146,6 @@
         <div class="floatLeft">
         	<p class="shadeWhite strong">Views: 29</p>
         </div>
-<% if @document.is_on_sale?%>
-        <div class="floatRight">
-        	<input type="button" id="buythisitem" name="buythisitem" value="" class="buythis" />
-        </div>
-        <% end %>
     </div>
     
     <div class="block rightBox floatRight whiteBG varPaddingDouble horPaddingDouble clearfix varMarginDouble border">
