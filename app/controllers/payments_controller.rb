@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
+  require "active_merchant"
  include ActiveMerchant::Billing::Integrations
-  #protect_from_forgery :except => [:create, :paypal_return]
+  protect_from_forgery :except => [:create, :paypal_return]
 
   # This action is for when the buyer returns to your site from PayPal
   def paypal_return
@@ -23,7 +24,8 @@ class PaymentsController < ApplicationController
     # You maybe want to log this notification
    # mc_gross=40.00&protection_eligibility=Ineligible&payer_id=Q3WNA5PAFQV5S&tax=0.00&payment_date=01:40:40 Dec 14, 2011 PST&payment_status=Completed&charset=windows-1252&first_name=Test&mc_fee=1.56&notify_version=3.4&custom=72&payer_status=unverified&business=bibek_1316595699_biz@gmail.com&quantity=1&verify_sign=AijDJd.clPLUY5IvQoCC1yYaRnDgAgW..UCII0LMEhN6ZSggm8tsGbZY&payer_email=bibek._1316595823_per@gmail.com&txn_id=3NP32002NG491474D&payment_type=instant&last_name=User&receiver_email=bibek_1316595699_biz@gmail.com&payment_fee=&receiver_id=ZSLCY2KSA5S76&txn_type=web_accept&item_name=The prentice bible&mc_currency=GBP&item_number=72&residence_country=GB&test_ipn=1&handling_amount=0.00&transaction_subject=72&payment_gross=&shipping=0.00&ipn_track_id=oT2.J73qUePRMa7Zhi6ZGQ
     
-    notify = Paypal::Notification.new request.raw_post
+    notify = Paypal::Notification.new(request.raw_post)
+    
     @document= Document.find(params[:item_number])
    
     if @document
@@ -53,13 +55,12 @@ class PaymentsController < ApplicationController
           @order.save
           # Make sure you received the expected payment!
         begin
-          if notify.complete? and @order.price == BigDecimal.new( params[:mc_gross] )
+          if params[:payment_status]=="Completed" and @order.amount == BigDecimal.new(params[:mc_gross])
             # All your bussiness logic goes here
             @order.update_attributes(:paid_status => true)
             @document_status= Status.find_by_name("Sold")
-            #@docuemnt.update_attributes(:status_id => @document_status.id)
-            @document.update_attributes(:status_id => 3)
-            
+            @docuemnt.update_attributes(:status_id => @document_status.id)
+            #@document.update_attributes(:status_id => 3)
             UserMailer.purchase_order_notification(@order).deliver
             render :nothing => true
          end
