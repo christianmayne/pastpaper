@@ -40,7 +40,7 @@ class Document < ActiveRecord::Base
    if self.status.blank?
     return false  
    else
-     if "On Sale" == self.status.name
+     if "For Sale" == self.status.name
        return true
      else
        return false
