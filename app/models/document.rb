@@ -23,9 +23,9 @@ class Document < ActiveRecord::Base
   
   validates_numericality_of :weight, :width, :length, :depth, :message => "only number allowed", :allow_blank => true
   validates_inclusion_of :weight, :in => 0..30000, :message => "should be less than 30000", :allow_blank => true
-  validates_inclusion_of :width, :in  => 1..1000, :message => "should be greather than 1 and less than 1000", :allow_blank => true
-  validates_inclusion_of :length, :in => 1..1000, :message => "should be greather than 1 and less than 1000", :allow_blank => true
-  validates_inclusion_of :depth, :in  => 1..1000, :message => "should be greather than 1 and less than 1000", :allow_blank => true
+  validates_inclusion_of :width, :in  => 1..1000, :message => "should be between 1 and 1000", :allow_blank => true
+  validates_inclusion_of :length, :in => 1..1000, :message => "should be between 1 and 1000", :allow_blank => true
+  validates_inclusion_of :depth, :in  => 0..1000, :message => "should be less than 1000", :allow_blank => true
 
 
  def document_status
