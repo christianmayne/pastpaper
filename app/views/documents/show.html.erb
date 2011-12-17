@@ -65,15 +65,14 @@
     
 </p>
             <div class="clearfix">
-            <div class="floatLeft"><%= @document.try(:length) %>mm x <%= @document.try(:width) %>mm x <%= @document.try(:depth) %>mm  x <%= @document.try(:weight) %>grams </div>
+            <div class="floatLeft"><b>Dimensions:</b> <%= @document.try(:length) %>mm x <%= @document.try(:width) %>mm x <%= @document.try(:depth) %>mm  x <%= @document.try(:weight) %>grams </div>
 
-            <div class="floatRight"> &pound; : <%= @document.try(:sale_price) %></div>
+            <div class="floatRight"><b>Price:</b> &pound;<%= @document.try(:sale_price) %></div>
 </div>
 
-        <span class="">Binding : <%= @document.try(:binding) %></span>
-
-        <span class="">Condition : <%= @document.try(:condition) %></span><br />
-        <span class="">Comments : <%= @document.try(:comment) %></span><br />
+        <span class=""><b>Binding:</b> <%= @document.try(:binding) %></span><br />
+        <span class=""><b>Condition:</b><%= @document.try(:condition) %></span><br />
+        <span class=""><b>Comments:</b><%= @document.try(:comment) %></span><br />
 
         </div>
         <div class="floatRight">
