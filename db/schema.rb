@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111212094846) do
+ActiveRecord::Schema.define(:version => 20111217192401) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20111212094846) do
     t.integer  "document_id"
     t.string   "street1"
     t.string   "street2"
-    t.string   "city"
     t.string   "county"
     t.string   "town"
     t.string   "country"
