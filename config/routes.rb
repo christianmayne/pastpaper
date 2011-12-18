@@ -39,9 +39,7 @@ end
   match 'contact', :to => 'pages#contact'
   match 'privacy', :to => 'pages#privacy'
   match 'terms', :to => 'pages#terms'
-  
-  
-  
+
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
