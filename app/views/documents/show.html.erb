@@ -41,7 +41,8 @@
     <div class="varPaddingDouble horPaddingDouble clearfix">
          <!-- If logged in and document owner show edit document links -->
  
-          <% if !current_user.blank? && current_user.is_document_owner(@document.user_id) %>
+
+          <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
               <div class="">
                   <span class="" style="float: right; margin-top:20px;">
                       <%= link_to "Edit Document", edit_document_path(@document) %>
