@@ -25483,3 +25483,200 @@ Served asset /cbg.png - 304 Not Modified (0ms)
 
 Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-18 12:15:59 +0000
 Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started POST "/home/search_results" for 127.0.0.1 at 2011-12-18 13:07:39 +0000
+  Processing by HomeController#search_results as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dtSsqgDfN7hdhRVgYojMs/vIy/vrCTvoj/dNvOgzveE=", "search_people"=>{"search_type"=>"2", "first_name"=>"", "last_name"=>"m", "date_birth_from"=>"", "date_birth_to"=>"", "date_death_from"=>"", "date_death_to"=>""}, "commit"=>""}
+  [1m[35mDocument Load (3.2ms)[0m  SELECT DISTINCT documents.* FROM documents
+ LEFT JOIN users ON users.id = documents.user_id
+ LEFT JOIN document_types ON document_types.id = documents.document_type_id
+ LEFT JOIN statuses ON statuses.id = documents.status_id
+ LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
+ LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
+ LEFT JOIN people ON people.document_id = documents.id
+ LEFT JOIN person_events ON person_events.person_id = people.id
+ LEFT JOIN event_types ON event_types.id = person_events.event_type_id
+ WHERE 1=1 LIMIT 20 OFFSET 0
+  [1m[36mDocument Count (4.1ms)[0m  [1mSELECT COUNT(*) FROM (SELECT DISTINCT documents.* FROM documents
+ LEFT JOIN users ON users.id = documents.user_id
+ LEFT JOIN document_types ON document_types.id = documents.document_type_id
+ LEFT JOIN statuses ON statuses.id = documents.status_id
+ LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
+ LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
+ LEFT JOIN people ON people.document_id = documents.id
+ LEFT JOIN person_events ON person_events.person_id = people.id
+ LEFT JOIN event_types ON event_types.id = person_events.event_type_id
+ WHERE 1=1 ) AS count_table[0m
+  [1m[35mDocumentType Load (0.2ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mDocumentType Load (0.6ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mDocumentType Load (0.4ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mDocumentType Load (0.4ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mDocumentType Load (0.2ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mDocumentType Load (0.7ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 10 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mDocumentType Load (0.4ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 11 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1
+Rendered home/_document_result.html.erb (489.2ms)
+Rendered home/search_results.html.erb within layouts/application (490.0ms)
+Rendered layouts/_menu_bar.html.erb (5.0ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.9ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-18 13:07:40', `updated_at` = '2011-12-18 13:07:40' WHERE `users`.`id` = 3
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 573ms (Views: 509.4ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /statuses.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /twitter.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-18 13:07:40 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-18 13:07:41 +0000
+Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-18 13:07:41 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)

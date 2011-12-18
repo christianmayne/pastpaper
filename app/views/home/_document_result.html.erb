@@ -1,4 +1,4 @@
-  
+  <% @pagetitle = "Search Results" %>
   <% unless @documents.blank? %>
   
      <span class="alt">Search Results : <%= @documents.total_entries%>  <%= "On page #{params[:page]}" unless params[:page].blank?%></span>
