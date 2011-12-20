@@ -11,7 +11,6 @@
     <th><b>Item Price</b></th>
     <th><b>Item Owner</b></th>
     <th><b>Paypal Status</b></th>
-    <th><b>Txn No</b></th>
     <th>Actions</th>
    
   </tr>
@@ -31,8 +30,7 @@
     <td>&pound;<%= order.amount.to_f %></td>
      <td><%= order.user.email %> <%= link_to "View User", edit_admin_user_path(order.user) ,:target=>"_blank" %></td>
     <td><%= order.paypal_status %></td>
-    <td><%= order.paypal_txn_no %></td>
-   
+    
     <td>
     	 <%= link_to "view", admin_order_path(order) %></td>
   </tr>
