@@ -64,22 +64,28 @@
 <div class="borderBottom varPaddingDouble">
 <!-- Photo Upload -->
 <div class="content-box" style="min-height:45px">
+	
     <h2>Add Photos</h2> 
-	 
 	 <% if !@document.blank? && !@document.document_photos.blank? && !@document.new_record? %>
             <% @document.document_photos.each do |photo|  %>
+			<% unless photo.new_record?%>
 			<div style="float:left; width:120px; text-align:center">
 					<%= image_tag photo.photo.url(:small) %><br />
+					
 					<a href="/document_image_remove/<%= photo.id%>" onclick="return confirm('Are you sure?')">Remove</a>
 			</div>
+			<%end%>
 			<% end %>
 		   <div style="clear:left"></div>
         <% else%>
+	
 	<%= f.fields_for :document_photos do |document_photo| %>
 		<%= render :partial => 'document_photo_fields', :locals => {:f => document_photo} %>
     <% end %>
-
+	
 		<% end %>
+ 
+	
 	
      <div class="">
         <span class=""><%= link_to_add_fields "+ Add new photo", f, :document_photos  %></span>

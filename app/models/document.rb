@@ -14,7 +14,7 @@ class Document < ActiveRecord::Base
   accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true
   accepts_nested_attributes_for :locations, :allow_destroy => :true
   accepts_nested_attributes_for :people, :allow_destroy => :true
-  accepts_nested_attributes_for :document_photos, :allow_destroy => :true,:limit => 4,:reject_if => proc { |attributes| attributes['photo'].blank? }
+  accepts_nested_attributes_for :document_photos, :allow_destroy => :true#,:limit => 4,:reject_if => proc { |attributes| attributes['photo'].blank? }
   
   validates :name ,:presence=>true
   validates :stock_number, :presence=>true
@@ -117,7 +117,7 @@ def self.people_search(search_params, page)
        end
      end
      
-     condition  = " "
+     condition  = ""
      condition += "people.first_name like  '%#{search_params[:first_name]}%' AND " unless search_params[:first_name].blank?
      condition += "people.last_name like '%#{search_params[:last_name]}%' AND " unless search_params[:last_name].blank?
      if !date_birth_from.blank? && !date_birth_to.blank?
@@ -138,8 +138,7 @@ def self.people_search(search_params, page)
        condition += "(extract(year FROM person_events.date_event) = '#{date_death_from}' AND event_types.name = 'Death') AND "
      end
      unless condition.blank?
-      condition += " is_hidden is false "
-      condition = " 1=1 "
+      condition += " status_id != 7" 
      
      self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
                         LEFT JOIN users ON users.id = documents.user_id
@@ -176,7 +175,8 @@ end
 
     
     unless condition_str.blank?
-      condition_str += " is_hidden is false "
+       condition_str += " status_id != 7" 
+     
       self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id
@@ -228,9 +228,11 @@ end
     #              extract(year FROM person_events.date_event) <= '#{date_other_to}') AND " if !date_other_from.blank? && !date_other_to.blank?
 
 
-    puts condition
+    #puts condition
     unless condition.blank?
-      condition += " is_hidden is false "
+      condition += " status_id != 7" 
+      
+      # this need to be changed later for hidden status_id=7
       self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id

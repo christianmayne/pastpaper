@@ -52,7 +52,12 @@ class DocumentsController < ApplicationController
     @document.update_attributes(params[:document])
     if @document.save
       flash[:notice] = "Successfully updated"
+      if current_user.is_admin?
+        redirect_to edit_document_path(@document)
+      else
       redirect_to documents_path
+      end
+      
     else
       flash[:error] = "Error"
       render :action => "edit"
@@ -90,7 +95,13 @@ def remove_image
   private
 
   def prepare_document
-    @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
+      if current_user.is_admin?
+        @document = Document.find(params[:id], :include => [:attribute_documents])
+      else
+        @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
+      
+      end
+    
   rescue
     flash[:notice] = "can't access this document"
     redirect_to documents_path

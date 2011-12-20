@@ -11,9 +11,9 @@
     	<td>&nbsp;</td>
     	</tr>
     	<tr class="">
-    		<td><%= f.collection_select :event_type_id, @event_type, :id, :name, :prompt => true %></td>
+    		<td><%= f.collection_select :event_type_id, @event_type, :id, :name %></td>
     	
-    	<td><%= f.text_field :date_event, :size => 10, :placeholder=>"dd/mm/yyyy", :class => 'input-form-input' %></td>
+    	<td><%= f.text_field :date_event, :size => 10, :placeholder=>"dd/mm/yyyy", :class => 'datefield' %></td>
     	<td><%= f.text_field :street1, :size => 10, :class => 'input-form-input' %></td>
     	<td><%= f.text_field :street2, :size => 10, :class => 'input-form-input' %></td>
     	<td><%= f.text_field :town, :size => 10, :class => 'input-form-input' %></td>
