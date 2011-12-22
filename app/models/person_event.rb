@@ -8,7 +8,7 @@ class PersonEvent < ActiveRecord::Base
   
   validates :event_type_id,:presence => true
   
-def location
+  def location
     [self.street1, self.street2, self.city, self.county, self.country].delete_if{|ad_elem| ad_elem.blank?}.join(', ')
   end
 

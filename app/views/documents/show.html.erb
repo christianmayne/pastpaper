@@ -2,7 +2,7 @@
 <!-- Show Individual Document page -->
 
 <div class="container siteScale clearfix">
-<% if @document.is_on_sale?%>
+<% if @document.is_on_sale? && !@document.sale_price.blank?%>
 	<div class="varMarginTop">
 	 <% payment_service_for @document.id, PAYPAL_ACCOUNT,
                               :amount => @document.sale_price, 
@@ -33,7 +33,9 @@
    <% service.notify_url paypal_ipn_url %>
    <% service.return_url paypal_return_url %>
    <% service.cancel_return_url paypal_cancel_url %>
+   <%if @document.sale_price > 0.50 %>
    <%= submit_tag("Buy This Item From Paypal") %>
+   <%end%>
  <% end %>
 	</div>
 <% end %>
@@ -69,9 +71,10 @@
     
 </p>
             <div class="clearfix">
-            <div class="floatLeft"><b>Dimensions:</b> <%= @document.try(:length) %>mm x <%= @document.try(:width) %>mm x <%= @document.try(:depth) %>mm  x <%= @document.try(:weight) %>grams </div>
+            <div class="floatRight"> <b>Price:</b> &pound;<%= @document.try(:sale_price).to_f unless @document.sale_price.blank? %></div>
+            <div class="floatLeft"><b>Dimensions:</b> <%= "#{@document.try(:length)}mm X " unless @document.length.blank?   %> <%= "#{@document.try(:width)}mm X " unless @document.width.blank?  %> <%= "#{@document.try(:depth)}mm X " unless @document.depth.blank? %><%= "#{@document.try(:weight)}grams" unless @document.weight.blank?%>&nbsp; </div>
 
-            <div class="floatRight"><b>Price:</b> &pound;<%= @document.try(:sale_price) %></div>
+
 </div>
 
         <span class=""><b>Binding:</b> <%= @document.try(:binding) %></span><br />
@@ -103,22 +106,32 @@
                 <th align="left">Name </th>
                 <th align="left"> Birth Date</th>
                 <th align="left"> Died on</th>
+                <th align="left">&nbsp;</th>
             </tr>
             
              <% if !@document.blank? && !@document.people.blank? %>
             <% @document.people.each do |person|  %>
                
                <tr class="<%= cycle('odd','even') %>">
-                <td> <%= person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
+                <td> 
+                	
+                	<%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
                 	<%= " #{person.middle_name.titleize}" rescue '' %>
                 	<%= person.last_name rescue 'unknown' %>
+                	
                 </td>
                 <td><%= person.birth_date rescue '' %> <%= "(#{person.birth_loacation})" rescue '' %></td>
                 <td><%= person.death_date rescue '' %> <%= "(#{person.birth_loacation})" rescue '' %></td>
+                <td>
+                	
+                	<%= link_to "View detail" ,person_detail_path(person.id),:remote=>true%>
+                </td>
             </tr>
                   <% end %>
         <% end %>
         </table>
+        <div class="persondetailinfo">
+        	</div>
 
         <p class="strong">Other Locations mentioned in this Document</p>
         

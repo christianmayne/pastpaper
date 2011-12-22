@@ -1,5 +1,5 @@
 <div class="borderBottom varPaddingDouble">
-  <label>Stock Number </label><%= f.text_field :stock_number, :size=> 15  %>
+  <label>Stock Number </label><%= f.text_field :stock_number, :size=> 10  %>
   <label>Item Name </label><%= f.text_field :name, :size => 30 %>
   <label>Type </label><%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
   <label>Status </label><%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %> </span>

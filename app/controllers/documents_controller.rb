@@ -91,6 +91,14 @@ def remove_image
 	end
   end
   
+ def person_detail
+     begin
+      @person = Person.find(params[:id])
+      @person_events = @person.person_events
+   rescue
+   
+   end
+ end 
   
   private
 

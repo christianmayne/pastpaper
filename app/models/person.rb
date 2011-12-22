@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
 
  # validates :first_name,:presence => true
  # validates :last_name ,:presence => true
- # validates :sex, :presence => true
+  validates :sex, :presence => true
   
   def sex_color
     unless self.sex.blank?
