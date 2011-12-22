@@ -66334,3 +66334,1483 @@ Served asset /tango/prev-horizontal.png - 304 Not Modified (2ms)
 
 Started GET "/assets/tango/next-horizontal.png" for 127.0.0.1 at 2011-12-22 20:04:15 +0000
 Served asset /tango/next-horizontal.png - 304 Not Modified (0ms)
+
+
+Started GET "/documents/83/edit" for 127.0.0.1 at 2011-12-22 20:06:01 +0000
+  Processing by DocumentsController#edit as HTML
+  Parameters: {"id"=>"83"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mLocation Load (3.4ms)[0m  [1mSELECT `locations`.* FROM `locations` [0m
+  [1m[35mEventType Load (0.4ms)[0m  SELECT `event_types`.* FROM `event_types` 
+  [1m[36mDocumentType Load (0.6ms)[0m  [1mSELECT `document_types`.* FROM `document_types` [0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT `statuses`.* FROM `statuses` 
+  [1m[36mAttributeType Load (1.0ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` [0m
+  [1m[35mDocument Load (0.5ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 83 LIMIT 1
+  [1m[36mAttributeDocument Load (1.5ms)[0m  [1mSELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (83)[0m
+Rendered shared/_validationerror.html.erb (0.1ms)
+  [1m[35mDocumentType Load (0.7ms)[0m  SELECT `document_types`.* FROM `document_types` ORDER BY name ASC
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT `statuses`.* FROM `statuses` ORDER BY name ASC[0m
+Rendered documents/_attribute_document_fields.html.erb (6.6ms)
+Rendered documents/_attribute_document_fields.html.erb (1.3ms)
+Rendered documents/_attribute_document_fields.html.erb (1.2ms)
+Rendered documents/_attribute_document_fields.html.erb (1.2ms)
+Rendered documents/_attribute_document_fields.html.erb (1.8ms)
+Rendered documents/_attribute_document_fields.html.erb (1.4ms)
+Rendered documents/_attribute_document_fields.html.erb (1.6ms)
+  [1m[35mDocumentPhoto Load (0.3ms)[0m  SELECT `document_photos`.* FROM `document_photos` WHERE `document_photos`.`document_id` = 83
+Rendered documents/_document_photo_fields.html.erb (0.9ms)
+  [1m[36mPerson Load (2.2ms)[0m  [1mSELECT `people`.* FROM `people` WHERE `people`.`document_id` = 83[0m
+  [1m[35mPersonEvent Load (0.5ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 79
+Rendered documents/_person_event_fields.html.erb (7.1ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (43.2ms)
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 78[0m
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (14.1ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 80
+Rendered documents/_person_event_fields.html.erb (2.7ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (11.0ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 81[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (100.9ms)
+Rendered documents/_person_fields.html.erb (109.4ms)
+  [1m[35mPersonEvent Load (0.6ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 82
+Rendered documents/_person_event_fields.html.erb (2.8ms)
+Rendered documents/_person_event_fields.html.erb (2.4ms)
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_fields.html.erb (20.1ms)
+  [1m[36mPersonEvent Load (0.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 83[0m
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (6.0ms)
+Rendered documents/_person_fields.html.erb (22.0ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 84
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_fields.html.erb (26.6ms)
+  [1m[36mPersonEvent Load (1.9ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 85[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (3.2ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (16.0ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 86
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (12.4ms)
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 87[0m
+Rendered documents/_person_event_fields.html.erb (2.6ms)
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (14.3ms)
+  [1m[35mPersonEvent Load (0.5ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 88
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (14.3ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 89[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (10.2ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 90
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (9.1ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 91[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (12.1ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 92
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (14.0ms)
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 93[0m
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (13.9ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 94
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.4ms)
+Rendered documents/_person_fields.html.erb (9.9ms)
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 95[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (9.1ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 96
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (10.8ms)
+  [1m[36mPersonEvent Load (0.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 97[0m
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (11.1ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 98
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (12.2ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 99[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (6.3ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 100
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (6.0ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 101[0m
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (6.0ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 102
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (6.2ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 103[0m
+Rendered documents/_person_event_fields.html.erb (2.6ms)
+Rendered documents/_person_fields.html.erb (7.2ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 104
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (104.7ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 105[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (6.2ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (5.3ms)
+  [1m[35mLocation Load (0.4ms)[0m  SELECT `locations`.* FROM `locations` WHERE `locations`.`document_id` = 83
+Rendered documents/_location_fields.html.erb (1.9ms)
+Rendered documents/_form.html.erb (743.6ms)
+Rendered documents/edit.html.erb within layouts/application (748.3ms)
+Rendered layouts/_menu_bar.html.erb (2.6ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-22 20:06:02', `updated_at` = '2011-12-22 20:06:02' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 1101ms (Views: 736.6ms | ActiveRecord: 64.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /logo.png - 304 Not Modified (8ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /twitter.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/deleteicon.png" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /deleteicon.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/button.png" for 127.0.0.1 at 2011-12-22 20:06:03 +0000
+Served asset /button.png - 304 Not Modified (0ms)
+
+
+Started PUT "/documents/83" for 127.0.0.1 at 2011-12-22 20:06:24 +0000
+  Processing by DocumentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FPyoJjG7Y5Oi2G5miHD+Rea+3s6EqMXP2625/oGRPBw=", "document"=>{"stock_number"=>"b00001", "name"=>"Family Bible of William Kellham (b.1761)  and Olive Nichols (b. 1761) of London and Harlow ", "document_type_id"=>"1", "status_id"=>"5", "purchase_date"=>"2008-09-17", "purchase_vendor"=>"Huntingdon Antiques Centre", "purchase_price"=>"31.0", "sale_date"=>"2011-08-31", "sale_purchaser"=>"Glenise Buckley <northbuck@hotmail.com>", "sale_price"=>"140.0", "title"=>"The Complete Family Bible; containing the Holy scriptures of the Old and New Tew Testament at Large; Together with the Apocrypha; With A Complete Illustration Of All The Difficult Passages Together  With Notes Historical and Critical by the Rev Samuel Newton DD", "edition"=>"", "pages"=>"", "length"=>"290", "width"=>"245", "depth"=>"90", "weight"=>"2700", "condition"=>"Boards detached, Spine Detached, Binding Loose.  Badly worn, with signs of damp & insect damage", "binding"=>"Leather", "comment"=>"Also includes a letter from Edith Clara Kellia dated August 2nd 1871, possibly to Georgina Kellham nee Williams, wife of James Kellham (b. abt. 1795) including further genealogy – see L00001.  Also a small handwritten manuscript entitled “Old Lutheranism”signed JK", "attribute_documents_attributes"=>{"0"=>{"attribute_type_id"=>"2", "value"=>"William Cavell, Holborn, London", "on_date"=>"1773-01-01", "_destroy"=>"false", "id"=>"67"}, "1"=>{"attribute_type_id"=>"1", "value"=>"William Cavell, Holborn, London", "on_date"=>"1773-01-01", "_destroy"=>"false", "id"=>"68"}, "2"=>{"attribute_type_id"=>"4", "value"=>"J Barber,  Newcastle", "on_date"=>"1773-01-01", "_destroy"=>"false", "id"=>"69"}, "3"=>{"attribute_type_id"=>"4", "value"=>"C Etherington, York", "on_date"=>"1773-01-01", "_destroy"=>"false", "id"=>"70"}, "4"=>{"attribute_type_id"=>"4", "value"=>" Fletcher and Hodson, at Cambridge", "on_date"=>"1773-01-01", "_destroy"=>"false", "id"=>"71"}, "5"=>{"attribute_type_id"=>"4", "value"=>"Wilson, Dublin", "on_date"=>"1773-01-01", "_destroy"=>"false", "id"=>"72"}}, "people_attributes"=>{"0"=>{"title"=>"Mrs", "first_name"=>"Deborah", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1719-01-01", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"40"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1801-05-14", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"41"}}, "id"=>"79"}, "1"=>{"title"=>"Mr", "first_name"=>"Charles", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"2", "date_event"=>"1776-12-13", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"38"}, "1"=>{"event_type_id"=>"1", "date_event"=>"1719-01-01", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"39"}}, "id"=>"78"}, "2"=>{"title"=>"Mr", "first_name"=>"William", "middle_name"=>"", "last_name"=>"Nichols", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"6", "date_event"=>"", "street1"=>"", "street2"=>"", "town"=>"Harlow", "county"=>"Essex", "country"=>"United Kingdom", "_destroy"=>"false", "id"=>"42"}}, "id"=>"80"}, "3"=>{"title"=>"Mrs", "first_name"=>"Mary", "middle_name"=>"", "last_name"=>"Nichols", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"6", "date_event"=>"", "street1"=>"", "street2"=>"", "town"=>"Harlow", "county"=>"Essex", "country"=>"United Kingdom", "_destroy"=>"false", "id"=>"43"}}, "id"=>"81"}, "4"=>{"title"=>"", "first_name"=>"William", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1761-10-24", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"44"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1827-09-28", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"45"}, "2"=>{"event_type_id"=>"3", "date_event"=>"1787-12-20", "street1"=>"St George The Martyr", "street2"=>"Queens Square", "town"=>"Bloomsbury", "county"=>"London", "country"=>"United Kingdom", "_destroy"=>"false", "id"=>"46"}}, "id"=>"82"}, "5"=>{"title"=>"", "first_name"=>"Olive", "middle_name"=>"", "last_name"=>"Nichols", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1761-03-14", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"47"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1826-08-11", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"48"}, "2"=>{"event_type_id"=>"3", "date_event"=>"1787-12-20", "street1"=>"St George The Martyr", "street2"=>"Queens Square", "town"=>"Bloomsbury", "county"=>"London", "country"=>"United Kingdom", "_destroy"=>"false", "id"=>"49"}}, "id"=>"83"}, "6"=>{"title"=>"", "first_name"=>"Charles", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1789-01-25", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"50"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1793-07-11", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"51"}}, "id"=>"84"}, "7"=>{"title"=>"", "first_name"=>"William", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1790-06-21", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"52"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1790-12-13", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"53"}}, "id"=>"85"}, "8"=>{"title"=>"", "first_name"=>"William", "middle_name"=>"John", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1792-01-29", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"54"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1793-07-16", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"55"}}, "id"=>"86"}, "9"=>{"title"=>"", "first_name"=>"John", "middle_name"=>"", "last_name"=>"William", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1794-02-09", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"56"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1801-05-07", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"57"}}, "id"=>"87"}, "10"=>{"title"=>"", "first_name"=>"James", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1795-11-03", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"58"}, "1"=>{"event_type_id"=>"3", "date_event"=>"1837-08-08", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"59"}}, "id"=>"88"}, "11"=>{"title"=>"", "first_name"=>"Georgina", "middle_name"=>"", "last_name"=>"Williams", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"3", "date_event"=>"1837-08-08", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"60"}}, "id"=>"89"}, "12"=>{"title"=>"", "first_name"=>"Nina", "middle_name"=>"Olive", "last_name"=>"Kellham", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1850-07-23", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"61"}}, "id"=>"90"}, "13"=>{"title"=>"", "first_name"=>"Charles", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1798-01-25", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"62"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1799-05-16", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"63"}}, "id"=>"91"}, "14"=>{"title"=>"", "first_name"=>"Richard", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1800-03-01", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"64"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1800-04-14", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"65"}}, "id"=>"92"}, "15"=>{"title"=>"", "first_name"=>"Olive", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1801-05-08", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"66"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1810-06-21", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"67"}}, "id"=>"93"}, "16"=>{"title"=>"", "first_name"=>"William", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1803-08-12", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"68"}}, "id"=>"94"}, "17"=>{"title"=>"", "first_name"=>"Charles", "middle_name"=>"Bird", "last_name"=>"Kellham", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1805-10-13", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"69"}}, "id"=>"95"}, "18"=>{"title"=>"", "first_name"=>"Ann", "middle_name"=>"", "last_name"=>"Kellham", "sex"=>"Female", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"3", "date_event"=>"1783-05-27", "street1"=>"St George The Martyr", "street2"=>"Queens Square", "town"=>"Bloomsbury", "county"=>"London", "country"=>"United Kingdom", "_destroy"=>"false", "id"=>"70"}}, "id"=>"96"}, "19"=>{"title"=>"", "first_name"=>"Lancelot", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"3", "date_event"=>"1783-05-27", "street1"=>"St George The Martyr", "street2"=>"Queens Square", "town"=>"Bloomsbury", "county"=>"London", "country"=>"United Kingdom", "_destroy"=>"false", "id"=>"71"}}, "id"=>"97"}, "20"=>{"title"=>"", "first_name"=>"Lancelot", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Male", "_destroy"=>"false", "person_events_attributes"=>{"0"=>{"event_type_id"=>"1", "date_event"=>"1783-03-29", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"72"}, "1"=>{"event_type_id"=>"2", "date_event"=>"1783-07-13", "street1"=>"", "street2"=>"", "town"=>"", "county"=>"", "country"=>"", "_destroy"=>"false", "id"=>"73"}}, "id"=>"98"}, "21"=>{"title"=>"", "first_name"=>"George", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Male", "_destroy"=>"false", "id"=>"99"}, "22"=>{"title"=>"", "first_name"=>"Elizabeth", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Female", "_destroy"=>"false", "id"=>"100"}, "23"=>{"title"=>"", "first_name"=>"Lancelot", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Male", "_destroy"=>"false", "id"=>"101"}, "24"=>{"title"=>"", "first_name"=>"Anne", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Female", "_destroy"=>"false", "id"=>"102"}, "25"=>{"title"=>"", "first_name"=>"Charles", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Male", "_destroy"=>"false", "id"=>"103"}, "26"=>{"title"=>"", "first_name"=>"Lancelot", "middle_name"=>"", "last_name"=>"Wilkinson", "sex"=>"Male", "_destroy"=>"false", "id"=>"104"}, "27"=>{"title"=>"", "first_name"=>"Mary", "middle_name"=>"Ann", "last_name"=>"Wilkinson", "sex"=>"Female", "_destroy"=>"false", "id"=>"105"}}}, "commit"=>"", "id"=>"83"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mLocation Load (3.1ms)[0m  [1mSELECT `locations`.* FROM `locations` [0m
+  [1m[35mEventType Load (0.4ms)[0m  SELECT `event_types`.* FROM `event_types` 
+  [1m[36mDocumentType Load (0.7ms)[0m  [1mSELECT `document_types`.* FROM `document_types` [0m
+  [1m[35mStatus Load (0.4ms)[0m  SELECT `statuses`.* FROM `statuses` 
+  [1m[36mAttributeType Load (0.5ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` [0m
+  [1m[35mDocument Load (0.3ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 83 LIMIT 1
+  [1m[36mAttributeDocument Load (0.5ms)[0m  [1mSELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (83)[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mPerson Load (3.7ms)[0m  [1mSELECT `people`.* FROM `people` WHERE `people`.`document_id` = 83 AND `people`.`id` IN (79, 78, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105)[0m
+  [1m[35mPersonEvent Load (1.0ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 79 AND `person_events`.`id` IN (40, 41)
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 78 AND `person_events`.`id` IN (38, 39)[0m
+  [1m[35mPersonEvent Load (0.6ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 80 AND `person_events`.`id` IN (42)
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 81 AND `person_events`.`id` IN (43)[0m
+  [1m[35mPersonEvent Load (0.7ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 82 AND `person_events`.`id` IN (44, 45, 46)
+  [1m[36mPersonEvent Load (0.7ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 83 AND `person_events`.`id` IN (47, 48, 49)[0m
+  [1m[35mPersonEvent Load (0.7ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 84 AND `person_events`.`id` IN (50, 51)
+  [1m[36mPersonEvent Load (98.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 85 AND `person_events`.`id` IN (52, 53)[0m
+  [1m[35mPersonEvent Load (3.7ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 86 AND `person_events`.`id` IN (54, 55)
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 87 AND `person_events`.`id` IN (56, 57)[0m
+  [1m[35mPersonEvent Load (0.6ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 88 AND `person_events`.`id` IN (58, 59)
+  [1m[36mPersonEvent Load (0.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 89 AND `person_events`.`id` IN (60)[0m
+  [1m[35mPersonEvent Load (0.6ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 90 AND `person_events`.`id` IN (61)
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 91 AND `person_events`.`id` IN (62, 63)[0m
+  [1m[35mPersonEvent Load (0.6ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 92 AND `person_events`.`id` IN (64, 65)
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 93 AND `person_events`.`id` IN (66, 67)[0m
+  [1m[35mPersonEvent Load (0.6ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 94 AND `person_events`.`id` IN (68)
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 95 AND `person_events`.`id` IN (69)[0m
+  [1m[35mPersonEvent Load (0.7ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 96 AND `person_events`.`id` IN (70)
+  [1m[36mPersonEvent Load (0.7ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 97 AND `person_events`.`id` IN (71)[0m
+  [1m[35mPersonEvent Load (0.7ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 98 AND `person_events`.`id` IN (72, 73)
+  [1m[36m (43.1ms)[0m  [1mUPDATE `documents` SET `title` = 'The Complete Family Bible; containing the Holy scriptures of the Old and New Tew Testament at Large; Together with the Apocrypha; With A Complete Illustration Of All The Difficult Passages Together With Notes Historical and Critical by the Rev Samuel Newton DD', `updated_at` = '2011-12-22 20:06:24' WHERE `documents`.`id` = 83[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/documents/83/edit
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-22 20:06:24', `updated_at` = '2011-12-22 20:06:24' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 302 Found in 478ms
+
+
+Started GET "/documents/83/edit" for 127.0.0.1 at 2011-12-22 20:06:24 +0000
+  Processing by DocumentsController#edit as HTML
+  Parameters: {"id"=>"83"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mLocation Load (3.0ms)[0m  [1mSELECT `locations`.* FROM `locations` [0m
+  [1m[35mEventType Load (0.5ms)[0m  SELECT `event_types`.* FROM `event_types` 
+  [1m[36mDocumentType Load (0.6ms)[0m  [1mSELECT `document_types`.* FROM `document_types` [0m
+  [1m[35mStatus Load (0.5ms)[0m  SELECT `statuses`.* FROM `statuses` 
+  [1m[36mAttributeType Load (0.4ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` [0m
+  [1m[35mDocument Load (0.8ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 83 LIMIT 1
+  [1m[36mAttributeDocument Load (0.4ms)[0m  [1mSELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (83)[0m
+Rendered shared/_validationerror.html.erb (0.1ms)
+  [1m[35mDocumentType Load (0.8ms)[0m  SELECT `document_types`.* FROM `document_types` ORDER BY name ASC
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT `statuses`.* FROM `statuses` ORDER BY name ASC[0m
+Rendered documents/_attribute_document_fields.html.erb (100.1ms)
+Rendered documents/_attribute_document_fields.html.erb (2.4ms)
+Rendered documents/_attribute_document_fields.html.erb (1.6ms)
+Rendered documents/_attribute_document_fields.html.erb (1.7ms)
+Rendered documents/_attribute_document_fields.html.erb (1.4ms)
+Rendered documents/_attribute_document_fields.html.erb (1.6ms)
+Rendered documents/_attribute_document_fields.html.erb (1.9ms)
+  [1m[35mDocumentPhoto Load (0.4ms)[0m  SELECT `document_photos`.* FROM `document_photos` WHERE `document_photos`.`document_id` = 83
+Rendered documents/_document_photo_fields.html.erb (0.9ms)
+  [1m[36mPerson Load (1.0ms)[0m  [1mSELECT `people`.* FROM `people` WHERE `people`.`document_id` = 83[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 79
+Rendered documents/_person_event_fields.html.erb (7.5ms)
+Rendered documents/_person_event_fields.html.erb (2.7ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (46.4ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 78[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (12.2ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 80
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (9.5ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 81[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (10.0ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 82
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (16.9ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 83[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.6ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (16.9ms)
+  [1m[35mPersonEvent Load (0.5ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 84
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (2.4ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (14.3ms)
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 85[0m
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_event_fields.html.erb (1.7ms)
+Rendered documents/_person_fields.html.erb (12.6ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 86
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (11.8ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 87[0m
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (12.4ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 88
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_fields.html.erb (14.6ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 89[0m
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (10.2ms)
+  [1m[35mPersonEvent Load (1.8ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 90
+Rendered documents/_person_event_fields.html.erb (2.4ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (117.1ms)
+  [1m[36mPersonEvent Load (0.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 91[0m
+Rendered documents/_person_event_fields.html.erb (2.6ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_fields.html.erb (14.5ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 92
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.4ms)
+Rendered documents/_person_fields.html.erb (15.2ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 93[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (12.9ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 94
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.0ms)
+Rendered documents/_person_fields.html.erb (9.9ms)
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 95[0m
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (11.2ms)
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 96
+Rendered documents/_person_event_fields.html.erb (2.7ms)
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (11.2ms)
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 97[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_fields.html.erb (11.1ms)
+  [1m[35mPersonEvent Load (0.5ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 98
+Rendered documents/_person_event_fields.html.erb (2.5ms)
+Rendered documents/_person_event_fields.html.erb (2.3ms)
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (14.7ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 99[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (6.7ms)
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 100
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (7.5ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 101[0m
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (6.0ms)
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 102
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (5.9ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 103[0m
+Rendered documents/_person_event_fields.html.erb (1.8ms)
+Rendered documents/_person_fields.html.erb (6.0ms)
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 104
+Rendered documents/_person_event_fields.html.erb (1.9ms)
+Rendered documents/_person_fields.html.erb (6.1ms)
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 105[0m
+Rendered documents/_person_event_fields.html.erb (2.1ms)
+Rendered documents/_person_fields.html.erb (7.1ms)
+Rendered documents/_person_event_fields.html.erb (2.2ms)
+Rendered documents/_person_fields.html.erb (6.2ms)
+  [1m[35mLocation Load (0.2ms)[0m  SELECT `locations`.* FROM `locations` WHERE `locations`.`document_id` = 83
+Rendered documents/_location_fields.html.erb (3.0ms)
+Rendered documents/_form.html.erb (757.4ms)
+Rendered documents/edit.html.erb within layouts/application (762.5ms)
+Rendered layouts/_menu_bar.html.erb (2.7ms)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-22 20:06:25', `updated_at` = '2011-12-22 20:06:25' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 972ms (Views: 762.7ms | ActiveRecord: 47.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /tango/skin.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /twitter.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/deleteicon.png" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /deleteicon.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/button.png" for 127.0.0.1 at 2011-12-22 20:06:26 +0000
+Served asset /button.png - 304 Not Modified (0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2011-12-22 20:06:29 +0000
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered shared/_usermenu.html.erb (9.7ms)
+Rendered users/index.html.erb within layouts/application (68.9ms)
+Rendered layouts/_menu_bar.html.erb (2.3ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-22 20:06:29', `updated_at` = '2011-12-22 20:06:29' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 116ms (Views: 107.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /twitter.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/linkbg.png" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /linkbg.png - 304 Not Modified (64ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-22 20:06:30 +0000
+Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started GET "/documents" for 127.0.0.1 at 2011-12-22 20:06:31 +0000
+  Processing by DocumentsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered shared/_search_box.html.erb (4.1ms)
+  [1m[36mDocument Load (3.2ms)[0m  [1mSELECT `documents`.* FROM `documents` WHERE `documents`.`user_id` = 1[0m
+  [1m[35mDocumentType Load (0.3ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mStatus Load (0.3ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.3ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1
+  [1m[36mStatus Load (0.2ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 5 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.4ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.4ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.4ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.3ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.3ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 11 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentType Load (0.4ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 19 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 4 LIMIT 1[0m
+Rendered documents/index.html.erb within layouts/application (630.1ms)
+Rendered layouts/_menu_bar.html.erb (3.1ms)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-22 20:06:32', `updated_at` = '2011-12-22 20:06:32' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 810ms (Views: 639.1ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /twitter.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-22 20:06:32 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)
+
+
+Started GET "/documents/83" for 127.0.0.1 at 2011-12-22 20:06:34 +0000
+  Processing by DocumentsController#show as HTML
+  Parameters: {"id"=>"83"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mDocument Load (0.3ms)[0m  SELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 83 LIMIT 1
+  [1m[36mAttributeDocument Load (0.5ms)[0m  [1mSELECT `attribute_documents`.* FROM `attribute_documents` WHERE `attribute_documents`.`document_id` IN (83)[0m
+  [1m[35mStatus Load (0.3ms)[0m  SELECT `statuses`.* FROM `statuses` WHERE `statuses`.`id` = 5 LIMIT 1
+  [1m[36mDocumentType Load (0.2ms)[0m  [1mSELECT `document_types`.* FROM `document_types` WHERE `document_types`.`id` = 1 LIMIT 1[0m
+  [1m[35mAttributeType Load (0.2ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 2 LIMIT 1
+  [1m[36mAttributeType Load (0.3ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 1 LIMIT 1[0m
+  [1m[35mAttributeType Load (0.3ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `attribute_types`.* FROM `attribute_types` WHERE `attribute_types`.`id` = 4 LIMIT 1[0m
+  [1m[35mDocumentPhoto Load (0.3ms)[0m  SELECT `document_photos`.* FROM `document_photos` WHERE `document_photos`.`document_id` = 83
+  [1m[36mPerson Load (0.9ms)[0m  [1mSELECT `people`.* FROM `people` WHERE `people`.`document_id` = 83[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 79
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 79 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 79 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 79 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 79 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.6ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 78[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 78 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 78 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 78 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 78 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 80
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 80 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 80 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 80 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 80 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 81[0m
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 81 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 81 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 81 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 81 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 82
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 82 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 82 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 82 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 82 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 83[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 83 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 83 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 83 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 83 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 84
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 84 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 84 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 84 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 84 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 85[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 85 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 85 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 85 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 85 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 86
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 86 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 86 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 86 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 86 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.7ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 87[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 87 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 87 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 87 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 87 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 88
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 88 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 88 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 88 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 88 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 89[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 89 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 89 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 89 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 89 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 90
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 90 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 90 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 90 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 90 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 91[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 91 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 91 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 91 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 91 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 92
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 92 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 92 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 92 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 92 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.5ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 93[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 93 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 93 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.5ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 93 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 93 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.5ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 94
+  [1m[36mPersonEvent Load (0.4ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 94 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 94 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 94 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 94 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 95[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 95 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 95 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 95 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 95 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 96
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 96 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 96 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 96 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 96 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 97[0m
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 97 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 97 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 97 AND (event_types.name = 'Death') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 97 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mPersonEvent Load (0.4ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 98
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 98 AND (event_types.name = 'Birth') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 98 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 98 AND (event_types.name = 'Death') LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `person_events`.* FROM `person_events` INNER JOIN `event_types` ON `event_types`.`id` = `person_events`.`event_type_id` WHERE `person_events`.`person_id` = 98 AND (event_types.name = 'Birth') LIMIT 1
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 99[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 100
+  [1m[36mPersonEvent Load (0.2ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 101[0m
+  [1m[35mPersonEvent Load (0.2ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 102
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 103[0m
+  [1m[35mPersonEvent Load (0.3ms)[0m  SELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 104
+  [1m[36mPersonEvent Load (0.3ms)[0m  [1mSELECT `person_events`.* FROM `person_events` WHERE `person_events`.`person_id` = 105[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT `locations`.* FROM `locations` WHERE `locations`.`document_id` = 83
+Rendered documents/show.html.erb within layouts/application (497.0ms)
+Rendered layouts/_menu_bar.html.erb (2.5ms)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  UPDATE `users` SET `last_activity_at` = '2011-12-22 20:06:35', `updated_at` = '2011-12-22 20:06:35' WHERE `users`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 622ms (Views: 475.5ms | ActiveRecord: 55.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /twitter.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /bg1.gif - 304 Not Modified (2ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/prev-horizontal.png" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /tango/prev-horizontal.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/next-horizontal.png" for 127.0.0.1 at 2011-12-22 20:06:35 +0000
+Served asset /tango/next-horizontal.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-12-22 20:11:09 +0000
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mDocumentType Load (0.7ms)[0m  [1mSELECT `document_types`.* FROM `document_types` ORDER BY name ASC[0m
+Rendered home/_search_form.html.erb (30.7ms)
+Rendered home/index.html.erb within layouts/application (31.8ms)
+Rendered layouts/_menu_bar.html.erb (2.2ms)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mUPDATE `users` SET `last_activity_at` = '2011-12-22 20:11:09', `updated_at` = '2011-12-22 20:11:09' WHERE `users`.`id` = 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 243ms (Views: 50.5ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/event_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /event_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /document_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /attribute_types.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /default.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery.lightbox-0.5.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery-ui-1.8.13.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /payments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquixcustom-ui.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquixcustom-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /password_resets.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/document.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /document.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/attribute_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /attribute_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tango/skin.css?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /tango/skin.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.lightbox-0.5.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery.lightbox-0.5.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event_types.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /event_types.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/password_resets.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /password_resets.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.jcarousel.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery.jcarousel.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/payments.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /payments.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui-1.8.13.custom.min.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /jquery-ui-1.8.13.custom.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/facebook.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /facebook.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /twitter.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bg1.gif" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /bg1.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/cbg.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /cbg.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/search_icon.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /search_icon.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/button.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /button.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /ui-bg_glass_65_ffffff_1x400.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/ui-bg_glass_100_f6f6f6_1x400.png" for 127.0.0.1 at 2011-12-22 20:11:10 +0000
+Served asset /ui-bg_glass_100_f6f6f6_1x400.png - 304 Not Modified (0ms)
