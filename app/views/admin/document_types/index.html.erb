@@ -1,38 +1,37 @@
 <!-- Container -->
 <div class="container siteScale clearfix">
-<div class="block whiteBG varMarginDouble leftBox floatLeft border">
-	<div class="varPaddingDouble horPaddingDouble">
-<h1>Listing Document types</h1>
+  <div class="block whiteBG varMarginDouble leftBox floatLeft border">
+    <div class="varPaddingDouble horPaddingDouble">
 
+      <h1>Listing Document types</h1>
+      
+      <%= link_to 'New Document type', new_admin_document_type_path %>
 
-<%= link_to 'New Document type', new_admin_document_type_path %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @document_types.each do |document_type| %>
-  <tr>
-    <td><%= document_type.name %></td>
-    <td><%= document_type.description %></td>
-    <td><%= link_to 'Show', admin_document_type_path(document_type) %></td>
-    <td><%= link_to 'Edit', edit_admin_document_type_path(document_type) %></td>
-    <td><%= link_to 'Destroy', admin_document_type_path(document_type), confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+        <% @document_types.each do |document_type| %>
+          <tr>
+            <td><%= document_type.name %></td>
+            <td><%= document_type.description %></td>
+            <td><%= link_to 'Show', admin_document_type_path(document_type) %></td>
+            <td><%= link_to 'Edit', edit_admin_document_type_path(document_type) %></td>
+            <td><%= link_to 'Destroy', admin_document_type_path(document_type), confirm: 'Are you sure?', method: :delete %></td>
+          </tr>
+        <% end %>
+      </table>
 
     </div>
-</div>
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-		    	<%= render "shared/usermenu"%>
-	</div>
+  </div>
+  <div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+    <%= render "shared/usermenu"%>
+  </div>
 
 </div>
 <!-- Container End -->
