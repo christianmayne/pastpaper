@@ -54,9 +54,10 @@
 
         <div class="floatLeft clearfix">
 
-            <p><%= @document.try(:name) %><br/>
-            	 <%= @document.document_type.try(:name) %>
-   	
+            <p>
+               <b><%= @document.try(:name) %><br/></b>
+               <%= @document.try(:title) %><br />
+            	<%= @document.document_type.try(:name) %>
             </p>
             <p>
             	 <%= @document.document_type.try(:title) %>
