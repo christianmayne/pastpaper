@@ -71,9 +71,10 @@
     
 </p>
             <div class="clearfix">
-            <div class="floatRight"> <b>Price:</b> &pound;<%= @document.try(:sale_price).to_f unless @document.sale_price.blank? %></div>
-            <div class="floatLeft"><b>Dimensions:</b> <%= "#{@document.try(:length)}mm X " unless @document.length.blank?   %> <%= "#{@document.try(:width)}mm X " unless @document.width.blank?  %> <%= "#{@document.try(:depth)}mm X " unless @document.depth.blank? %><%= "#{@document.try(:weight)}grams" unless @document.weight.blank?%>&nbsp; </div>
-
+            <div class="floatRight"><b>Price:</b> &pound;<%= @document.try(:sale_price).to_f unless @document.sale_price.blank? %></div>
+            <div class="floatLeft"><b>Dimensions:</b> <%= "#{@document.try(:length)}mm x " unless @document.length.blank?   %> <%= "#{@document.try(:width)}mm x " unless @document.width.blank?  %> <%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %>&nbsp;</div>
+<br />            
+            <div class="floatLeft"><b>Weight:</b> <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%>&nbsp;</div> 
 
 </div>
 

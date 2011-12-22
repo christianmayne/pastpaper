@@ -2274,3 +2274,44 @@ Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
 Rendered layouts/_menu_bar.html.erb (1.9ms)
 Completed 200 OK in 7ms (Views: 7.3ms | ActiveRecord: 0.0ms)
   [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (2.3ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (91.6ms)
+Rendered layouts/_menu_bar.html.erb (5.8ms)
+Completed 200 OK in 522ms (Views: 520.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.9ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (3.1ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.8ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (4.0ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (3.2ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (2.3ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (2.0ms)
+Completed 200 OK in 9ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
