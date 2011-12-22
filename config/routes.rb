@@ -33,6 +33,7 @@ Pastpaper::Application.routes.draw do
   end
 end
   match 'document_image_remove/:id' => 'documents#remove_image',:as=>"remove_image"
+  match 'person_detail/:id' => 'documents#person_detail',:as=>'person_detail'
 
   #static pages
   match 'about', :to=> 'pages#about'
