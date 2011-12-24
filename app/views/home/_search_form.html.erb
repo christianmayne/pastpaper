@@ -1,144 +1,141 @@
-	<div class="varPaddingDouble horPaddingDouble">
-		<div id="container-1" class="siteScaleSmall">
-    <ul class="leaf">
-        <li><a href="#documentsearch">Documents</a></li>
-        <li><a href="#person">Person</a></li>
-        <li><a href="#place">Place</a></li>
-        <li><a href="#date">Date</a></li>
-    </ul>
+<div class="varPaddingDouble horPaddingDouble">
+	<div id="container-1" class="siteScaleSmall">
+		<ul class="leaf">
+			<li><a href="#person">Person</a></li>
+			<li><a href="#place">Place</a></li>
+			<li><a href="#date">Date</a></li>
+			<li><a href="#documentsearch">Documents</a></li>
+		</ul>
 
-    <div id="documentsearch" class="block whiteBG varPaddingDouble horPaddingDouble border">
-    	
-    	<%= form_for :search_document, :url => search_results_home_index_path do |f| %>
-    	<%= f.hidden_field :search_type , :value=>1%>
-          <!-- Search Name -->
-        
-        <%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,:prompt=>"Select document type" %>
-        Title
-        <%= f.text_field :document_title,{:class=>"searchIcon",:placeholder => "Title",:size=>30} %><br/>
-<br/>
-<div class="clearfix">
-	<div class="floatLeft">
-Author        <br/><%= f.text_field :document_autor,{:class=>"searchIcon",:placeholder => "Author",:size=>24} %>
-</div>
-<div class="floatRight">
-Publisher    <br/>    <%= f.text_field :document_publisher,{:class=>"searchIcon",:placeholder => "Publisher",:size=>24} %><br /><br />
-</div>
-</div>
+		<!-- Search by Person -->
+		<div id="person" class="block whiteBG varPaddingDouble horPaddingDouble border">
+			<%= form_for :search_people, :url => search_results_home_index_path do |f| %>
+				<%= f.hidden_field :search_type , :value=>2%>
+				<!-- Search Name -->
+				First Name
+				<%= f.text_field :first_name,{:class=>"searchIcon",:placeholder => "First Name",:size=>15} %>
+
+				Last Name
+				<%= f.text_field :last_name,{:class=>"searchIcon",:placeholder => "Last Name",:size=>15} %><br /><br />
 
 
-<div class="clearfix">
-	<div class="floatLeft" style="width: 200px;">
+				<!-- Search Birth Date -->
+				Birth Date 
+				<%= f.number_field :date_birth_from, 
+						:size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
+				%>
+				+/- 
+				<%= f.number_field :date_birth_to, {:placeholder=>"YY",
+						:size => 3, :class => "searchIcon"}
+				%>
 
- Date from <br />
-             <%= f.number_field :date_from, 
-                 :size => 10, :class => 'searchIcon',:maxlength => 4 ,:placeholder=>"YYYY"
-             %>
-</div>
-<div class="floatLeft">
-              Date to
-       <br />
-             <%= f.number_field :date_to, {:placeholder=>"YYYY",
-                 :size => 10, :maxlength => 4,:class => "searchIcon"}
-             %>
-</div>
-</div>         
-                             <p class="varMarginDouble alignCenter">
-             <%= f.submit "",:class=>"search",:id=>"searchbypub" %>
-           </p>
-        <% end %>
+				<br /> <br />
 
-    	    </div>
+				<!-- Search Death Date-->
+				Death Date
+				<%= f.number_field :date_death_from,  :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"	%>
 
-    
-    <!-- Search by Person -->
+				<!-- Death +/- -->
+				<!-- Unimplemented -->
+				+/- 
+				<%= f.number_field :date_death_to,{:placeholder=>"YY",
+						:size => 3, :class => "searchIcon"}
+				%>
+				<br /><br />
 
-    <div id="person" class="block whiteBG varPaddingDouble horPaddingDouble border">
-    	
-    	<%= form_for :search_people, :url => search_results_home_index_path do |f| %>
-    	<%= f.hidden_field :search_type , :value=>2%>
-          <!-- Search Name -->
-        First Name
-        <%= f.text_field :first_name,{:class=>"searchIcon",:placeholder => "First Name",:size=>15} %>
-        
-                Last Name
-        <%= f.text_field :last_name,{:class=>"searchIcon",:placeholder => "Last Name",:size=>15} %><br /><br />
+				<p style="text-align: center;">
+					<%= f.submit "",:class=>"search",:id=>"searchbypersion" %>
+				</p>
+			<% end %>
+		</div>
+		<!-- Search by Person End -->
+
+		<!-- Search by Place -->
+		<div id="place" class="block whiteBG varPaddingDouble horPaddingDouble border">
+
+			<%= form_for :search_place, :url => search_results_home_index_path do |f| %>
+				<%= f.hidden_field :search_type , :value=>3%>
+
+				<!-- Search Name -->
+				City
+				<%= f.text_field :city,{:class=>"searchIcon",:placeholder => "City",:size=>15} %>
+
+				County
+				<%= f.text_field :county,{:class=>"searchIcon",:placeholder => "County",:size=>15} %><br /><br />
+
+				Country
+				<%= f.text_field :country,{:class=>"searchIcon",:placeholder => "Country",:size=>20} %><br /><br />
+
+				<!-- Search Birth Date -->
+				Date from 
+				<%= f.number_field :date_from, 
+						:size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
+				%>
+				Date to
+				<%= f.number_field :date_to, {:placeholder=>"YYYY",
+						:size => 10, :class => "searchIcon"}
+				%>
+				<br /> <br />
+
+				<p style="text-align: center;">
+					<%= f.submit "",:class=>"search",:id=>"searchbyplacebtn" %>
+				</p>             
+			<%end%>
+
+		</div>
+		<!-- Search by Place End -->
+
+		<!-- Search by Date -->
+		<div id="date" class="block whiteBG varPaddingDouble horPaddingDouble border">
+			Will be updated soon...
+		</div>
+		<!-- Search by Date End -->
+		
+		
+		<!-- Search by Document -->
+		<div id="documentsearch" class="block whiteBG varPaddingDouble horPaddingDouble border">
+		<%= form_for :search_document, :url => search_results_home_index_path do |f| %>
+			<%= f.hidden_field :search_type , :value=>1%>
+		
+			<!-- Search Name -->
+			<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,:prompt=>"Select document type" %>
+			Title
+			<%= f.text_field :document_title,{:class=>"searchIcon",:placeholder => "Title",:size=>30} %><br/>
+			<br/>
+			<div class="clearfix">
+				<div class="floatLeft">
+					Author        <br/><%= f.text_field :document_autor,{:class=>"searchIcon",:placeholder => "Author",:size=>24} %>
+				</div>
+				<div class="floatRight">
+					Publisher    <br/><%= f.text_field :document_publisher,{:class=>"searchIcon",:placeholder => "Publisher",:size=>24} %><br /><br />
+				</div>
+			</div>
 
 
-          <!-- Search Birth Date -->
+			<div class="clearfix">
+				<div class="floatLeft" style="width: 200px;">
 
-          Birth Date 
-             <%= f.number_field :date_birth_from, 
-                 :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
-             %>
-              +/- 
-             <%= f.number_field :date_birth_to, {:placeholder=>"YY",
-                 :size => 3, :class => "searchIcon"}
-             %>
-         
-         <br /> <br />
-         
-          <!-- Search Death Date-->
-          Death Date
-             <%= f.number_field :date_death_from,  :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
-             %>
-        
-          <!-- Death +/- -->
-          <!-- Unimplemented -->
-        +/- 
-             <%= f.number_field :date_death_to,{:placeholder=>"YY",
-                 :size => 3, :class => "searchIcon"}
-              %>
-         <br /> <br />
-         
-                             <p style="text-align: center;">
-             <%= f.submit "",:class=>"search",:id=>"searchbypersion" %>
-           </p>
-        <% end %>
-
-    	    </div>
-    <!-- Search by Person End -->
-    
-    <!-- Search by Place -->
-    <div id="place" class="block whiteBG varPaddingDouble horPaddingDouble border">
-	
-	<%= form_for :search_place, :url => search_results_home_index_path do |f| %>
-        <%= f.hidden_field :search_type , :value=>3%>
-          <!-- Search Name -->
-        City
-        <%= f.text_field :city,{:class=>"searchIcon",:placeholder => "City",:size=>15} %>
-        
-                County
-        <%= f.text_field :county,{:class=>"searchIcon",:placeholder => "County",:size=>15} %><br /><br />
-
-  Country
-        <%= f.text_field :country,{:class=>"searchIcon",:placeholder => "Country",:size=>20} %><br /><br />
-
-          <!-- Search Birth Date -->
-
-          Date from 
-             <%= f.number_field :date_from, 
-                 :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY"
-             %>
-              Date to
-             <%= f.number_field :date_to, {:placeholder=>"YYYY",
-                 :size => 10, :class => "searchIcon"}
-             %>
-<br /> <br />
-         
-                             <p style="text-align: center;">
-             <%= f.submit "",:class=>"search",:id=>"searchbyplacebtn" %>
-           </p>             <%end%>
+					Date from <br />
+					<%= f.number_field :date_from, 
+						 :size => 10, :class => 'searchIcon',:maxlength => 4 ,:placeholder=>"YYYY"
+					%>
+					</div>
+					<div class="floatLeft">
+						Date to
+						<br />
+						<%= f.number_field :date_to, {:placeholder=>"YYYY",
+							 :size => 10, :maxlength => 4,:class => "searchIcon"}
+						%>
+					</div>
+				</div>         
+				<p class="varMarginDouble alignCenter">
+					<%= f.submit "",:class=>"search",:id=>"searchbypub" %>
+				</p>
+			<% end %>
+			</div>
+			<!-- Search by Document End-->
+		
+		
 
 	</div>
-    <!-- Search by Place End -->
-    
-    <!-- Search by Date -->
-    <div id="date" class="block whiteBG varPaddingDouble horPaddingDouble border">
-		Will be updated soon...
-	
-	</div>
-	<!-- Search by Date End -->
-
 </div>
-	</div>
