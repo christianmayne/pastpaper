@@ -118,8 +118,8 @@ def self.people_search(search_params, page)
      end
      
      condition  = ""
-     condition += "people.first_name like  '%#{search_params[:first_name]}%' AND " unless search_params[:first_name].blank?
-     condition += "people.last_name like '%#{search_params[:last_name]}%' AND " unless search_params[:last_name].blank?
+     condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
+     condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
      if !date_birth_from.blank? && !date_birth_to.blank?
      condition += "(extract(year FROM person_events.date_event) >= '#{date_birth_from}' AND event_types.name = 'Birth') AND "
    
@@ -166,9 +166,9 @@ end
        date_to = search_params[:date_to].to_i
      end
    
-    condition_str += "(locations.town like '%#{search_params[:city]}%' OR person_events.town like '%#{search_params[:city]}%') AND " unless search_params[:city].blank?
-    condition_str += "(locations.county like '%#{search_params[:county]}%' OR person_events.county like '%#{search_params[:county]}%') AND " unless search_params[:county].blank?
-    condition_str += "(locations.country like '%#{search_params[:country]}%' OR person_events.country like '%#{search_params[:country]}%') AND " unless search_params[:country].blank?
+    condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(person_events.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
+    condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(person_events.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
+    condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(person_events.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
 
     condition_str += "(extract(year FROM person_events.date_event) >= '#{date_from}'
                   AND extract(year FROM person_events.date_event) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
@@ -213,9 +213,9 @@ end
            
     condition += "documents.document_type_id = '#{search_params[:document_type_id]}' AND " unless search_params[:document_type_id].blank?
     #condition += "documents.status_id = '#{search_params[:document_status_id]}' AND " unless search_params[:document_status_id].blank?
-    condition += "documents.title like '%#{search_params[:document_title]}%' AND " unless search_params[:document_title].blank?
-    condition += "attribute_types.name = 'Publisher' AND attribute_documents.value like '%#{search_params[:document_publisher]}%' AND " unless search_params[:document_publisher].blank?
-    condition += "attribute_types.name = 'Author' AND attribute_documents.value like '%#{search_params[:document_author]}%' AND " unless search_params[:document_author].blank?
+    condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
+    condition += "attribute_types.name = 'Publisher' AND UPPER(attribute_documents.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
+    condition += "attribute_types.name = 'Author' AND UPPER(attribute_documents.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
 
 
     condition += "(extract(year FROM attribute_documents.on_date) >= '#{date_from}'
