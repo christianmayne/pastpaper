@@ -166,9 +166,9 @@ end
        date_to = search_params[:date_to].to_i
      end
    
-    condition_str += "(locations.town like '%#{search_params[:city]}%' OR person_events.town like '%#{search_params[:city]}%') AND " unless search_params[:city].blank?
-    condition_str += "(locations.county like '%#{search_params[:county]}%' OR person_events.county like '%#{search_params[:county]}%') AND " unless search_params[:county].blank?
-    condition_str += "(locations.country like '%#{search_params[:country]}%' OR person_events.country like '%#{search_params[:country]}%') AND " unless search_params[:country].blank?
+    condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(person_events.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
+    condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(person_events.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
+    condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(person_events.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
 
     condition_str += "(extract(year FROM person_events.date_event) >= '#{date_from}'
                   AND extract(year FROM person_events.date_event) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?

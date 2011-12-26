@@ -19,8 +19,9 @@
   <tr class="<%= cycle("odd","even")%>">
     <td><%= order.buyer_email %></td>
     <td><%=  order.document_name%>
-    	<%= link_to "View", document_path(order.document) ,:target=>"_blank" %>
     	
+   	<%= link_to "View", document_path(order.document) ,:target=>"_blank" if !order.document.nil?   %>
+
     	<%
     	# link_to "Edit", edit_document_path(order.document) ,:target=>"_blank" 
     	 
