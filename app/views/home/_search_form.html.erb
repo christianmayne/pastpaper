@@ -1,12 +1,9 @@
 	<div class="varPaddingDouble horPaddingDouble">
 		<div id="container-1" class="siteScaleSmall">
-    <ul class="leaf">
-        <li><a href="#documentsearch">Documents</a></li>
-        <li><a href="#person">Person</a></li>
-        <li><a href="#place">Place</a></li>
-        <li><a href="#date">Date</a></li>
-    </ul>
+    
+    
 
+    <%documentsearch = capture do %>
     <div id="documentsearch" class="block whiteBG varPaddingDouble horPaddingDouble border">
     	
     	<%= form_for :search_document, :url => search_results_home_index_path do |f| %>
@@ -50,9 +47,9 @@ Publisher    <br/>    <%= f.text_field :document_publisher,{:class=>"searchIcon"
 
     	    </div>
 
-    
+    <%end%>
     <!-- Search by Person -->
-
+<%personsearch = capture do %>
     <div id="person" class="block whiteBG varPaddingDouble horPaddingDouble border">
     	
     	<%= form_for :search_people, :url => search_results_home_index_path do |f| %>
@@ -98,8 +95,9 @@ Publisher    <br/>    <%= f.text_field :document_publisher,{:class=>"searchIcon"
 
     	    </div>
     <!-- Search by Person End -->
-    
+    <%end%>
     <!-- Search by Place -->
+    <%placesearch = capture do%>
     <div id="place" class="block whiteBG varPaddingDouble horPaddingDouble border">
 	
 	<%= form_for :search_place, :url => search_results_home_index_path do |f| %>
@@ -132,6 +130,47 @@ Publisher    <br/>    <%= f.text_field :document_publisher,{:class=>"searchIcon"
 
 	</div>
     <!-- Search by Place End -->
+    <%end%>
+    
+    <%if session[:search_params][:search_type]%>
+    <%if session[:search_params][:search_type].to_i==1%>
+    
+    <ul class="leaf">
+        <li><a href="#documentsearch">Documents</a></li>
+        <li><a href="#person">Person</a></li>
+        <li><a href="#place">Place</a></li>
+        <li><a href="#date">Date</a></li>
+    </ul>
+    <%= documentsearch%><%= personsearch%><%= placesearch%>
+    <%elsif session[:search_params][:search_type].to_i==2%>
+    
+    <ul class="leaf">
+        <li><a href="#person">Person</a></li>
+        <li><a href="#documentsearch">Documents</a></li>
+        <li><a href="#place">Place</a></li>
+        <li><a href="#date">Date</a></li>
+    </ul>
+    <%= personsearch%><%= documentsearch%><%= placesearch%>
+    <%elsif session[:search_params][:search_type].to_i==3%>
+    
+    <ul class="leaf">
+        <li><a href="#place">Place</a></li>
+        <li><a href="#person">Person</a></li>
+        <li><a href="#documentsearch">Documents</a></li>
+        
+        <li><a href="#date">Date</a></li>
+    </ul>
+    <%= placesearch%><%= personsearch%><%= documentsearch%>
+    <%end%>
+    <%else%>
+    <ul class="leaf">
+        <li><a href="#documentsearch">Documents</a></li>
+        <li><a href="#person">Person</a></li>
+        <li><a href="#place">Place</a></li>
+        <li><a href="#date">Date</a></li>
+    </ul>
+    <%= documentsearch%><%= personsearch%><%= placesearch%>
+    <%end%>
     
     <!-- Search by Date -->
     <div id="date" class="block whiteBG varPaddingDouble horPaddingDouble border">
