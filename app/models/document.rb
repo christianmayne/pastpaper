@@ -118,8 +118,8 @@ def self.people_search(search_params, page)
      end
      
      condition  = ""
-     condition += "people.first_name like  '%#{search_params[:first_name]}%' AND " unless search_params[:first_name].blank?
-     condition += "people.last_name like '%#{search_params[:last_name]}%' AND " unless search_params[:last_name].blank?
+     condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
+     condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
      if !date_birth_from.blank? && !date_birth_to.blank?
      condition += "(extract(year FROM person_events.date_event) >= '#{date_birth_from}' AND event_types.name = 'Birth') AND "
    
@@ -213,9 +213,9 @@ end
            
     condition += "documents.document_type_id = '#{search_params[:document_type_id]}' AND " unless search_params[:document_type_id].blank?
     #condition += "documents.status_id = '#{search_params[:document_status_id]}' AND " unless search_params[:document_status_id].blank?
-    condition += "documents.title like '%#{search_params[:document_title]}%' AND " unless search_params[:document_title].blank?
-    condition += "attribute_types.name = 'Publisher' AND attribute_documents.value like '%#{search_params[:document_publisher]}%' AND " unless search_params[:document_publisher].blank?
-    condition += "attribute_types.name = 'Author' AND attribute_documents.value like '%#{search_params[:document_author]}%' AND " unless search_params[:document_author].blank?
+    condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
+    condition += "attribute_types.name = 'Publisher' AND UPPER(attribute_documents.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
+    condition += "attribute_types.name = 'Author' AND UPPER(attribute_documents.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
 
 
     condition += "(extract(year FROM attribute_documents.on_date) >= '#{date_from}'
