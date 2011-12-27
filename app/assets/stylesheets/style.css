@@ -45,6 +45,16 @@ div.container .rightLinks ul.leaf li { border-bottom:1px dotted #CCC; }
 div.container .rightLinks ul.leaf li:hover { border-bottom:1px dotted #C00; }
 div.container .rightLinks ul.leaf li a { display:block; padding:5px; }
 
+div.container .leftBox .heading { background:#888888; color: #FFFFFF; padding:3px; width:226px; } 
+div.container .leftBox .space { margin:0 1px; }
+div.container .leftBox .contant.odd { background:#DDDDDD; padding:3px; width:226px; margin-top:1px; } 
+div.container .leftBox .contant.even { background:#F1F1F1; padding:3px; width:226px; margin-top:1px; }
+
+div.container .leftBox .viewContent.odd {  background:; padding:3px 0 3px 11px; }
+div.container .leftBox .viewContent.even {  background:; padding:3px 0 3px 11px; } 
+div.container .leftBox .viewContent .contant.odd { background:#DDDDDD; padding:3px; width:222px; margin-top:1px; } 
+div.container .leftBox .viewContent .contant.even { background:#F1F1F1; padding:3px; width:222px; margin-top:1px; }
+
 div.footer { background:#FFF; min-height:50px; }
 div.footer .links ul.leaf li { display:inline-block; border-right:1px #666 solid; padding-right:5px; margin-right:3px; }
 div.footer .links ul.leaf li.last { border:none; }

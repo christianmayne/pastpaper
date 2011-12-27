@@ -1,18 +1,14 @@
 
-$(".persondetailinfo").html("<%@person_events.each do |person_event|%><%= "#{person_event.event_type.name}"%> <%=  " on #{person_event.date_event.strftime('%d/%m/%Y')}" rescue ""%>  <%= "at #{person_event.location}" unless person_event.location.blank?%><br /><%end%> ");
- $(".persondetailinfo").dialog({
-	autoOpen:true,
-	width:460,
-	height:250,
-	position:[500,100],
-	draggable:false,
-	resizable:false,
-	closeOnEscape: false,
-	closeText: 'hide',
-	title: "<%= @person.title.titleize rescue '' %> <%= @person.first_name rescue ' unknown' %> <%= " #{@person.middle_name.titleize}" rescue '' %><%= @person.last_name rescue 'unknown' %>",
-	open: function(event, ui) {	
-	
-	 }
- 
-	
-}); 
+
+<%persondetail= capture do%>
+       <div id="view-1" class="viewContent odd clearfix">
+       	<%@person_events.each do |person_event|%>
+       	
+           <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
+           <div class="floatLeft space contant odd"><%=  "#{person_event.date_event.strftime('%d/%m/%Y')}" rescue ""%></div>
+           <div class="floatLeft contant odd"><%= "#{person_event.location}" unless person_event.location.blank?%></div>
+       	   <%end%>
+       </div>
+  <%end%>
+
+$("#person_<%=@person.id%>").append("<%=escape_javascript(persondetail)%>");

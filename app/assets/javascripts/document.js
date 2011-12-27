@@ -34,3 +34,17 @@ $(function() {
     return false;
   });
 });
+
+function hideshow(elem)
+{
+	var a='#pdetail_'+elem;
+	var link=$("#viewlink_"+elem);
+	
+	if(link.html()=="View")
+		{
+		link.html("hide");
+		}else{
+			link.html("View");
+		}
+	$(a).toggle();
+}

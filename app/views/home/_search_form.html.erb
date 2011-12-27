@@ -95,7 +95,7 @@
 	<%end%>
 	<!-- Search by Place End -->
 
-	<%if session[:search_params][:search_type]%>
+	<%if !session[:search_params].nil?%>
 		<%if session[:search_params][:search_type].to_i==1%>
 
 			<ul class="leaf">
