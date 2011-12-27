@@ -50,8 +50,8 @@ div.container .leftBox .space { margin:0 1px; }
 div.container .leftBox .contant.odd { background:#DDDDDD; padding:3px; width:226px; margin-top:1px; } 
 div.container .leftBox .contant.even { background:#F1F1F1; padding:3px; width:226px; margin-top:1px; }
 
-div.container .leftBox .viewContent.odd {  background:; padding:3px 0 3px 11px; }
-div.container .leftBox .viewContent.even {  background:; padding:3px 0 3px 11px; } 
+div.container .leftBox .viewContent.odd {  background:#ccc;margin:1px 0; padding:3px 0 3px 11px; }
+div.container .leftBox .viewContent.even {  background:#666;margin:1px 0; padding:3px 0 3px 11px; } 
 div.container .leftBox .viewContent .contant.odd { background:#DDDDDD; padding:3px; width:222px; margin-top:1px; } 
 div.container .leftBox .viewContent .contant.even { background:#F1F1F1; padding:3px; width:222px; margin-top:1px; }
 
