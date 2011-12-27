@@ -15,7 +15,7 @@ module ApplicationHelper
 
 
   def people_gender
-    [["Male", "Male"], ["Female", "Female"],["Unknown", "Unknown"]]
+    [["Unknown", "Unknown"],["Male", "Male"], ["Female", "Female"]]
   end
   
 end
