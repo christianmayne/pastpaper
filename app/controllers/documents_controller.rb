@@ -11,7 +11,7 @@ class DocumentsController < ApplicationController
 
   
   def index
-    @documents = current_user.documents
+    @documents = current_user.documents.paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
   end
 
   def show

@@ -13,7 +13,8 @@
    
 </div>
 
-
+   <span class="alt">Items : <%= @documents.total_entries%>  <%= "On page #{params[:page]}" unless params[:page].blank?%></span>
+ 
   <table>
     <tr>
       <th>Stock Number</th>
@@ -41,6 +42,7 @@
         </tr>
     <% end %>
   </table>
+ <%= will_paginate @documents %>
      </div>
 </div>
   

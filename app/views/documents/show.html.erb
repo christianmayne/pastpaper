@@ -95,50 +95,38 @@
 	<div class="floatLeft leftBox clearfix">
     <p class="strong">People mentioned in this item</p>
 
-
-
-<div class="clearfix">
+		<div class="clearfix">
            <div class="floatLeft heading">Name</div>
            <div class="floatLeft space heading">Born</div>
            <div class="floatLeft heading">Die</div>
-       </div>
-     
+       	</div>
+
       <% if !@document.blank? && !@document.people.blank? %>
         <% @document.people.each do |person|  %>
-     
-       
-       <div class="clearfix" id="person_<%= person.id%>">
-           <div class="floatLeft contant odd"> <%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
-              <%= " #{person.middle_name.titleize}" rescue '' %>
-              <%= person.last_name rescue 'unknown' %></div>
-           <div class="floatLeft space contant odd"><%= person.birth_date rescue '' %> <%= "(#{person.birth_loacation})" rescue '' %></div>
-           <div class="floatLeft contant odd"><%= person.death_date rescue '' %> <%= "(#{person.birth_loacation})" rescue '' %>
-           	 <%unless person.person_events.nil?%>
-           		<a href="javascript:hideshow('<%= person.id%>')" id="viewlink_<%=person.id%>" class="floatRight">View</a><div class="clear"></div>
-           	<%end%>
-           	</div>
-			
-			       <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide">
-			       <%unless person.person_events.nil?%>
-			       	<%person.person_events.each do |person_event|%>
-			       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
-			           <div class="floatLeft space contant odd"><%=  "#{person_event.date_event.strftime('%d/%m/%Y')}" rescue ""%></div>
-			           <div class="floatLeft contant odd"><%= "#{person_event.location}" unless person_event.location.blank?%></div>
-			       	   <%end%>
-			       	<%end%>
-			       </div>
-			
-       </div>
-       
-
+	       <div class="clearfix" id="person_<%= person.id%>" >
+	           <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"> <%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
+	              <%= " #{person.middle_name.titleize}" rescue '' %>
+	              <%= person.last_name rescue 'unknown' %>
+	           </div>
+	           <div class="floatLeft space contant odd" style="background-color:<%=person.sex_color%>"><%= person.birth_date rescue '' %> <%= "(#{person.birth_location})" unless person.birth_location.blank? %></div>
+	           <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"><%= person.death_date rescue '' %> <%= "(#{person.death_location})" unless person.death_location.blank? %>
+	           	 <%unless person.person_events.nil?%>
+	           		<a href="javascript:hideshow('<%= person.id%>')" id="viewlink_<%=person.id%>" class="floatRight">View</a><div class="clear"></div>
+	           	 <%end%>
+	           </div>
+			   <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide">
+				 <%if !person.person_events_except_dob.nil?%>
+				 	<%person.person_events_except_dob.each do |person_event|%>
+				       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
+				           <div class="floatLeft space contant odd"><%=  "#{person_event.date_event.strftime('%d/%m/%Y')}" rescue ""%></div>
+				           <div class="floatLeft contant odd"><%= "#{person_event.location}" unless person_event.location.blank?%></div>
+				 	   <%end%>
+				 <%end%>
+			  </div>
+	       </div>
        <%end%>
 	<%end%>
 
-
-
-   
-    <div class="persondetailinfo">
-    </div>
 
     <p class="strong">Other Locations mentioned in this Document</p>
      
@@ -163,7 +151,7 @@
     </table>
      
     <div class="floatLeft">
-      <p class="shadeWhite strong">Views: 29</p>
+      <p class="shadeWhite hide">Views: 29</p>
     </div>
   </div>
     

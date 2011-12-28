@@ -11,7 +11,13 @@ class Person < ActiveRecord::Base
   
   def sex_color
     unless self.sex.blank?
-      (self.sex == 'Male') ? '#7CD7E6' : '#F09EB5'
+      if self.sex=='Male'
+        '#7CD7E6'
+      elsif self.sex=="Female"
+        '#F09EB5'
+      else
+        '#66666'
+      end
     end
   end
 
@@ -29,21 +35,19 @@ class Person < ActiveRecord::Base
     end  
   end
   
-  def birth_loacation
+  def birth_location
      unless self.person_events.blank?
       location = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Birth'"]).try(:location)
       return location
     else
-      return "?"
     end           
   end
   
-  def death_loacation
+  def death_location
      unless self.person_events.blank?
       location = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Death'"]).try(:location)
       return location
     else
-      return "?"
     end           
   end
   
@@ -65,6 +69,8 @@ class Person < ActiveRecord::Base
     else
       return "? - ?"
     end
+    
+  
     
 #    event = ""
 #    unless self.person_events.blank?
@@ -97,5 +103,10 @@ class Person < ActiveRecord::Base
 #    end
 #    return event
   end
-  
+ def person_events_except_dob
+      begin
+        return self.person_events.find(:all, :joins => :event_type, :conditions => ["event_types.name != 'Birth' and event_types.name != 'Death'"]) 
+      rescue 
+      end  
+  end
 end
