@@ -35,7 +35,7 @@ $(function() {
   });
 });
 
-function hideshow(elem)
+function hideshowpdetail(elem)
 {
 	var a='#pdetail_'+elem;
 	var link=$("#viewlink_"+elem);
@@ -47,4 +47,23 @@ function hideshow(elem)
 			link.html("View");
 		}
 	$(a).toggle();
+}
+
+function expandAllPdetail()
+{
+	var link=$("#expandallpdetail");
+	
+	if(link.html()=="Expand All")
+		{link.html("Collapse All");	}
+	else
+		{link.html("Expand All");}	
+	var items_to_show='.pdetail';
+	$(items_to_show).toggle();
+		
+	var viewlink= $('.viewlink');	
+	if(viewlink.html()=="View")
+		{viewlink.html("Hide");}
+	else
+		{viewlink.html("View");}
+	
 }

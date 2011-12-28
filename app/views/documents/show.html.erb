@@ -98,7 +98,9 @@
 		<div class="clearfix">
            <div class="floatLeft heading">Name</div>
            <div class="floatLeft space heading">Born</div>
-           <div class="floatLeft heading">Die</div>
+           <div class="floatLeft heading">Die 
+	           		<a href="javascript:expandAllPdetail()" id="expandallpdetail" class="shadeWhite floatRight">Expand All</a><div class="clear"></div>
+	           	 </div>
        	</div>
 
       <% if !@document.blank? && !@document.people.blank? %>
@@ -110,11 +112,11 @@
 	           </div>
 	           <div class="floatLeft space contant odd" style="background-color:<%=person.sex_color%>"><%= person.birth_date rescue '' %> <%= "(#{person.birth_location})" unless person.birth_location.blank? %></div>
 	           <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"><%= person.death_date rescue '' %> <%= "(#{person.death_location})" unless person.death_location.blank? %>
-	           	 <%unless person.person_events.nil?%>
-	           		<a href="javascript:hideshow('<%= person.id%>')" id="viewlink_<%=person.id%>" class="floatRight">View</a><div class="clear"></div>
+	           	 <%unless person.person_events_except_dob.nil?%>
+	           		<a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink floatRight">View</a><div class="clear"></div>
 	           	 <%end%>
 	           </div>
-			   <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide">
+			   <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
 				 <%if !person.person_events_except_dob.nil?%>
 				 	<%person.person_events_except_dob.each do |person_event|%>
 				       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
