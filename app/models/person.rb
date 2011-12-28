@@ -105,7 +105,7 @@ class Person < ActiveRecord::Base
   end
  def person_events_except_dob
       begin
-        return self.person_events.find(:all, :joins => :event_type, :conditions => ["event_types.name != 'Birth' and event_types.name != 'Death'"]) 
+        return self.person_events.find(:all, :joins => :event_type, :conditions => ["event_types.name != 'Birth' and event_types.name != 'Death' "],:order=>"person_events.date_event asc") 
       rescue 
       end  
   end
