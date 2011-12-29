@@ -122,6 +122,7 @@
 				       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
 				           <div class="floatLeft space contant odd"><%=  "#{person_event.date_event.strftime('%d/%m/%Y')}" rescue ""%></div>
 				           <div class="floatLeft contant odd"><%= "#{person_event.location}" unless person_event.location.blank?%></div>
+				 	   <div class="clear"></div>
 				 	   <%end%>
 				 <%end%>
 			  </div>
