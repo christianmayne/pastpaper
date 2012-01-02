@@ -128,7 +128,7 @@ def remove_image
   end
 
   def prepare_all_attribute_type
-    @attribute_type = AttributeType.all
+    @attribute_type = AttributeType.alphabetically
   end
 
   def prepare_all_document_status

@@ -92,7 +92,7 @@ class Document < ActiveRecord::Base
                         LEFT JOIN person_events ON person_events.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = person_events.event_type_id
                         LEFT JOIN locations ON locations.document_id = documents.id
-                        WHERE #{condition} ")
+                        WHERE #{condition}")
       
     end
   end

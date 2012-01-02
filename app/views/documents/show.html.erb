@@ -52,7 +52,8 @@
         <p>
           <b><%= @document.try(:name) %><br/></b>
           <%= @document.try(:title) %><br />
-          <%= @document.document_type.try(:name) %>
+          Type : <%= @document.document_type.try(:name) %>
+        	<br />Status : <%= @document.status.try(:name) %>
         </p>
         <p>
           <%= @document.document_type.try(:title) %>
@@ -67,7 +68,9 @@
           <% end %>
         </p>
         <div class="clearfix">
-        <div class="floatRight"><b>Price:</b> &pound;<%= @document.try(:sale_price).to_f unless @document.sale_price.blank? %></div>
+        <div class="floatRight"><b>Price:</b> 
+        	
+        	<%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %></div>
         <div class="floatLeft"><b>Dimensions:</b> <%= "#{@document.try(:length)}mm x " unless @document.length.blank?   %> <%= "#{@document.try(:width)}mm x " unless @document.width.blank?  %> <%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %>&nbsp;</div>
         <br />            
         <div class="floatLeft"><b>Weight:</b> <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%>&nbsp;</div> 

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    user = login(params[:username],params[:password])
+   
+    user = login(params[:username],params[:password],params[:remember_me])
     if user
       if !user.is_active?
        logout

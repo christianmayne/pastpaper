@@ -7,14 +7,14 @@
     <div class="varPaddingDouble horPaddingDouble clearfix">
 
 <div id="simple-search-box" class="span-24 last">
-   <% 
-   render :partial => "shared/search_box"
+   <%
+   #= render :partial => "shared/search_box"
     %>
-   
+   You have <%= pluralize(@documents.total_entries,"Item")%>.<br />
 </div>
-
+<%if @documents.count > 0%>
    <span class="alt">Items : <%= @documents.total_entries%>  <%= "On page #{params[:page]}" unless params[:page].blank?%></span>
- 
+ <%end%>
   <table>
     <tr>
       <th>Stock Number</th>
