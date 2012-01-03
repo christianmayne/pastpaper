@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-
+  
   has_many :attribute_documents, :dependent => :destroy
   has_many :locations, :dependent => :destroy
   has_many :people, :dependent => :destroy
@@ -27,6 +27,9 @@ class Document < ActiveRecord::Base
   validates_inclusion_of :length, :in => 1..1000, :message => "should be between 1 and 1000", :allow_blank => true
   validates_inclusion_of :depth, :in  => 0..1000, :message => "should be less than 1000", :allow_blank => true
 
+  def self.per_page
+    50
+  end 
 
  def document_status
    unless self.status.blank?
@@ -98,7 +101,7 @@ class Document < ActiveRecord::Base
   end
 
 
-def self.people_search(search_params, page)
+def self.people_search(search_params, page,per_page=50)
    search_params[:date_birth_to] = '0' if search_params[:date_birth_to].blank?
      if !search_params[:date_birth_from].blank?
        date_birth_from = search_params[:date_birth_from].to_i
@@ -149,14 +152,14 @@ def self.people_search(search_params, page)
                         LEFT JOIN people ON people.document_id = documents.id
                         LEFT JOIN person_events ON person_events.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = person_events.event_type_id
-                        WHERE #{condition} ",:per_page=>20,:page=>page)
+                        WHERE #{condition} ",:per_page=>per_page,:page=>page)
   else
     self.where("1=0").paginate(:per_page=>1,:page=>page)
   end
 end
 
  
-  def self.search_location(search_params,page)
+  def self.search_location(search_params,page,per_page=50)
     condition_str  = ""
     
      if !search_params[:date_from].blank?
@@ -187,7 +190,7 @@ end
                         LEFT JOIN person_events ON person_events.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = person_events.event_type_id
                         LEFT JOIN locations ON locations.document_id = documents.id
-                        WHERE #{condition_str} ",:per_page => 20,:page => page)
+                        WHERE #{condition_str} ",:per_page => per_page,:page => page)
 
     else
       self.where("1=0").paginate(:per_page=>1,:page=>page)
@@ -201,7 +204,7 @@ end
 
 
 
-  def self.search_document(search_params, page)
+  def self.search_document(search_params, page,per_page=50)
     condition  = ""
 
      if !search_params[:date_from].blank?
@@ -243,7 +246,7 @@ end
                         LEFT JOIN person_events ON person_events.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = person_events.event_type_id
                         LEFT JOIN locations ON locations.document_id = documents.id
-                        WHERE #{condition} ",:per_page => 20,:page => page)
+                        WHERE #{condition} ",:per_page => per_page,:page => page)
 
     else
       self.where("1=0").paginate(:per_page=>1,:page=>page)

@@ -54,12 +54,13 @@ class HomeController < ApplicationController
 #    end
   
   if request.xhr?
+    per_page = params[:per_page] || 50
     if session[:search_params][:search_type].to_i == 1
-      @documents = Document.search_document(session[:search_params] ,params[:page])
+      @documents = Document.search_document(session[:search_params] ,params[:page],per_page.to_i)
     elsif session[:search_params][:search_type].to_i == 2
-      @documents = Document.people_search(session[:search_params] ,params[:page])
+      @documents = Document.people_search(session[:search_params] ,params[:page],per_page.to_i)
     elsif session[:search_params][:search_type].to_i == 3
-      @documents = Document.search_location(session[:search_params] ,params[:page])
+      @documents = Document.search_location(session[:search_params] ,params[:page],per_page.to_i)
     else
       
     end

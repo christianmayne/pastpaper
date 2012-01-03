@@ -10,11 +10,8 @@
    <%
    #= render :partial => "shared/search_box"
     %>
-   You have <%= pluralize(@documents.total_entries,"Item")%>.<br />
+<%= page_entries_info @documents,:entry_name => 'item' %>
 </div>
-<%if @documents.count > 0%>
-   <span class="alt">Items : <%= @documents.total_entries%>  <%= "On page #{params[:page]}" unless params[:page].blank?%></span>
- <%end%>
   <table>
     <tr>
       <th>Stock Number</th>

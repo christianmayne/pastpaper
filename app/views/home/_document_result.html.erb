@@ -1,8 +1,8 @@
   <% @pagetitle = "Search Results" %>
   <% unless @documents.blank? %>
   
-     <span class="alt">Search Results : <%= @documents.total_entries%>  <%= "On page #{params[:page]}" unless params[:page].blank?%></span>
- 
+     
+  <%= page_entries_info @documents,:entry_name => 'item' %>
   <div>
            <table>
             <tr>
@@ -33,8 +33,22 @@
            </table>
         </div>          
 <div class="ajaxpaging">
+	<div class="clearfix">
+		<div class="floatLeft">
+			<%= will_paginate @documents %>
+		</div>
 	
-	<%= will_paginate @documents %>
+		<div class="floatRight">
+			<%if @documents.total_entries > 50%>
+				Display 
+				<%= link_to "50", search_results_home_index_path(:per_page=>50),:remote=>true%> 
+				<%= link_to "| 100", search_results_home_index_path(:per_page=>100),:remote=>true if @documents.total_entries > 50%> 
+				<%= link_to "150", search_results_home_index_path(:per_page=>150),:remote=>true if @documents.total_entries > 100%> 
+				<%= link_to "| 500", search_results_home_index_path(:per_page=>500),:remote=>true if @documents.total_entries > 150%> 
+			items per page
+			<%end%>
+		</div>
+ 	</div>
 </div>
 	<% else %>
         <div class="span-22" style="text-align: center">

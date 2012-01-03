@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
   require 'active_merchant/billing/integrations/action_view_helper'
    ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
-  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy, :show,:remove_image]
+  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy, :remove_image]
   before_filter :prepare_all_location, :only => [:new, :edit, :create, :update]
   before_filter :prepare_all_event_type, :only => [:new, :edit, :create, :update]
   before_filter :prepare_all_document_type, :only => [:new, :edit, :create, :update]
@@ -71,11 +71,12 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    if @document.destroy
-      flash[:notice] = "Successfully Deleted"
-    else
-      flash[:error]  = "Error"
-    end
+   
+      if @document.update_attributes(:is_deleted => 1)
+        flash[:notice] = "Successfully Deleted"
+      else
+        flash[:error]  = "Error"
+      end
     redirect_to documents_path
   end
 def remove_image
