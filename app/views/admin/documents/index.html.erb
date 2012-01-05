@@ -21,7 +21,7 @@
       <th>Action</th>
     </tr>
     <% @documents.each do |document| %>
-        <tr>
+        <tr <% if document.is_deleted?%> class="shadeRed"<%end%>>
           <td><%= link_to document.stock_number, document_path(document) %></td>
           <td><% if document.name.blank? %>
                 <%= link_to document.title, document_path(document) %>
@@ -32,8 +32,12 @@
           <td><%= link_to document.document_type.try(:name), document_path(document) %></td>
           <td><%= link_to document.status.try(:name), document_path(document) %></td>
             <% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
-              <td><%= link_to "Edit", edit_document_path(document) %> /
-                <%= link_to "Delete", document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" %>
+              <td>
+              	
+              	<%= link_to "Edit", edit_document_path(document) %> /
+                
+                <%= link_to "Delete", document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
+              	<%= link_to "Restore", admin_restore_document_path(document) ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? if document.is_deleted?%>
               </td>
           <% end %>
         </tr>

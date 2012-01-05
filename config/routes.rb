@@ -94,6 +94,8 @@ end
     resources :event_types
     resources :users
     resources :orders
+    resources :documents
+    match 'restore_document/:id' => 'Documents#restore_document', :as => 'restore_document'
   end
 
 

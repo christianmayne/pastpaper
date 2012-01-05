@@ -141,7 +141,7 @@ def self.people_search(search_params, page,per_page=50)
        condition += "(extract(year FROM person_events.date_event) = '#{date_death_from}' AND event_types.name = 'Death') AND "
      end
      unless condition.blank?
-      condition += " status_id != 7" 
+      condition += " status_id != 7 and is_deleted is false" 
      
      self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
                         LEFT JOIN users ON users.id = documents.user_id
@@ -178,7 +178,7 @@ end
 
     
     unless condition_str.blank?
-       condition_str += " status_id != 7" 
+       condition_str += " status_id != 7 and is_deleted is false" 
      
       self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
                         LEFT JOIN users ON users.id = documents.user_id
@@ -233,7 +233,7 @@ end
 
     #puts condition
     unless condition.blank?
-      condition += " status_id != 7" 
+      condition += " status_id != 7 and is_deleted is false" 
       
       # this need to be changed later for hidden status_id=7
       self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
