@@ -256,4 +256,11 @@ end
   def people_list(firstname, lastname)
     self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
   end
+  
+  def default_image
+    unless self.document_photos.nil?
+      return self.document_photos.first
+    end
+    return nil
+  end
 end
