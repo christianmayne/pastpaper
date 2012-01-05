@@ -1,16 +1,16 @@
 class UserMailer < ActionMailer::Base
   default from: "merosathilai@gmail.com"
 
-
-  #not implememnted
-  def activation_notification(user)
-    @user = user
-    @url  = user_activation_url(user.activation_token)
-    mail(
-      :to => user.email,
-      :subject => "Thank you for your registration in Pastonpaper"
-    )
-  end
+  
+    def registration_notification(user)
+      @user = user
+      @url  = root_url
+      mail(
+        :to => user.email,
+        :subject => "Thank you for your registration in Pastonpaper"
+      )
+    end
+  
   
   def reset_password_email(user)
     @user = user
@@ -29,6 +29,16 @@ class UserMailer < ActionMailer::Base
       :subject => "Purchase order for your item: [#{@order.document_name}] in Pastonpaper"
     )
     
+  end
+  
+  #not implememnted
+  def activation_notification(user)
+    @user = user
+    @url  = user_activation_url(user.activation_token)
+    mail(
+      :to => user.email,
+      :subject => "Thank you for your registration in Pastonpaper"
+    )
   end
     
 end

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       #raise
+      UserMailer.registration_notification(@user).deliver
       redirect_back_or_to root_url, :notice => "Registration successful!"
     else
       render :action => :new
