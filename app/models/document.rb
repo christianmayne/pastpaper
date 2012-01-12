@@ -19,7 +19,7 @@ class Document < ActiveRecord::Base
   validates :name ,:presence=>true
   validates :stock_number, :presence=>true
   validates :status_id ,:presence => true
-  validates :sale_price,:presence=>true,:numericality=>true, :if => Proc.new { |document| document.status_id == Status.find_by_name('For sale').id }
+  validates :sale_price,:presence=>true,:numericality=>true, :if => Proc.new { |document| document.status_id == 4 }
   validates :document_type_id ,:presence => true
   
   validates_numericality_of :weight, :width, :length, :depth, :message => "only number allowed", :allow_blank => true
