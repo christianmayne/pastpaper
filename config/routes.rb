@@ -2,6 +2,8 @@ Pastpaper::Application.routes.draw do
   
   
  
+ 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   
@@ -97,6 +99,7 @@ end
     resources :orders
     resources :documents
     match 'restore_document/:id' => 'Documents#restore_document', :as => 'restore_document'
+    match 'report' => 'report#index' ,:as=>:report
   end
 
 
