@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
   require 'active_merchant/billing/integrations/action_view_helper'
    ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
-  before_filter :require_login, :only => [:new, :create, :edit, :update, :destroy, :remove_image]
+  before_filter :require_login, :only => [:new, :create, :edit,:show, :update, :destroy, :remove_image,:make_primary_image]
   before_filter :prepare_all_location, :only => [:new, :edit, :create, :update]
   before_filter :prepare_all_event_type, :only => [:new, :edit, :create, :update]
   before_filter :prepare_all_document_type, :only => [:new, :edit, :create, :update]
@@ -48,7 +48,7 @@ class DocumentsController < ApplicationController
   end
 
   def update
-  begin
+  
     @document.update_attributes(params[:document])
     if @document.save
       flash[:notice] = "Successfully updated"
@@ -62,11 +62,7 @@ class DocumentsController < ApplicationController
       flash[:error] = "Error"
       render :action => "edit"
     end
-   rescue
-      flash[:error] = "Error"
-      render :action => "edit"
-   
-   end
+ 
    
   end
 
@@ -79,18 +75,33 @@ class DocumentsController < ApplicationController
       end
     redirect_to documents_path
   end
-def remove_image
-
-	@document_photo=DocumentPhoto.find(params[:id])
-	if !@document_photo.nil?
-		@document_photo.destroy
-		flash[:notice]="Image deleted"
-		redirect_to edit_document_path(@document_photo.document)
-	else
-		flash[:error]="some error occured"
-		redirect_to edit_document_path(@document_photo.document)
-	end
+  def remove_image
+  	@document_photo=DocumentPhoto.find(params[:id])
+  	if !@document_photo.nil?
+  		@document_photo.destroy
+  		flash[:notice]="Image deleted"
+  		redirect_to edit_document_path(@document_photo.document)
+  	else
+  		flash[:error]="some error occured"
+  		redirect_to edit_document_path(@document_photo.document)
+  	end
   end
+
+  def make_primary_image
+    @document_photo=DocumentPhoto.find(params[:id])
+    @document = @document_photo.document
+    if !@document_photo.nil?
+      @document.document_photos.each do |dc|
+        dc.update_attribute("is_primary",false)
+      end
+      @document_photo.update_attribute("is_primary",true)
+      flash[:notice]="Primary image selected"
+      redirect_to edit_document_path(@document_photo.document)
+    else
+      flash[:error]="some error occured"
+      redirect_to edit_document_path(@document_photo.document)
+    end
+  end  
   
  def person_detail
      begin

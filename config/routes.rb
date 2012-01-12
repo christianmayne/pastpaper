@@ -32,7 +32,8 @@ Pastpaper::Application.routes.draw do
     post 'search_results'
   end
 end
-  match 'document_image_remove/:id' => 'documents#remove_image',:as=>"remove_image"
+  match 'documents/document_image_remove/:id' => 'documents#remove_image',:as=>"remove_image"
+  match 'documents/make_primary_image/:id' => 'documents#make_primary_image',:as => :make_primary_image
   match 'person_detail/:id' => 'documents#person_detail',:as=>'person_detail'
 
   #static pages

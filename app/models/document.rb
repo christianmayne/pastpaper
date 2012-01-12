@@ -19,6 +19,7 @@ class Document < ActiveRecord::Base
   validates :name ,:presence=>true
   validates :stock_number, :presence=>true
   validates :status_id ,:presence => true
+  validates :sale_price,:presence=>true,:numericality=>true, :if => Proc.new { |document| document.status_id == Status.find_by_name('For sale').id }
   validates :document_type_id ,:presence => true
   
   validates_numericality_of :weight, :width, :length, :depth, :message => "only number allowed", :allow_blank => true
@@ -259,7 +260,12 @@ end
   
   def default_image
     unless self.document_photos.nil?
-      return self.document_photos.first
+      primary_image = self.document_photos.find(:first,:conditions=>["is_primary is true"])
+       if primary_image.nil?
+            return self.document_photos.first
+         else
+            return primary_image
+       end
     end
     return nil
   end

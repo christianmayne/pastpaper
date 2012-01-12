@@ -73,6 +73,12 @@
 					<%= image_tag photo.photo.url(:small) %><br />
 					
 					<a href="/document_image_remove/<%= photo.id%>" onclick="return confirm('Are you sure?')">Remove</a>
+					<br/>
+					<% unless photo.is_primary? %>
+						<%= link_to "Make this Primary",make_primary_image_path(photo.id) %>
+					<% else %>
+				  	    Primary Image
+					<% end %>
 			</div>
 			<%end%>
 			<% end %>
