@@ -118,7 +118,7 @@
        	</div>
 
       <% if !@document.blank? && !@document.people.blank? %>
-        <% @document.people.each do |person|  %>
+        <% @document.people.order("title desc, first_name asc, last_name asc").each do |person|  %>
 	       <div class="clearfix" id="person_<%= person.id%>" >
 	           <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"> <%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
 	              <%= " #{person.middle_name.titleize}" rescue '' %>

@@ -100,6 +100,8 @@ end
     resources :documents
     match 'restore_document/:id' => 'Documents#restore_document', :as => 'restore_document'
     match 'report' => 'report#index' ,:as=>:report
+    match 'report/surname_report' => 'report#surname_report',:as=>:surname_report
+    match 'report/location_report' => 'report#location_report',:as=>:location_report
   end
 
 

@@ -1,45 +1,43 @@
-
 <!-- Container -->
 <div class="container siteScale clearfix">
 <div class="block whiteBG varMarginDouble leftBox floatLeft border">
 	<div class="varPaddingDouble horPaddingDouble registraton">
-<h2>Site Statistics</h2>
-<font color="red">To do : Wroking in one page. Will beaked into sub pages</font><br />
-There are: <%= @people.count %> individuals listed in the database
- (<%= @male_people.count %> Males / <%= @female_people.count %> Females / <%= @unknown_people.count %> Unknown)
+	<h2>Site Statistics</h2>
 
+	<strong>Surname Report</strong><br />
+	There are: <%= @people.count %> individuals listed in the database
+	 (<%= @male_people.count %> Males / <%= @female_people.count %> Females / <%= @unknown_people.count %> Unknown)
 
-<br />
-
-<%= link_to "#{@unique_surnames} unique surnames" %>
-
-<table>
-	
-<%
-rcount=0
- @surnames.each do |sn| 
- rcount = rcount+1
- %>
-	<tr class="<%= cycle("odd","even")%>"><td><%= rcount%>.</td><td><%= sn.last_name%></td><td> (<%= sn.last_name_count%> Individulas)</td></tr>
-<% end %>
- </table>
- [-> this will link to surname report] 
-<!-- Surname Summary 
- 1: Smith (196 Individuals) 
- 2: Jones (100 Individuals) 
- 3: Robinson (54 Individuals) 
- 4: Brown (35 Individuals) 
- 5: Wood (5 Indivuals)
--->
-	<!--
-	Earliest date: 13 January 1715 (birth of John Smith in Smith Family Bible)[-> link to doc] 
- 	Latest date: 4th July 1975 (Residence of Joan Brown in Postcard from Falmouth)[-> Link to Doc]
-   -->
-   
-   
-   
-   Document Report * There are 156 Items in the database (Displayed in order of popularity) 12 Bibles [-> Link to all Bibles] 10 Postcards [-> link to all postcards 9 Photographs [-> 6 Wills [-> : : 1 Indenture [->
-</div>eak
+	<br />
+	<strong><%= link_to "#{@surnames_count} unique surnames" ,admin_surname_report_path%></strong>
+	<hr />
+   	<strong>Document Report</strong><br/>
+  	There are <%= pluralize(@documents.count,"Item")%> in the database <br />
+  	<font color="red">No filtering link to all document list</font>
+	 <table>
+		 <%
+			rcount=0
+		 	@documents_by_types.each do |ds| 
+		 	rcount = rcount+1
+		 %>
+				<tr class="<%= cycle("odd","even")%>">
+					<td><%= rcount%>.</td>
+					<td><%= link_to pluralize(ds.document_type_count,ds.document_type.name),admin_documents_path%></td>
+				</tr>
+			<% end %>
+	 </table>
+ 
+	<hr/>
+	<strong>Location Report</strong><br/>
+	 There are <%= pluralize(@countries.size,"country")%> in the database. <%= link_to "Location Report" ,admin_location_report_path%>
+ 	<% rcount=0
+ 		@countries.each do |cs| 
+ 		rcount = rcount+1 %>
+		<div><%= rcount%>.<%= cs%></div>
+	<% end %>
+		
+		
+</div>
 </div>
 
 	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
