@@ -1,0 +1,62 @@
+
+<!-- Container -->
+<div class="container siteScale clearfix">
+<div class="block whiteBG varMarginDouble leftBox floatLeft border">
+	<div class="varPaddingDouble horPaddingDouble registraton">
+<h2><%= link_to "Reports" , admin_report_path%> &raquo; Location Report</h2>
+<%
+	rcount=0
+ 	@countries.each do |cs| 
+ 	rcount = rcount+1
+ %>
+	<div><%= rcount%>.<%= cs%>
+		
+		<br />Counties : <%= @loc_chash[cs].size%>/Towns : <%= @loc_thash[cs].size%><br />
+		<strong>Counties</strong>
+	</div>
+	<table>
+		<tr>
+			<th>Counties</th>
+			
+			<th>Towns</th>
+			
+		</tr>
+	
+		<tr>
+			<td valign="top">	<% unless @loc_chash[cs].nil?%>
+			<%@loc_chash[cs].each do |key|%>
+				<%= key%><br />
+			<%end%>
+				
+		<% end %>
+	</td>
+			
+			<td style="">
+			<% unless @loc_thash[cs].nil?%>
+			<%@loc_thash[cs].each do |key|%>
+				<%= key%><br />
+			<%end%>
+			
+		<% end %></td>
+			
+		</tr>
+	
+		</table>
+		<hr />
+		<%end%>
+</div>
+</div>
+
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+		    	<%= render "shared/usermenu"%>
+	</div>
+
+
+</div>
+<!-- Container End -->
+
+
+
+
+
+
