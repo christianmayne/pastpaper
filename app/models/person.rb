@@ -28,8 +28,8 @@ class Person < ActiveRecord::Base
   end
   def birth_date  
      unless self.person_events.blank?
-      birth = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Birth'"]).try(:date_event).strftime('%d %b %Y') rescue "?"
-      return birth
+      birth = self.person_events.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
+      return birth.try(:event_date)
     else
       return "?"
     end  
@@ -53,8 +53,8 @@ class Person < ActiveRecord::Base
   
   def death_date  
      unless self.person_events.blank?
-      death = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Death'"]).try(:date_event).strftime('%d %b %Y') rescue "?"
-      return death
+      death = self.person_events.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'DEATH'"])
+      return death.try(:event_date)
     else
       return "?"
     end  

@@ -125,21 +125,19 @@ def self.people_search(search_params, page,per_page=50)
      condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
      condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
      if !date_birth_from.blank? && !date_birth_to.blank?
-     condition += "(extract(year FROM person_events.date_event) >= '#{date_birth_from}' AND event_types.name = 'Birth') AND "
+     condition += " person_events.event_year >= '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH'  AND "
    
-     condition += "(extract(year FROM person_events.date_event) <= '#{date_birth_to}'
-                  # AND event_types.name = 'Birth') AND "
+     condition += " person_events.event_year <= '#{date_birth_to}' AND UPPER(event_types.name) = 'BIRTH'  AND "
      elsif !date_birth_from.blank? && date_birth_to.blank?
-       condition += "(extract(year FROM person_events.date_event) = '#{date_birth_from}'
-                   AND event_types.name = 'Birth') AND "
+       condition += " person_events.event_year = '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH' AND "
      end
   
      if !date_death_from.blank? && !date_death_to.blank?
-       condition += "(extract(year FROM person_events.date_event) >= '#{date_death_from}' AND event_types.name = 'Death') AND "
+       condition += " person_events.event_year >= '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH'  AND "
     
-       condition += "(extract(year FROM person_events.date_event) <= '#{date_death_to}' AND event_types.name = 'Death') AND "
+       condition += " person_events.event_year <= '#{date_death_to}' AND UPPER(event_types.name) = 'DEATH' AND "
      elsif !date_death_from.blank? && date_death_to.blank?
-       condition += "(extract(year FROM person_events.date_event) = '#{date_death_from}' AND event_types.name = 'Death') AND "
+       condition += " person_events.event_year = '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH' AND "
      end
      unless condition.blank?
       condition += " status_id != 7 and is_deleted is false" 
