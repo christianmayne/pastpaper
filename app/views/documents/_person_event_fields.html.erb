@@ -2,7 +2,10 @@
     <table>
     	<tr class="even">
     	<td>Event type</td>
-    	<td>Date</td>
+    	<td></td>
+    	<td>Year</td>
+    	<td>Month</td>
+    	<td>Day</td>
     	<td>Street1</td>
     	<td>Street2</td>
     	<td>Town</td>
@@ -13,7 +16,10 @@
     	<tr class="">
     		<td><%= f.collection_select :event_type_id, @event_type, :id, :name %></td>
     	
-    	<td><%= f.text_field :date_event, :size => 10, :placeholder=>"dd/mm/yyyy", :class => 'datefield' %></td>
+    	<td><%= f.select :date_modifier, PersonEvent::DATE_MODIFIERS,:include_blank=>true,:title=>"ABT:About,AFT:after"%></td>
+    	<td><%= f.number_field :event_year, :size => 5, :placeholder=>"yyyy" %></td>
+    	<td><%= f.number_field :event_month, :size => 5, :placeholder=>"mm" %></td>
+    	<td><%= f.number_field :event_day, :size => 5, :placeholder=>"dd" %></td>
     	<td><%= f.text_field :street1, :size => 10, :class => 'input-form-input' %></td>
     	<td><%= f.text_field :street2, :size => 10, :class => 'input-form-input' %></td>
     	<td><%= f.text_field :town, :size => 10, :class => 'input-form-input' %></td>
