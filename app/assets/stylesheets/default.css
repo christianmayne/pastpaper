@@ -5,7 +5,7 @@ www.somit.com.np */
 /* CSS Document */
 
 /* ---------- Pre Setting ---------- */
-body {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#585858;}
+body {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#585858; background-image:url('images/paper-background.png'); background-repeat: repeat;}
 body, html, div, h1, h2, h3, h4, h5, h6, form, fieldset, input, textarea, p, blockquote, th, td, pre, code, tt, kbd, var, dfn, samp ul, ol, li, dl, dt, dd {margin:0; padding:0;}
 h1, h2, h3, h4, h5, h6 {font-family:Arial, Helvetica, sans-serif;	font-size:100%;	font-weight:normal;}
 h1 {font-size:1.6em;	line-height:1em; margin-bottom:1em;}

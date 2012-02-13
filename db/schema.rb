@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217192401) do
+ActiveRecord::Schema.define(:version => 20120116063512) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20111217192401) do
     t.integer  "photo_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_primary",         :default => false
   end
 
   create_table "document_types", :force => true do |t|
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20111217192401) do
     t.integer  "document_type_id"
     t.integer  "user_id"
     t.string   "name"
-    t.string   "title"
+    t.text     "title"
     t.integer  "length"
     t.integer  "width"
     t.integer  "weight"
@@ -61,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20111217192401) do
     t.text     "binding"
     t.text     "comment"
     t.string   "stock_number"
-    t.boolean  "is_hidden"
     t.date     "purchase_date"
     t.decimal  "purchase_price",   :precision => 10, :scale => 0
     t.string   "purchase_vendor"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20111217192401) do
     t.string   "sale_purchaser"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_deleted",                                      :default => false
   end
 
   create_table "event_types", :force => true do |t|
@@ -140,6 +141,10 @@ ActiveRecord::Schema.define(:version => 20111217192401) do
     t.string   "additional_info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "date_modifier"
+    t.integer  "event_year"
+    t.integer  "event_month"
+    t.integer  "event_day"
   end
 
   create_table "statuses", :force => true do |t|
@@ -175,9 +180,12 @@ ActiveRecord::Schema.define(:version => 20111217192401) do
     t.datetime "last_login_at"
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"
+  add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
 end
