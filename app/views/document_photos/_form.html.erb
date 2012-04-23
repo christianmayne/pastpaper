@@ -1,0 +1,16 @@
+<div>
+<h3>Upload Image</h3>
+
+<%= form_for(@document_photo, :url=>:document_document_photos,:multipart => :true) do |f| %>
+  <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @document_photo}%>
+ <div class="field"> 
+  	<label>Upload Image </label>
+  	<%= f.file_field :photo %>
+  </div>
+  <div class="field"> 
+  	<label>&nbsp;</label>
+    <%= f.submit "Upload" %>
+  </div>
+  
+<% end %>
+</div>

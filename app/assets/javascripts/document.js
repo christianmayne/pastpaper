@@ -33,7 +33,12 @@ $(function() {
     $.getScript(this.href);
     return false;
   });
-});
+  enablesellprice();
+  
+  $("#document_status_id").change(
+  		function(){	enablesellprice();  }
+  		)
+	});
 
 function hideshowpdetail(elem)
 {
@@ -67,3 +72,13 @@ function expandAllPdetail()
 		{viewlink.html("View");}
 	
 }
+
+function enablesellprice()
+  {
+  	  if($("#document_status_id").val()==4)
+	  {
+	  	    $("#sell_price").show();
+	  }else{
+	  	    $("#sell_price").hide();
+	  }
+ }

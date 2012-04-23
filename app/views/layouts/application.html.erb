@@ -22,7 +22,7 @@
 		<div class="header siteScale textDeco clearfix">
 
 			<div class="logo floatLeft">
-				<h1><a href="/"><%= image_tag("logo.jpg")%></a></h1>
+				<h1><a href="/"><%= image_tag("logo.jpg", :style=>"height:75px;")%></a></h1>
 			</div>
 
 				<div class="floatRight horMarginRight varMarginTop">
@@ -79,7 +79,7 @@
 		<%= yield%>
 	
 		<!-- Footer -->
-		<div class="footer siteScale borderTop clearfix">
+		<div class="footer siteScale borderTop clearfix block">
 			<div class="links varPaddingDouble horPaddingDouble floatLeft">
 				<ul class="leaf">
 					<li><%= link_to "Home",root_path %></li>

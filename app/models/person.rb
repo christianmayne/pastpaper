@@ -1,12 +1,15 @@
 class Person < ActiveRecord::Base
-
+belongs_to :document
   has_many :person_events, :dependent => :destroy
   has_many :event_types
+  
+  has_many :facts 
 
-  accepts_nested_attributes_for :person_events, :allow_destroy => true
+  accepts_nested_attributes_for :facts, :allow_destroy => true
 
- # validates :first_name,:presence => true
- # validates :last_name ,:presence => true
+  #validates :first_name,:presence => true
+  #validates :last_name ,:presence => true
+  
   validates :sex, :presence => true
   
   def sex_color
@@ -115,4 +118,10 @@ class Person < ActiveRecord::Base
         
       end  
   end
+  
+  def full_name
+    "#{self.first_name}" + " #{self.maiden_name}" + " #{self.last_name}"     
+  end
+  
+  
 end

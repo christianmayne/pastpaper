@@ -1,0 +1,33 @@
+<% @pagetitle = "Add New Document" %>
+<div class="container siteScale clearfix">
+	<div class="block whiteBG clearfix varMarginDouble border">
+		<div class="varPaddingDouble horPaddingDouble clearfix">
+			<div style="width:250px;float:left;">
+			<%= render :partial => "document_menu"%>
+			</div>
+			<div style="margin-left: 260px;">
+				<h3>People</h3>
+				
+				<% @people.each do |person| %>
+				<% unless person.new_record? %>
+				<div class="person_row" style="background: #fafafa; margin: 2px; padding:5px;">
+					<div class="floatLeft">
+					<%= person.full_name%>  <%= person.sex%></div>  
+					<div class="floatRight">
+						<%= link_to image_tag("deleteicon.png"),document_person_path(person.document.id,person),:method => :delete, :confirm => "Are you sure to delete?"  %>
+						
+					</div>
+					<br />
+					</div>
+			<% end %>			
+				<%end%>
+				<br />
+					<div class="userform">
+					<h3>Add Person For this <%= @document.document_type.name%></h3>
+<%= render :partial => "document_people/form"%>
+
+					</div>
+			</div>
+		</div>
+	</div>
+</div>  

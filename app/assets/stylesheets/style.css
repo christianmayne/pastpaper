@@ -31,8 +31,8 @@ h1, h2, h3, h4, h5, h6 { color:#013401; }
 /* ------------------------------ Site Setting ------------------------------ */
 
 div.bgwrap { padding:10px 0;}
-div.header { min-height:120px; }
-div.header .logo { margin:18px 0 0 30px; }
+div.header { height:100px; }
+div.header .logo { margin:0 0 0 30px; }
 div.header .logo h1 { font-family:Yeseva One; font-size:40px; font-weight:bold; }
 
 div.navigation ul.leaf { margin:0 10px; }
@@ -40,7 +40,7 @@ div.navigation ul.leaf li { float:left; padding:10px; border-right:1px solid #CC
 div.navigation ul.leaf li.active a { color:#499E66; font-weight:bold; }
 div.navigation ul.leaf li.last { border:none; }
 
-div.container { /*background:#99c971;*/ min-height:475px; border-width:3px; width:994px; }
+div.container {  border-width:3px; width:994px; }
 div.container .rightLinks ul.leaf li { border-bottom:1px dotted #CCC; }
 div.container .rightLinks ul.leaf li:hover { border-bottom:1px dotted #C00; }
 div.container .rightLinks ul.leaf li a { display:block; padding:5px; }
@@ -184,5 +184,5 @@ a.generalLink:active { background-position:0 -24px; }
     border: 1px solid #eee;
     color: #ddd;
   }		
-
-
+  
+ 

@@ -1,0 +1,18 @@
+<div class="fields">
+    <table>
+    	<tr class="">
+    		<td>Fact</td><td><%= f.collection_select :event_type_id, EventType.all, :id, :name %></td>
+    	<td>Location</td><td><%= f.collection_select :location_id, @document.locations, :id, :full_location,:include_blank => true %></td>
+    	
+    	</tr>
+    	<tr>
+    	<td>Modifiers</td><td><%= f.select :date_modifier, PersonEvent::DATE_MODIFIERS,:include_blank=>true,:title=>"ABT:About,AFT:after"%></td>
+    	<td>Date</td><td><%= f.number_field :fact_year, :size => 5, :placeholder=>"yyyy" %>
+    	<%= f.number_field :fact_month, :size => 5, :placeholder=>"mm" %>
+    	<%= f.number_field :fact_day, :size => 5, :placeholder=>"mm" %></td>
+    	<td><%= link_to_remove_fields image_tag("deleteicon.png"), f %></td>
+    		
+    	</tr>
+    </table> 
+    <hr />
+</div>

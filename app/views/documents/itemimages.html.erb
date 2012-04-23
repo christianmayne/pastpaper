@@ -1,0 +1,36 @@
+<% @pagetitle = "Add New Document" %>
+<div class="container siteScale clearfix">
+	<div class="block whiteBG clearfix varMarginDouble border">
+		<div class="varPaddingDouble horPaddingDouble clearfix">
+			<div style="width:250px;float:left;">
+				<%= render :partial => "document_menu"%>	
+			</div>
+			<div style="margin-left: 260px;">
+				<% unless @document.document_photos.nil? %>
+  	  <% @document.document_photos.each do |dp|%>
+	  	  <% if dp.photo.exists? %>
+	  	  <div class="" style="margin:2px;float: left; width:100px; height:120px; padding:2px; text-align: center; border: solid #093540 1px;">
+		  	<%= image_tag dp.photo.url(:thumb)%><br />
+		  	<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"icon-delete" %>
+		  </div>
+		  <% end %>
+	  <% end %>
+	  
+		  <div class="clear"></div>
+  <% end %>
+  
+				
+				
+				<br />
+					<div class="userform">
+					      <%= render :partial => 'document_photos/form'  %>
+					 </div>
+					 <div class="" style="text-align: right">
+					 <strong style="padding:5px 10px; background: #AAAAAA;margin: 2px;">
+					 	<%= link_to "Next" ,document_locations_path(@document)%>
+					 </strong>
+					 </div>
+			</div>
+		</div>
+	</div>
+</div>  

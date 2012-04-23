@@ -1,0 +1,18 @@
+
+
+<% @pagetitle = "Add New Document" %>
+<div class="container siteScale clearfix">
+	<div class="block whiteBG clearfix varMarginDouble border">
+		<div class="varPaddingDouble horPaddingDouble clearfix">
+			<div style="width:250px;float:left;">
+			<%= render :partial => "documents/document_menu"%>
+			</div>
+			<div style="margin-left: 260px;">
+					<div class="userform">
+					<h3>Add people For this <%= @document.document_type.name%></h3>
+<%= render :partial => "document_people/form"%>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>  

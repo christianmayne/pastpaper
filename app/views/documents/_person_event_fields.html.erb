@@ -14,7 +14,7 @@
     	<td>&nbsp;</td>
     	</tr>
     	<tr class="">
-    		<td><%= f.collection_select :event_type_id, @event_type, :id, :name %></td>
+    		<td><%= f.collection_select :event_type_id, EventType.all, :id, :name %></td>
     	
     	<td><%= f.select :date_modifier, PersonEvent::DATE_MODIFIERS,:include_blank=>true,:title=>"ABT:About,AFT:after"%></td>
     	<td><%= f.number_field :event_year, :size => 5, :placeholder=>"yyyy" %></td>

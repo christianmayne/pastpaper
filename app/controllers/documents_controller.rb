@@ -1,14 +1,8 @@
 class DocumentsController < ApplicationController
   require 'active_merchant/billing/integrations/action_view_helper'
    ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
-  before_filter :require_login, :only => [:new, :create, :edit,:show, :update, :destroy, :remove_image,:make_primary_image]
-  before_filter :prepare_all_location, :only => [:new, :edit, :create, :update]
-  before_filter :prepare_all_event_type, :only => [:new, :edit, :create, :update]
-  before_filter :prepare_all_document_type, :only => [:new, :edit, :create, :update]
-  before_filter :prepare_all_document_status, :only => [:new, :edit, :create, :update]
-  before_filter :prepare_all_attribute_type, :only => [:new, :edit, :create, :update]
-  before_filter :prepare_document, :only => [:edit, :update, :destroy]
-
+  before_filter :require_login, :only => [:index,:show]
+  
   
   def index
     @documents = current_user.documents.paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
@@ -23,39 +17,58 @@ class DocumentsController < ApplicationController
 
   def new
     @document = current_user.documents.new
-    @attribute_documents = @document.attribute_documents.build
-    @people = @document.people.build
-    @locations = @document.locations.build
-    @person_events = @people.person_events.build
-    @location = Location.new
-	  @document_photos= @document.document_photos.build
   end
-
+  
+  
+  
   def create
     @document = current_user.documents.new(params[:document])
     
     if @document.save
       flash[:notice] = "Successfully created..."
-      redirect_to documents_path
+      #redirect_to documents_authorinfo_url(@document)
     else
-      flash[:error] = "Error"
       render :action => 'new'
     end
   end
+  
+  def itemimages
+    @document = current_user.documents.find(params[:document_id])
+    @document_photos = @document.document_photos
+    @document_photo = @document.document_photos.build
+      
+  end
+  
+  def authorinfo
+    @document = current_user.documents.find(params[:document_id])
+    if request.post?
+      if @document.update_attributes(params[:document])
+         redirect_to document_itemimages_url(@document)
+      else
+        
+      end
+    else
+       @attribute_documents = @document.attribute_documents.build
+   
+    end
+  end
 
+  
+  
+  
   def edit
-
+    @document = current_user.documents.find(params[:id])
   end
 
   def update
-  
+  @document = current_user.documents.find(params[:id])
     @document.update_attributes(params[:document])
     if @document.save
       flash[:notice] = "Successfully updated"
       if current_user.is_admin?
-        redirect_to edit_document_path(@document)
+        redirect_to document_authorinfo_url(@document)
       else
-      redirect_to documents_path
+      redirect_to document_authorinfo_url(@document)
       end
       
     else
@@ -64,6 +77,25 @@ class DocumentsController < ApplicationController
     end
  
    
+  end
+  
+  def locations
+    @document = current_user.documents.find(params[:document_id])
+    @locations = @document.locations.order("id asc")
+    @location = @document.locations.new
+  end
+  
+  def itempeople
+    @document = current_user.documents.find(params[:document_id])
+    @people = @document.people.order("id asc")
+    @person = @document.people.build
+    @fact   = @person.facts.build
+  end
+  
+  def people_facts_locations
+    @document = current_user.documents.find(params[:document_id])
+    @locations = @document.locations.order("id asc")
+    @location = @document.locations.new
   end
 
   def destroy

@@ -1,0 +1,18 @@
+<div class="feedBox myform">
+<h3>Images</h3>
+
+
+<div class="images clearfix">
+  <% unless current_user.user_images.nil? %>
+  	  <% current_user.user_images.each do |user_image|%>
+	  	  <% if user_image.attachment.exists? %>
+	  	  <div class="" style="margin:2px;float: left; width:254px; height:220px; padding:2px; text-align: center; border: solid #093540 1px;">
+		  	<%= image_tag user_image.attachment.url(:thumb)%><br />
+		  	<%= link_to "Remove",user_image,confirm: 'Are you sure?', method: :delete,:class=>"icon-delete" %>
+		  </div>
+		  <% end %>
+	  <% end %>
+  <% end %>
+  
+  </div>
+</div>

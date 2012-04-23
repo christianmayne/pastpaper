@@ -4,7 +4,14 @@ class Document < ActiveRecord::Base
   has_many :locations, :dependent => :destroy
   has_many :people, :dependent => :destroy
   has_many :document_photos, :dependent => :destroy
-
+  
+  
+  
+  #
+  has_many :document_facts
+  
+  
+  #
 
 
   belongs_to :document_type

@@ -1,0 +1,21 @@
+<% unless @document.new_record? %>
+	<%= link_to "Document Info",edit_document_path(@document) unless @document.new_record?%>
+<hr />
+<% end %>
+<% unless @document.new_record? %>
+<%= link_to "Author Info",document_authorinfo_path(@document) unless @document.new_record? %>
+<hr />
+<%= link_to "Images",document_itemimages_path(@document) unless @document.new_record?%>
+<hr />
+<%= link_to "Locations",document_locations_path(@document) unless @document.new_record?%>
+<hr />
+<%= link_to "People Facts locations",document_people_facts_loc_path(@document) unless @document.new_record?%>
+<% else %>
+Item Info<br />
+Author Info<br />
+Images<br />
+Locations<br />
+People<br />
+Facts
+<% end %>
+
