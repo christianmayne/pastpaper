@@ -9,7 +9,7 @@
 <hr />
 <%= link_to "Locations",document_locations_path(@document) unless @document.new_record?%>
 <hr />
-<%= link_to "People Facts locations",document_people_facts_loc_path(@document) unless @document.new_record?%>
+<%= link_to "People &  Facts",document_itempeople_path(@document) unless @document.new_record?%>
 <% else %>
 Item Info<br />
 Author Info<br />
