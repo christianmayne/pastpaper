@@ -99,8 +99,8 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-   
-      if @document.update_attributes(:is_deleted => 1)
+      @document = current_user.documents.find(params[:id])
+      if @document.update_attribute(:is_deleted, true)
         flash[:notice] = "Successfully Deleted"
       else
         flash[:error]  = "Error"
