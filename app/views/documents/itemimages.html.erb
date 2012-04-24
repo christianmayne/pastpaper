@@ -9,7 +9,7 @@
 				<% unless @document.document_photos.blank? %>
   	  <% @document.document_photos.each do |dp|%>
 	  	  <% if dp.photo.exists? %>
-	  	  <div class="" style="margin:2px;float: left; width:100px; height:120px; padding:2px; text-align: center; border: solid #093540 1px;">
+	  	  <div class="" style="margin:2px;float: left; width:150px; height:120px; padding:2px; text-align: center; border: solid #093540 1px;">
 		  	<%= image_tag dp.photo.url(:thumb)%><br />
 		  	<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"icon-delete" %>
 		  </div>
