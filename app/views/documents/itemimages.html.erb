@@ -6,7 +6,7 @@
 				<%= render :partial => "document_menu"%>	
 			</div>
 			<div style="margin-left: 260px;">
-				<% unless @document.document_photos.nil? %>
+				<% unless @document.document_photos.blank? %>
   	  <% @document.document_photos.each do |dp|%>
 	  	  <% if dp.photo.exists? %>
 	  	  <div class="" style="margin:2px;float: left; width:100px; height:120px; padding:2px; text-align: center; border: solid #093540 1px;">
@@ -14,9 +14,10 @@
 		  	<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"icon-delete" %>
 		  </div>
 		  <% end %>
+		  <div class="clear"></div>
 	  <% end %>
 	  
-		  <div class="clear"></div>
+		  
   <% end %>
   
 				

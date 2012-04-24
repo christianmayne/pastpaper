@@ -7,6 +7,6 @@ class AttributeDocument < ActiveRecord::Base
 validates :attribute_type_id ,:presence => true
 validates :value ,:presence => true
 
-validates :value ,:uniqueness => { :scope => [:attribute_type_id,:document_id,:value]}
+validates :attribute_type_id ,:uniqueness => { :scope => [:attribute_type_id,:document_id]}
 
 end
