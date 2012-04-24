@@ -57,7 +57,14 @@ class DocumentsController < ApplicationController
   
   
   def edit
-    @document = current_user.documents.find(params[:id])
+      if current_user.is_admin?
+        @document = Document.find(params[:id], :include => [:attribute_documents])
+      else
+        @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
+      
+      end
+    
+    #@document = current_user.documents.find(params[:id])
   end
 
   def update
