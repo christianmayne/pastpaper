@@ -24,7 +24,7 @@ class Document < ActiveRecord::Base
   accepts_nested_attributes_for :document_photos, :allow_destroy => :true#,:limit => 4,:reject_if => proc { |attributes| attributes['photo'].blank? }
   
   validates :name ,:presence=>true
-  validates :stock_number, :presence=>true
+  validates :stock_number, :presence=>true,:uniqueness => true
   validates :status_id ,:presence => true
   validates :sale_price,:presence=>true,:numericality=>true, :if => Proc.new { |document| document.status_id == 4 }
   validates :document_type_id ,:presence => true

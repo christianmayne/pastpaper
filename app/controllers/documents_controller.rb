@@ -26,7 +26,7 @@ class DocumentsController < ApplicationController
     
     if @document.save
       flash[:notice] = "Successfully created..."
-      redirect_to document_authorinfo_url(@document)
+       redirect_to document_authorinfo_url(@document)
     else
       render :action => 'new'
     end
