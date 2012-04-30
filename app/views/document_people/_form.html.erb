@@ -1,5 +1,6 @@
- 			<%= form_for(@person,:url=>:document_people) do |f|%>
-	<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
+ 
+						<%= form_for(@person,:url=>:document_people) do |f|%>
+							<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
 
 <div class="fields varPaddingTop"> 
 	<div class="field">
@@ -17,19 +18,18 @@
 	<div class="field">
 		<label>Sex </label><%= f.select :sex, people_gender ,{:style=>"width:100px;"}%>
 	</div>	
-		<strong class="shadeGrey">Add Facts of this person</strong>
+		<strong class="shadeGrey">Facts of this person</strong>
 		
 		<%= f.fields_for :facts do |fact| %>
 		    <%= render :partial => "document_people/fact_fields", :locals => {:f => fact} %>
 		<% end %>
-		<span class="span-3 top-25"><%= link_to_add_fields "+ add another Fact", f, :facts %></span>
+		<br />
+		<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
 	</div>
 
 
 	<div class="field">
-		<label>&nbsp;</label><%= f.submit "Add"%>
+		<label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
 	</div>
 
-</div>
-<% end %>
- 			
+						<%end%>

@@ -33,7 +33,7 @@
                                     <% service.return_url paypal_return_url %>
                                     <% service.cancel_return_url paypal_cancel_url %>
                                     <%if @document.sale_price > 0.50 %>
-                                      <%= submit_tag("Buy This Item From Paypal") %>
+                                      <%= submit_tag("Buy From Paypal",:class=>"button") %>
                                     <%end%>
                                   <% end %>
   

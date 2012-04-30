@@ -18,7 +18,7 @@ class Document < ActiveRecord::Base
   belongs_to :status
   belongs_to :user
 
-  accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true
+  accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true, :reject_if => proc { |att| att['attribute_type_id'].blank? && att['value'].blank?  }
   accepts_nested_attributes_for :locations, :allow_destroy => :true
   accepts_nested_attributes_for :people, :allow_destroy => :true
   accepts_nested_attributes_for :document_photos, :allow_destroy => :true#,:limit => 4,:reject_if => proc { |attributes| attributes['photo'].blank? }

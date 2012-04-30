@@ -38,6 +38,10 @@ $(function() {
   $("#document_status_id").change(
   		function(){	enablesellprice();  }
   		)
+  		$( ".button").button();
+  		$( ".accordion" ).accordion({ collapsible: true,active: false  });
+  		
+  		
 	});
 
 function hideshowpdetail(elem)

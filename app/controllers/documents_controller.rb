@@ -2,17 +2,13 @@ class DocumentsController < ApplicationController
   require 'active_merchant/billing/integrations/action_view_helper'
    ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
   before_filter :require_login, :only => [:index,:show]
-  
+  before_filter :prepare_document ,:only => [:show,:itemimages,:authorinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations]
   
   def index
     @documents = current_user.documents.paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
   end
 
   def show
-    @document = Document.find(params[:id], :include => [:attribute_documents])
-  rescue
-    flash[:notice] = "can't access to this document"
-    redirect_to documents_path
   end
 
   def new
@@ -33,14 +29,14 @@ class DocumentsController < ApplicationController
   end
   
   def itemimages
-    @document = current_user.documents.find(params[:document_id])
+    
     @document_photos = @document.document_photos
     @document_photo = @document.document_photos.build
       
   end
   
   def authorinfo
-    @document = current_user.documents.find(params[:document_id])
+   # @document = current_user.documents.find(params[:document_id])
     if request.post?
       if @document.update_attributes(params[:document])
          redirect_to document_itemimages_url(@document)
@@ -57,18 +53,11 @@ class DocumentsController < ApplicationController
   
   
   def edit
-      if current_user.is_admin?
-        @document = Document.find(params[:id], :include => [:attribute_documents])
-      else
-        @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
-      
-      end
-    
-    #@document = current_user.documents.find(params[:id])
+     
   end
 
   def update
-  @document = current_user.documents.find(params[:id])
+  #@document = current_user.documents.find(params[:id])
     @document.update_attributes(params[:document])
     if @document.save
       flash[:notice] = "Successfully updated"
@@ -106,7 +95,7 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-      @document = current_user.documents.find(params[:id])
+     # @document = current_user.documents.find(params[:id])
       if @document.update_attribute(:is_deleted, true)
         flash[:notice] = "Successfully Deleted"
       else
@@ -116,7 +105,7 @@ class DocumentsController < ApplicationController
   end
   def remove_image
   	@document_photo=DocumentPhoto.find(params[:id])
-  	if !@document_photo.nil?
+  	if !@document_photo.blank?
   		@document_photo.destroy
   		flash[:notice]="Image deleted"
   		redirect_to edit_document_path(@document_photo.document)
@@ -154,16 +143,21 @@ class DocumentsController < ApplicationController
   private
 
   def prepare_document
-      if current_user.is_admin?
-        @document = Document.find(params[:id], :include => [:attribute_documents])
-      else
-        @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
-      
-      end
+     if params[:id]
+        if current_user.is_admin?
+          @document = Document.find(params[:id], :include => [:attribute_documents])
+        else
+          @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
+        end
+     elsif params[:document_id]
+        if current_user.is_admin?
+          @document = Document.find(params[:document_id], :include => [:attribute_documents])
+        else
+          @document = current_user.documents.find(params[:document_id], :include => [:attribute_documents])
+        end  
+     end  
     
-  rescue
-    flash[:notice] = "can't access this document"
-    redirect_to documents_path
+  
   end
   
   def prepare_all_location

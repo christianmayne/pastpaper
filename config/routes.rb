@@ -34,6 +34,7 @@ Pastpaper::Application.routes.draw do
     resources :document_locations
     resources :people ,:controller => "document_people"
     resources :document_facts
+    resource :facts
     
     resources :document_photos
     

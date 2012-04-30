@@ -18,8 +18,13 @@
   
 							<div class="field">
 						      <label>&nbsp;</label>
-						      <%= f.submit "" ,:class=>"submit" %>
+						      <%= f.submit "Save" ,:class=>"button" %>
 					      </div>
+					      <div class="" style="text-align: right">
+					 
+					 	<%= link_to "Next" ,document_itemimages_path(@document),:class=>"button"%>
+					 
+					 </div>
 					      </div>
 					    <% end %>
 					</div>

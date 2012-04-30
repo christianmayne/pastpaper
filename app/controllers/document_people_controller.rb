@@ -24,7 +24,7 @@ class DocumentPeopleController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    
+   
     @document = current_user.documents.find(params[:document_id])
     @person = @document.people.build(params[:person])
     if @person.save
@@ -33,6 +33,31 @@ class DocumentPeopleController < ApplicationController
       render "new"
     end
   end
+
+def show
+    @document = current_user.documents.find(params[:document_id])
+    @person = @document.people.find(params[:id])
+    redirect_to document_itempeople_url(@document)
+end
+  
+  def edit 
+    @document = current_user.documents.find(params[:document_id])
+    @person = @document.people.find(params[:id])
+  end
+  
+def update
+  
+  #raise params.inspect
+   @document = current_user.documents.find(params[:document_id])
+   @person = @document.people.find(params[:id])
+   #@person.update_attributes(params[:person])
+   if @person.update_attributes(params[:person])
+    redirect_to document_itempeople_url(@document)
+   else
+     render "edit"
+   end
+end
+
 
  
   # DELETE /profiles/1

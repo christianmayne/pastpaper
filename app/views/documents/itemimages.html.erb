@@ -6,7 +6,8 @@
 				<%= render :partial => "document_menu"%>	
 			</div>
 			<div style="margin-left: 260px;">
-				<% unless @document.document_photos.blank? %>
+		
+						<% unless @document.document_photos.blank? %>
   	  <% @document.document_photos.each do |dp|%>
 	  	  <% if dp.photo.exists? %>
 	  	  <div class="" style="margin:2px;float: left; width:150px; height:120px; padding:2px; text-align: center; border: solid #093540 1px;">
@@ -21,15 +22,12 @@
   <% end %>
   
 				
-				
 				<br />
 					<div class="userform">
 					      <%= render :partial => 'document_photos/form'  %>
 					 </div>
 					 <div class="" style="text-align: right">
-					 <strong style="padding:5px 10px; background: #AAAAAA;margin: 2px;">
-					 	<%= link_to "Next" ,document_locations_path(@document)%>
-					 </strong>
+					 	<%= link_to "Next" ,document_locations_path(@document),:class=>"button"%>
 					 </div>
 			</div>
 		</div>

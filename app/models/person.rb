@@ -30,34 +30,34 @@ belongs_to :document
 #    end
   end
   def birth_date  
-     unless self.person_events.blank?
-      birth = self.person_events.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
-      return birth.try(:event_date)
+     unless self.facts.blank?
+      birth = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
+      return birth.try(:fact_year)
     else
       return "?"
     end  
   end
   
   def birth_location
-     unless self.person_events.blank?
-      location = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Birth'"]).try(:location)
+     unless self.facts.blank?
+      location = self.facts.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Birth'"]).try(:location)
       return location
     else
     end           
   end
   
   def death_location
-     unless self.person_events.blank?
-      location = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Death'"]).try(:location)
+     unless self.facts.blank?
+      location = self.facts.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Death'"]).try(:location_id)
       return location
     else
     end           
   end
   
   def death_date  
-     unless self.person_events.blank?
-      death = self.person_events.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'DEATH'"])
-      return death.try(:event_date)
+     unless self.facts.blank?
+      death = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'DEATH'"])
+      return death.try(:fact_year)
     else
       return "?"
     end  
@@ -108,7 +108,7 @@ belongs_to :document
   end
  def person_events_except_dob
       begin
-      res=   self.person_events.find(:all, :joins => :event_type, :conditions => ["event_types.name != 'Birth' and event_types.name != 'Death' "],:order=>"person_events.date_event asc") 
+      res=   self.facts.find(:all, :joins => :event_type, :conditions => ["event_types.name != 'Birth' and event_types.name != 'Death' "],:order=>"person_events.date_event asc") 
       if !res.blank?
         return res
        else
