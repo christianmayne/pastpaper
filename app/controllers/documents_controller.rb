@@ -76,20 +76,20 @@ class DocumentsController < ApplicationController
   end
   
   def locations
-    @document = current_user.documents.find(params[:document_id])
+   # @document = current_user.documents.find(params[:document_id])
     @locations = @document.locations.order("id asc")
     @location = @document.locations.new
   end
   
   def itempeople
-    @document = current_user.documents.find(params[:document_id])
+   # @document = current_user.documents.find(params[:document_id])
     @people = @document.people.order("id asc")
     @person = @document.people.build
     @fact   = @person.facts.build
   end
   
   def people_facts_locations
-    @document = current_user.documents.find(params[:document_id])
+    #@document = current_user.documents.find(params[:document_id])
     @locations = @document.locations.order("id asc")
     @location = @document.locations.new
   end
