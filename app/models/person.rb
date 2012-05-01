@@ -41,11 +41,13 @@ class Person < ActiveRecord::Base
   def birth_location
      unless self.facts.blank?
       fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
+    if fact
       if fact.location
         fact.location.full_location
       end
+   end
     else
-     
+    
     end           
   end
   
