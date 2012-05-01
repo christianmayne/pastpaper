@@ -134,8 +134,8 @@
 				 <%if !person.person_events_except_dob.nil?%>
 				 	<%person.person_events_except_dob.each do |person_event|%>
 				       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
-				           <div class="floatLeft space contant odd"><%=  "#{person_event.event_date}" %></div>
-				           <div class="floatLeft contant odd"><%= "#{person_event.location}" unless person_event.location.blank?%></div>
+				           <div class="floatLeft space contant odd"><%=  "#{person_event.fact_year}" %></div>
+				           <div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
 				 	   <div class="clear"></div>
 				 	   <%end%>
 				 <%end%>
