@@ -47,13 +47,13 @@ div.container .rightLinks ul.leaf li a { display:block; padding:5px; }
 
 div.container .leftBox .heading { background:#888888; color: #FFFFFF; padding:3px; width:226px; } 
 div.container .leftBox .space { margin:0 1px; }
-div.container .leftBox .contant.odd { background:#DDDDDD; padding:3px; width:226px; margin-top:1px; } 
-div.container .leftBox .contant.even { background:#F1F1F1; padding:3px; width:226px; margin-top:1px; }
+div.container .leftBox .contant.odd { background:#DDDDDD; padding:3px; width:226px; margin-top:1px; min-height:15px} 
+div.container .leftBox .contant.even { background:#F1F1F1; padding:3px; width:226px; margin-top:1px; min-height:15px}
 
 div.container .leftBox .viewContent.odd {  background:#ccc;margin:1px 0; padding:3px 0 3px 11px;min-height:15px; }
 div.container .leftBox .viewContent.even {  background:#666;margin:1px 0; padding:3px 0 3px 11px; } 
 div.container .leftBox .viewContent .contant.odd { background:#DDDDDD; padding:3px; width:222px; margin-top:1px; min-height:15px; } 
-div.container .leftBox .viewContent .contant.even { background:#F1F1F1; padding:3px; width:222px; margin-top:1px; }
+div.container .leftBox .viewContent .contant.even { background:#F1F1F1; padding:3px; width:222px; margin-top:1px;min-height:15px }
 
 div.footer { background:#FFF; min-height:50px; }
 div.footer .links ul.leaf li { display:inline-block; border-right:1px #666 solid; padding-right:5px; margin-right:3px; }
