@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-belongs_to :document
+  belongs_to :document
   has_many :person_events, :dependent => :destroy
   has_many :event_types
   
@@ -40,16 +40,21 @@ belongs_to :document
   
   def birth_location
      unless self.facts.blank?
-      location = self.facts.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Birth'"]).try(:location)
-      return location
+      fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
+      if fact.location
+        fact.location.full_location
+      end
     else
+     
     end           
   end
   
   def death_location
      unless self.facts.blank?
-      location = self.facts.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Death'"]).try(:location_id)
-      return location
+      fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'DEATH'"])
+       if fact.location
+        fact.location.full_location
+      end
     else
     end           
   end
@@ -108,7 +113,7 @@ belongs_to :document
   end
  def person_events_except_dob
       begin
-      res=   self.facts.find(:all, :joins => :event_type, :conditions => ["event_types.name != 'Birth' and event_types.name != 'Death' "],:order=>"person_events.date_event asc") 
+      res=   self.facts.find(:all, :joins => :event_type, :conditions => ["UPPER(event_types.name) != 'BIRTH' and UPPER(event_types.name) != 'DEATH' "],:order=>"person_events.date_event asc") 
       if !res.blank?
         return res
        else
