@@ -93,7 +93,7 @@
      
       <% end %>
       <% if !@document.blank? && !@document.document_photos.blank? %>
-      <a href="<%= @document.default_image.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag @document.default_image.photo.url(:large), %></a><br />
+     <%= image_tag @document.default_image.photo.url(:large), %><br />
         <ul id="mycarousel" class="jcarousel-skin-tango">
           <% @document.document_photos.each do |photo|  %>
 			      <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>

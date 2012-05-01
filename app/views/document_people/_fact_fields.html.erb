@@ -9,7 +9,7 @@
     	<td>Modifiers</td><td><%= f.select :date_modifier, PersonEvent::DATE_MODIFIERS,:include_blank=>true,:title=>"ABT:About,AFT:after"%></td>
     	<td>Date</td><td><%= f.number_field :fact_year, :size => 5, :placeholder=>"yyyy" %>
     	<%= f.number_field :fact_month, :size => 5, :placeholder=>"mm" %>
-    	<%= f.number_field :fact_day, :size => 5, :placeholder=>"mm" %></td>
+    	<%= f.number_field :fact_day, :size => 5, :placeholder=>"dd" %></td>
     	<td><%= link_to_remove_fields image_tag("deleteicon.png"), f %></td>
     		
     	</tr>
