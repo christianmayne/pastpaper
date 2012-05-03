@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
   has_many :person_events, :dependent => :destroy
   has_many :event_types
   
-  has_many :facts 
+  has_many :facts ,:dependent => :destroy
 
   accepts_nested_attributes_for :facts, :allow_destroy => true
 

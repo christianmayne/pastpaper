@@ -24,6 +24,10 @@ Pastpaper::Application.routes.draw do
   
   
   resources :documents do 
+    collection do 
+    match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
+    end
+    
     match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
     match '/images' => 'documents#itemimages' ,:as => :itemimages
     match '/locations' => 'documents#locations',:as => :locations

@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   require 'active_merchant/billing/integrations/action_view_helper'
    ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
   before_filter :require_login, :only => [:index,:show]
-  before_filter :prepare_document ,:only => [:show,:itemimages,:authorinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations]
+  before_filter :prepare_document ,:only => [:show,:itemimages,:authorinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations,:permanently_delete]
   
   def index
     @documents = current_user.documents.paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
@@ -103,15 +103,30 @@ class DocumentsController < ApplicationController
       end
     redirect_to documents_path
   end
+  
+  def permanently_delete
+     if current_user.is_admin?
+     if @document.destroy
+        flash[:notice] = "Item permanently deleted"
+      else
+        flash[:error]  = "Error"
+      end
+    
+    else
+       flash[:notice] = "You can't remove item "
+    end  
+    redirect_to admin_documents_path
+  end
+  
   def remove_image
   	@document_photo=DocumentPhoto.find(params[:id])
   	if !@document_photo.blank?
   		@document_photo.destroy
   		flash[:notice]="Image deleted"
-  		redirect_to edit_document_path(@document_photo.document)
+  		redirect_to document_itemimages_url(@document_photo.document)
   	else
   		flash[:error]="some error occured"
-  		redirect_to edit_document_path(@document_photo.document)
+  		redirect_to document_itemimages_url(@document_photo.document)
   	end
   end
 
@@ -124,10 +139,10 @@ class DocumentsController < ApplicationController
       end
       @document_photo.update_attribute("is_primary",true)
       flash[:notice]="Primary image selected"
-      redirect_to edit_document_path(@document_photo.document)
+      redirect_to document_itemimages_url(@document_photo.document)
     else
       flash[:error]="some error occured"
-      redirect_to edit_document_path(@document_photo.document)
+      redirect_to document_itemimages_url(@document_photo.document)
     end
   end  
   
