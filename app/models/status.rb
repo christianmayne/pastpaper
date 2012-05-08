@@ -4,4 +4,8 @@ class Status < ActiveRecord::Base
 
   validates :name ,:presence => true
 
+  def self.for_filter
+    self.where("UPPER(name) != 'HIDDEN'")
+  end
+
 end

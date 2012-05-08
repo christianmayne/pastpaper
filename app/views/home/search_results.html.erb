@@ -2,10 +2,33 @@
 <div class="container siteScale clearfix">
 <div class="block whiteBG varMarginDouble border ">
 	<div class="varPaddingDouble horPaddingDouble">
-       <% if @documents.blank?%>
-       <%= render :partial => "search_form"%>
+		<div class="floatLeft">
+			<%= link_to "Back to search" ,root_path,:class=>"button"%>
+		</div>
+       <div class="floatRight">
        
-       <%end%>
+       <%= form_for :document_filter, :url => search_results_home_index_path do |f| %>
+				
+				Filter your search : 
+				<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"Select document type"},{:class=>"fixselectwidth"} %>
+				<%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"Select document status"},{:class=>"fixselectwidth"} %>
+				<%= f.submit "Go",:class=>"button"%>
+		<%end%>
+		</div>
+		<div class="clear"></div>
+		<h3><% if session[:search_params][:search_type].to_i == 1%>
+				Items matching to your search creteria
+			<%elsif session[:search_params][:search_type].to_i == 1 %>
+			Items that have locations matching to your search
+			
+			<%else%>
+			Items that have people matching to your search 
+			<%end%>
+			
+		</h3>
+		<% unless !@documents.blank?%>
+		 <%= render :partial=>"search_form"%>
+		<%end%>
        <div id="document_results">
        
        <%= render :partial => "document_result"%>

@@ -128,24 +128,34 @@ def self.people_search(search_params, page,per_page=50)
        end
      end
      
+     
      condition  = ""
      condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
      condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
+    
      if !date_birth_from.blank? && !date_birth_to.blank?
-     condition += " person_events.event_year >= '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH'  AND "
+     condition += " facts.fact_year >= '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH'  AND "
    
-     condition += " person_events.event_year <= '#{date_birth_to}' AND UPPER(event_types.name) = 'BIRTH'  AND "
+     condition += " facts.fact_year <= '#{date_birth_to}' AND UPPER(event_types.name) = 'BIRTH'  AND "
      elsif !date_birth_from.blank? && date_birth_to.blank?
-       condition += " person_events.event_year = '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH' AND "
+       condition += " facts.fact_year = '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH' AND "
      end
   
      if !date_death_from.blank? && !date_death_to.blank?
-       condition += " person_events.event_year >= '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH'  AND "
+       condition += " facts.fact_year >= '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH'  AND "
     
-       condition += " person_events.event_year <= '#{date_death_to}' AND UPPER(event_types.name) = 'DEATH' AND "
+       condition += " facts.fact_year <= '#{date_death_to}' AND UPPER(event_types.name) = 'DEATH' AND "
      elsif !date_death_from.blank? && date_death_to.blank?
-       condition += " person_events.event_year = '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH' AND "
+       condition += " facts.fact_year = '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH' AND "
      end
+    
+    if !search_params[:document_type_id].blank?
+       condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
+    end  
+    if !search_params[:document_status].blank?
+       condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
+    end  
+   
      unless condition.blank?
       condition += " status_id != 7 and is_deleted is false" 
      
@@ -156,8 +166,8 @@ def self.people_search(search_params, page,per_page=50)
                         LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
                         LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
-                        LEFT JOIN person_events ON person_events.person_id = people.id
-                        LEFT JOIN event_types ON event_types.id = person_events.event_type_id
+                        LEFT JOIN facts ON facts.person_id = people.id
+                        LEFT JOIN event_types ON event_types.id = facts.event_type_id
                         WHERE #{condition} ",:per_page=>per_page,:page=>page)
   else
     self.where("1=0").paginate(:per_page=>1,:page=>page)
@@ -175,13 +185,17 @@ end
        date_to = search_params[:date_to].to_i
      end
    
-    condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(person_events.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
-    condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(person_events.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
-    condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(person_events.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
+    condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(locations.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
+    condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(locations.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
+    condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
 
-    condition_str += "(extract(year FROM person_events.date_event) >= '#{date_from}'
-                  AND extract(year FROM person_events.date_event) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
-
+    condition_str += "(extract(year FROM facts.fact_year) >= '#{date_from}' AND extract(year FROM facts.fact_year) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
+    if !search_params[:document_type_id].blank?
+       condition_str += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
+    end  
+    if !search_params[:document_status].blank?
+       condition_str += " documents.status_id = '#{search_params[:document_status]}'  AND "
+    end
     
     unless condition_str.blank?
        condition_str += " status_id != 7 and is_deleted is false" 
@@ -193,8 +207,8 @@ end
                         LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
                         LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
-                        LEFT JOIN person_events ON person_events.person_id = people.id
-                        LEFT JOIN event_types ON event_types.id = person_events.event_type_id
+                        LEFT JOIN facts ON facts.person_id = people.id
+                        LEFT JOIN event_types ON event_types.id = facts.event_type_id
                         LEFT JOIN locations ON locations.document_id = documents.id
                         WHERE #{condition_str} ",:per_page => per_page,:page => page)
 
@@ -220,15 +234,20 @@ end
        date_to = search_params[:date_to].to_i
      end
            
-    condition += "documents.document_type_id = '#{search_params[:document_type_id]}' AND " unless search_params[:document_type_id].blank?
+    #condition += "documents.document_type_id = '#{search_params[:document_type_id]}' AND " unless search_params[:document_type_id].blank?
     #condition += "documents.status_id = '#{search_params[:document_status_id]}' AND " unless search_params[:document_status_id].blank?
     condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
     condition += "attribute_types.name = 'Publisher' AND UPPER(attribute_documents.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
     condition += "attribute_types.name = 'Author' AND UPPER(attribute_documents.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
+ if !search_params[:document_type_id].blank?
+       condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
+    end  
+    if !search_params[:document_status].blank?
+       condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
+    end
 
-
-    condition += "(extract(year FROM attribute_documents.on_date) >= '#{date_from}'
-     AND extract(year FROM attribute_documents.on_date) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
+    #condition += "(extract(year FROM attribute_documents.on_date) >= '#{date_from}'
+    # AND extract(year FROM attribute_documents.on_date) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
 
     #condition += "(extract(year FROM person_events.date_event) >= '#{date_from}'
      #             AND extract(year FROM person_events.date_event) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
@@ -249,8 +268,8 @@ end
                         LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
                         LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
-                        LEFT JOIN person_events ON person_events.person_id = people.id
-                        LEFT JOIN event_types ON event_types.id = person_events.event_type_id
+                        LEFT JOIN facts ON facts.person_id = people.id
+                        LEFT JOIN event_types ON event_types.id = facts.event_type_id
                         LEFT JOIN locations ON locations.document_id = documents.id
                         WHERE #{condition} ",:per_page => per_page,:page => page)
 

@@ -79,7 +79,8 @@
       <span class=""><b>Binding:</b> <%= @document.try(:binding) %></span><br />
       <span class=""><b>Condition:</b><%= @document.try(:condition) %></span><br />
       <span class=""><b>Comments:</b><%= @document.try(:comment) %></span><br />
-
+<br />
+ <b>Added on :	<%= @document.created_at.strftime("%d/%m/%Y")%> </b>
     </div>
 
     <div class="floatRight">
@@ -130,16 +131,18 @@
 	           	 <%end%>
 	           </div>
 	           <div style="clear:left"></div>
+	            <%if !person.person_events_except_dob.nil?%>
 			   <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
-				 <%if !person.person_events_except_dob.nil?%>
+				
 				 	<%person.person_events_except_dob.each do |person_event|%>
 				       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
 				           <div class="floatLeft space contant odd"><%=  "#{person_event.fact_year}" %></div>
 				           <div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
 				 	   <div class="clear"></div>
 				 	   <%end%>
+				 	    </div>
 				 <%end%>
-			  </div>
+			 
 	       </div>
        <%end%>
 	<%end%>
@@ -166,6 +169,8 @@
         <%end%>
       <%end%>
     </table>
+     
+    
      
     <div class="floatLeft">
       <p class="shadeWhite hide">Views: 29</p>

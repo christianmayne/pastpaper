@@ -22,8 +22,9 @@ class HomeController < ApplicationController
   def search_results
     if !params[:search_document].blank?
       #raise params[:search_people].inspect
-      session[:search_params] = params[:search_document]
       
+      session[:search_params] = params[:search_document]
+     
       @documents = Document.search_document(params[:search_document], params[:page])
    
     elsif !params[:search_people].blank?
@@ -43,6 +44,24 @@ class HomeController < ApplicationController
   
       @documents = Document.search_document(params[:search_document])
     else
+      
+      if !session[:search_params].blank? && !params[:document_filter].blank?
+         session[:search_params]['document_type_id'] = params[:document_filter][:document_type_id] 
+         session[:search_params]['document_status'] =  params[:document_filter][:document_status] 
+      #raise session[:search_params].inspect
+      per_page = params[:per_page] || 50
+      if session[:search_params][:search_type].to_i == 1
+        @documents = Document.search_document(session[:search_params] ,params[:page],per_page.to_i)
+      elsif session[:search_params][:search_type].to_i == 2
+        @documents = Document.people_search(session[:search_params] ,params[:page],per_page.to_i)
+      elsif session[:search_params][:search_type].to_i == 3
+        @documents = Document.search_location(session[:search_params] ,params[:page],per_page.to_i)
+      else
+        
+      end
+   end
+      
+      
      #redirect_to root_path
     end
 #    if !params[:search_people].blank?
@@ -52,6 +71,7 @@ class HomeController < ApplicationController
 #    elsif !params[:search_document].blank?
 #      @stockitems = Stockitem.simple_search(params[:search_document])
 #    end
+   
   
   if request.xhr?
     per_page = params[:per_page] || 50
@@ -67,5 +87,8 @@ class HomeController < ApplicationController
   end
 
   end
+  
+  
+  
 
 end
