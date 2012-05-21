@@ -11,7 +11,7 @@ gem "execjs"
 gem "therubyracer"
 gem 'sorcery'
 
-gem 'will_paginate','3.0.pre2'
+gem 'will_paginate','3.0.2'
 gem "paperclip", "~> 2.3"
 #gem "s3", :git => "git://github.com/qoobaa/s3.git"
 gem 'aws-s3'
@@ -43,14 +43,17 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
-  gem 'rspec-rails', '2.6.1'
+#  gem 'rspec-rails', '2.6.1'
+  gem 'rspec-rails', '2.10.0'
   gem 'annotate', '2.4.0'
+  gem 'sqlite3'
 end
 
 group :test do
   # Pretty printed test output
   # gem 'turn', :require => false
-  gem 'rspec-rails', '2.6.1'
+ # gem 'rspec-rails', '2.6.1'
+  gem 'rspec-rails', '2.10.0'
   gem 'webrat', '0.7.1'
   gem 'spork', '0.9.0.rc8'
   

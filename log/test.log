@@ -2315,3 +2315,249 @@ Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
 Rendered layouts/_menu_bar.html.erb (2.0ms)
 Completed 200 OK in 9ms (Views: 9.2ms | ActiveRecord: 0.0ms)
   [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (6.7ms)
+Rendered layouts/_menu_bar.html.erb (2.7ms)
+Completed 200 OK in 206ms (Views: 205.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.7ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (1.9ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (6.9ms)
+Completed 200 OK in 34ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (6.2ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 25ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (124.1ms)
+Completed 200 OK in 139ms (Views: 138.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (6.7ms)
+Rendered layouts/_menu_bar.html.erb (2.7ms)
+Completed 200 OK in 177ms (Views: 176.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.7ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.7ms)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.8ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (1.9ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (67.6ms)
+Completed 200 OK in 74ms (Views: 73.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (6.5ms)
+Rendered layouts/_menu_bar.html.erb (2.6ms)
+Completed 200 OK in 200ms (Views: 199.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (2.7ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (1.9ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.7ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.8ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (69.1ms)
+Completed 200 OK in 76ms (Views: 75.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (13.2ms)
+Rendered layouts/_menu_bar.html.erb (6.0ms)
+Completed 200 OK in 327ms (Views: 326.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (4.0ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (3.8ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (4.0ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (3.9ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (3.9ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (3.8ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (4.1ms)
+Completed 200 OK in 18ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (130.9ms)
+Rendered layouts/_menu_bar.html.erb (12.3ms)
+Completed 200 OK in 471ms (Views: 470.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (127.2ms)
+Completed 200 OK in 133ms (Views: 133.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (6.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (12.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.5ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.7ms)
+Completed 200 OK in 20ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 21ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (11.6ms)
+Rendered layouts/_menu_bar.html.erb (5.8ms)
+Completed 200 OK in 270ms (Views: 269.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.7ms)
+Completed 200 OK in 9ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#contact as HTML
+Rendered layouts/_menu_bar.html.erb (1.8ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#about as HTML
+Rendered layouts/_menu_bar.html.erb (1.8ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (2.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.8ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#privacy as HTML
+Rendered layouts/_menu_bar.html.erb (1.6ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (3.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (6.8ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  Processing by PagesController#terms as HTML
+Rendered layouts/_menu_bar.html.erb (5.7ms)
+Completed 200 OK in 14ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK

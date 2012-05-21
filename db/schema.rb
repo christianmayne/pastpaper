@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116063512) do
+ActiveRecord::Schema.define(:version => 20120328085449) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(:version => 20120116063512) do
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "document_facts", :force => true do |t|
+    t.integer  "document_id"
+    t.integer  "fact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -76,6 +83,20 @@ ActiveRecord::Schema.define(:version => 20120116063512) do
   create_table "event_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sort_order"
+  end
+
+  create_table "facts", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "event_type_id"
+    t.integer  "location_id"
+    t.date     "fact_date"
+    t.string   "date_modifier"
+    t.integer  "fact_year"
+    t.integer  "fact_month"
+    t.integer  "fact_day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
