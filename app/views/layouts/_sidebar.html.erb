@@ -1,0 +1,10 @@
+<% latest_documents = Document.last(5) %>
+<span class="sidebar_header">latest Items</span>
+<div class="sidebar_info">We currently have <%= Document.count %> items listed</div>
+
+<% latest_documents.reverse.each do |document| %>
+  <div class="sidebar_item">
+    <%= document.name %><br />
+    <%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %>
+  </div>
+<% end %>

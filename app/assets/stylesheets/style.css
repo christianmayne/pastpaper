@@ -2,7 +2,9 @@
 /* ------------------------------ Rewrite Setting ------------------------------ */
 
 /*body { background:url(../../bg.gif) no-repeat 0 0 #CCFFCC; margin:10px 0; } */
-body { background:url(./images/paper-background.png repeat 0 0); }
+/*body { background:url(./images/paper-background.png repeat 0 0); }*/
+
+/*
 input, textarea { border:1px solid #CCC; padding:3px; }
 input#submitLogin[type=submit]{ background:url(button.png) no-repeat 0 0; border:none; width:50px; height:24px; }
 input#submitLogin[type=submit]:active{ background-position:0 -24px; }
@@ -12,9 +14,9 @@ input.search[type=submit]:active{ background-position:0 -72px; }
 
 #registerUser[type=button]{ background:url(button.png) no-repeat -50px 0; border:none; width:70px; height:24px; }
 #registerUser[type=button]:active{ background-position:-50px -24px; }
-
-input.submit[type=submit], input.submit[type=button]{ background:url(button.png) no-repeat -60px -48px; border:none; width:70px; height:24px; }
-input.submit[type=submit]:active, input.submit[type=button]:active{ background-position:-60px -72px; }
+*/
+/*input.submit[type=submit], input.submit[type=button]{ background:url(button.png) no-repeat -60px -48px; border:none; width:70px; height:24px; }*/
+/*input.submit[type=submit]:active, input.submit[type=button]:active{ background-position:-60px -72px; }*/
 
 input.buythis[type=button]{ background:url(button.png) no-repeat 0 -96px; border:none; width:110px; height:24px; }
 input.buythis[type=button]:active{ background-position: 0 -120px; }
@@ -31,8 +33,8 @@ h1, h2, h3, h4, h5, h6 { color:#013401; }
 /* ------------------------------ Site Setting ------------------------------ */
 
 div.bgwrap { padding:10px 0;}
-div.header { height:100px; }
-div.header .logo { margin:0 0 0 30px; }
+div.header { min-height:120px; }
+div.header .logo { margin:18px 0 0 30px; }
 div.header .logo h1 { font-family:Yeseva One; font-size:40px; font-weight:bold; }
 
 div.navigation ul.leaf { margin:0 10px; }
@@ -40,20 +42,20 @@ div.navigation ul.leaf li { float:left; padding:10px; border-right:1px solid #CC
 div.navigation ul.leaf li.active a { color:#499E66; font-weight:bold; }
 div.navigation ul.leaf li.last { border:none; }
 
-div.container {  border-width:3px; width:994px; }
+div.container { /*background:#99c971;*/ min-height:475px; border-width:3px; width:994px; }
 div.container .rightLinks ul.leaf li { border-bottom:1px dotted #CCC; }
 div.container .rightLinks ul.leaf li:hover { border-bottom:1px dotted #C00; }
 div.container .rightLinks ul.leaf li a { display:block; padding:5px; }
 
 div.container .leftBox .heading { background:#888888; color: #FFFFFF; padding:3px; width:226px; } 
 div.container .leftBox .space { margin:0 1px; }
-div.container .leftBox .contant.odd { background:#DDDDDD; padding:3px; width:226px; margin-top:1px; min-height:15px} 
-div.container .leftBox .contant.even { background:#F1F1F1; padding:3px; width:226px; margin-top:1px; min-height:15px}
+div.container .leftBox .contant.odd { background:#DDDDDD; padding:3px; width:226px; margin-top:1px; } 
+div.container .leftBox .contant.even { background:#F1F1F1; padding:3px; width:226px; margin-top:1px; }
 
 div.container .leftBox .viewContent.odd {  background:#ccc;margin:1px 0; padding:3px 0 3px 11px;min-height:15px; }
 div.container .leftBox .viewContent.even {  background:#666;margin:1px 0; padding:3px 0 3px 11px; } 
 div.container .leftBox .viewContent .contant.odd { background:#DDDDDD; padding:3px; width:222px; margin-top:1px; min-height:15px; } 
-div.container .leftBox .viewContent .contant.even { background:#F1F1F1; padding:3px; width:222px; margin-top:1px;min-height:15px }
+div.container .leftBox .viewContent .contant.even { background:#F1F1F1; padding:3px; width:222px; margin-top:1px; }
 
 div.footer { background:#FFF; min-height:50px; }
 div.footer .links ul.leaf li { display:inline-block; border-right:1px #666 solid; padding-right:5px; margin-right:3px; }
@@ -184,5 +186,5 @@ a.generalLink:active { background-position:0 -24px; }
     border: 1px solid #eee;
     color: #ddd;
   }		
-  
- .fixselectwidth{width:200px; padding:2px;}
+
+

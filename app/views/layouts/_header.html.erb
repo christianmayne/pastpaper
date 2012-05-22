@@ -1,53 +1,46 @@
-<!-- Header Layout -->
+      <!-- Logo -->
+			<div class="header_logo">
+				<a href="/"><%= image_tag("logo.jpg")%></a>
+			</div><!-- End Logo-->
 
-<!-- Logo Section -->
-<div class="span-12 ">
-    
-</div>
+      <!-- Login Box -->
+			<div class="header_login_box">
 
-<!-- Display Login Box -->
-<div class="span-12 last ">
-    <div class="span-12 last">
-        <% if current_user.blank? %>
-            <%= form_for :user_session, :url => {:controller => "user_sessions", :action => "create"} do |f| %>
-              <div class="span-4">
-                Username<br/>
-                <%= f.text_field :login, :size => 13 %> 
-              </div>
-              <div class="span-4">
-                Password<br/>
-                <%= f.password_field :password, :size => 13 %><br />
-              </div>
-              <div class="span-2">
-                <br />
-                <%= f.submit('Login', :class=>"button") %><br />
-              </div>
-              <div class="span-2 last">
-                <br />
-                <%= link_to "Register", register_path ,:class=>"button" %>
-              </div>
-            <% end %>
+        <!-- Not logged in -->
+  			<% if !current_user %>
+  				<div class=""">
+  					<%= form_tag :login ,:id=>"userLogin" do |f| %>
+  				 		<%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
+							<%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"20"} %> 
+							<br/>
+							<input class="button" type="submit" id="submitLogin" name="submitLogin" value="Login" />
+              Remember Me <%= check_box_tag :remember_me, 1 %> 
+            <%end%>  
 
-        <!-- Unless Logged in, in which case display Username -->
-        <% else %>
-          <div class="span-10 last">
-            Hi <%= current_user.name %> (<%= current_user.login %>) | 
-            <%= link_to("Sign Out", logout_path) %> | 
-            <span class="unimplemented"><%= link_to("My Account", profile_user_path(current_user)) %></span> | 
-            <span class="unimplemented"><%= link_to("Help", "#") %></span>
-          </div>
-        <% end %>
-    </div>
-    <hr />
-<% if flash[:notice] %>
-   <!-- Display any error messages --> 
-   <div class="span-10 notice">
-        <!-- Error Message -->
-        <%= flash[:notice]  %>
-    </div>
- <% end %>
-</div>
+            <div class="header_login_register"> 
+  					  <%= link_to "Register" ,register_path ,:id=>"registerUser"%> | 
+ 	  					<%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
+            </div>	
+	  			</div>
 
+          <!-- logged in -->
+					<%else%>
+					<div class="header_login_greeting">
+						<strong class="header_greeting_text">Hi <%= current_user.name %> (<%= current_user.username %>) </strong> 
+						<br/>
+						<strong class="header_greeting_links">
+ 							<%= link_to("Sign Out", logout_path) %> | 
+							<%= link_to("My Account", user_home_path) %>  | 
+							<%= link_to("Help", "#") %>
+            </strong>
+
+						<div class="header_social_links hide">
+							<a href="http://facebook.com" target="_blank"><%= image_tag("facebook.png")%></a>
+						  <a href="http://twitter.com" target="_blank"><%= image_tag("twitter.png")%></a>
+						</div>
+					</div>
+				<%end%>
+			</div><!-- End Login Box -->
 
 
 

@@ -1,23 +1,10 @@
-<div class="navigation block siteScale clearfix border whiteBG">
-    	<ul class="leaf">
-    		<li><%= link_to "Home",root_path %></li>
-		<% if current_user %>
+<ul class="main_menu">
+  <li><%= link_to "Your Profile", user_home_path%></span>
+  <li><%= link_to "Your Items",documents_path %></li>
+  <li><%= link_to "Add Your Item", new_document_path%> </li>
 
-    		<li><%= link_to "Your Profile", user_home_path%> </li>
-        	<li><%= link_to "My Items",documents_path %></li>
-        	<li><%= link_to "Add Your Item", new_document_path%> </li>
-        	
-    		
-    	<% end %>
-		<% if current_user && current_user.is_admin? %>
-		
-    		<li class="shadeBlue"> <%= link_to "Site Administration &raquo; Users".html_safe,admin_users_path %></li>
-            
-        <%else%>
-        	<li><%= link_to "About Us",about_path %></li>
-            <li><%= link_to "Terms",terms_path %></li>
-            <li><%= link_to "Privacy",privacy_path %></li>
-            <li class="last"><%= link_to "Contact Us",contact_path %></li>
-        <%end%>
-        </ul>
-</div>
+	<% if current_user && current_user.is_admin? %>
+    <li class="shadeBlue"> <%= link_to "Site Administration &raquo; Users".html_safe,admin_users_path %></li>
+  <%end%>
+</ul>
+

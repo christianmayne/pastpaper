@@ -1,10 +1,20 @@
-<!-- Footer -->
-<div class="span-24">
-  <%= link_to "About", about_path, :class=>"red" %> | 
-  <%= link_to "Terms and Conditions", terms_path, :class=>"red" %> | 
-  <%= link_to "Privacy Policy", privacy_path, :class=>"red" %> |
-  <%= link_to "Contact", contact_path, :class=>"red" %>    
-</div>
-<div class="span23">
-  site credits
-</div>
+<!-- Footer Menu -->
+<%= render "layouts/footer_menu" %>
+<!-- End Footer Menu -->
+
+
+<!-- Social Links -->
+<div class="connectWithUs floatLeft varPaddingDouble horPaddingDouble">
+	<span class="strong text">Connect with us</span>
+	<div class="icon">
+		<a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("facebook.png",:height=>"16")%></a>
+		<a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("twitter.png",:height=>"16")%></a>
+	</div>
+</div><!-- End Social Links -->
+
+
+<!-- Copyright Notice -->
+<div class="connectWithUs floatRight varPaddingDouble horPaddingDouble">
+	&copy; <%= Time.now.year %>
+</div> <!-- End Copyright Notice-->
+
