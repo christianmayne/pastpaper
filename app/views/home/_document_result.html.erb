@@ -1,62 +1,60 @@
-  <% @pagetitle = "Search Results" %>
-  <% unless @documents.blank? %>
-  
-     
-  <%= page_entries_info @documents,:entry_name => 'item' %>
+<% @pagetitle = "Search Results" %>
+
+<% unless @documents.blank? %>
   <div>
-           <table>
-            <tr>
-              <th>Stock Number</th>
-              <th>Image</th>
-              <th>Document Name</th>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-            <% @documents.each do |document| %>
-                <tr>
-                  <td><%= link_to document.stock_number, document_path(document) %></td>
-                  <td class="alignCenter"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></td>
-                  <td><% if document.name.blank? %>
-                        <%= link_to document.title, document_path(document) %>
-                      <% else %>  
-                        <%= link_to document.name, document_path(document) %>
-                      <% end %>
-                  </td>
-                  <td><%= link_to document.document_type_name, document_path(document) %></td>
-                  <td><%= link_to document.document_status, document_path(document) %></td>
-                  <% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
-                    <td><%= link_to image_tag("editicon.gif"), edit_document_path(document) %> 
-            
-                <%= link_to image_tag("deleteicon.png"), document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
-              	<%= link_to "Restore", admin_restore_document_path(document) ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
-            
-                    </td>
-                  <% end %>
-                </tr>
+    <table>
+      <tr>
+        <th>Stock Number</th>
+        <th>Image</th>
+        <th>Document Name</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <% @documents.each do |document| %>
+        <tr>
+          <td><%= link_to document.stock_number, document_path(document) %></td>
+          <td class="alignCenter"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></td>
+          <td>
+            <% if document.name.blank? %>
+              <%= link_to document.title, document_path(document) %>
+            <% else %>  
+              <%= link_to document.name, document_path(document) %>
             <% end %>
-           </table>
-        </div>          
-<div class="ajaxpaging">
-	<div class="clearfix">
-		<div class="floatLeft">
-			<%= will_paginate @documents %>
-		</div>
-	
-		<div class="floatRight">
-			<%if @documents.total_entries > 50%>
-				Display 
-				<%= link_to "50", search_results_home_index_path(:per_page=>50),:remote=>true%> 
-				<%= link_to "| 100", search_results_home_index_path(:per_page=>100),:remote=>true if @documents.total_entries > 50%> 
-				<%= link_to "150", search_results_home_index_path(:per_page=>150),:remote=>true if @documents.total_entries > 100%> 
-				<%= link_to "| 500", search_results_home_index_path(:per_page=>500),:remote=>true if @documents.total_entries > 150%> 
-			items per page
-			<%end%>
-		</div>
- 	</div>
-</div>
-	<% else %>
-        <div class="span-22" style="text-align: center">
-           <p>Sorry!  We have no documents matching your search.</p>
-        </div>
-    <% end %>
+          </td>
+          <td><%= link_to document.document_type_name, document_path(document) %></td>
+          <td><%= link_to document.document_status, document_path(document) %></td>
+          <% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
+            <td>
+              <%= link_to image_tag("editicon.gif"), edit_document_path(document) %> 
+              <%= link_to image_tag("deleteicon.png"), document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
+              <%= link_to "Restore", admin_restore_document_path(document) ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>          
+  <div class="ajaxpaging">
+    <div class="clearfix">
+      <div class="floatLeft">
+        <%= will_paginate @documents %>
+      </div>
+
+      <div class="floatRight">
+        <%if @documents.total_entries > 50%>
+          Display 
+          <%= link_to "50", search_results_home_index_path(:per_page=>50),:remote=>true%> 
+          <%= link_to "| 100", search_results_home_index_path(:per_page=>100),:remote=>true if @documents.total_entries > 50%> 
+          <%= link_to "150", search_results_home_index_path(:per_page=>150),:remote=>true if @documents.total_entries > 100%> 
+          <%= link_to "| 500", search_results_home_index_path(:per_page=>500),:remote=>true if @documents.total_entries > 150%> 
+          items per page
+        <%end%>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="span-22" style="text-align: center">
+    <p>Sorry!  We have no documents matching your search.</p>
+  </div>
+<% end %>

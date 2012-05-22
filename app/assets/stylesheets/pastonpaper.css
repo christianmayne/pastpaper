@@ -39,7 +39,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   float: left;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  height: 193px;
+  #height: 193px;
   margin-left: 30px;
   margin-top: 18px;
   min-height: 0px;
@@ -127,12 +127,48 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 }
 
 
+.status_message {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-repeat: repeat;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  height: 14px;
+  text-align: center;
+  width: 257px;
+  float: right;
+}
+
+
+.status_message.error{
+  background-color: #FBE3E4;
+  border-color: #FBC2C4;
+  color: #8A1F11;
+}
+
+.status_message.alert{
+  background-color: #FFF6BF;
+  border-color: #FFD324;
+  color: #514721;
+}
+
+.status_message.success{
+  background-color: green;
+  border-color: green;
+  color: #514721;
+}
 
 .main_menu_bar {
   background-color: white;
   height: 60px;
   width:700px;
   margin: 0px;
+  float:left;
+  clear:right;
 }
 
 .main_menu ul {
@@ -167,42 +203,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   margin: 0px;
 }
 
-.status_message {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-repeat: repeat;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  height: 14px;
-  margin-left: 24px;
-  margin-right: 24px;
-  margin-top: 20px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  text-align: center;
-}
 
-.status_message.error{
-  background-color: #FBE3E4;
-  border-color: #FBC2C4;
-  color: #8A1F11;
-}
-
-.status_message.alert{
-  background-color: #FFF6BF;
-  border-color: #FFD324;
-  color: #514721;
-}
-
-.status_message.success{
-  background-color: green;
-  border-color: green;
-  color: #514721;
-}
 
 .sidebar {
   width: 300px;
@@ -245,7 +246,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   color: #3D5055;
   font-family: Verdana, Arial, sans-serif;
   font-size: 12px;
-  height: 225px;
+  height: 163px;
   max-width: none;
   min-width: 0px;
   padding-left: 15px;
@@ -258,13 +259,27 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   #border: 1px solid black;
 }
 
+/* Introduction Block */
+.introduction_block {
+  background-color: #F3EFE7;
+  border-radius: 5px;
+  border-top-width: 0px;
+  color: #3D5055;
+  display: block;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 15px;
+  position: relative;
+}
+
 
 /* Search */
 .search_container {
   width: 700px;
   float:right;
   #background: yellow;
-  min-height: 1000px;
+  #min-height: 1000px;
   position: relative;
 }
 
@@ -394,6 +409,19 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   width: 100px;
 }
 
+.search_results_container {
+  background-image: none;
+  background-repeat: repeat;
+  color: #585858;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  width: 960px;
+}
 
 
 
@@ -403,15 +431,13 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   float:right;
   clear:both;
   min-height: 200px;
-  background: green;
+  background: #EAF8E1;
   position: absolute; 
-  bottom: 0 !important;
-  bottom: -1px; /* For Certain IE widths */
+
 }
 
 
 .footer {
-  border: 1px black solid;
   clear: both;
 }
 

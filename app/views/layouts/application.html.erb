@@ -23,18 +23,6 @@
     <%= render "layouts/header" %>
 		</div><!-- End Header -->
 
-
-    <!-- Status Messages -->
-		<% if flash[:alert]%>
-			<div class="status_message alert">	<%= flash[:alert]%></div>
-		<% end %>
-		<% if flash[:error]%>
-			<div class="status_message error">	<%= flash[:error]%></div>
-		<% end %>
-		<% if flash[:notice]%>
-			<div class="status_message success">	<%= flash[:notice]%></div>
-		<% end %><!-- End Status Message -->
-
     <div class="content_container">
       <!-- Page Content -->
   		<%= yield %>

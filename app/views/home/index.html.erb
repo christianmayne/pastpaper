@@ -3,12 +3,13 @@
 <!-- Search Form -->
 <div class="search_container">
 
-  <% if current_user %>
-    <div class="main_menu_bar">
-      <%= render "layouts/menu_bar"%>
-    </div><!-- End Menu Bar -->
-  <% end %>
-
+  <div class="introduction_block">
+    We currently have <%= Person.count%> individuals, <%=Location.count%> locations and <%= Document.count %> items listed on the site.<br />
+    <% if !current_user %>    
+      <%= link_to "Register now" ,register_path ,:id=>"registerUser"%> for full access to our database.
+    <% end %>
+  </div>
+    
   <div>
     <%= render "search_form" %>
   </div>

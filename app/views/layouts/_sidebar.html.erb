@@ -1,7 +1,6 @@
-<% latest_documents = Document.last(5) %>
+<% latest_documents = Document.last(3) %>
+<br />
 <span class="sidebar_header">latest Items</span>
-<div class="sidebar_info">We currently have <%= Document.count %> items listed</div>
-
 <% latest_documents.reverse.each do |document| %>
   <div class="sidebar_item">
     <%= document.name %><br />
