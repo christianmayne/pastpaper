@@ -2,10 +2,8 @@ class UsersController < ApplicationController
   before_filter :require_login, :except => [:new,:create, :activate]
     
   def index
-  @user = current_user  
-   
+    @user = current_user  
   end
-  
   
   def new
     @user = User.new
@@ -36,10 +34,7 @@ class UsersController < ApplicationController
       render :action => :edit
       
     end
-    
   end
-  
-  
   
   def changepassword
        @user = current_user

@@ -22,6 +22,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 .pop_container {
   width:1000px;
   margin: 0 auto;
+  padding: 15px;
   background-color: white;
 }
 
@@ -39,7 +40,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   float: left;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  #height: 193px;
+  //height: 193px;
   margin-left: 30px;
   margin-top: 18px;
   min-height: 0px;
@@ -213,7 +214,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 }
 
 .sidebar_info {
-  margin:auto;
+  //margin:auto;
   clear:both;
   color: #3D5055;
   font-family: Verdana, Arial, sans-serif;

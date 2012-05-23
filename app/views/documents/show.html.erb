@@ -5,49 +5,29 @@
       
   <% if @document.is_on_sale? && !@document.sale_price.blank?%>
     <div class="varMarginTop">
-	
-	<% if current_user %>
-    <% payment_service_for @document.id, PAYPAL_ACCOUNT,
-                                :amount => @document.sale_price, 
-                                :currency => 'GBP',
-                                 
-                                :service => :paypal, 
-                                :html => { :id => 'payment-form' } do |service| %>
-                                    <% service.customer :first_name => current_user.first_name,
-                                                        :last_name => current_user.last_name,
-                                                        :email => current_user.email %>
-
-                                    <% service.billing_address :city => current_user.city,
-                                                               :address1 => current_user.address1,
-                                                               :address2 => current_user.address2,
-                                                               :state => current_user.county,
-                                                               
-                                                               :zip => current_user.post_code %>
-
-                                     <% 
-                                    service.item_name @document.title
-                                    service.shipping '0.00' %>
-                                    <% service.tax '0.00' %>
-
-                                    <% service.notify_url paypal_ipn_url %>
-                                    <% service.return_url paypal_return_url %>
-                                    <% service.cancel_return_url paypal_cancel_url %>
-                                    <%if @document.sale_price > 0.50 %>
-                                      <%= submit_tag("Buy From Paypal",:class=>"button") %>
-                                    <%end%>
-                                  <% end %>
-  
-  <%else%>
-  Please Login to buy this item.
-  <%end%>
-	
+      <% if current_user %>
+        <% payment_service_for @document.id, PAYPAL_ACCOUNT, :amount => @document.sale_price, :currency => 'GBP',
+                                                             :service => :paypal, :html => { :id => 'payment-form' } do |service| %>
+          <% service.customer :first_name => current_user.first_name, :last_name => current_user.last_name,:email => current_user.email %>
+          <% service.billing_address :city => current_user.city, :address1 => current_user.address1, :address2 => current_user.address2,:state => current_user.county,:zip => current_user.post_code %>
+          <% service.item_name @document.title service.shipping '0.00' %>
+          <% service.tax '0.00' %>
+          <% service.notify_url paypal_ipn_url %>
+          <% service.return_url paypal_return_url %>
+          <% service.cancel_return_url paypal_cancel_url %>
+          <%if @document.sale_price > 0.50 %>
+            <%= submit_tag("Buy From Paypal",:class=>"button") %>
+          <%end%>
+        <% end %>
+      <%else%>
+        Please Login to buy this item.
+      <%end%>
     </div>
   <% end %>
 
   <div class="block whiteBG clearfix varMarginDouble border">
     <div class="varPaddingDouble horPaddingDouble clearfix">
 
-    
       <div class="floatLeft clearfix" style="width:35%">
         <p>
           <b><%= @document.try(:name) %><br/></b>
@@ -67,116 +47,136 @@
             <br/>
           <% end %>
         </p>
+
         <div class="clearfix">
-        <div class="floatRight"><b>Price:</b> 
-        	
-        	<%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %></div>
-        <div class="floatLeft"><b>Dimensions:</b> <%= "#{@document.try(:length)}mm x " unless @document.length.blank?   %> <%= "#{@document.try(:width)}mm x " unless @document.width.blank?  %> <%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %>&nbsp;</div>
-        <br />            
-        <div class="floatLeft"><b>Weight:</b> <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%>&nbsp;</div> 
+          <div class="floatRight"><b>Price:</b> 
+        	  <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
+          </div>
+          <div class="floatLeft">
+            <b>Dimensions:</b> 
+            <%= "#{@document.try(:length)}mm x " unless @document.length.blank? %> 
+            <%= "#{@document.try(:width)}mm x " unless @document.width.blank? %> 
+            <%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %>&nbsp;
+          </div>
+          <br />            
+          <div class="floatLeft">
+            <b>Weight:</b> 
+            <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%>&nbsp;
+          </div> 
+        </div>
+
+        <span class=""><b>Binding:</b> <%= @document.try(:binding) %></span><br />
+        <span class=""><b>Condition:</b><%= @document.try(:condition) %></span><br />
+        <span class=""><b>Comments:</b><%= @document.try(:comment) %></span><br />
+        <br />
+        <b>Added on :	<%= @document.created_at.strftime("%d/%m/%Y")%> </b>
+  
       </div>
 
-      <span class=""><b>Binding:</b> <%= @document.try(:binding) %></span><br />
-      <span class=""><b>Condition:</b><%= @document.try(:condition) %></span><br />
-      <span class=""><b>Comments:</b><%= @document.try(:comment) %></span><br />
-<br />
- <b>Added on :	<%= @document.created_at.strftime("%d/%m/%Y")%> </b>
-    </div>
-
-    <div class="floatRight">
-    	  <!-- If logged in and document owner show edit document links -->
-      <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
-        
+      <div class="floatRight">
+        <!-- If logged in and document owner show edit document links -->
+        <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
           <span class="floatRight">
             <%= link_to "Edit Document", edit_document_path(@document) %>
           </span>
           <br />
-     
-      <% end %>
-      <% if !@document.blank? && !@document.document_photos.blank? %>
-     <%= image_tag @document.default_image.photo.url(:large), %><br />
-        <ul id="mycarousel" class="jcarousel-skin-tango">
-          <% @document.document_photos.each do |photo|  %>
-			      <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
-		      <% end %>
-        </ul>
-      <% end %>
+        <% end %>
+        <% if !@document.blank? && !@document.document_photos.blank? %>
+          <%= image_tag @document.default_image.photo.url(:large), %><br />
+          <ul id="mycarousel" class="jcarousel-skin-tango">
+            <% @document.document_photos.each do |photo|  %>
+			        <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
+		        <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="clearfix varMarginBottom">
-	<div class="floatLeft leftBox clearfix">
-    <p class="strong">People mentioned in this item</p>
+  <% if !current_user %>
+    <p>Please Register or Login to see full details about this item</p>
+  <% else %>
 
-		<div class="clearfix">
-           <div class="floatLeft heading">Name</div>
-           <div class="floatLeft space heading">Born</div>
-           <div class="floatLeft heading">Die 
-	           		<a href="javascript:expandAllPdetail()" id="expandallpdetail" class="shadeWhite floatRight">Expand All</a><div class="clear"></div>
-	           	 </div>
-       	</div>
+    <div class="clearfix varMarginBottom">
+	    <div class="floatLeft leftBox clearfix">
+        <p class="strong">People mentioned in this item</p>
+	   	  <div class="clearfix">
+          <div class="floatLeft heading">Name</div>
+          <div class="floatLeft space heading">Born</div>
+          <div class="floatLeft heading">Died<a href="javascript:expandAllPdetail()" id="expandallpdetail" class="shadeWhite floatRight">Expand All</a><div class="clear"></div>
+	      </div>
+      </div>
 
       <% if !@document.blank? && !@document.people.blank? %>
+
         <% @document.people.order("title desc, first_name asc, last_name asc").each do |person|  %>
-	       <div class="clearfix" id="person_<%= person.id%>" >
-	           <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"> <%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
-	              <%= " #{person.middle_name.titleize}" rescue '' %>
-	              <%= person.last_name rescue 'unknown' %>
-	           </div>
-	           <div class="floatLeft space contant odd" style="background-color:<%=person.sex_color%>"><%= person.birth_date rescue '' %> <%= "(#{person.birth_location})" unless person.birth_location.blank? %></div>
-	           <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"><%= person.death_date rescue '' %> <%= "(#{person.death_location})" unless person.death_location.blank? %>
-	           	 <%unless person.person_events_except_dob.nil?%>
-	           		<a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink floatRight">View</a><div class="clear"></div>
-	           	 <%end%>
-	           </div>
-	           <div style="clear:left"></div>
-	            <%if !person.person_events_except_dob.nil?%>
-			   <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
-				
-				 	<%person.person_events_except_dob.each do |person_event|%>
-				       	   <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
-				           <div class="floatLeft space contant odd"><%=  "#{person_event.fact_year}" %></div>
-				           <div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
-				 	   <div class="clear"></div>
-				 	   <%end%>
-				 	    </div>
-				 <%end%>
-			 
-	       </div>
-       <%end%>
-	<%end%>
+	        <div class="clearfix" id="person_<%= person.id%>" >
+	          <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"> 
+              <%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
+              <%= " #{person.middle_name.titleize}" rescue '' %>
+              <%= person.last_name rescue 'unknown' %>
+            </div>
+            <div class="floatLeft space contant odd" style="background-color:<%=person.sex_color%>">
+              <%= person.birth_date rescue '' %> 
+              <%= "(#{person.birth_location})" unless person.birth_location.blank? %>
+            </div>
+            <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>">
+              <%= person.death_date rescue '' %> 
+              <%= "(#{person.death_location})" unless person.death_location.blank? %>
+           	  <%unless person.person_events_except_dob.nil?%>
+           		<a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink floatRight">View</a>
+              <div class="clear"></div>
+            </div>
+          </div>
+	      <%end%>
 
+        <div style="clear:left"></div>
 
-    <p class="strong">Other Locations mentioned in this Document</p>
-     
-    <table cellpadding="0" cellspacing="1" border="0" width="100%" class="varMarginBottom">
-      <tr>
-        <th align="left">Street</th>
-        <th align="left">Town</th>
-        <th align="left">County</th>
-        <th align="left">Country</th>
-      </tr>
-             
-      <% if !@document.blank? && !@document.locations.blank? %>
-        <% @document.locations.each do |location|  %>
-          <tr class="<%= cycle('odd','even') %>">
-            <td><%= location.street1%> <%= location.street2%></td>
-            <td><%= location.town%></td>
-            <td><%= location.county%></td>
-            <td><%= location.country%></td>
-          </tr>
+        <%if !person.person_events_except_dob.nil?%>
+          <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
+		   	    <%person.person_events_except_dob.each do |person_event|%>
+				      <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
+				      <div class="floatLeft space contant odd"><%=  "#{person_event.fact_year}" %></div>
+				      <div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
+				      <div class="clear"></div>
+				    <%end%>
+				  </div>
         <%end%>
-      <%end%>
-    </table>
-     
     
+      </div>
+
+    <%end%>
+  <%end%>
+
+
+  <!-- Locations Table -->
+  <p class="strong">Other Locations mentioned in this Document</p>
+  <table cellpadding="0" cellspacing="1" border="0" width="100%" class="varMarginBottom">
+    <tr>
+      <th align="left">Street</th>
+      <th align="left">Town</th>
+      <th align="left">County</th>
+      <th align="left">Country</th>
+    </tr>
+    <% if !@document.blank? && !@document.locations.blank? %>
+      <% @document.locations.each do |location|  %>
+        <tr class="<%= cycle('odd','even') %>">
+          <td><%= location.street1%> <%= location.street2%></td>
+          <td><%= location.town%></td>
+          <td><%= location.county%></td>
+          <td><%= location.country%></td>
+        </tr>
+      <%end%>
+    <%end%>
+  </table>
+<% end %>     
+
      
     <div class="floatLeft">
       <p class="shadeWhite hide">Views: 29</p>
     </div>
   </div>
-    
+      
   <div class="block rightBox floatRight whiteBG varPaddingDouble horPaddingDouble clearfix varMarginDouble border">
     <h3 class="shadeGreen">Related Search</h3>
     <ul class="leaf alignCenter">
@@ -184,7 +184,7 @@
       <li></li>
     </ul>
   </div>
-    
+      
   <div class="clear"></div>
   
 </div>
