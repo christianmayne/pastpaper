@@ -185,6 +185,26 @@ a.generalLink:active { background-position:0 -24px; }
     margin: 2px;
     border: 1px solid #eee;
     color: #ddd;
-  }		
+  }	
+  
+  
+.document_menu li{ 
+	list-style: none;
+	background: #356BAF;
+	color:#000;
+	
+	margin:5px;
+}
+
+.document_menu li span {display:block;
+
+	padding:4px 10px;
+	}
+.document_menu li span a{display:block;
+	color:#fff;
+	
+	}
+	
+.miniselect{font-size:11px; width:150px;}
 
 

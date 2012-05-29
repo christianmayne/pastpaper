@@ -10,7 +10,8 @@
                                                              :service => :paypal, :html => { :id => 'payment-form' } do |service| %>
           <% service.customer :first_name => current_user.first_name, :last_name => current_user.last_name,:email => current_user.email %>
           <% service.billing_address :city => current_user.city, :address1 => current_user.address1, :address2 => current_user.address2,:state => current_user.county,:zip => current_user.post_code %>
-          <% service.item_name @document.title service.shipping '0.00' %>
+          <% service.item_name @document.title %>
+          <% service.shipping '0.00' %>
           <% service.tax '0.00' %>
           <% service.notify_url paypal_ipn_url %>
           <% service.return_url paypal_return_url %>
@@ -82,10 +83,10 @@
           <br />
         <% end %>
         <% if !@document.blank? && !@document.document_photos.blank? %>
-          <%= image_tag @document.default_image.photo.url(:large), %><br />
+          <%= image_tag @document.default_image.photo.url(:large) %><br />
           <ul id="mycarousel" class="jcarousel-skin-tango">
             <% @document.document_photos.each do |photo|  %>
-			        <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
+			        <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small) %></a></li>
 		        <% end %>
           </ul>
         <% end %>
