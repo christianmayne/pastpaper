@@ -14,7 +14,7 @@
 		<% @document.people.order("last_name asc, first_name asc").each do |person|  %>
     		<div id="person_<%= person.id%>">
       			<div class="person_detail_name" style="background-color:<%=person.sex_color%>"> 
-      				<%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %>
+      				<%="#{person.sex_symbol} " rescue ''%> <%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %>
     			</div>
  
     			<div class="person_detail_born" style="background-color:<%=person.sex_color%>">

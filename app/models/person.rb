@@ -15,9 +15,9 @@ class Person < ActiveRecord::Base
   def sex_color
     unless self.sex.blank?
       if self.sex=='Male'
-        '#7CD7E6'
+        '#D5DEEF'
       elsif self.sex=="Female"
-        '#F09EB5'
+        '#F7D2FD'
       else
         '#66666'
       end
@@ -25,10 +25,11 @@ class Person < ActiveRecord::Base
   end
 
   def sex_symbol
-#    unless self.sex.blank?
-#      (self.sex == 'Male') ? "♂" : "♀"
-#    end
+    #unless self.sex.blank?
+    # (self.sex == 'Male') ? "&#9794" : "&#9792"
+    #end
   end
+  
   def birth_date  
      unless self.facts.blank?
       birth = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
