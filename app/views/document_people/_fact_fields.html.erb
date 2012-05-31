@@ -2,7 +2,7 @@
     <table>
     	<tr class="">
     		<td>Fact</td><td><%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name %></td>
-    	<td>Location</td><td><%= f.collection_select :location_id, @document.locations, :id, :full_location,:include_blank => true %></td>
+    	<td>Location</td><td><%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => true},{:class=>"miniselect"} %></td>
     	
     	</tr>
     	<tr>

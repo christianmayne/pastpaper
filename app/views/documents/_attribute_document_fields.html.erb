@@ -1,6 +1,5 @@
 <div class="fields" >
-	  
-		<%= f.collection_select :attribute_type_id, AttributeType.all, :id, :name, :prompt => true, :class => '' %><%= f.text_field  :value, :class => 'text' %>
-<%= link_to_remove_fields image_tag("deleteicon.png"), f %>
-    </div>
+	<%= f.collection_select :attribute_type_id, AttributeType.all, :id, :name, :prompt => true, :class => '' %><%= f.text_field  :value, :class => 'text' %>
+	<%= link_to_remove_fields image_tag("deleteicon.png"), f %>
+</div>
 <br />
