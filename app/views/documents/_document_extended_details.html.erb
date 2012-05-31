@@ -1,16 +1,9 @@
 <div class="document_details_container">
 
-	
-
-
 	<div style="clear: both"></div>
 
 	<% if !@document.blank? && !@document.people.blank? %>
-
-		<div class="introduction_block">
-			<span class="document_heading">People mentioned in this Document</span>
-		</div>	
-
+		<span class="document_heading" style="margin-top:10px;">People mentioned in this Document</span>
 		<div class="">
 			<div class="person_heading_name">Name</div>
 			<div class="person_heading_born">Born</div>
@@ -18,7 +11,7 @@
 			<div class="person_heading_expand"><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></div>
 		</div>
 
-		<% @document.people.order("title desc, first_name asc, last_name asc").each do |person|  %>
+		<% @document.people.order("last_name asc, first_name asc").each do |person|  %>
     		<div id="person_<%= person.id%>">
       			<div class="person_detail_name" style="background-color:<%=person.sex_color%>"> 
       				<%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %>
@@ -52,9 +45,8 @@
 
 
 		<!-- Locations Table -->
-		<div class="introduction_block">
-			<span class="document_heading">Locations mentioned in this Document</span>
-		</div>		
+		
+		<span class="document_heading" style="margin-top:10px;">Locations mentioned in this Document</span>
 		<div class="location_heading">
 			<div class="location_heading_address">Address</div>
 			<div class="location_heading_town">Town</div>

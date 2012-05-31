@@ -563,11 +563,37 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 .person_detail_name,
 .person_detail_born,
 .person_detail_died,
-.person_detail_expand{
+.person_detail_expand {
 	height: 20px;
-	border: 1px solid black;
-	width: 200px;
+	border-radius: 2px;
 	display: inline-block;
+	margin-bottom: 3px;
+}
+
+
+.person_heading_name,
+.person_detail_name {
+	width: 400px;
+}
+
+.person_heading_born,
+.person_heading_died,
+.person_detail_born,
+.person_detail_died {
+	width:150px;
+}
+
+.person_heading_expand,
+.person_detail_expand {
+	width:100px;	
+}
+
+
+.person_heading_name,
+.person_heading_born,
+.person_heading_died,
+.person_heading_expand {
+	background-color: #F3EFE7;
 }
 
 
@@ -580,11 +606,25 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 .location_detail_county,
 .location_detail_country {
 	height: 20px;
-	border: 1px solid black;
 	width: 200px;
 	display: inline-block;
-	background-color: #F3EFE7
+	background-color: #F3EFE7;
+	border-radius: 2px;
+	margin-bottom: 3px;
 }
+
+.person_heading_name,
+.person_heading_born,
+.person_heading_died,
+.person_heading_expand,
+.location_heading_address,
+.location_heading_town,
+.location_heading_county,
+.location_heading_country{
+	font-weight: 700;
+}
+
+
 
 
 /* END Christian's styling */
