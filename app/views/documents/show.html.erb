@@ -1,29 +1,55 @@
 <% @pagetitle = @document.name %>
 <!-- Show Individual Document page -->
 
-<div class="container siteScale clearfix">
-      
-  <% if @document.is_on_sale? && !@document.sale_price.blank?%>
-    <div class="varMarginTop">
-      <% if current_user %>
-        <% payment_service_for @document.id, PAYPAL_ACCOUNT, :amount => @document.sale_price, :currency => 'GBP',
-                                                             :service => :paypal, :html => { :id => 'payment-form' } do |service| %>
-          <% service.customer :first_name => current_user.first_name, :last_name => current_user.last_name,:email => current_user.email %>
-          <% service.billing_address :city => current_user.city, :address1 => current_user.address1, :address2 => current_user.address2,:state => current_user.county,:zip => current_user.post_code %>
-          <% service.item_name @document.title service.shipping '0.00' %>
-          <% service.tax '0.00' %>
-          <% service.notify_url paypal_ipn_url %>
-          <% service.return_url paypal_return_url %>
-          <% service.cancel_return_url paypal_cancel_url %>
-          <%if @document.sale_price > 0.50 %>
-            <%= submit_tag("Buy From Paypal",:class=>"button") %>
-          <%end%>
-        <% end %>
-      <%else%>
-        Please Login to buy this item.
-      <%end%>
-    </div>
-  <% end %>
+<div class="introduction_block">
+	<% if @document.name.blank? %>
+	  <strong></strong><%= @document.title %></strong>
+	<% else %>  
+	  <strong><%= @document.name %></strong>
+	<% end %>
+</div>
+
+<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
+<%
+=begin %>
+	<% if current_user %>
+		<% payment_service_for @document.id, PAYPAL_ACCOUNT, :amount => @document.sale_price, :currency => 'GBP', :service => :paypal, :html => { :id => 'payment-form' } do |service| %>
+        	<% service.customer :first_name => current_user.first_name, :last_name => current_user.last_name,:email => current_user.email %>
+           	<% service.billing_address :city => current_user.city, :address1 => current_user.address1, :address2 => current_user.address2,:state => current_user.county,:zip => current_user.post_code %>
+           	<% service.item_name @document.title service.shipping '0.00' %>
+           	<% service.tax '0.00' %>
+           	<% service.notify_url paypal_ipn_url %>
+           	<% service.return_url paypal_return_url %>
+           	<% service.cancel_return_url paypal_cancel_url %> 
+            <% submit_tag("Buy From Paypal",:class=>"button") %>
+		<% end %>
+	<% end %>
+<%
+=end %>	
+	<div class="introduction_block">
+		<strong>This item is for sale</strong>
+	</div>	
+<%else%>
+	<div class="introduction_block">
+		<strong>This item is not for sale</strong>
+	</div>	
+<%end%>	
+
+
+<div class="document_details_container">
+	<div class="document_details_box">
+            Title: <%= @document.try(:title) %><br />
+            Type : <%= @document.document_type.try(:name) %><br />
+        	Status : <%= @document.status.try(:name) %>
+        	Price: <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
+	</div>
+	<div class="document_publishing_box"></div>
+	<div class="document_physical_box"></div>
+	<div class="document_photos_container"></div>
+	<div class="document_description_box"></div>
+</div>
+
+
 
   <div class="block whiteBG clearfix varMarginDouble border">
     <div class="varPaddingDouble horPaddingDouble clearfix">
@@ -86,7 +112,7 @@
           <ul id="mycarousel" class="jcarousel-skin-tango">
             <% @document.document_photos.each do |photo|  %>
 			        <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
-		        <% end %>
+		    <% end %>
           </ul>
         <% end %>
       </div>
@@ -187,5 +213,5 @@
       
   <div class="clear"></div>
   
-</div>
+
 <!-- Container End -->

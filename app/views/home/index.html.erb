@@ -1,22 +1,21 @@
 <% @pagetitle = "Home" %>
 
-<!-- Search Form -->
-<div class="search_container">
+<div class="introduction_block">
+	Currently listed:<em><%= Person.count%> Individuals, <%=Location.count%> Locations and <%= Document.count %> Items.</em>
+	<% if !current_user %>    
+  		<strong><%= link_to "Register now" ,register_path, :class=>"strong", :id=>"registerUser"%> for full access to our database.</strong>
+	<% end %>
+</div>
 
-  <div class="introduction_block">
-    We currently have <%= Person.count%> individuals, <%=Location.count%> locations and <%= Document.count %> items listed on the site.<br />
-    <% if !current_user %>    
-      <%= link_to "Register now" ,register_path ,:id=>"registerUser"%> for full access to our database.
-    <% end %>
-  </div>
-    
+<!-- Search Form -->
+<div class="search_container">	
   <div>
     <%= render "search_form" %>
   </div>
 	
-  <div class="bottom_content">
-    Bottom Content Bar  Suggested Searches etc
-  </div>
+  <!-- <div class="bottom_content_container"> -->
+    <%#= render "bottom_content" %>
+  <!-- </div> -->
 
 </div><!-- End Search Container -->
 

@@ -1,20 +1,14 @@
 <!-- Footer Menu -->
-<%= render "layouts/footer_menu" %>
-<!-- End Footer Menu -->
+<div class="footer_links">
+	<%= render "layouts/footer_menu" %>
+</div>
 
+<div class="footer_social">
+	<div class="footer_social_icon"><a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("icons/blog.gif",:height=>"16")%></a>Blog</div>
+	<div class="footer_social_icon"><a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.png",:height=>"16")%></a>Facebook</div>
+	<div class="footer_social_icon"><a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.png",:height=>"16")%></a>Twitter</div>
+</div>
 
-<!-- Social Links -->
-<div class="connectWithUs floatLeft varPaddingDouble horPaddingDouble">
-	<span class="strong text">Connect with us</span>
-	<div class="icon">
-		<a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("facebook.png",:height=>"16")%></a>
-		<a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("twitter.png",:height=>"16")%></a>
-	</div>
-</div><!-- End Social Links -->
-
-
-<!-- Copyright Notice -->
-<div class="connectWithUs floatRight varPaddingDouble horPaddingDouble">
-	&copy; <%= Time.now.year %>
-</div> <!-- End Copyright Notice-->
-
+<div class="footer_credits">
+	<a href="http://www.pastonpaper.com">pastonpaper.com</a> is a <a href="http://www.watchthedot.com">watchthedot.com</a> website  &copy; <%= Time.now.year %> <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:height=>"16")%></a>
+</div>

@@ -1,35 +1,24 @@
 
 <!-- Container -->
 <div class="container siteScale clearfix">
-<div class="block whiteBG varMarginDouble leftBox floatLeft border">
-	<div class="varPaddingDouble horPaddingDouble registraton">
-<h2><%= link_to "Reports" , admin_report_path%> &raquo; Surname list</h2>
-There are: <%= @people.count %> individuals listed in the database
- (<%= @male_people.count %> Males / <%= @female_people.count %> Females / <%= @unknown_people.count %> Unknown)
-
-
-<br/>
-
-
-<%= page_entries_info @surnames,:entry_name => 'Surname' %>
-<table>
-	
-<%
- @surnames.each do |sn| 
- %>
-	<tr class="<%= cycle("odd","even")%>"><td><td><%= sn.last_name%></td><td> (<%= pluralize(sn.last_name_count,"Individual")%>)</td></tr>
-<% end %>
- </table>
- <%= will_paginate @surnames%>
-
-</div>
-</div>
-
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-		    	<%= render "shared/usermenu"%>
+	<div class="block whiteBG varMarginDouble leftBox floatLeft border">
+		<div class="varPaddingDouble horPaddingDouble registraton">
+			<h2><%= link_to "Reports" , admin_report_path%> &raquo; Surname list</h2>
+			There are: <%= @people.count %> individuals listed in the database
+ 			(<%= @male_people.count %> Males / <%= @female_people.count %> Females / <%= @unknown_people.count %> Unknown)
+			<br/>
+			<%= page_entries_info @surnames,:entry_name => 'Surname' %>
+			<table>
+				<% @surnames.each do |sn| %>
+					<tr class="<%= cycle("odd","even")%>"><td><td><%= sn.last_name%></td><td> (<%= pluralize(sn.last_name_count,"Individual")%>)</td></tr>
+				<% end %>
+ 			</table>
+ 			<%= will_paginate @surnames%>
+		</div>
 	</div>
-
-
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+   		<%= render "shared/usermenu"%>
+	</div>
 </div>
 <!-- Container End -->
 
