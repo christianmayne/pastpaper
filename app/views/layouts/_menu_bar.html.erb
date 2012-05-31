@@ -2,11 +2,12 @@
 	<li><%= link_to "Home", '/' %></li>
 	<% if current_user %>
 	    <li><%= link_to "Your Profile", user_home_path %></li >
-	    <li><%= link_to "Your Items",documents_path %></li>
+	    <li><%= link_to "Your Items", documents_path %></li>
 	    <li><%= link_to "Add Your Item", new_document_path %></li>
-	 
-		<% if current_user && current_user.is_admin? %>
-			<li class="shadeBlue"> <%= link_to "Site Administration &raquo; Users".html_safe,admin_users_path %></li>
-	    <%end%>
+	<%end%>	 
+	<li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
+	<% if current_user && current_user.is_admin? %>
+		<li><%= link_to "Administration", admin_users_path %></li>
 	<%end%>
+
 </ul>
