@@ -3,13 +3,22 @@
 
 <div class="introduction_block">
 	<% if @document.name.blank? %>
-	  <strong></strong><%= @document.title %></strong>
+	  <span class="document_heading"><%= @document.title %></span>
 	<% else %>  
-	  <strong><%= @document.name %></strong>
+	  <span class="document_heading"><%= @document.name %></span>
 	<% end %>
+	<br />
+	<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
+		<strong>This item is for sale</strong>
+	<%else%>
+		<strong>This item is not for sale</strong>
+	<% end %>	
+
+    <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
+    	<span class="floatRight"><%= link_to "Edit Document", edit_document_path(@document) %></span>
+    <% end %>
 </div>
 
-<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
 <%
 =begin %>
 	<% if current_user %>
@@ -26,192 +35,55 @@
 	<% end %>
 <%
 =end %>	
-	<div class="introduction_block">
-		<strong>This item is for sale</strong>
-	</div>	
-<%else%>
-	<div class="introduction_block">
-		<strong>This item is not for sale</strong>
-	</div>	
-<%end%>	
-
 
 <div class="document_details_container">
-	<div class="document_details_box">
-            Title: <%= @document.try(:title) %><br />
-            Type : <%= @document.document_type.try(:name) %><br />
-        	Status : <%= @document.status.try(:name) %>
-        	Price: <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
+	<div class="document_attributes_container">
+		<div class="document_details_box">
+	            Title:  <%= @document.try(:title) %><br />
+	            Type:   <%= @document.document_type.try(:name) %><br />
+	        	Status: <%= @document.status.try(:name) %><br />
+	        	Price:  <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
+		</div>
+		<div class="document_publishing_box">
+			<% @document.attribute_documents.each do |doc_attr| %>
+            	<%= doc_attr.attribute_type.try(:name) %>: <%= "#{doc_attr.value}" %><%= ", #{doc_attr.on_date.strftime('%d %b %Y')}" unless doc_attr.on_date.blank? %><br />
+          	<% end %>
+		</div>
+		<div class="document_physical_box">
+           	<b>Dimensions</b><br />
+           	<%= "#{@document.try(:length)}mm x " unless @document.length.blank? %> 
+           	<%= "#{@document.try(:width)}mm x " unless @document.width.blank? %> 
+           	<%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %><br />
+           	Weight: <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%><br />
+           	Added: <%= @document.created_at.strftime("%d/%m/%Y")%><br />
+           	Price: <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %><br />
+ 		</div>
+	</div>	
+
+	<div class="document_photos_container">
+		<% if !@document.blank? && !@document.document_photos.blank? %>
+        	<div style="margin-left:20px"><%= image_tag @document.default_image.photo.url(:large), %></div>
+          	<ul id="mycarousel" class="jcarousel-skin-tango">
+            	<% @document.document_photos.each do |photo|  %>
+			    	<li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
+		    	<% end %>
+          	</ul>
+		<% end %>
 	</div>
-	<div class="document_publishing_box"></div>
-	<div class="document_physical_box"></div>
-	<div class="document_photos_container"></div>
-	<div class="document_description_box"></div>
+
+	<div class="document_description_box"><strong>Description: </strong>
+		<%= @document.try(:comment) %>
+	</div>
+
 </div>
 
-
-
-  <div class="block whiteBG clearfix varMarginDouble border">
-    <div class="varPaddingDouble horPaddingDouble clearfix">
-
-      <div class="floatLeft clearfix" style="width:35%">
-        <p>
-          <b><%= @document.try(:name) %><br/></b>
-          <%= @document.try(:title) %><br />
-          Type : <%= @document.document_type.try(:name) %>
-        	<br />Status : <%= @document.status.try(:name) %>
-        </p>
-        <p>
-          <%= @document.document_type.try(:title) %>
-          <br />
-           
-          <!-- Document Attributes --> 
-          <% @document.attribute_documents.each do |doc_attr| %>
-            <span class="">
-              <%= doc_attr.attribute_type.try(:name) %>: <%= "#{doc_attr.value}" %><%= ", #{doc_attr.on_date.strftime('%d %b %Y')}" unless doc_attr.on_date.blank? %> 
-            </span>
-            <br/>
-          <% end %>
-        </p>
-
-        <div class="clearfix">
-          <div class="floatRight"><b>Price:</b> 
-        	  <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
-          </div>
-          <div class="floatLeft">
-            <b>Dimensions:</b> 
-            <%= "#{@document.try(:length)}mm x " unless @document.length.blank? %> 
-            <%= "#{@document.try(:width)}mm x " unless @document.width.blank? %> 
-            <%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %>&nbsp;
-          </div>
-          <br />            
-          <div class="floatLeft">
-            <b>Weight:</b> 
-            <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%>&nbsp;
-          </div> 
-        </div>
-
-        <span class=""><b>Binding:</b> <%= @document.try(:binding) %></span><br />
-        <span class=""><b>Condition:</b><%= @document.try(:condition) %></span><br />
-        <span class=""><b>Comments:</b><%= @document.try(:comment) %></span><br />
-        <br />
-        <b>Added on :	<%= @document.created_at.strftime("%d/%m/%Y")%> </b>
-  
-      </div>
-
-      <div class="floatRight">
-        <!-- If logged in and document owner show edit document links -->
-        <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
-          <span class="floatRight">
-            <%= link_to "Edit Document", edit_document_path(@document) %>
-          </span>
-          <br />
-        <% end %>
-        <% if !@document.blank? && !@document.document_photos.blank? %>
-          <%= image_tag @document.default_image.photo.url(:large), %><br />
-          <ul id="mycarousel" class="jcarousel-skin-tango">
-            <% @document.document_photos.each do |photo|  %>
-			        <li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
-		    <% end %>
-          </ul>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <% if !current_user %>
-    <p>Please Register or Login to see full details about this item</p>
-  <% else %>
-
-    <div class="clearfix varMarginBottom">
-	    <div class="floatLeft leftBox clearfix">
-        <p class="strong">People mentioned in this item</p>
-	   	  <div class="clearfix">
-          <div class="floatLeft heading">Name</div>
-          <div class="floatLeft space heading">Born</div>
-          <div class="floatLeft heading">Died<a href="javascript:expandAllPdetail()" id="expandallpdetail" class="shadeWhite floatRight">Expand All</a><div class="clear"></div>
-	      </div>
-      </div>
-
-      <% if !@document.blank? && !@document.people.blank? %>
-
-        <% @document.people.order("title desc, first_name asc, last_name asc").each do |person|  %>
-	        <div class="clearfix" id="person_<%= person.id%>" >
-	          <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>"> 
-              <%=  person.title.titleize rescue '' %> <%= person.first_name rescue ' unknown' %>
-              <%= " #{person.middle_name.titleize}" rescue '' %>
-              <%= person.last_name rescue 'unknown' %>
-            </div>
-            <div class="floatLeft space contant odd" style="background-color:<%=person.sex_color%>">
-              <%= person.birth_date rescue '' %> 
-              <%= "(#{person.birth_location})" unless person.birth_location.blank? %>
-            </div>
-            <div class="floatLeft contant odd" style="background-color:<%=person.sex_color%>">
-              <%= person.death_date rescue '' %> 
-              <%= "(#{person.death_location})" unless person.death_location.blank? %>
-           	  <%unless person.person_events_except_dob.nil?%>
-           		<a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink floatRight">View</a>
-              <div class="clear"></div>
-            </div>
-          </div>
-	      <%end%>
-
-        <div style="clear:left"></div>
-
-        <%if !person.person_events_except_dob.nil?%>
-          <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
-		   	    <%person.person_events_except_dob.each do |person_event|%>
-				      <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
-				      <div class="floatLeft space contant odd"><%=  "#{person_event.fact_year}" %></div>
-				      <div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
-				      <div class="clear"></div>
-				    <%end%>
-				  </div>
-        <%end%>
+<% if !current_user %>
+	<div class="document_heading">Please Register or Login to see full details about this item</div>
+<% else %>
+	<%= render "document_extended_details" %>
+<% end %>
     
-      </div>
-
-    <%end%>
-  <%end%>
-
-
-  <!-- Locations Table -->
-  <p class="strong">Other Locations mentioned in this Document</p>
-  <table cellpadding="0" cellspacing="1" border="0" width="100%" class="varMarginBottom">
-    <tr>
-      <th align="left">Street</th>
-      <th align="left">Town</th>
-      <th align="left">County</th>
-      <th align="left">Country</th>
-    </tr>
-    <% if !@document.blank? && !@document.locations.blank? %>
-      <% @document.locations.each do |location|  %>
-        <tr class="<%= cycle('odd','even') %>">
-          <td><%= location.street1%> <%= location.street2%></td>
-          <td><%= location.town%></td>
-          <td><%= location.county%></td>
-          <td><%= location.country%></td>
-        </tr>
-      <%end%>
-    <%end%>
-  </table>
-<% end %>     
-
-     
-    <div class="floatLeft">
-      <p class="shadeWhite hide">Views: 29</p>
-    </div>
-  </div>
-      
-  <div class="block rightBox floatRight whiteBG varPaddingDouble horPaddingDouble clearfix varMarginDouble border">
-    <h3 class="shadeGreen">Related Search</h3>
-    <ul class="leaf alignCenter">
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-      
-  <div class="clear"></div>
-  
+<p>Views: XX</p>
+    
 
 <!-- Container End -->

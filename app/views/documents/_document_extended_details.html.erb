@@ -1,0 +1,77 @@
+<div class="document_details_container">
+
+	
+
+
+	<div style="clear: both"></div>
+
+	<% if !@document.blank? && !@document.people.blank? %>
+
+		<div class="introduction_block">
+			<span class="document_heading">People mentioned in this Document</span>
+		</div>	
+
+		<div class="">
+			<div class="person_heading_name">Name</div>
+			<div class="person_heading_born">Born</div>
+			<div class="person_heading_died">Died</div>
+			<div class="person_heading_expand"><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></div>
+		</div>
+
+		<% @document.people.order("title desc, first_name asc, last_name asc").each do |person|  %>
+    		<div id="person_<%= person.id%>">
+      			<div class="person_detail_name" style="background-color:<%=person.sex_color%>"> 
+      				<%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %>
+    			</div>
+ 
+    			<div class="person_detail_born" style="background-color:<%=person.sex_color%>">
+      				<%= person.birth_date rescue '' %><%#= "(#{person.birth_location})" unless person.birth_location.blank? %>
+    			</div>
+
+			    <div class="person_detail_died" style="background-color:<%=person.sex_color%>">
+      				<%= person.death_date rescue '' %><%#= "(#{person.death_location})" unless person.death_location.blank? %>
+				</div>
+			</div>	
+	   	  	<%unless person.person_events_except_dob.nil?%>
+   	  			<div class="person_detail_expand"><a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" >View</a></div>	
+  			<% end %>
+
+			<div style="clear:left"></div>
+			<%if !person.person_events_except_dob.nil?%>
+				<div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
+	   	    		<%person.person_events_except_dob.each do |person_event|%>
+			    		<div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
+			      		<div class="floatLeft space contant odd"><%= "#{person_event.fact_year}" %></div>
+			      		<div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
+			      		<div class="clear"></div>
+			    	<%end%>
+			 	</div>
+			<%end%>
+		
+		<%end%>
+
+
+		<!-- Locations Table -->
+		<div class="introduction_block">
+			<span class="document_heading">Locations mentioned in this Document</span>
+		</div>		
+		<div class="location_heading">
+			<div class="location_heading_address">Address</div>
+			<div class="location_heading_town">Town</div>
+			<div class="location_heading_county">County</div>
+			<div class="location_heading_country">Country</div>
+		</div>
+	
+		<% if !@document.blank? && !@document.locations.blank? %>
+			<% @document.locations.each do |location|  %>
+				<div class="<%= cycle('odd','even') %>">
+					<div class="location_detail_address"><%= location.street1%> <%= location.street2%></div>
+					<div class="location_detail_town"><%= location.town%></div>
+					<div class="location_detail_county"><%= location.county%></div>
+					<div class="location_detail_country"><%= location.country%></div>
+				</div>
+			<%end%>
+		<%end%>
+
+	<% end %> 
+</div>

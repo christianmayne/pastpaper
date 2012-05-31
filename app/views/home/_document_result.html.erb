@@ -4,7 +4,7 @@
   <div>
     <table>
       <tr>
-        <% if current_user.is_admin? %><th>Stock Number</th><%end%>	
+        <th>Stock Number</th>	
         <th>Image</th>
         <th>Document Name</th>
         <th>Type</th>
@@ -13,7 +13,7 @@
       </tr>
       <% @documents.each do |document| %>
         <tr>
-          <%if current_user.is_admin? %><td><%= link_to document.stock_number, document_path(document) %></td><%end%>
+          <td><%= link_to document.stock_number, document_path(document) %></td>
           <td class="alignCenter"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></td>
           <td>
             <% if document.name.blank? %>
