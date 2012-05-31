@@ -92,7 +92,8 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 }
 
 .document_heading,
-.search_heading {
+.search_heading,
+.profile_heading {
   font-family: georgia;
   font-size: 18px;
   font-style: italic;
