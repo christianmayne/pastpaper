@@ -19,6 +19,8 @@ input.submit[type=submit], input.submit[type=button]{ background:url(button.png)
 input.submit[type=submit]:active, input.submit[type=button]:active{ background-position:-60px -72px; }
 
 
+/* Christian's Styling */
+
 .pop_container {
   width:1000px;
   margin: 0 auto;
@@ -26,195 +28,171 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   background-color: white;
 }
 
-.header {
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  height: 200px;
-  margin: auto;
-}
+/* Header Layout */
 
+.header {
+	display: block;
+	width: 1000px;
+	background-color:pink;
+}
 
 .header_logo {
-  display: block;
-  float: left;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  //height: 193px;
-  margin-left: 30px;
-  margin-top: 18px;
-  min-height: 0px;
-  width: 220px;
+ 	display: inline-block;
+ 	position:absolute;
+ 	width: 200px;
+  	background-color: red;
 }
 
-
-.header_login_box {
-  color: #585858;
-  display: block;
-  float: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  height: 63px;
-  margin-right: 20px;
-  margin-top: 20px;
-  width: 362px;
+.header,
+.header_logo,
+.header_content {
+	height: 150px
 }
 
-.header_login_form {
-  color: #585858;
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  height: 63px;
-  width:400px;
+.header_content,
+.header_upper,
+.main_menu_bar {
+	width: 800px;
+	float:right;
 }
 
-
-.header_login_greeting {
-  color: #FBDF78;
-  display: inline;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  height: auto;
-  text-align: center;
-  width: auto;
+.header_content {
+	display: inline-block;
+	background-color: orange;
 }
 
-.header_login_register {
-  margin-top: -20px;
-  float:right;
-}
-
-.header_greeting_box {
-  color: white;
-  display: block;
-  float: left;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  height: 34px;
-  margin-left: 20px;
-  text-align: center;
-  width: 257px;
-}
-
-.header_greeting_text {
-  color: #FBDF78;
-  display: inline;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  height: auto;
-  text-align: center;
-  width: auto;
-}
-
-.header_greeting_links {
-  color: white;
-  display: inline;
-  float: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  height: auto;
-  text-align: center;
-  width: auto;
-}
-
-
-.header_social_links {
-
-}
-
-
-.status_message {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-repeat: repeat;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  height: 14px;
-  text-align: center;
-  width: 257px;
-  float: right;
-}
-
-
-.status_message.error{
-  background-color: #FBE3E4;
-  border-color: #FBC2C4;
-  color: #8A1F11;
-}
-
-.status_message.alert{
-  background-color: #FFF6BF;
-  border-color: #FFD324;
-  color: #514721;
-}
-
-.status_message.success{
-  background-color: green;
-  border-color: green;
-  color: #514721;
+.header_upper {
+	display: inline-block;
+	height:100px;  	
+	background-color:yellow;
 }
 
 .main_menu_bar {
-  background-color: white;
-  height: 60px;
-  width:700px;
-  margin: 0px;
-  float:left;
-  clear:right;
+  	height: 50px;
+  	background-color: green;
 }
 
-.main_menu ul {
-  padding-top: none;
-  margin: 0px;
+.header_login_box {
+	float: right;
+	width: 400px;
+	height: 100px;
+	background-color: lightblue;
 }
 
+.header_login_form,
+.header_social_links,
+.header_user_greeting,
+.header_user_status,
+.header_status_message {
+	width: 400px;
+	height: 33px;
+}
+
+.header_login_form {
+  	font-size: 12px;
+  	background-color: pink;
+}
+
+.header_social_links,
+.header_user_status {
+  	float:right;
+  	background-color: red;
+}
+
+
+.header_status_message {
+	float:right;
+	background-color:orange;
+}
+
+
+/* Header - Main Menu */
+
+#nav ul {
+}
+
+/*
 .main_menu li {
-  background-color: #AAA;
-  color: #3D5055;
-  display: inline;
-  font-family: Verdana, Arial, sans-serif;
-  font-size: 11px;
-  height: auto;
-  list-style-image: none;
-  list-style-position: outside;
-  list-style-type: none;
-  text-align: -webkit-auto;
-  color: white;
-  cursor: auto;
-  display: block;
-  float: left;
-  font-family: Verdana, Arial, sans-serif;
-  font-size: 13px;
-  height: 30px;
-  line-height: 19px;
-  list-style-position: outside;
-  padding-right: 20px;
-  text-align: -webkit-auto;
-  text-decoration: none;
-  width: auto;
-  margin: 0px;
+	width: 400px;
+	height: 50px;
+	background-color: #AAA;
+ 	display: inline;
+	list-style-position: outside;
+	list-style-type: none;
+	#color: white;
+	#cursor: auto;
+	#display: block;
+	#float: left;
+	#line-height: 45px;
+	#height: 45px;
+	#list-style-position: outside;
+	#padding-right: 20px;
+	#width: auto;
+	#margin: 0px;
 }
+*/
+
+#nav {
+    margin: 0; 
+    padding: 0;
+    float: left;
+}   
+
+#nav li {
+    display: inline;
+    line-height:50px;
+    background-color: #AAA; 
+}
+
+#nav li a {
+    float: left; text-decoration: none;
+    color: white;
+    width:100px;
+    padding-left: 10px;
+	border-left: 1px solid white;
+    border-right: 1px solid white;
+    background-color: #AAA; 
+    -moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px; 
+    -moz-border-radius-topright: 5px;
+    border-top-right-radius: 5px;
+}
+
+#nav li:first-child a {
+}
+
+#nav li:last-child a { 
+}
+
+
+
+
+
+#nav li a:hover, 
+#nav li .current
+{
+    color: #fff;
+    background-color:#0b75b2;
+}
+
+/* 
+.main_menu li a:visited{
+    color: white;}
+
+*/ 
+
+
+/* END Christian's styling */
 
 
 
 .sidebar {
   width: 300px;
   float: left;
-  #background: blue;
   min-height: 500px;
 }
 
 .sidebar_info {
-  //margin:auto;
   clear:both;
   color: #3D5055;
   font-family: Verdana, Arial, sans-serif;
@@ -505,6 +483,44 @@ width: 51px;
 word-spacing: 0px;
 }
 
+
+
+/* Status Messages */
+
+.status_message {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-repeat: repeat;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  height: 14px;
+  text-align: center;
+  width: 257px;
+  float: right;
+}
+
+
+.status_message.error{
+  background-color: #FBE3E4;
+  border-color: #FBC2C4;
+  color: #8A1F11;
+}
+
+.status_message.alert{
+  background-color: #FFF6BF;
+  border-color: #FFD324;
+  color: #514721;
+}
+
+.status_message.success{
+  background-color: green;
+  border-color: green;
+  color: #514721;
+}
 
 
 /* Utility */

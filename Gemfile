@@ -47,6 +47,7 @@ group :development do
   gem 'rspec-rails', '2.10.0'
   gem 'annotate', '2.4.0'
   gem 'sqlite3'
+  gem 'capybara'
 end
 
 group :test do
@@ -55,6 +56,8 @@ group :test do
  # gem 'rspec-rails', '2.6.1'
   gem 'rspec-rails', '2.10.0'
   gem 'webrat', '0.7.1'
-  gem 'spork', '0.9.0.rc8'
+  #gem 'spork', '0.9.0.rc8'
+  gem 'spork-rails'
+  gem 'capybara'
   
 end
