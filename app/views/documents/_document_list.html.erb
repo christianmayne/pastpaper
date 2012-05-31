@@ -1,38 +1,37 @@
-<%= page_entries_info @documents,:entry_name => 'item' %>
+<div class="introduction_block">
+	<span class="profile_heading">Your Documents</span><div class="floatRight"><%= page_entries_info @documents,:entry_name => 'item' %></div>
 </div>
-  <table>
-    <tr>
-      <th>Stock Number</th>
-      <th>Image</th>
-      <th>Document Name</th>
-      <th>Type</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-    <% @documents.each do |document| %>
-        <tr <% if document.is_deleted?%> class="shadeRed"<%end%>>
-          <td><%= link_to document.stock_number, document_path(document) %></td>
-           <td class="alignCenter"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></td>
-          <td><% if document.name.blank? %>
-                <%= link_to document.title, document_path(document) %>
-              <% else %>  
-                <%= link_to document.name, document_path(document) %>
-              <% end %>
-          </td>
-          <td><%= link_to document.document_type.try(:name), document_path(document) %></td>
-          <td><%= link_to document.status.try(:name), document_path(document) %></td>
-            <% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
-              <td><%= link_to image_tag("editicon.gif"), edit_document_path(document) %> 
-            
-                <%= link_to image_tag("deleteicon.png"), document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
-              	
-              	 <%= link_to "D", permanent_delete_documents_path(document), :method => :delete, :confirm => "Are you sure you wish to permenantly delete the current document?" if document.is_deleted? %>
-              	
-              	<%= link_to "R", admin_restore_document_path(document) ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
-           
-              </td>
-          <% end %>
-        </tr>
-    <% end %>
-  </table>
- <%= will_paginate @documents %>
+<table>
+	<tr>
+		<th>Stock Number</th>
+		<th>Image</th>
+		<th>Document Name</th>
+		<th>Type</th>
+		<th>Status</th>
+		<th>Action</th>
+	</tr>
+	<% @documents.each do |document| %>
+		<tr <% if document.is_deleted?%> class="shadeRed"<%end%>>
+			<td><%= link_to document.stock_number, document_path(document) %></td>
+			<td class="alignCenter"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></td>
+			<td>
+				<% if document.name.blank? %>
+					<%= link_to document.title, document_path(document) %>
+				<% else %>  
+					<%= link_to document.name, document_path(document) %>
+				<% end %>
+			</td>	
+			<td><%= link_to document.document_type.try(:name), document_path(document) %></td>
+			<td><%= link_to document.status.try(:name), document_path(document) %></td>
+			<% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
+				<td>
+					<%= link_to image_tag("editicon.gif"), edit_document_path(document) %> 
+					<%= link_to image_tag("deleteicon.png"), document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
+					<%= link_to "D", permanent_delete_documents_path(document), :method => :delete, :confirm => "Are you sure you wish to permenantly delete the current document?" if document.is_deleted? %>
+					<%= link_to "R", admin_restore_document_path(document) ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>
+<%= will_paginate @documents %>
