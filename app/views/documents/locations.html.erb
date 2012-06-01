@@ -1,36 +1,34 @@
 <% @pagetitle = "Add New Document" %>
+<div class="introduction_block"><span class="profile_heading">Add Locations</span></div>
 <div class="container siteScale clearfix">
 	<div class="block whiteBG clearfix varMarginDouble border">
 		<div class="varPaddingDouble horPaddingDouble clearfix">
 			<div style="width:250px;float:left;">
-			<%= render :partial => "document_menu"%>
+				<%= render :partial => "document_menu"%>
 			</div>
 			<div style="margin-left: 260px;">
-				<h3>Locations</h3>
-				
-				<% @locations.each do |location| %>
+			<h3>Locations</h3>
+			<% @locations.each do |location| %>
 				<% unless location.new_record? %>
-				<div class="location_row" style="background: #fafafa; margin: 2px; padding:5px;">
-					<div class="floatLeft">
-					<%= location.full_location%></div>  
-					<div class="floatRight">
-						<%= link_to image_tag("deleteicon.png"),document_document_location_path(location.document.id,location),:method => :delete, :confirm => "Are you sure to delete?"  %>
-						
+					<div class="location_row" style="background: #fafafa; margin: 2px; padding:5px;">
+						<div class="floatLeft">
+							<%= location.full_location %>
+						</div>  
+						<div class="floatRight">
+							<%= link_to image_tag("deleteicon.png"),document_document_location_path(location.document.id,location),:method => :delete, :confirm => "Are you sure to delete?"  %>
+						</div>
+						<br />
 					</div>
-					<br />
+				<% end %>			
+			<%end%>
+			<br />
+			<div class="userform">
+				<h3>Add Location For this <%= @document.document_type.name%></h3>
+					<%= render :partial => "document_locations/form"%>
+					<div class="" style="text-align: right">
+						<%= link_to "Next" ,document_itempeople_path(@document),:class=>"button"%>
 					</div>
-			<% end %>			
-				<%end%>
-				<br />
-					<div class="userform">
-					<h3>Add Location For this <%= @document.document_type.name%></h3>
-<%= render :partial => "document_locations/form"%>
- <div class="" style="text-align: right">
-					 
-					 	<%= link_to "Next" ,document_itempeople_path(@document),:class=>"button"%>
-					 
-					 </div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
