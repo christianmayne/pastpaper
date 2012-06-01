@@ -30,12 +30,6 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   background-color: white;
 }
 
-.general_page {
-	min-height: 500px;
-  	margin-left:10px;
-  	margin-right:10px;
-}
-
 .header,
 .footer {
 	clear: both;
@@ -328,13 +322,13 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 
 .search_form {
 	height: 150px;
-  border-radius: 5px;
-  border-top-width: 0px;
-  color: #3D5055;
-  display: block;
-  margin-bottom: 10px;
-  padding: 15px;
-  position: relative;
+	border-radius: 5px;
+	border-top-width: 0px;
+	color: #3D5055;
+	display: block;
+	margin-bottom: 10px;
+	padding: 15px;
+	position: relative;
 }
 
 .search_form.person {
@@ -515,7 +509,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 	width: 670px;
 	height: 550px;
 	border-radius: 5px;
-	#background-color: #F3EFE7;	
+	/*background-color: #F3EFE7;*/	
 	padding-top: 15px;		
 	float: right;
 }
@@ -629,6 +623,38 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 	font-weight: 700;
 }
 
+
+/* General Page Styling */
+
+.general_page {
+	min-height: 300px;
+  	#margin-left:10px;
+  	#margin-right:10px;
+  	border-radius: 5px;
+}
+
+.general_page_text {
+	margin: 20px;
+	border-top: 20px;
+}
+
+.contact_block_text{
+	display: block;
+	width: 900;
+	margin: auto;
+	border-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+
+.contact_form_block{
+	min-height: 200px;
+	width: 600px;
+	margin: auto;
+	background-color: #F3EFE7;
+	border-radius: 5px;
+}
 
 
 
