@@ -30,6 +30,12 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   background-color: white;
 }
 
+.general_page {
+	min-height: 500px;
+  	margin-left:10px;
+  	margin-right:10px;
+}
+
 .header,
 .footer {
 	clear: both;
@@ -47,8 +53,6 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 .search_container {
 	position: relative;
 }
-
-
 
 .sidebar {
   width: 200px;

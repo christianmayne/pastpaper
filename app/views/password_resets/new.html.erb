@@ -1,25 +1,16 @@
 <!-- Container -->
-<div class="container siteScale clearfix">
-<div class="block whiteBG leftBox varMarginDouble border floatLeft">
-	<div class="varPaddingDouble horPaddingDouble">
-    	<h1>Forgot password</h1>
-      
- <div class="registraton">     
-
-<%= form_tag password_resets_path, :method => :post do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email %> <%= submit_tag "Reset my password!" %>
-  </div>
-<% end %>
-
-
-    </div>
-
-    </div>
-</div>
-
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-		    
+<div class="general_page">
+	<div class="introduction_block"><span class="profile_heading">Change Your Password</span></div>
+	<div class="general_page_text">
+		Please enter your email address you used to register on the site.  We will send you an email that will enable you to change your password and gain access to the site.	
+	</div>
+	<br />
+	<div class="password_form_container">
+		<%= form_tag password_resets_path, :method => :post do %>
+	  		<div class="field">
+	    		<%= label_tag :email %><br />
+	    		<%= text_field_tag :email %> <%= submit_tag "Reset password" %>
+	  		</div>
+		<% end %>
 	</div>
 </div>
