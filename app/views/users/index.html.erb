@@ -4,6 +4,91 @@
 	<span class="profile_heading">Your Profile</span>
 </div>
 
+<div class="profile_header_text">
+<b>Hello <%= current_user.first_name %>.</b> This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
+</div>
+<br /><br />
+
+<div class="profile_form_container">
+
+	<b>Account Details</b>
+	<table cellpadding="0" cellspacing="1" border="0" width="100%" class="">
+		<tr class="odd">
+			<td width="16%" class="strong">Username</td>
+			<td width="84%"><%= current_user.username%></td>
+		</tr>
+		<tr class="odd">
+			<td width="16%" class="strong">Full Name</td>
+			<td width="84%"><%= current_user.name%></td>
+		</tr>
+		<tr class="even">
+			<td class="strong">Email Address</td>		
+			<td><%= current_user.email%></td>
+		</tr>
+	</table>
+	
+	<br /><br /> 
+	<b>Your Address</b></b>
+	<table cellpadding="0" cellspacing="1" border="0" width="100%" class="">     
+        <tr class="odd">
+        	<td width="16%" class="strong">Address1</td>
+            <td width="84%"><%= current_user.address1%></td>
+        </tr>
+        <tr class="odd">
+        	<td class="strong">Address2</td>
+            <td><%= current_user.address2%></td>
+        </tr>
+        <tr class="odd">
+        	<td class="strong">Town / City</td>
+            <td><%= current_user.city%></td>
+        </tr>        
+        <tr class="odd">
+        	<td class="strong">County</td>
+            <td><%= current_user.county%></td>
+        </tr>        
+        <tr class="odd">
+        	<td class="strong">Postcode</td>
+            <td><%= current_user.post_code%></td>
+        </tr>        
+		<tr class="odd">
+	       	<td class="strong">Country</td>
+            <td><%= current_user.country%></td>
+        </tr>        
+
+        
+        <tr class="even">
+        	<td class="strong">Telephone:</td>
+            <td><%= current_user.tel_number%></td>
+        </tr>
+        
+        <tr class="odd">
+        	<td class="strong">Mobile:</td>
+            <td><%= current_user.mobile_number%></td>
+        </tr>
+        
+        <tr class="even">
+        	<td class="strong">DOB:</td>
+            <td><%= current_user.date_of_birth%></td>
+        </tr>
+    </table>
+	<br /><br />
+	<b>Statistics</b><br />
+	You have XX Items listed [link]<br /> 
+	You have XX Items For Sale [link]<br />
+	You have XX Items marked as Sold [link]<br />
+	You have XX Items marked as Display only [link]<br /><br />
+	<br />
+	You are listing XX Bibles, YY Postcards & ZZ Miscellaneous Documents<br />
+	<br />
+	You have X Gedcoms uploaded<br />
+	<br />
+	You have XX Saved Searches<br />
+
+</div>
+
+
+
+
 <!-- Container -->
 <div class="container siteScale clearfix">
 	<div class="block whiteBG varMarginDouble leftBox floatLeft border">
