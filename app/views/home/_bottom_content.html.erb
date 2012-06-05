@@ -1,5 +1,5 @@
 <% latest_items = 37 %>
-<% latest_documents = Document.last(latest_items) %>
+<% latest_documents = Document.last(latest_items).shuffle %>
 
 <div class="bottom_heading">Latest Items</div><br />
 <div class="bottom_content">
