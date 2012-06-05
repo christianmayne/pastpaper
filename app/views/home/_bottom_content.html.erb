@@ -1,4 +1,13 @@
+<% latest_items = 37 %>
+<% latest_documents = Document.last(latest_items) %>
+
+<div class="bottom_heading">Latest Items</div><br />
 <div class="bottom_content">
-	<span class="bottom_content_heading">About PastOnPaper</span><br />
-	content here
-</div>
+	<ul id="imagegrid">
+		<% latest_documents.each do |document| %>
+			<div>
+				<li><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></li>
+			</div>
+		<% end %>
+	</ul>	
+</div> <!-- latest items-->

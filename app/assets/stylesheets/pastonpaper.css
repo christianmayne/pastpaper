@@ -39,7 +39,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 .search_container {
 	width: 780px;
 	float:right;
-	height: 950px;
+	height: 800px;
   	margin-left:10px;
   	margin-right:10px;
 }
@@ -75,6 +75,17 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   clear:both;
 }
 
+.bottom_content {
+	min-height: 300px;
+	clear: both;
+	background-color: #F3EFE7; 
+	border-radius: 5px;
+}
+
+.bottom_heading {
+	clear:both;
+}
+
 
 /* fonts */
 .header_login_form,
@@ -87,6 +98,13 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   font-size: 22px;
   font-style: italic;
   font-weight: 900;
+}
+
+.bottom_heading {
+	font-family: georgia;
+	font-size: 18px;
+	font-style: italic;
+	font-weight: 800;
 }
 
 .document_heading,
@@ -406,6 +424,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 ul#imagegrid {
   padding: 0;
   list-style: none;
+	margin:auto;
   }
 
 #imagegrid li {
@@ -452,7 +471,7 @@ ul#imagegrid {
 
 
 .sidebar_item {
-  margin:auto;
+  marginleft: 40px;
   margin-bottom: 10px;
   background-color: #F3EFE7;
   border-radius: 5px;
@@ -463,6 +482,32 @@ ul#imagegrid {
   padding-left: 15px;
   padding-top: 15px;
 }
+
+.sidebar_heading {
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.sidebar_photo {
+	margin: auto;
+	width: 110px;
+	height: 110px;
+	padding-top:10px;
+}
+
+
+.sidebar_photo img {
+	background-color: white;
+	padding: 3px; margin: 0;
+	border: 1px dotted #58595b;
+	width: 90px;
+	height: 90px;
+}
+
+
+
+
 
 
 /* Footer */
