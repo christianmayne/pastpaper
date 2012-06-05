@@ -2,11 +2,16 @@
 <!-- Show Individual Document page -->
 
 <div class="introduction_block">
-	<% if @document.name.blank? %>
-	  <span class="document_heading"><%= @document.title %></span>
-	<% else %>  
-	  <span class="document_heading"><%= @document.name %></span>
-	<% end %>
+	<span class="document_heading">
+		<% if @document.is_featured%>
+			<%= image_tag("icons/star.gif",:height=>"16", :title=>"This is a featured item")%>
+		<%end%>	
+		<% if @document.name.blank? %>
+			<%= @document.title %>
+		<% else %>  
+			<%= @document.name %>
+		<% end %>
+	</span>
 	<br />
 	<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
 		<strong>This item is for sale</strong>

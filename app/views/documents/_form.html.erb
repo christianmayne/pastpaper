@@ -1,267 +1,218 @@
 <div class="userform">
-<h3>Item Detail</h3>
+	<h3>Item Details</h3>
+		<div class="field">
+			<%= f.label :stock_number%>
+			<%= f.text_field :stock_number ,{:placeholder => "Input Item code for your item",:class=>"text"} %>
+		</div>
+		<div class="field">
+			<%= f.label "Item_name"%>
+			<%= f.text_field :name ,{:placeholder => "Name your item",:class=>"text"} %>
+		</div>
+		<div class="field">
+			<%= f.label :document_type_id%>
+			<%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'text' %>
+		</div>
+		<div class="field">
+			<label>Status </label>
+			<%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
+		</div>
+		<div class="field">
+			<label>Title </label>
+			<%= f.text_field :title, {:placeholder=>"Title of your item", :class => 'text'} %>
+		</div>
+		<div class="field">
+			<label>Length</label>
+			<%= f.number_field :length,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
+			Width
+			<%= f.number_field :width,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
+			Depth
+			<%= f.number_field :depth,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
+			Weight
+			<%= f.number_field :weight, {:size => 8, :placeholder=>"0",:class => 'number'} %>
+		</div>
 	<div class="field">
-		<%= f.label :stock_number%>
-    	<%= f.text_field :stock_number ,{:placeholder => "Input Item code for your item",:class=>"text"} %>
-    </div>
-    <div class="field">
-		<%= f.label "Item_name"%>
-		
-    	<%= f.text_field :name ,{:placeholder => "Name your item",:class=>"text"} %>
-    </div>
-    <div class="field">
-		<%= f.label :document_type_id%>
-    	<%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'text' %>
-    </div>
+		<label>Condition  </label>
+		<%= f.text_field :condition,{:placeholder=>"Condition of your item", :class => 'text'}  %>
+	</div>
 	<div class="field">
-		 <label>Status </label>
-	 	 <%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
- 	</div>
+		<label>Binding </label>
+		<%= f.text_field :binding, {:placeholder=>"Binding/cover of your item", :class => 'text'}  %>
+	</div>
 	<div class="field">
-		 <label>Title </label>
- 		 <%= f.text_field :title, {:placeholder=>"Title of your item", :class => 'text'} %>
- 	</div>
- 	<div class="field">
- 		<label>Length</label>
- 		 <%= f.number_field :length,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
- 		Width
- 		 <%= f.number_field :width,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
- 		Depth
- 		 <%= f.number_field :depth,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
- 		Weight
- 		 <%= f.number_field :weight, {:size => 8, :placeholder=>"0",:class => 'number'} %>
- 	</div>
- 	<div class="field">
-	 	<label>Condition  </label>
-	  	<%= f.text_field :condition,{:placeholder=>"Condition of your item", :class => 'text'}  %>
-  	</div>
-  	<div class="field">
-		  <label>Binding </label>
-		  <%= f.text_field :binding, {:placeholder=>"Binding/cover of your item", :class => 'text'}  %>
-  	</div>
-  	<div class="field">
-	  <label>Comments </label>
-	  <%= f.text_area :comment,   {:placeholder=>"Description of your item with in 255 chars.",:class => 'text',:size=>"40x5"}  %>
- 	</div>
+		<label>Comments </label>
+		<%= f.text_area :comment,   {:placeholder=>"Description of your item with in 255 chars.",:class => 'text',:size=>"40x5"}  %>
+	</div>
 
- 	<div class="field" id="sell_price" style="display: none;">
-	  <label>Sale Price </label>
-	  <%= f.number_field :sale_price, {:size => 20,:placeholder=>"Selling Price",:class=>"sell_price"} %>
- 	</div>
- 
+	<div class="field" id="sell_price" style="display: none;">
+		<label>Sale Price </label>
+		<%= f.number_field :sale_price, {:size => 20,:placeholder=>"Selling Price",:class=>"sell_price"} %>
+	</div>
+
+	<%if current_user.is_admin? %>
+		<div class="field">
+			<label>Featured Item</label>
+			<%= f.check_box :is_featured %>
+		</div>		
+	<%end%>		
 </div>
+
 <%if false%>
-<table>
-<tr>
-<td>
-<div class="borderBottom varPaddingDouble">
-<h2>Your Item Info</h2>
-    <label>Stock Number </label>
-    <%= f.text_field :stock_number, :size=> 10  %>
-    <br />
-    <label>Item Name </label>
-    <%= f.text_field :name, :size => 30 %>
-    <br />
-    <label>Type </label>
-    <%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
-   <br />
-  <label>Status </label>
-  <%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
-    <br />
-</div>
-</td>
-<td width="50%">
-<div class="borderBottom varPaddingDouble">
-<!-- Inventory Purchase Information -->
- <h2>Your Purchase Info</h2>
-    <span class="small">
-      Optional. How you acquired this item. This is used for providing you with reports, and is never made public.
-   </span><br/>
-  
-  <label>Date </label>
-  <%= f.text_field :purchase_date, {:size => 10,:placeholder=>"dd/mm/yyyy"} %>
-  <br />
-  
-  <label>Vendor </label>
-  <%= f.text_field :purchase_vendor, :size => 30 %>
-  <br />
-  <label>Purchase Price </label>
-  <%= f.number_field :purchase_price, :size => 10 %>
-</div>
-  <!-- Inventory Sale Information -->
-  </td>
-  </tr>
-  <tr>
-  <td valign="top">
-  
+	<table>
+		<tr>
+			<td>
+				<div class="borderBottom varPaddingDouble">
+					<h2>Your Item Info</h2>
+					<label>Stock Number </label>
+					<%= f.text_field :stock_number, :size=> 10  %>
+					<br />
+					<label>Item Name </label>
+					<%= f.text_field :name, :size => 30 %>
+					<br />
+					<label>Type </label>
+					<%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
+					<br />
+					<label>Status </label>
+					<%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
+					<br />
+				</div>
+			</td>
+			<td width="50%">
+			<!-- Inventory Purchase Information -->
+				<div class="borderBottom varPaddingDouble">
+ 						<h2>Your Purchase Info</h2>
+						<span class="small">Optional. How you acquired this item. This is used for providing you with reports, and is never made public.</span><br/>
+					<label>Date </label>
+					<%= f.text_field :purchase_date, {:size => 10,:placeholder=>"dd/mm/yyyy"} %>
+					<br />
+					<label>Vendor </label>
+					<%= f.text_field :purchase_vendor, :size => 30 %>
+					<br />
+					<label>Purchase Price </label>
+					<%= f.number_field :purchase_price, :size => 10 %>
+				</div>
+				<!-- Inventory Sale Information -->
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<!-- Document Information -->
+				<div class="borderBottom varPaddingDouble">
+					<h2>Document Publishing Information</h2>
+					<span class="small">Information relating to the published aspects of your item</span><br />
+					<label>Title </label>
+					<%= f.text_field :title, :size => 30, :class => 'input-form-input' %>
+					<br />
+					<label></label>  
+					<table>
+						<tr>
+							<td style="width:100px;"></td>
+							<td>Edition
+								<td><%= f.number_field :edition, :size =>5, :class => 'input-form-input' %></td>
+								<td>Pages</td>
+								<td><%= f.number_field :pages, :size => 5, :class => 'input-form-input' %></td>
+						</tr>
+						<tr>
+							<td style="width:100px;"></td>
+							<td>Length (mm)</td>
+							<td><%= f.number_field :length, :size => 5, :class => 'input-form-input' %>
+								<td>Width (mm)</td>
+								<td><%= f.number_field :width, :size => 5, :class => 'input-form-input' %></td>
+						</tr>
+						<tr>
+							<td style="width:100px;"></td>
+								<td>Depth (mm)</td>
+								<td><%= f.number_field :depth, :size => 5, :class => 'input-form-input' %></td>
+								<td>Weight (g) </td>
+								<td><%= f.number_field :weight, :size => 5, :class => 'input-form-input' %></td>
+						</tr>
+					</table>
+					<br>
+					<label></label>
+					<label>Condition  </label>
+					<%= f.text_field :condition,:size => 30, :class => 'input-form-input'  %>
+					<br />
+					<label>Binding </label>
+					<%= f.text_field :binding, :size => 30, :class => 'input-form-input'  %>
+					<br />
+					<label>Comments </label>
+					<%= f.text_field :comment, :size => 30,  :class => 'input-form-input'  %>
+				</div>
+			</td>
 
-
-
-<div class="borderBottom varPaddingDouble">
-<!-- Document Information -->
-  <h2>Document Publishing Information</h2>
-  <span class="small">Information relating to the published aspects of your item</span><br />
-  
-  <label>Title </label>
-  <%= f.text_field :title, :size => 30, :class => 'input-form-input' %>
-  <br />
-  <label></label>  
-  <table>
-  <tr>
-  <td style="width:100px;">
-  </td>
-  <td>
-  
-  Edition 
-  <td>
-  <%= f.number_field :edition, :size =>5, :class => 'input-form-input' %>  
-</td>
-<td>
-  		
- Pages
- </td>
- <td> 
-  <%= f.number_field :pages, :size => 5, :class => 'input-form-input' %> 
-  </td>
-  </tr>
-<tr>
-  <td style="width:100px;">
-  </td>
-  <td>
-  
-Length (mm)
-</td>
-<td> 
-  <%= f.number_field :length, :size => 5, :class => 'input-form-input' %>
-  <td>
-  Width (mm) 
-  </td>
-  <td>
-  <%= f.number_field :width, :size => 5, :class => 'input-form-input' %> 
-  </td>
-  </tr>
-  <tr>
-  <td style="width:100px;"></td>
-  <td>
-  
-  Depth (mm) 
-  </td>
-  <td>
-  <%= f.number_field :depth, :size => 5, :class => 'input-form-input' %> 
-  </td>
-<td>
-  Weight (g) </td>
-  <td>
-  <%= f.number_field :weight, :size => 5, :class => 'input-form-input' %>
-  </td>
-  </tr>
-  </table>
-<br>
-<label></label>
-
-  
-  <label>Condition  </label>
-  <%= f.text_field :condition,:size => 30, :class => 'input-form-input'  %>
-  <br />
-  <label>Binding </label>
-  <%= f.text_field :binding, :size => 30, :class => 'input-form-input'  %>
-  <br />
-  
-  <label>Comments </label>
-  <%= f.text_field :comment, :size => 30,  :class => 'input-form-input'  %>
- </div>
-
-</td>
-<td valign="top">
-  
-<div class="borderBottom varPaddingDouble">
-  
-  <h2>Your Sale Info</h2>
-  <span class="small">
-    Optional. Sale details for this item. This is used for providing you with reports, and is never made public.
-  </span><br/>
-  
-  <label>Date </label>
-  <%= f.text_field :sale_date,  {:size => 10,:placeholder=>"dd/mm/yyyy"} %>
-  <br />
-
-  <label>  Purchaser </label>
-  <%= f.text_field :sale_purchaser, :size => 30 %>
-  <br />
-
-  <label>Sale Price </label>
-  <%= f.number_field :sale_price, :size => 10 %>
-
-</div> </td>
- <tr>
- 
-  </table>
- <div class="borderBottom varPaddingDouble">
-  <%= f.fields_for :attribute_documents do |doc_attr| %>
-    <%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
-  <% end %>
-  <span class=""><%= link_to_add_fields "+ add another attribute", f, :attribute_documents %></span><br />
-  
-</div>
-<div class="borderBottom varPaddingDouble">
-<!-- Photo Upload -->
-<div class="content-box" style="min-height:45px">
-	
-    <h2>Add Photos</h2> 
-	 <% if !@document.blank? && !@document.document_photos.blank? && !@document.new_record? %>
-            <% @document.document_photos.each do |photo|  %>
-			<% unless photo.new_record?%>
-			<div style="float:left; width:120px; text-align:center">
-					<%= image_tag photo.photo.url(:small) %><br />
-					
-					<a href="/document_image_remove/<%= photo.id%>" onclick="return confirm('Are you sure?')">Remove</a>
-					<br/>
-					<% unless photo.is_primary? %>
-						<%= link_to "Make this Primary",make_primary_image_path(photo.id) %>
-					<% else %>
-				  	    Primary Image
-					<% end %>
-			</div>
-			<%end%>
-			<% end %>
-		   <div style="clear:left"></div>
-        <% else%>
-	
-	<%= f.fields_for :document_photos do |document_photo| %>
-		<%= render :partial => 'document_photo_fields', :locals => {:f => document_photo} %>
-    <% end %>
-	
+			<td valign="top">
+				<div class="borderBottom varPaddingDouble">
+					<h2>Your Sale Info</h2>
+					<span class="small">Optional. Sale details for this item. This is used for providing you with reports, and is never made public.</span><br/>
+					<label>Date </label>
+					<%= f.text_field :sale_date,  {:size => 10,:placeholder=>"dd/mm/yyyy"} %>
+					<br />
+					<label>  Purchaser </label>
+					<%= f.text_field :sale_purchaser, :size => 30 %>
+					<br />
+					<label>Sale Price </label>
+					<%= f.number_field :sale_price, :size => 10 %>
+				</div>
+			</td>
+		<tr>
+	</table>
+	<div class="borderBottom varPaddingDouble">
+		<%= f.fields_for :attribute_documents do |doc_attr| %>
+			<%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
 		<% end %>
+		<span class=""><%= link_to_add_fields "+ add another attribute", f, :attribute_documents %></span><br />
+	</div>
+
+	<div class="borderBottom varPaddingDouble">
+		<!-- Photo Upload -->
+		<div class="content-box" style="min-height:45px">
+			<h2>Add Photos</h2> 
+			<% if !@document.blank? && !@document.document_photos.blank? && !@document.new_record? %>
+				<% @document.document_photos.each do |photo|  %>
+					<% unless photo.new_record?%>
+						<div style="float:left; width:120px; text-align:center">
+							<%= image_tag photo.photo.url(:small) %><br />
+							<a href="/document_image_remove/<%= photo.id%>" onclick="return confirm('Are you sure?')">Remove</a>
+							<br/>
+							<% unless photo.is_primary? %>
+								<%= link_to "Make this Primary",make_primary_image_path(photo.id) %>
+							<% else %>
+								Primary Image
+							<% end %>
+						</div>
+					<%end%>
+				<% end %>
+				<div style="clear:left"></div>
+			<% else%>
+				<%= f.fields_for :document_photos do |document_photo| %>
+					<%= render :partial => 'document_photo_fields', :locals => {:f => document_photo} %>
+				<% end %>
+			<% end %>
  
-	
-	
-     <div class="">
-        <span class=""><%= link_to_add_fields "+ Add new photo", f, :document_photos  %></span>
-     </div>	
-</div>
-</div>
+			<div class="">
+				<span class=""><%= link_to_add_fields "+ Add new photo", f, :document_photos  %></span>
+			</div>	
+		</div>
+	</div>
 
+	Add person
+	<div class="borderBottom varPaddingDouble">
+		<h2>Add Person</h2><span class="small">Enter details about every person listed in your document</span><br />
+		<%= f.fields_for :people do |person_attr| %>
+			<%= render :partial => 'person_fields', :locals => {:f => person_attr}  %>
+		<% end %>    
+		<div class="span-1" style="width:100%"><%= link_to_add_fields "+ add another person", f, :people  %></div>
+	</div>
 
-
-
- Add person <div class="borderBottom varPaddingDouble">
-    <h2>Add Person</h2><span class="small">Enter details about every person listed in your document</span><br />
-    <%= f.fields_for :people do |person_attr| %>
-        <%= render :partial => 'person_fields', :locals => {:f => person_attr}  %>
-    <% end %>    
-    <div class="span-1" style="width:100%"><%= link_to_add_fields "+ add another person", f, :people  %></div>
-</div>
-<!-- Add Other Locations -->
-<!--
-<div class="borderBottom varPaddingDouble varMarginBottom">
-    <h2>Add Other Locations</h2><span class="small">Add any other Locations mentioned in the document, not already added</span><br />
-      <%= f.fields_for :locations do |location_attr| %>
-        <%= render :partial => 'location_fields', :locals => {:f => location_attr} %>
-      <% end %>
-     <div class="">
-        <span class=""><%= link_to_add_fields "+ add another location", f, :locations  %></span>
-     </div>
--->     
-</div>
-
+	<!-- Add Other Locations -->
+	<!--
+	<div class="borderBottom varPaddingDouble varMarginBottom">
+		<h2>Add Other Locations</h2><span class="small">Add any other Locations mentioned in the document, not already added</span><br />
+		<%= f.fields_for :locations do |location_attr| %>
+			<%= render :partial => 'location_fields', :locals => {:f => location_attr} %>
+		<% end %>
+		<div class="">
+			<span class=""><%= link_to_add_fields "+ add another location", f, :locations  %></span>
+		</div>
+	</div>
+	-->     
 <%end%>

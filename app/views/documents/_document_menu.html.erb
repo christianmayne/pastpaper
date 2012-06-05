@@ -1,44 +1,24 @@
 <ul class ="document_menu">
 	<% unless @document.new_record? %>
-	<li>
-	<span>
-		<%= link_to_unless_current "Document Info",edit_document_path(@document) unless @document.new_record?%>
-	</span>
-	</li>
+		<li><span><%= link_to_unless_current "View Document", document_path(@document) %></li>
+		<li><span><%= link_to_unless_current "Document Info",edit_document_path(@document) unless @document.new_record?%></span></li>
 	<% end %>
 	<% unless @document.new_record? %>
-	<li>
-		<span>
-		<%= link_to_unless_current "Author Info",document_authorinfo_path(@document) unless @document.new_record? %>
-		</span>
-	</li>
-	<li>
-		<span>
-		<%= link_to_unless_current "Images",document_itemimages_path(@document) unless @document.new_record?%>
-		</span>
-	</li>
-	<li>
-		<span>
-		<%= link_to_unless_current "Locations",document_locations_path(@document) unless @document.new_record?%>
-		</span>
-	</li>
-	<li>
-		<span>
-	<%= link_to_unless_current "People &  Facts",document_itempeople_path(@document) unless @document.new_record?%>
-	</span>
-	</li>
+		<li><span><%= link_to_unless_current "Author Info",document_authorinfo_path(@document) unless @document.new_record? %></span></li>
+		<li><span><%= link_to_unless_current "Images",document_itemimages_path(@document) unless @document.new_record?%></span></li>
+		<li><span><%= link_to_unless_current "Locations",document_locations_path(@document) unless @document.new_record?%></span></li>
+		<li><span><%= link_to_unless_current "People &  Facts",document_itempeople_path(@document) unless @document.new_record?%></span></li>
 	<% else %>
-
-	Item Info
-	<hr />
-	Author Info
-	<hr />
-	Images
-	<hr />
-	Locations
-	<hr />
-	People
-	<hr />
-	Facts
+		Item Info
+		<hr />
+		Author Info
+		<hr />
+		Images
+		<hr />
+		Locations
+		<hr />
+		People
+		<hr />
+		Facts
 	<% end %>
 </ul>
