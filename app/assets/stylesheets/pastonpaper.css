@@ -39,7 +39,7 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 .search_container {
 	width: 780px;
 	float:right;
-	height: 650px;
+	height: 950px;
   	margin-left:10px;
   	margin-right:10px;
 }
@@ -331,17 +331,22 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
 	position: relative;
 }
 
+.search_form.information,
+.search_form.publication
+{
+	background-color: #EAF8E1;
+}
+
+.search_form.latest,
 .search_form.person {
   background-color: #D5DEEF;
 }
 
+.search_form.featured,
 .search_form.place {
   background-color: #D0EDEA;
 }
 
-.search_form.information {
-	background-color: #EAF8E1;
-}
 
 
 .search_input_name, 
@@ -395,6 +400,39 @@ input.submit[type=submit]:active, input.submit[type=button]:active{ background-p
   padding: 20px;
   width: 960px;
 }
+
+/* Image Grid */
+
+ul#imagegrid {
+  padding: 0;
+  list-style: none;
+  }
+
+#imagegrid li {
+  float: left;
+  padding: 0;
+  list-style: none;
+} 
+
+#imagegrid li a {
+  display: block;
+}
+
+#imagegrid li img {
+  background-color: white;
+  padding: 3px; margin: 0;
+  border: 1px dotted #58595b;
+  width: 60px;
+  height: 60px;
+}
+
+/*
+#imagegrid li a:hover img {
+	opacity:0.3; filter:alpha(opacity=30);
+}
+*/
+
+
 
 
 

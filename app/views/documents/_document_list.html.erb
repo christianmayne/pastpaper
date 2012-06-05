@@ -29,6 +29,9 @@
 					<%= link_to image_tag("deleteicon.png"), document_path(document), :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
 					<%= link_to "D", permanent_delete_documents_path(document), :method => :delete, :confirm => "Are you sure you wish to permenantly delete the current document?" if document.is_deleted? %>
 					<%= link_to "R", admin_restore_document_path(document) ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
+					<% if current_user.is_admin? %>
+						featured?
+					<%end%>	
 				</td>
 			<% end %>
 		</tr>

@@ -1,42 +1,44 @@
 <div class="introduction_block">
 	<%= page_entries_info @documents %>
     <% if session[:search_params][:search_type].to_i == 1 %>
-      with people matching your search criteria
+		with people matching your search criteria
     <%elsif session[:search_params][:search_type].to_i == 2 %>
-      with locations matching your search criteria
+		with locations matching your search criteria
+	<%elsif session[:search_params][:search_type].to_i == 3 %>
+		publications matching your search criteria	
     <%else%>
-      Items matching your search criteria
+		Items matching your search criteria
     <%end%>
 </div>
 
 <% if @documents.blank? %>
 	<!-- Search Form -->
 	<div class="search_container">	
-	  <div>
-	    <%= render "search_form" %>
-	  </div>
+		<div>
+			<%= render "search_form" %>
+		</div>
 	</div><!-- End Search Container -->
 	<div class="sidebar">
-	  <%= render "layouts/sidebar" %>
+		<%= render "layouts/sidebar" %>
 	</div><!-- End Sidebar -->
 <%else%>
 	<div class="search_results_container">
-	  <div class="floatLeft">
-	    <%= link_to "Back to search" ,root_path,:class=>"button"%>
-	  </div>
-	  <div class="floatRight">
-	    <%= form_for :document_filter, :url => search_results_home_index_path do |f| %>
-	      You can filter your search : 
-	      <%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"Select document type"},{:class=>"fixselectwidth"} %>
-	      <%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"Select document status"},{:class=>"fixselectwidth"} %>
-	      <%= f.submit "Go",:class=>"button"%>
-	    <%end%>
-	  </div>
-
-	  <div id="document_results">
-	    <%= render :partial => "document_result"%>
-	  </div>
+		<div class="floatLeft">
+			<%= link_to "Back to search" ,root_path,:class=>"button"%>
+		</div>
+		<div class="floatRight">
+			<%= form_for :document_filter, :url => search_results_home_index_path do |f| %>
+				You can filter your search : 
+				<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"Select document type"},{:class=>"fixselectwidth"} %>
+				<%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"Select document status"},{:class=>"fixselectwidth"} %>
+				<%= f.submit "Go",:class=>"button"%>
+			<%end%>
+		</div>
+	
+	<div id="document_results">
+		<%= render :partial => "document_result"%>
 	</div>
+</div>
 <%end%>
 
 

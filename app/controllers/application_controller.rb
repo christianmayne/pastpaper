@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
       if current_user.is_admin?
         return true
       end
-      retrun false
+      return false
     end
     return false
   end

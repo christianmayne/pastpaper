@@ -1,8 +1,10 @@
-<% latest_documents = Document.last(3) %>
-<span class="sidebar_header">latest Items</span>
-<% latest_documents.reverse.each do |document| %>
-  <div class="sidebar_item">
-    <%= document.name %><br />
-    <%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %>
-  </div>
+<% featured_items = 5 %>
+<% featured_documents = Document.find(:all, :conditions=> 'is_featured = 1').sort_by{ rand }.slice(0..(featured_items-1)) %>
+
+<span class="sidebar_header">Featured Items</span>
+<% featured_documents.reverse.each do |document| %>
+	<div class="sidebar_item">
+		<%= document.name %><br />
+		<%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %>
+	</div>
 <% end %>

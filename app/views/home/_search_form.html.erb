@@ -1,64 +1,17 @@
 <span class="search_header">Search our Database</span>
 
-<div class="search_form information">
-  <span class="search_heading">About The Past On Paper</span><br />
-  <div class="info_text" style="padding:5px;">
-	The Past on paper is a unique collection of original antique documents and photgraphs catalogues and indexed for genealogists and local historians.
-	Items listed include Family Bibles, Photographs, Wills, Letters, Diaries, Postcards, Newspapers and numerous other items, all indexed on the names and places mentioned within. 	
-	We'd love to hear from you if you'd like to add your items to our database, either for sale or just to display to other researchers - listing is free.<br /><br />
-	<em>Please note, the site is currently in a very early 'Alpha' stage, but we have hundreds of new features planned and you're welcome to look around.</em>
-  </div>
-</div> <!-- End search form information-->
+<%= render "search_form_information"%>
 
-<div class="search_form person">
-  <span class="search_heading">Search for a person</span>
-  <div class="search_text">
-    Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards
-  </div>
-	<!-- Search by Person -->
-	<%personsearch = capture do %>
-		<div id="person" class="">
-			<%= form_for :search_people, :url => search_results_home_index_path do |f| %>
-				<%= f.hidden_field :search_type, :value=>1 %>
-				<!-- Search Name -->
-				<%= f.text_field :first_name,{:placeholder => "First Name",:size=>15, :class=>"search_input_name"} %>
-				<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>15, :class=>"search_input_name clear_right"} %>
-        <!-- Search Dates -->
-				<%= f.number_field :date_birth_from, :size => 10, :class => 'searchIcon' , :placeholder=>"YYYY", :class=>"search_input_date clear_left" %>
-				<%= f.number_field :date_death_from,  :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY", :class=>"search_input_date" %>
-				<p><%= f.submit "",:class=>"button",:id=>"searchbypersion", :value=>"Search" %></p>
-			<% end %>
-		</div>
-	<%end%>
-	<!-- Search by Person End -->
-	<%= personsearch %>
-</div> <!-- End Search Form (person) -->
+<%= render "search_form_person" %>
+
+<%= render "search_form_place" %>
+
+<%= render "search_form_publication" %>
+
+<%#= render "search_form_featured" %>
+
+<%= render "search_form_latest" %>
 
 
-<div class="search_form place">
-  <span class="search_heading">Search for a place</span>
-  <div class="search_text">
-    Search for your home or town in our large collection of historic documents including Family Bibles, Photogrpahs, Wills, Letters and Postcards
-  </div>
-  <!-- Search by Place -->
-  <%placesearch = capture do %>
-	  <div id="place" class="">
-		  <%= form_for :search_place, :url => search_results_home_index_path do |f| %>
-			  <%= f.hidden_field :search_type, :value=>2 %>
-			  <!-- Search place -->
-        <%= f.text_field :city,{:placeholder => "Town",:size=>15, :class=>"search_input_place"} %>
-			  <%= f.text_field :county,{:placeholder => "County",:size=>15, :class=>"search_input_place"} %>
-			  <%= f.text_field :country,{:placeholder => "Country",:size=>20, :class=>"search_input_place"} %>
-			  <!-- Search Dates -->
-			  <%= f.number_field :date_from, {:placeholder=>"YYYY", :size => 10, :class=>"search_input_date"} %>
-			  <%= f.number_field :date_to, {:placeholder=>"YYYY",:size => 10, :class => "search_input_date"} %>
-			  <p>
-			  <%= f.submit "",:class=>"button",:id=>"searchbyplacebtn", :value=>"Search" %>
-			  </p>
-  	  <%end%>
-		</div>
-	<%end%>	
-	<%= placesearch %>
-</div> <!-- End Search Form (Place)-->
 
 
