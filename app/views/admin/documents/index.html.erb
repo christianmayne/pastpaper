@@ -1,26 +1,13 @@
 <% @pagetitle = "Documents" %>
 
-  <!-- Container -->
+<!-- Container -->
 <div class="container siteScale clearfix">
-
-<div class="block whiteBG clearfix varMarginDouble border">
-    <div class="varPaddingDouble horPaddingDouble clearfix">
-
-<div id="simple-search-box" class="span-24 last">
-   <%
-   #= render :partial => "shared/search_box"
-    %>
-
- 
- 
- <%= render :partial => "documents/document_list"%>
- 
- 
- 
-     </div>
-</div>
-  
-  
-  
-</div>  
+	<div class="block whiteBG clearfix varMarginDouble border">
+		<div class="varPaddingDouble horPaddingDouble clearfix">
+			<div id="simple-search-box" class="span-24 last">
+				<% #= render :partial => "shared/search_box" %>
+				<%= render :partial => "documents/document_list"%>
+			</div>
+		</div>
+	</div>  
 

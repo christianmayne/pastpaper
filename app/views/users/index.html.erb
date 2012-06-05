@@ -5,12 +5,11 @@
 </div>
 
 <div class="profile_header_text">
-<b>Hello <%= current_user.first_name %>.</b> This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
+	<b>Hello <%= current_user.first_name %>.</b> This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
 </div>
 <br /><br />
 
 <div class="profile_form_container">
-
 	<b>Account Details</b>
 	<table cellpadding="0" cellspacing="1" border="0" width="100%" class="">
 		<tr class="odd">
@@ -144,7 +143,7 @@
 	        </table>
         
     	    <div class="varMarginTop">
-        	   <%= link_to "Change Your Deatils" , edit_user_path(current_user) ,:class=>"generalLink" %>
+        	   <%= link_to "Change Your Details" , edit_user_path(current_user) ,:class=>"generalLink" %>
 			</div>
 		</div>
 	</div>

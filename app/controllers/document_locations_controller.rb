@@ -1,13 +1,13 @@
 class DocumentLocationsController < ApplicationController
-   before_filter :require_login
+    before_filter :require_login
     before_filter :prepare_document
- # GET /profiles
+  # GET /profiles
   # GET /profiles.json
   
   # GET /profiles/new
   # GET /profiles/new.json
   def index
-   # @document = current_user.documents.find(params[:document_id])   
+    # @document = current_user.documents.find(params[:document_id])   
     @document_photos =  @document.document_photos
   end
   
@@ -25,11 +25,10 @@ class DocumentLocationsController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    
     #@document = current_user.documents.find(params[:document_id])
     @location = @document.locations.build(params[:location])
     if @location.save
-    redirect_to document_locations_url(@document)
+      redirect_to document_locations_url(@document)
     else
       render "new"
     end
@@ -65,6 +64,5 @@ class DocumentLocationsController < ApplicationController
         end  
      end  
   end
-  
   
 end

@@ -1,53 +1,36 @@
+<div class="varMarginBottom rightLinks varPaddingBottom borderBottom">
+	<% if current_user && current_user.is_admin? %>	
+		<h3 class="shadeBlue">Site Administration</h3>
+		<ul class="leaf textDeco">
+			<li class="shadeBlue"><%= link_to "Reports", admin_report_path%> </li>
+			<li class="shadeBlue"><%= link_to "Purchase Orders", admin_orders_path%> </li>
+			<li class="shadeBlue"><%= link_to "Users", admin_users_path%> </li>
+			<li class="shadeBlue"><%= link_to "All Items", admin_documents_path%> </li>
+			<li class="shadeYellow"><%= link_to "Document Types",admin_document_types_path %></li>
+			<li class="shadeYellow"><%= link_to "Document Status",admin_statuses_path %></li>
+			<li class="shadeYellow"><%= link_to "Attributes Types", admin_attribute_types_path%> </li>
+	    	<li class="shadeYellow"><%= link_to "Event Types", admin_event_types_path%></li>
+		</ul>
+	    * all Yellow links are only for base data setup so once you set the data you should only update the data.        
+	<%end%>
+</div>  
 
 <div class="varMarginBottom rightLinks varPaddingBottom borderBottom">
-    
-    <% if current_user && current_user.is_admin? %>	
-    	<h3 class="shadeBlue">Site Administration</h3>
-    
-    <ul class="leaf textDeco">
-    		<li class="shadeBlue"><%= link_to "Reports", admin_report_path%> </li>
-    	<li class="shadeBlue"><%= link_to "Purchase Orders", admin_orders_path%> </li>
-        	<li class="shadeBlue"><%= link_to "Users", admin_users_path%> </li>
-        	<li class="shadeBlue"><%= link_to "All Items", admin_documents_path%> </li>
-        	
-        	<li class="shadeYellow"><%= link_to "Document Types",admin_document_types_path %></li>
-        	
-        	<li class="shadeYellow"><%= link_to "Document Status",admin_statuses_path %></li>
-        	
-        	<li class="shadeYellow"><%= link_to "Attributes Types", admin_attribute_types_path%> </li>
-        	<li class="shadeYellow"> <%= link_to "Event Types", admin_event_types_path%></li>
-        		
-        </ul>
-       
-    * all Yellow links are only for base data setup so once you set the data you should only update the data.        
-        <%end%>
-  </div>  
-<div class="varMarginBottom rightLinks varPaddingBottom borderBottom">
-        
-    
-    	<h3 class="shadeGreen">Your Actions</h3>
-  	<ul class="leaf shadeGray textDeco">
-        	<li><%= link_to "Your Profile", user_home_path%> </li>
-        	<li><%= link_to "Change Password", changepassword_path%> </li>
-        	<li> <%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
-        	<li><%= link_to "My Items",documents_path %></li>
-        	<li><%= link_to "Add new Item", new_document_path%> </li>	
-        </ul>
- </div>
+	<h3 class="shadeGreen">Your Actions</h3>
+	<ul class="leaf shadeGray textDeco">
+		<li><%= link_to "Your Profile", user_home_path%> </li>
+		<li><%= link_to "Change Password", changepassword_path%> </li>
+		<li><%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
+		<li><%= link_to "My Items",documents_path %></li>
+		<li><%= link_to "Add new Item", new_document_path%> </li>	
+	</ul>
+</div>
     
 <div class="rightLinks">
-	    <h3 class="shadeGreen">Your Saved Searches</h3>
-        <ul class="leaf shadeGray textDeco">
-        	<li><a href="#">You have 9 Saved Searches</a></li>
-            <li><a href="#">You have 0 Gedcom Files</a></li>
-
-            <li><a href="#">Uopload a new Gedcom</a></li>
-        </ul>
+	<h3 class="shadeGreen">Your Saved Searches</h3>
+	<ul class="leaf shadeGray textDeco">
+		<li><a href="#">You have 9 Saved Searches</a></li>
+		<li><a href="#">You have 0 Gedcom Files</a></li>
+		<li><a href="#">Upload a new Gedcom</a></li>
+	</ul>
 </div>
-
-
-
-
-
-
-

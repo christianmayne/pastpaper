@@ -1,44 +1,36 @@
-
 <!-- Container -->
 <div class="container siteScale clearfix">
-<div class="block whiteBG varMarginDouble leftBox floatLeft border">
-	<div class="varPaddingDouble horPaddingDouble registraton">
-<h2>Listing Users</h2>
-<table>
-  <tr class="odd">
-    <th><b>Name</b></th>
-    <th><b>Email</b></th>
-    <th><b>Address</b></th>
-    <th><b>is admin?</b></th>
-    <th><b>is active?</b></th>
-    <th>Actions</th>
-   
-  </tr>
+	<div class="block whiteBG varMarginDouble leftBox floatLeft border">
+		<div class="varPaddingDouble horPaddingDouble registraton">
+			<h2>Listing Users</h2>
+			<table>
+				<tr class="odd">
+					<th><b>Name</b></th>
+					<th><b>Email</b></th>
+					<th><b>Address</b></th>
+					<th><b>is admin?</b></th>
+					<th><b>is active?</b></th>
+					<th>Actions</th>
+				</tr>
 
-<% @users.each do |user| %>
-  <tr class="<%= cycle("odd","even")%>">
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.address.truncate(20) unless user.address.blank? %></td>
-    <td><%= user.is_admin? %></td>
-    <td><%= user.is_active? %></td>
-   
-    <td>
-    	 <%= link_to "edit", edit_admin_user_path(user) %>
-       <%= link_to "Deactivate", admin_user_path(user), :confirm => 'Are you sure to deactivate this user?', :method => :delete %></td>
-  </tr>
-<% end %>
-
-</table>
-<%#= will_paginate @users %>
-
-    </div>
-</div>
-
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-		    	<%= render "shared/usermenu"%>
+				<% @users.each do |user| %>
+					<tr class="<%= cycle("odd","even")%>">
+						<td><%= user.name %></td>
+						<td><%= user.email %></td>
+						<td><%= user.address.truncate(20) unless user.address.blank? %></td>
+						<td><%= user.is_admin? %></td>
+						<td><%= user.is_active? %></td>
+						<td><%= link_to "edit", edit_admin_user_path(user) %><%= link_to "Deactivate", admin_user_path(user), :confirm => 'Are you sure to deactivate this user?', :method => :delete %></td>
+					</tr>
+				<% end %>
+		</table>
+		<%#= will_paginate @users %>
+		</div>
 	</div>
 
+	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
+		<%= render "shared/usermenu"%>
+	</div>
 
 </div>
 <!-- Container End -->
