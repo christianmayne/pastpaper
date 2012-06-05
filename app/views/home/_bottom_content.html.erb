@@ -5,8 +5,13 @@
 <div class="bottom_content">
 	<ul id="imagegrid">
 		<% latest_documents.each do |document| %>
+			<% if document.name.blank? %>
+				<% doctitle = document.title%>
+			<% else %>  
+				<% doctitle = document.name %>
+			<% end %>
 			<div>
-				<li><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document) unless document.default_image.nil? %></li>
+				<li><%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle), document_path(document) unless document.default_image.nil? %></li>
 			</div>
 		<% end %>
 	</ul>	
