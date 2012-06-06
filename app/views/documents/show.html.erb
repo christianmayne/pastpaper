@@ -1,6 +1,10 @@
 <% @pagetitle = @document.name %>
-<!-- Show Individual Document page -->
 
+<!-- Update document views in db -->
+<% Document.increment_counter(:views, @document.id) %>
+
+
+<!-- Show Individual Document page -->
 <div class="introduction_block">
 	<span class="document_heading">
 		<% if @document.is_featured%>
@@ -61,6 +65,8 @@
            	Weight: <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%><br />
            	Added: <%= @document.created_at.strftime("%d/%m/%Y")%><br />
            	Price: <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %><br />
+			<br /><br />
+ 			Views: <%= @document.views+1 %>
  		</div>
 	</div>	
 
@@ -86,8 +92,4 @@
 <% else %>
 	<%= render "document_extended_details" %>
 <% end %>
-    
-<p>Views: XX</p>
-    
-
 <!-- Container End -->

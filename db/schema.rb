@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604124628) do
+ActiveRecord::Schema.define(:version => 20120606075220) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20120604124628) do
     t.datetime "updated_at"
     t.boolean  "is_deleted",                                      :default => false
     t.boolean  "is_featured",                                     :default => false
+    t.integer  "views",                                           :default => 0
   end
 
   create_table "event_types", :force => true do |t|
