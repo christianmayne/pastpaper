@@ -2,8 +2,11 @@
 	<li><%= link_to "Home", '/' %></li>
 	<% if current_user %>
 	    <li><%= link_to "Your Profile", user_home_path %></li >
-	    <li><%= link_to "Your Items", documents_path %></li>
-	    <li><%= link_to "Add Your Item", new_document_path %></li>
+	    
+	    <% if !current_user.is_admin? %>
+	    	<li><%= link_to "Your Items", documents_path %></li>
+	    	<li><%= link_to "Add Your Item", new_document_path %></li>
+		<% end %>
 	<%end%>	 
 	<li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
 	<% if current_user && current_user.is_admin? %>
