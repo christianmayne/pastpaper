@@ -66,6 +66,8 @@
            	Added: <%= @document.created_at.strftime("%d/%m/%Y")%><br />
            	Price: <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %><br />
 			<br /><br />
+			Stock Number: <%= @document.stock_number %><br />
+			Owner: <%= @document.user.username %> (see owner's other items)<br />
  			Views: <%= @document.views+1 %>
  		</div>
 	</div>	
