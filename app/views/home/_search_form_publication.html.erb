@@ -3,18 +3,18 @@
 	<div class="search_text">
 		Search for a newspapers, directory, bible or other item by date, title or publisher
 	</div>
-	<!-- Search by Place -->
+	<!-- Search by Publication -->
 	<%publicationsearch = capture do %>
 		<div id="publication" class="">
 			<%= form_for :search_publication, :url => search_results_home_index_path do |f| %>
 				<%= f.hidden_field :search_type, :value=>3 %>
 				<!-- Search place -->
-				<%= f.text_field :city,{:placeholder => "Town",:size=>15, :class=>"search_input_place"} %>
-				<%= f.text_field :county,{:placeholder => "County",:size=>15, :class=>"search_input_place"} %>
-				<%= f.text_field :country,{:placeholder => "Country",:size=>20, :class=>"search_input_place"} %>
+				<%= f.text_field :document_title,{:placeholder => "Title",:size=>15, :class=>"search_input_place"} %>
+				<%= f.text_field :document_publisher,{:placeholder => "Publisher",:size=>15, :class=>"search_input_place"} %>
+				<%= f.text_field :document_author,{:placeholder => "Author",:size=>20, :class=>"search_input_place"} %>
 				<!-- Search Dates -->
-				<%= f.number_field :date_from, {:placeholder=>"YYYY", :size => 10, :class=>"search_input_date"} %>
-				<%= f.number_field :date_to, {:placeholder=>"YYYY",:size => 10, :class => "search_input_date"} %>
+				<%#= f.number_field :date_from, {:placeholder=>"YYYY", :size => 10, :class=>"search_input_date"} %>
+				<%#= f.number_field :date_to, {:placeholder=>"YYYY",:size => 10, :class => "search_input_date"} %>
 				<p><%= f.submit "",:class=>"button",:id=>"searchbyplacebtn", :value=>"Search" %></p>
 			<%end%>
 		</div>
