@@ -21,13 +21,13 @@
 			<%= f.text_field :title, {:placeholder=>"Title of your item", :class => 'text'} %>
 		</div>
 		<div class="field">
-			<label>Length</label>
+			<label>Length (mm)</label>
 			<%= f.number_field :length,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
-			Width
+			<label>Width (mm)</label>
 			<%= f.number_field :width,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
-			Depth
+			<label>Depth (mm)</label>
 			<%= f.number_field :depth,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
-			Weight
+			<label>Weight (g)</label>
 			<%= f.number_field :weight, {:size => 8, :placeholder=>"0",:class => 'number'} %>
 		</div>
 	<div class="field">

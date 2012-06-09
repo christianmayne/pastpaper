@@ -9,6 +9,7 @@
 			<%= form_for :search_publication, :url => search_results_home_index_path do |f| %>
 				<%= f.hidden_field :search_type, :value=>3 %>
 				<!-- Search place -->
+				<%= f.label :document_type_id%><%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'text' %><br />
 				<%= f.text_field :document_title,{:placeholder => "Title",:size=>15, :class=>"search_input_place"} %>
 				<%= f.text_field :document_publisher,{:placeholder => "Publisher",:size=>15, :class=>"search_input_place"} %>
 				<%= f.text_field :document_author,{:placeholder => "Author",:size=>20, :class=>"search_input_place"} %>

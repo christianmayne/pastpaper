@@ -10,12 +10,13 @@ class Document < ActiveRecord::Base
   belongs_to :status
   belongs_to :user
 
-  accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true, :reject_if => proc { |att| att['attribute_type_id'].blank? && att['value'].blank?  }
+  #accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true, :reject_if => proc { |att| att['attribute_type_id'].blank? && att['value'].blank?  }
+  accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true
   accepts_nested_attributes_for :locations, :allow_destroy => :true
   accepts_nested_attributes_for :people, :allow_destroy => :true
   accepts_nested_attributes_for :document_photos, :allow_destroy => :true#,:limit => 4,:reject_if => proc { |attributes| attributes['photo'].blank? }
 
-  validates :name ,:presence=>true
+  #validates :name ,:presence=>true
   #validates :stock_number, :presence=>true,:uniqueness => true
   validates :status_id ,:presence => true
   validates :sale_price,:presence=>true,:numericality=>true, :if => Proc.new { |document| document.status_id == 4 }
@@ -209,9 +210,6 @@ class Document < ActiveRecord::Base
   end
 
 
-  def search_date(search_params)
-  end
-
   def self.search_publication(search_params,page,per_page=50)
     condition  = ""
 
@@ -266,6 +264,9 @@ class Document < ActiveRecord::Base
   end
 
 
+  def search_date(search_params)
+  end
+  
   def people_list(firstname, lastname)
     self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
   end
