@@ -9,7 +9,14 @@
 		<% doctitle = document.name %>
 	<% end %>
 	<div class="sidebar_item">
-		<div class="sidebar_heading"><%= document.name %><br /></div>
+		<div class="sidebar_heading">
+			<% if document.name.blank? %>
+				<%= document.title %>
+			<% else %>
+				<%= document.name %>
+			<%end%>			
+			<br />
+		</div>
 		<div class="sidebar_photo"><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle), document_path(document) unless document.default_image.nil? %></div>
 	</div>
 <% end %>
