@@ -1,3 +1,5 @@
+require 'gedcom'
+
 class GedcomExtractor < GEDCOM::Parser
   def initialize(gedcom_document_id)
     super
