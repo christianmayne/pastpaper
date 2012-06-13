@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606075220) do
+ActiveRecord::Schema.define(:version => 20120613083840) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -99,6 +99,40 @@ ActiveRecord::Schema.define(:version => 20120606075220) do
     t.integer  "fact_year"
     t.integer  "fact_month"
     t.integer  "fact_day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gedcom_documents", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  create_table "gedcom_facts", :force => true do |t|
+    t.integer  "gedcom_person_id"
+    t.string   "kind"
+    t.string   "date_modifier"
+    t.integer  "year"
+    t.integer  "month"
+    t.integer  "day"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gedcom_people", :force => true do |t|
+    t.integer  "gedcom_document_id"
+    t.string   "title"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "maiden_name"
+    t.string   "sex"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
