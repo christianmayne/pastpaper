@@ -30,7 +30,7 @@
 	<h3 class="shadeGreen">Your Saved Searches</h3>
 	<ul class="leaf shadeGray textDeco">
 		<li><a href="#">You have 9 Saved Searches</a></li>
-		<li><a href="#">You have 0 Gedcom Files</a></li>
+		<li><%= link_to @gedcom_link_text, gedcom_documents_path %></li>
 		<li><%= link_to 'Upload a new Gedcom', new_gedcom_document_path %></li>
 	</ul>
 </div>

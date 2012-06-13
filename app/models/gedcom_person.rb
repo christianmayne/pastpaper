@@ -1,6 +1,6 @@
 class GedcomPerson < ActiveRecord::Base
   belongs_to :gedcom_document
-  has_many :gedcom_facts
+  has_many :gedcom_facts, :dependent => :destroy
 
   def name=(full_name)
     full_name.gsub!('/', '')

@@ -2,9 +2,11 @@ class UsersController < ApplicationController
   before_filter :require_login, :except => [:new,:create, :activate]
     
   def index
-    @user = current_user  
+    @user = current_user
+    @gedcom_link_text = "You have #{@user.gedcom_documents.size} Gedcom file"
+    @gedcom_link_text += 's' if @user.gedcom_documents.size != 1
   end
-  
+
   def new
     @user = User.new
   end
