@@ -1,18 +1,20 @@
 <% latest_items = 37 %>
 <% latest_documents = Document.last(latest_items).shuffle %>
 
-<div class="bottom_heading">Latest Items</div><br />
-<div class="bottom_content">
-	<ul id="imagegrid">
+<div class="lead">Latest Items</div><br />
+<div class="content">
+	<ul>
 		<% latest_documents.each do |document| %>
 			<% if document.name.blank? %>
 				<% doctitle = document.title%>
 			<% else %>  
 				<% doctitle = document.name %>
 			<% end %>
-			<div>
-				<li><%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle), document_path(document) unless document.default_image.nil? %></li>
-			</div>
+				<li>
+				<% if document.default_image.present? %>
+				  <%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle), document_path(document) unless document.default_image.nil? %>
+				<%end%>
+				</li>
 		<% end %>
 	</ul>	
 </div> <!-- latest items-->

@@ -1,4 +1,5 @@
-<div class="introduction_block">
+<div class="introduction">
+  <div class="lead">
 	<%= page_entries_info @documents %>
     <% if session[:search_params][:search_type].to_i == 1 %>
 		with people matching your search criteria
@@ -9,24 +10,29 @@
     <%else%>
 		Items matching your search criteria
     <%end%>
+  </div>
 </div>
 
+<div class="content row-fluid">
+
 <% if @documents.blank? %>
-	<!-- Search Form -->
-	<div class="search_container">	
-		<div>
-			<%= render "search_form" %>
-		</div>
-	</div><!-- End Search Container -->
-	<div class="sidebar">
-		<%= render "layouts/sidebar" %>
-	</div><!-- End Sidebar -->
+  <div class="span3 pull-left">
+	  <%= render "layouts/sidebar" %>
+  </div><!-- End Sidebar -->
+	
+<!-- Search Form -->
+  <div class="span9 search_container pull-right">	
+    <%= render "search_form" %>
+  </div><!-- End Search Container -->
+
 <%else%>
 	<div class="search_results_container">
-		<div class="floatLeft">
+		
+		<div class="pull-left">
 			<%= link_to "Back to search" ,root_path,:class=>"button"%>
 		</div>
-		<div class="floatRight">
+		
+		<div class="pull-right">
 			<%= form_for :document_filter, :url => search_results_home_index_path do |f| %>
 				You can filter your search : 
 				<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"Select document type"},{:class=>"fixselectwidth"} %>
@@ -40,6 +46,10 @@
 	</div>
 </div>
 <%end%>
+</div>
+
+
+
 
 
 

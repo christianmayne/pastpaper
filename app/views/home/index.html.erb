@@ -1,24 +1,23 @@
-<% @pagetitle = "Home" %>
-
-<div class="introduction_block">
+<div class="introduction">
 	Currently listed:<em><%= Person.count%> Individuals, <%=Location.count%> Locations and <%= Document.count %> Items.</em>
 	<% if !current_user %>    
 		<strong><%= link_to "Register now" ,register_path, :class=>"strong", :id=>"registerUser"%> for full access to our database.</strong>
 	<% end %>
 </div>
 
-<!-- Search Form -->
-<div class="search_container">	
-	<div>
-		<%= render "search_form" %>
-	</div>
-</div><!-- End Search Container -->
+<div class="content row-fluid">
 
-<div class="sidebar">
-	<%= render "layouts/sidebar" %>
-</div><!-- End Sidebar -->
+  <div class="span3 pull-left">
+	  <%= render "layouts/sidebar" %>
+  </div><!-- End Sidebar -->
+  
+  <!-- Search Form -->
+  <div class="span9 search_container pull-right">	
+    <%= render "search_form" %>
+  </div><!-- End Search Container -->
 
-
-<%= render "bottom_content" %>
-
+</div>
+<div class="bottom_container row-fluid">
+  <%= render "bottom_content" %>
+</div>
 

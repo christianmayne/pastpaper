@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    @pagetitle = "Home"
     @user = current_user unless current_user.blank?
   end
   

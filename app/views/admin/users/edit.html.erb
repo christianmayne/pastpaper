@@ -1,17 +1,17 @@
 
 <!-- Container -->
-<div class="container siteScale clearfix">
-<div class="block whiteBG varMarginDouble leftBox floatLeft border">
-	<div class="varPaddingDouble horPaddingDouble registraton">
-<%= link_to 'Back to user list', admin_users_path %><br />
-<h2>Edit  User User : <%=@user.name%></h2>
-<%= render 'form' %>
+<div>
+  <div>
+	  <div>
+      <%= link_to 'Back to user list', admin_users_path %><br />
+      <h2>Edit  User User : <%=@user.name%></h2>
+      <%= render 'form' %>
     </div>
-</div>
+  </div>
 
 
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-		    	<%= render "shared/usermenu"%>
+	<div>
+	  <%= render "shared/usermenu"%>
 	</div>
 
 </div>

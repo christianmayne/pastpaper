@@ -1,22 +1,22 @@
-<div class="search_form publication">
-	<span class="search_heading">Search for a publication</span>
-	<div class="search_text">
+<div class="publication">
+	<span class="lead">Search for a publication</span>
+	<div class="info-text">
 		Search for a newspapers, directory, bible or other item by date, title or publisher
 	</div>
 	<!-- Search by Publication -->
 	<%publicationsearch = capture do %>
 		<div id="publication" class="">
-			<%= form_for :search_publication, :url => search_results_home_index_path do |f| %>
+			<%= form_for :search_publication, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
 				<%= f.hidden_field :search_type, :value=>3 %>
 				<!-- Search place -->
-				<%= f.label :document_type_id%><%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'text' %><br />
-				<%= f.text_field :document_title,{:placeholder => "Title",:size=>15, :class=>"search_input_place"} %>
-				<%= f.text_field :document_publisher,{:placeholder => "Publisher",:size=>15, :class=>"search_input_place"} %>
-				<%= f.text_field :document_author,{:placeholder => "Author",:size=>20, :class=>"search_input_place"} %>
+				<%= f.label :document_type_id%>&nbsp;&nbsp;<%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'text  input-medium' %><br />
+				<%= f.text_field :document_title,{:placeholder => "Title",:size=>15, :class=>"search_input_place input-medium"} %>
+				<%= f.text_field :document_publisher,{:placeholder => "Publisher",:size=>15, :class=>"search_input_place  input-medium"} %>
+				<%= f.text_field :document_author,{:placeholder => "Author",:size=>20, :class=>"search_input_place  input-medium"} %>
 				<!-- Search Dates -->
-				<%#= f.number_field :date_from, {:placeholder=>"YYYY", :size => 10, :class=>"search_input_date"} %>
-				<%#= f.number_field :date_to, {:placeholder=>"YYYY",:size => 10, :class => "search_input_date"} %>
-				<p><%= f.submit "",:class=>"button",:id=>"searchbyplacebtn", :value=>"Search" %></p>
+				<%#= f.number_field :date_from, {:placeholder=>"YYYY", :size => 10, :class=>"search_input_date  input-medium"} %>
+				<%#= f.number_field :date_to, {:placeholder=>"YYYY",:size => 10, :class => "search_input_date  input-medium"} %>
+				<p><%= f.submit "",:class=>"btn button",:id=>"searchbyplacebtn", :value=>"Search" %></p>
 			<%end%>
 		</div>
 	<%end%>	
