@@ -4,6 +4,10 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
+//= require jquery-1.7.1.min
+//= require jquery-ui-1.8.19.custom.min
+//= require modernizr.custom.16753
+//= require selectivizr
+//= require jquery.validate
+//= require jquery.lightbox-0.5
+//= require jquery.jcarousel

@@ -1,4 +1,4 @@
-<ul id="nav">
+<ul class="nav nav-menus pull-right">
 	<li><%= link_to "Home", '/' %></li>
 	<% if current_user %>
 	    <li><%= link_to "Your Profile", user_home_path %></li >
@@ -12,5 +12,4 @@
 	<% if current_user && current_user.is_admin? %>
 		<li><%= link_to "Administration", admin_users_path %></li>
 	<%end%>
-
 </ul>

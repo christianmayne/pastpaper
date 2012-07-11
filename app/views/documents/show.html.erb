@@ -1,3 +1,10 @@
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel();
+});
+
+</script>
 <% @pagetitle = @document.name %>
 
 <!-- Update document views in db -->
@@ -5,8 +12,8 @@
 
 
 <!-- Show Individual Document page -->
-<div class="introduction_block">
-	<span class="document_heading">
+<div class="introduction">
+	<span class="lead">
 		<% if @document.is_featured%>
 			<%= image_tag("icons/star.gif",:height=>"16", :title=>"This is a featured item")%>
 		<%end%>	
@@ -17,6 +24,7 @@
 		<% end %>
 	</span>
 	<br />
+	
 	<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
 		<strong>This item is for sale</strong>
 	<%else%>
@@ -24,9 +32,11 @@
 	<% end %>	
 
     <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
+      <br/>
     	<span class="floatRight"><%= link_to "Edit Document", edit_document_path(@document) %></span>
     <% end %>
 </div>
+
 <%
 =begin %>
 	<% if current_user %>
@@ -45,19 +55,22 @@
 =end %>	
 
 <div class="document_details_container">
-	<div class="document_attributes_container">
-		<div class="document_details_box">
-	            Title:  <%= @document.try(:title) %><br />
-	            Type:   <%= @document.document_type.try(:name) %><br />
-	        	Status: <%= @document.status.try(:name) %><br />
-	        	Price:  <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
+
+	<div class="document_attributes_container pull-left span3">
+	
+		<div class="document_detail">
+      <b>Title:</b>  <%= @document.try(:title) %><br />
+      <b>Type:</b>   <%= @document.document_type.try(:name) %><br />
+    	<b>Status:</b> <%= @document.status.try(:name) %><br />
+    	<b>Price:</b>  <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %>
 		</div>
-		<div class="document_publishing_box">
+	
+		<div class="document_detail">
 			<% @document.attribute_documents.each do |doc_attr| %>
             	<%= doc_attr.attribute_type.try(:name) %>: <%= "#{doc_attr.value}" %><%= ", #{doc_attr.on_date.strftime('%d %b %Y')}" unless doc_attr.on_date.blank? %><br />
           	<% end %>
 		</div>
-		<div class="document_physical_box">
+		<div class="document_detail">
            	<b>Dimensions</b><br />
            	<%= "#{@document.try(:length)}mm x " unless @document.length.blank? %> 
            	<%= "#{@document.try(:width)}mm x " unless @document.width.blank? %> 
@@ -65,26 +78,33 @@
            	Weight: <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%><br />
            	Added: <%= @document.created_at.strftime("%d/%m/%Y")%><br />
            	Price: <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %><br />
-			<br /><br />
-			Stock Number: <%= @document.stock_number %><br />
-			Owner: <%= @document.user.username %> (see owner's other items)<br />
- 			Views: <%= @document.views+1 %>
+			<br />
+			<b>Stock Number:</b> <%= @document.stock_number %><br />
+			<b>Owner:</b> <%= @document.user.username %> (see owner's other items)<br />
+ 			<b>Views:</b> <%= @document.views+1 %>
  		</div>
 	</div>	
 
-	<div class="document_photos_container">
+	<div class="document_photos_container pull-right span7 offset1 jcarousel-skin-tango" >
 		<% if !@document.blank? && !@document.document_photos.blank? %>
-        	<div style="margin-left:20px"><%= image_tag @document.default_image.photo.url(:large), %></div>
-          	<ul id="mycarousel" class="jcarousel-skin-tango">
-            	<% @document.document_photos.each do |photo|  %>
-			    	<li><a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox"><%= image_tag photo.photo.url(:small), %></a></li>
-		    	<% end %>
-          	</ul>
+        	<div style="margin-left:20px">
+        	  <%= image_tag @document.default_image.photo.url(:large) %>
+        	</div>
+          <ul class="jcarousel-skin-tango" id="mycarousel">
+            <% @document.document_photos.each do |photo|  %>
+		          <li>
+		            <a href="<%= photo.photo.url(:large) %>" class='' rel="lightbox">
+		              <%= image_tag photo.photo.url(:small)%>
+		            </a>
+		          </li>
+	        	<% end %>
+          </ul>
 		<% end %>
 	</div>
 
-	<div class="document_description_box"><strong>Description: </strong>
-		<%= @document.try(:comment) %>
+	<div class=" clearfix" style="content='';display:table;width:100%"><strong class="lead">Description: </strong>
+		<h3><%= @document.try(:comment) %></h3>
+		<br/>
 	</div>
 
 </div>

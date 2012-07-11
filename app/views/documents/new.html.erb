@@ -1,22 +1,23 @@
 <% @pagetitle = "Add New Item" %>
-<div class="introduction_block">
-	<span class="profile_heading">Add New Item</span>
+<div class="introduction">
+	<span class="headline4 lead">Add New Item</span>
 </div>
 <div class="container siteScale clearfix">
 	<div class="block whiteBG clearfix varMarginDouble border">
 		<div class="varPaddingDouble horPaddingDouble clearfix">
-			<div style="width:250px;float:left;">
+			<div class="span3 pull-left">
 				<%= render :partial => "document_menu"%>
 			</div>
-			<div style="margin-left: 260px;">
+			<div class="span6 offset1 pull-right">
 				<div class="userform">
 					<%= form_for @document, :html=>{ :multipart => true}  do |f| %>
-						<%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
-						<%= render :partial => 'form', :locals => {:f => f}  %>
-						<div class="field">
-							<label>&nbsp;</label>
-							<%= f.submit "Save" ,:class=>"button" %>
-				  		</div>
+					  <fieldset>
+						  <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
+						  <%= render :partial => 'form', :locals => {:f => f}  %>
+						  <div  >
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+				  	</fieldset>
 					<% end %>
 				</div>
 			</div>

@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The Past on Paper | <%= @pagetitle %></title>
-  <%= stylesheet_link_tag "application" %>
-  <%= stylesheet_link_tag "pastonpaper" %>
-  <%= javascript_include_tag "application"  %>
-  <%= csrf_meta_tag %>
-  <script type="text/javascript">
-	  $(document).ready(function(){
-		  $("a[rel=lightbox]").lightBox();
-		  $('#container-1').tabs();       // Tab function
-		  $('#mycarousel').jcarousel();   // Slideshow
-	  });
-  </script>
-</head>
+  <head>
+    <meta charset="utf-8"/>
+    <title>The Past on Paper | <%= @pagetitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application"  %>
+    <%= csrf_meta_tag %>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+		    $("a[rel=lightbox]").lightBox();
+		    $('#container-1').tabs();       // Tab function
+		    $('#mycarousel').jcarousel();   // Slideshow
+	    });
+    </script>
+  </head>
 
-<body>
-	<div class="pop_container">
+  <body>
+    <div id="page-container" class="row">
+      
+      <div class="span10 offset2 wrapper container">
+      
+        <div id="header-container" class="row-fluid">
+          <%= render "layouts/header" %>
+        </div>
+        
+        <div id="main-menu" class="row-fluid">
+ 	        <div class="menu-bar">
+		        <%= render "layouts/menu_bar"%>
+	        </div>
+	          <!-- End Menu Bar -->
+        </div>
+        
+        <div id="mainpage-container" class="row-fluid">
+          <div id="mainpage">
+            <%= yield %>
+          </div>
 
-		<!-- Header -->
-		<div class="header">
-    		<%= render "layouts/header" %>
-		</div><!-- End Header -->
+          <hr>
 
-    	<div class="content_container">
-      	<!-- Page Content -->
-  			<%= yield %>
-    	</div><!-- End Content Container -->
-  
-		<!-- Footer -->
-    	<div class="footer">
-      		<%= render "layouts/footer"%>
-    	</div><!-- End Footer-->
-
-	</div><!-- End Pop Container -->
+          <footer id="footer" class="row-fluid">
+            <p><%= render "layouts/footer"%></p>
+          </footer>
+          
+        </div>
+        
+      </div>
+      
+    </div>
 </body>
-
 </html>

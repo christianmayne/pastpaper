@@ -1,7 +1,7 @@
 <% @pagetitle = "Profile :: #{current_user.name.humanize}" %>
 
-<div class="introduction_block">
-	<span class="profile_heading">Your Profile</span>
+<div class="introduction">
+	<span class="headline4 lead">Your Profile</span>
 </div>
 
 <div class="profile_header_text">
@@ -10,8 +10,8 @@
 <br /><br />
 
 <div class="profile_form_container">
-	<b>Account Details</b>
-	<table cellpadding="0" cellspacing="1" border="0" width="100%" class="">
+	<b class="lead">Account Details</b>
+	<table class="table table-striped table-bordered table-condensed">
 		<tr class="odd">
 			<td width="16%" class="strong">Username</td>
 			<td width="84%"><%= current_user.username%></td>
@@ -27,8 +27,8 @@
 	</table>
 	
 	<br /><br /> 
-	<b>Your Address</b></b>
-	<table cellpadding="0" cellspacing="1" border="0" width="100%" class="">     
+	<b class="lead">Your Address</b></b>
+	<table class="table table-striped table-bordered table-condensed">     
         <tr class="odd">
         	<td width="16%" class="strong">Address1</td>
             <td width="84%"><%= current_user.address1%></td>
@@ -71,7 +71,7 @@
         </tr>
     </table>
 	<br /><br />
-	<b>Statistics</b><br />
+	<b class="lead">Statistics</b><br />
 	You have XX Items listed [link]<br /> 
 	You have XX Items For Sale [link]<br />
 	You have XX Items marked as Sold [link]<br />
@@ -85,14 +85,16 @@
 
 </div>
 
-
+	<div class="">
+		<%= render "shared/usermenu"%>
+	</div>
 
 
 <!-- Container -->
-<div class="container siteScale clearfix">
+<div class="siteScale clearfix">
 	<div class="block whiteBG varMarginDouble leftBox floatLeft border">
 		<div class="varPaddingDouble horPaddingDouble">
-	        <table cellpadding="0" cellspacing="1" border="0" width="100%" class="">
+	        <table class="table table-striped table-bordered table-condensed">
 	        	<tr class="odd">
 	            	<td width="16%" class="strong">Full Name:</td>
 	                <td width="84%"><%= current_user.name%></td>
@@ -143,14 +145,12 @@
 	        </table>
         
     	    <div class="varMarginTop">
-        	   <%= link_to "Change Your Details" , edit_user_path(current_user) ,:class=>"generalLink" %>
+        	   <%= link_to "Change Your Details" , edit_user_path(current_user) ,:class=>"generalLink btn btn-success" %>
 			</div>
 		</div>
 	</div>
 
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-		<%= render "shared/usermenu"%>
-	</div>
+
 
 </div><!-- Container End -->
 
