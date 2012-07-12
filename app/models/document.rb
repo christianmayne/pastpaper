@@ -103,6 +103,7 @@ class Document < ActiveRecord::Base
 
 
   def self.search_people(search_params,page,per_page=50)
+
     search_params[:date_birth_to] = '0' if search_params[:date_birth_to].blank?
     if !search_params[:date_birth_from].blank?
       date_birth_from = search_params[:date_birth_from].to_i
@@ -127,7 +128,6 @@ class Document < ActiveRecord::Base
 
     if !date_birth_from.blank? && !date_birth_to.blank?
       condition += " facts.fact_year >= '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH'  AND "
-
       condition += " facts.fact_year <= '#{date_birth_to}' AND UPPER(event_types.name) = 'BIRTH'  AND "
     elsif !date_birth_from.blank? && date_birth_to.blank?
       condition += " facts.fact_year = '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH' AND "
@@ -135,7 +135,6 @@ class Document < ActiveRecord::Base
 
     if !date_death_from.blank? && !date_death_to.blank?
       condition += " facts.fact_year >= '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH'  AND "
-
       condition += " facts.fact_year <= '#{date_death_to}' AND UPPER(event_types.name) = 'DEATH' AND "
     elsif !date_death_from.blank? && date_death_to.blank?
       condition += " facts.fact_year = '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH' AND "
@@ -144,13 +143,13 @@ class Document < ActiveRecord::Base
     if !search_params[:document_type_id].blank?
       condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
     end
+
     if !search_params[:document_status].blank?
       condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
     end
 
     unless condition.blank?
       condition += " status_id != 7 and is_deleted is false"
-
       self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id
@@ -164,6 +163,7 @@ class Document < ActiveRecord::Base
     else
       self.where("1=0").paginate(:per_page=>1,:page=>page)
     end
+
   end
 
 

@@ -1,14 +1,14 @@
 <div class="introduction_block">
 	<%= page_entries_info @documents %>
-    <% if session[:search_params][:search_type].to_i == 1 %>
-		with people matching your search criteria
-    <%elsif session[:search_params][:search_type].to_i == 2 %>
-		with locations matching your search criteria
-	<%elsif session[:search_params][:search_type].to_i == 3 %>
-		publications matching your search criteria	
-    <%else%>
-		Items matching your search criteria
-    <%end%>
+  <% if session[:search_params][:search_type].to_i == 1 %>
+	  with people matching your search criteria
+  <%elsif session[:search_params][:search_type].to_i == 2 %>
+	  with locations matching your search criteria
+  <%elsif session[:search_params][:search_type].to_i == 3 %>
+	  publications matching your search criteria	
+  <%else%>
+	  Items matching your search criteria
+  <%end%>
 </div>
 
 <% if @documents.blank? %>

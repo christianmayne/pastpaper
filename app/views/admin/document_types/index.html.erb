@@ -11,6 +11,8 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
+          <th>Paper</th>
+          <th>Stone</th>
           <th></th>
           <th></th>
           <th></th>
@@ -20,6 +22,8 @@
           <tr>
             <td><%= document_type.name %></td>
             <td><%= document_type.description %></td>
+            <td><%= document_type.paper %></td>
+            <td><%= document_type.stone %></td>
             <td><%= link_to 'Show', admin_document_type_path(document_type) %></td>
             <td><%= link_to 'Edit', edit_admin_document_type_path(document_type) %></td>
             <td><%= link_to 'Destroy', admin_document_type_path(document_type), confirm: 'Are you sure?', method: :delete %></td>

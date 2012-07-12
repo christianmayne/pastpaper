@@ -22,6 +22,8 @@ class HomeController < ApplicationController
       #raise params[:search_people].inspect
       session[:search_params] = params[:search_document]
       @documents = Document.search_document(params[:search_document], params[:page])
+      # cm> search @documents using document.type != stone
+      # cm> followed by type is equal to stone
     elsif !params[:search_people].blank?
       #raise params[:search_people].inspect
       session[:search_params] = params[:search_people]

@@ -3,6 +3,7 @@
 	<div class="search_text">
     	Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards
 	</div>
+
 	<!-- Search by Person -->
 	<%personsearch = capture do %>
 		<div id="person" class="">
@@ -14,10 +15,12 @@
 				<!-- Search Dates -->
 				<%= f.number_field :date_birth_from, :size => 10, :class => 'searchIcon' , :placeholder=>"YYYY", :class=>"search_input_date clear_left" %>
 				<%= f.number_field :date_death_from,  :size => 10, :class => 'searchIcon' ,:placeholder=>"YYYY", :class=>"search_input_date" %>
-				<p><%= f.submit "",:class=>"button",:id=>"searchbypersion", :value=>"Search" %></p>
+				<p><%= f.submit "",:class=>"button",:id=>"searchbyperson", :value=>"Search" %></p>
 			<% end %>
 		</div>
 	<%end%>
 	<!-- Search by Person End -->
+
 	<%= personsearch %>
+
 </div> <!-- End Search Form (person) -->
