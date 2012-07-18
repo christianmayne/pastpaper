@@ -128,7 +128,7 @@ class Person < ActiveRecord::Base
   end
   
   def full_name
-    "#{self.first_name}" + " #{self.maiden_name}" + " #{self.last_name}"     
+    "#{self.title} " + "#{self.first_name} " + " #{self.middle_name} " + "#{self.maiden_name} " + "#{self.last_name}"     
   end
   
   
