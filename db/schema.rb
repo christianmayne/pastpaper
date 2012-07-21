@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120703150338) do
+ActiveRecord::Schema.define(:version => 20120721094752) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(:version => 20120703150338) do
     t.date     "on_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "date_modifier"
+    t.integer  "attribute_year"
+    t.integer  "attribute_month"
+    t.integer  "attribute_day"
+    t.string   "attribute_location"
   end
 
   create_table "attribute_types", :force => true do |t|
