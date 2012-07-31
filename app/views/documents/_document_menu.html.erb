@@ -1,19 +1,19 @@
-<ul class="nav nav-tabs nav-stacked">
+<ul class="nav nav-list nav-stacked ">
 	<% unless @document.new_record? %>
-		<li><%= link_to_unless_current "View Document", document_path(@document) %></li>
-		<li><%= link_to_unless_current "Document Info",edit_document_path(@document) unless @document.new_record?%></span></li>
+		<li class="active"><%= link_to_unless_current "View Document", document_path(@document) %></li>
+		<li class="active"><%= link_to_unless_current "Document Info",(edit_document_path(@document) unless (@document.new_record?)), :class=>"active"%></span></li>
 	<% end %>
 	<% unless @document.new_record? %>
-		<li><%= link_to_unless_current "Author Info",document_authorinfo_path(@document) unless @document.new_record? %></span></li>
-		<li><%= link_to_unless_current "Images",document_itemimages_path(@document) unless @document.new_record?%></span></li>
-		<li><%= link_to_unless_current "Locations",document_locations_path(@document) unless @document.new_record?%></span></li>
-		<li><%= link_to_unless_current "People &  Facts",document_itempeople_path(@document) unless @document.new_record?%></span></li>
+		<li class="active"><%= link_to_unless_current "Author Info",document_authorinfo_path(@document) unless @document.new_record? %></span></li>
+		<li class="active"><%= link_to_unless_current "Images",document_itemimages_path(@document) unless @document.new_record?%></span></li>
+		<li class="active"><%= link_to_unless_current "Locations",document_locations_path(@document) unless @document.new_record?%></span></li>
+		<li class="active"><%= link_to_unless_current "People &  Facts",document_itempeople_path(@document) unless @document.new_record?%></span></li>
 	<% else %>
-		<li><a href="#">Item Info</a></li>
-		<li><a href="#">Author Info</a></li>
-		<li><a href="#">Images</a></li>
-		<li><a href="#">Locations</a></li>
-		<li><a href="#">People</a></li>
-		<li><a href="#">Facts</a></li>
+		<li class="active"><a href="#">Item Info</a></li>
+		<li class="active"><a href="#">Author Info</a></li>
+		<li class="active"><a href="#">Images</a></li>
+		<li class="active"><a href="#">Locations</a></li>
+		<li class="active"><a href="#">People</a></li>
+		<li class="active"><a href="#">Facts</a></li>
 	<%end%>
 </ul>

@@ -11,3 +11,5 @@
 //= require jquery.validate
 //= require jquery.lightbox-0.5
 //= require jquery.jcarousel
+//= require bootstrap
+//= require bootstrap-collapse
