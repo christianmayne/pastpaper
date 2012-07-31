@@ -9,8 +9,10 @@
         <th>Document Name</th>
         <th>Type</th>
         <th>Status</th>
-        <% if (!current_user.blank? || current_user.is_admin?) %>
-          <th>Action</th>
+        <% if (current_user.present? ) %>
+          <% if current_user.is_admin? %>
+            <th>Action</th>
+          <%end%>
         <%end%>
       </tr>
       <% @documents.each do |document| %>
