@@ -8,6 +8,7 @@
     <%= javascript_include_tag "application"  %>
     <%= csrf_meta_tag %>
     <script type="text/javascript">
+      $("#loginModal").modal({"backdrop" : "static"});
 	    $(document).ready(function(){
 		    $("a[rel=lightbox]").lightBox();
 		    $('#container-1').tabs();       // Tab function
@@ -17,6 +18,67 @@
   </head>
 
   <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          
+          <div class="brand">
+	          <a href="/">
+		          The Past On Paper
+	          </a>
+          </div>
+  
+          <ul class="nav ">
+	          <li class="divider-vertical"></li>
+	          <li><%= link_to "Home", '/' %></li>
+	          <% if current_user.present? %>
+     	          <li class="divider-vertical"></li>
+	              <li><%= link_to "Your Profile", user_home_path %></li >
+	              <li class="divider-vertical"></li>
+	              <% if !current_user.is_admin? %>
+	              	<li><%= link_to "Your Items", documents_path %></li>
+	              	<li class="divider-vertical"></li>
+	              	<li><%= link_to "Add Your Item", new_document_path %></li>
+		          <% end %>
+	          <%end%>
+	          <li class="divider-vertical"></li>
+	          <li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
+	          <% if current_user && current_user.is_admin? %>
+	          <li class="divider-vertical"></li>
+	          <li><%= link_to "Administration", admin_users_path %></li>
+	          <%end%>
+ 	          <li class="divider-vertical"></li>
+          </ul>
+          <% if current_user %>
+          <div class="pull-right">
+            <ul class="nav">
+              <li class="divider-vertical"></li>
+              <li>
+				        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="icon-user"></i> <%= current_user.username.to_s  %><b class='caret'></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to("Sign Out", logout_path) %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to("My Account - #{current_user.name}", user_home_path) %></li>
+                  <li><%= link_to("Help", "#") %></li>
+                </ul>
+              </li>
+              <li class="divider-vertical"></li>
+            </ul>
+          </div>
+			    <%else%>
+			    <ul class="nav pull-right">
+            <li><a class="pull-right" data-toggle="modal" href="#loginModal" data-backdrop="static">Login</a></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Register" ,register_path , :class=>"pull-right"%></li>
+          </ul>
+			    
+			    <%end%>
+        </div>
+      </div>
+    </div>
+    
     <div id="page-container" class="row">
       
       <div class="span10 offset2 wrapper container">
