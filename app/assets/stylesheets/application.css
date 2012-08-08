@@ -183,6 +183,8 @@ body,html  {
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
   box-shadow: inner 0 0 5px #888;
+  padding:4px 8px 4px 4px;
+  text-align:justify;
 }
 
 
@@ -192,6 +194,7 @@ body,html  {
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
   box-shadow: inner 0 0 5px #888;
+  padding:4px 8px 4px 4px;
 }
 
 #search-form .place{
@@ -200,6 +203,7 @@ body,html  {
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
   box-shadow: inner 0 0 5px #888;
+  padding:4px 8px 4px 4px;
 }
 
 #search-form .publication{
@@ -208,6 +212,7 @@ body,html  {
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
   box-shadow: inner 0 0 5px #888;
+  padding:4px 8px 4px 4px;
 }
 
 /*Footer*/
@@ -239,7 +244,8 @@ body,html  {
 }
 
 .sidebar_item {
-  margin-left: 40px;
+	width:170px;
+  /*margin-left: 40px;*/
   margin-bottom: 10px;
   background-color: #F3EFE7;
   border-radius: 5px;
@@ -247,8 +253,9 @@ body,html  {
   height: 165px;
   max-width: none;
   min-width: 0px;
-  padding-left: 15px;
-  padding-top: 15px;
+  /*padding-left: 15px;
+  padding-top: 15px;*/
+ padding: 15px;
   /*
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
@@ -560,4 +567,8 @@ tr.even {
 
 /*added  by idreams*/
 .scroller{margin-top:20px;}
+select#search_publication_document_type_id{
+	width:auto;	
+}
+
 
