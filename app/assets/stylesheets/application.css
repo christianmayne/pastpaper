@@ -286,6 +286,7 @@ body,html  {
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
   box-shadow: inner 0 0 5px #888;
+  padding:8px 0px;
 }
 
 #mainpage .bottom_container .content ul {
@@ -310,7 +311,7 @@ body,html  {
   background-color: white;
   padding: 3px;
   margin: 0;
-  border: 1px dotted #58595B;
+  border: 1px solid #58595B;
   width: 60px;
   height: 60px;
 }
@@ -429,11 +430,11 @@ tr.even {
 */
 .headline4{
   font-family:Baskerville,Times,'Times New Roman',serif;
-	font-size:30px; 
+	/*font-size:30px;*/ 
 	color:#589017;
 	font-variant:small-caps;
 	font-weight:bold;
-  letter-spacing: 2.5px;
+ /* letter-spacing: 2.5px;*/
   padding: 10px;
   padding-left:0px;
   margin:10px;
@@ -510,11 +511,22 @@ tr.even {
 #social-icon div a{
   float: left;
 }
-
+#social-icon .pull-left a{
+	display:block;
+}
+#social-icon .pull-left a:hover{
+	background:none;
+}
 #social-icon div label{
   float: left;
   line-height: 0px;
   margin: 5px;
+}
+#social-icon .pull-left label{
+	float:right;
+}
+#social-icon .pull-left a label:hover{
+	color:#00609f;
 }
 
 .document_detail{
@@ -571,4 +583,12 @@ select#search_publication_document_type_id{
 	width:auto;	
 }
 
+#search-form input{margin:3px 0}
 
+.publication select{background: #fff; width:auto;}
+.form-horizontal select{width:auto;}
+.navbar .brand a:hover{
+	text-decoration:none;
+	color:#00ccff;	
+}
+.centering a:hover{ text-decoration:none; color:#3a87ad; background:#d9edf7; }
