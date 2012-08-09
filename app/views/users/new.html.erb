@@ -1,11 +1,11 @@
 <!-- Container -->
-<div class="registraton">     
+<div class="registraton form-horizontal">     
   <%= form_for(@user)  do |f| %>
     <fieldset>
       <legend>New Registration</legend>
       <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
       <div class="control-group">
-        <%= f.label :first_name , {}, {:class => "control-label"} %>
+        <%= f.label :first_name , :class => "control-label" %>
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on">*</span><%= f.text_field :first_name,{:required=>true, :class=>"input-xlarge"}%>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="control-group">
-        <%= f.label :last_name , {}, {:class => "control-label"} %>
+        <%= f.label :last_name , :class => "control-label" %>
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on">*</span><%= f.text_field :last_name,{:required=>true, :class=>"input-xlarge"}%>
@@ -23,7 +23,7 @@
       </div>
         
       <div class="control-group">
-        <%= f.label :username , {}, {:class => "control-label"} %>
+        <%= f.label :username , :class => "control-label" %>
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on">*</span><%= f.text_field :username,{:required=>true, :class=>"input-xlarge"}%>
@@ -32,7 +32,7 @@
       </div>
       
       <div class="control-group">
-        <%= f.label :password , {}, {:class => "control-label"} %>
+        <%= f.label :password , :class => "control-label" %>
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on">*</span><%= f.password_field :password,{:required=>true, :class=>"input-xlarge"}%>
@@ -41,16 +41,16 @@
       </div>
       
       <div class="control-group">
-        <%= f.label :password_confirmation , {}, {:class => "control-label"} %>
+        <%= f.label :password_confirmation , :class => "control-label" %>
         <div class="controls">
           <div class="input-prepend">
-            <span class="add-on">*</span><%= f.text_field :password_confirmation,{:required=>true, :class=>"input-xlarge"}%>
+            <span class="add-on">*</span><%= f.password_field :password_confirmation,{:required=>true, :class=>"input-xlarge"}%>
           </div>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :email , {}, {:class => "control-label"} %>
+        <%= f.label :email , :class => "control-label" %>
         <div class="controls">
           <div class="input-prepend">
             <span class="add-on">*</span><%= f.text_field :email,{:required=>true, :class=>"input-xlarge"}%>
@@ -59,69 +59,69 @@
       </div>
       
       <div class="control-group">
-        <%= f.label :address1 , {}, {:class => "control-label"} %>
+        <%= f.label :address1 , :class => "control-label" %>
         <div class="controls">
             <%= f.text_field :address1,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :address2 , {}, {:class => "control-label"} %>
+        <%= f.label :address2 , :class => "control-label" %>
         <div class="controls">
             <%= f.text_field :address2,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :city,"City/Town", {:class => "control-label"} %>
+        <%= f.label :city,"City/Town", :class => "control-label" %>
         <div class="controls">
             <%= f.text_field :city,{:class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :county,"County/State", {:class => "control-label"} %>
+        <%= f.label :county,"County/State", :class => "control-label" %>
         <div class="controls">
             <%= f.text_field :county,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :post_code,{}, {:class => "control-label"} %>
+        <%= f.label :post_code,:class => "control-label" %>
         <div class="controls">
             <%= f.text_field :post_code,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :country,{}, {:class => "control-label"} %>
+        <%= f.label :country,:class => "control-label" %>
         <div class="controls">
             <%= f.text_field :country,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :tel_number,{}, {:class => "control-label"} %>
+        <%= f.label :tel_number,:class => "control-label" %>
         <div class="controls">
             <%= f.number_field :tel_number,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :mobile_number,{}, {:class => "control-label"} %>
+        <%= f.label :mobile_number,:class => "control-label" %>
         <div class="controls">
             <%= f.number_field :mobile_number,{ :class=>"input-xlarge"}%>
         </div>
       </div>
       
       <div class="control-group">
-        <%= f.label :date_of_birth,{}, {:class => "control-label"} %>
+        <%= f.label :date_of_birth,:class => "control-label" %>
         <div class="controls">
           <%= f.date_select  :date_of_birth, :start_year => Date.today.year-110, :end_year => Date.today.year-1,:include_blank => true, :class=>"input-small"%>
         </div>
       </div>
         
-      <div class="form-action">
+      <div class="form-actions">
         <%= f.submit(:value=>"Register",:class=>"btn btn-primary submit") %>
       </div>
     </fieldset>

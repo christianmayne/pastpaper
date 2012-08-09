@@ -1,5 +1,5 @@
  <% if obj.errors.any? %>
-    <div class="error_explanation" style="width:100%">
+    <div class="error_explanation alert alert-error" >
       <h3>Please fix the following <%= pluralize(obj.errors.count, "error") %>.</h3>
       <ul>
       <% obj.errors.full_messages.each do |msg| %>

@@ -9,8 +9,8 @@
 		<% doctitle = document.name %>
 	<% end %>
 	<div class="sidebar_item" >
-	    <div style="text-align:center"><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle, :style => "border: solid 4px black;padding:1px"), document_path(document) unless document.default_image.nil? %></div>
-	    <div style="text-align:justify;text-justify:inter-word;margin-top:10px;margin-right:15px">
+	    <div style="text-align:center;"><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle, :style => "border: solid 4px black;padding:1px"), document_path(document) unless document.default_image.nil? %></div>
+	    <div style="text-align:center; margin-top:6px;">
 			<% if document.name.blank? %>
 				<%= document.title %>
 			<% else %>
