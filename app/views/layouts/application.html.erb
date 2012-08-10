@@ -20,7 +20,7 @@
   <body>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           
           <div class="brand">
 	          <a href="/">
@@ -120,31 +120,33 @@
       </div>
     </div>
     
-    <div id="page-container" class="row">
-      
-      <div class="span10 offset2 wrapper container">
-      
-        <div id="header-container" class="row-fluid">
-          <%= render "layouts/header" %>
-        </div>
-        
-        <div id="main-menu" class="row-fluid">
- 	        <div class="menu-bar">
-		        <%= render "layouts/menu_bar"%>
-	        </div>
-	          <!-- End Menu Bar -->
-        </div>
-        
-        <div id="mainpage-container" class="row-fluid">
-          <div id="mainpage">
+   <div class="container-fluid">
+   
+      <div class="row-fluid">
+      	
+      	<div class="span12"  >
+      		<div class="row-fluid" style="background: #fff; ">
+   		<%= render "layouts/header"%>
+      			
+   		</div>
+      		<div class="" style="background: #fff; " id="mainpage">
+      				
+      			
           	<%= yield %>
-          </div>
-
-          <hr>
-
+          	
+          	
+          	
+          	<hr />
           <footer id="footer" class="row-fluid">
             <p><%= render "layouts/footer"%></p>
           </footer>
+          	
+          	</div>
+          	</div>
+          </div>
+</div>
+         
+
           
         </div>
         
@@ -153,3 +155,15 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+<div class="container-fluid">
+	
+</div>
+
+
+
+

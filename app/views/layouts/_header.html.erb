@@ -1,7 +1,7 @@
 <div id="page-header">
 		<div class="status_message">
 			<% if flash[:alert]%>
-				<div class="alert alert-info span12 centering"><%= flash[:alert]%></div>
+				<div class="alert alert-error span12 centering"><%= flash[:alert]%></div>
 	  	<% end %>
 	  	<% if flash[:error]%>
 				<div class="alert alert-error span12 centering"><%= flash[:error]%></div>
@@ -16,18 +16,25 @@
 		  <%= image_tag("logo.jpg")%>
 	  </a>
 	   <div class="pull-right " style="padding: 20px;">
-	   <h4>Currently listed</h4>
-	     <div style="padding-left:10px">
-	       - <b><%= Person.count%></b> Individuals. <br/>
-	       - <b><%=Location.count%></b> Locations. <br/>
-	       - <b><%= Document.count %></b> Items.
-	     </div>
+	   
+	     
 	   <br/>
 	<% if !current_user %>    
 		<strong><%= link_to "Register now !" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%>&nbsp;&nbsp;&nbsp; for full access to our database.</strong>
 	<% end %>
 	   </div>
   </div>
+  
+  <div class="pull-right">
+  	
+  	<ul class="breadcrumb currently_listed">
+  		
+  		<li><h5>Currently listed - </h5></li>
+  		<li><b><%= Person.count%></b> Individuals.<span class="divider">|</span></li>
+  		<li><b><%=Location.count%></b> Locations.<span class="divider">|</span></li>
+  		<li><b><%= Document.count %></b> Items.</li>
+	</ul>
+	     </div>
   <!-- End Logo-->
   
 

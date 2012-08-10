@@ -1,4 +1,4 @@
-<div class="person">
+<div class="person hero-unit">
 	<span class="lead">Search for a person</span>
 	<div class="info-text">
     	Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards
@@ -12,8 +12,8 @@
 				<%= f.text_field :first_name,{:placeholder => "First Name",:size=>15, :class=>"search_input_name input-medium"} %>
 				<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>15, :class=>"search_input_name clear_right input-medium"} %>
 				<!-- Search Dates -->
-				<%= f.number_field :date_birth_from, :size => 10, :class => 'input-mini' , :placeholder=>"YYYY", :class=>"search_input_date clear_left input-small" %>
-				<%= f.number_field :date_death_from,  :size => 10, :class => 'input-small' ,:placeholder=>"YYYY", :class=>"search_input_date input-small" %>
+				<%= f.text_field :date_birth_from, :size => 10, :class => 'input-medium' , :placeholder=>"DOB FROM YYYY", :style =>'width:140px;' %>
+				<%= f.text_field :date_death_from,  :size => 10, :class => 'input-medium' ,:placeholder=>"DOB TO YYYY", :style =>'width:140px;' %>
 				<%= f.submit "",:class=>"btn btn-primary",:id=>"searchbypersion", :value=>"Search" %>
 			<% end %>
 		</div>
