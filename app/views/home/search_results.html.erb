@@ -27,7 +27,7 @@
 
 <%else%>
 	<div class="search_results_container">
-		
+		<div class="row-fluid">
 		<div class="pull-left">
 			<%= link_to "Back to search" ,root_path,:class=>"btn"%>
 		</div>
@@ -40,7 +40,7 @@
 				<%= f.submit "Go",:class=>"btn btn-primary"%>
 			<%end%>
 		</div>
-	
+	</div>
 	<div id="document_results">
 		<%= render :partial => "document_result"%>
 	</div>

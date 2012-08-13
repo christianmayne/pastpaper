@@ -13,3 +13,4 @@
 //= require jquery.jcarousel
 //= require bootstrap
 //= require bootstrap-collapse
+//= require document

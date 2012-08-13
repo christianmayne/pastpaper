@@ -25,7 +25,9 @@ body,html  {
   background-repeat: repeat;
 }
 /*Container*/
-
+.container-fluid{
+	padding:0px 180px !important;
+}
 
 #page-container .wrapper{
   background-color: white;
@@ -221,6 +223,9 @@ body,html  {
 
 #footer{
   text-align: center;
+  background:#205791;
+  margin-bottom:10px;
+  color:#FAFAFA;
 }
 
 /*mainpage > central nav*/
@@ -244,26 +249,16 @@ body,html  {
   position: relative;
   top: -4px;
 }
-
 .sidebar_item {
-	
-  /*margin-left: 40px;*/
-  margin-bottom: 10px;
-  background-color: #F3EFE7;
-  border-radius: 5px;
-  color: #3D5055;
-  height: 165px;
-  max-width: none;
-  min-width: 0px;
-  /*padding-left: 15px;
-  padding-top: 15px;*/
- padding: 15px;
-  /*
-  -moz-box-shadow: inset 0 0 5px #888;
-  -webkit-box-shadow: inset 0 0 5px#888;
-  box-shadow: inner 0 0 5px #888;
-  */
-  border: solid 1px #888;
+    background-color: #F3EFE7;
+    border: 1px solid #888888;
+    border-radius: 5px 5px 5px 5px;
+    color: #3D5055;
+    /*height: 150px;*/
+   height:auto;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    width: 170px;
 }
 
 .sidebar_heading {
@@ -582,7 +577,7 @@ tr.even {
 body{margin-top:40px;}
 .scroller{margin-top:20px;}
 select#search_publication_document_type_id{
-	width:145px;	
+	width:159px;	
 }
 
 #search-form input{margin:3px 0}
@@ -597,4 +592,14 @@ select#search_publication_document_type_id{
 .currently_listed{
 	margin-right:15px;
 	margin-top:15px;
+}
+.row-fluid .span3 {
+    width: 23.4%;
+}
+.row-fluid [class*="span"] {
+    margin-left: 2.1%;
+}
+#mainpage .content .left-side{
+    height:792px;
+    margin-bottom:15px;
 }
