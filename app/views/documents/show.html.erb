@@ -67,6 +67,11 @@ jQuery(document).ready(function() {
 			<% @document.attribute_documents.each do |doc_attr| %>
        	<%= doc_attr.attribute_type.try(:name) %>: <%= "#{doc_attr.value}" %><%= ", #{doc_attr.attribute_location}" unless doc_attr.attribute_location.blank? %><%= ", #{doc_attr.attribute_year}" unless doc_attr.attribute_year.blank? %><br />
       <% end %>
+      <b>Tags</b>      
+      <% @document.tags.each do |tag| %>
+        <%= tag.name %> 
+      <% end %>
+
 		</div>
 		<div class="document_detail">
            	<b>Dimensions</b><br />

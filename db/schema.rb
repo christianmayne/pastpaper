@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721094752) do
+ActiveRecord::Schema.define(:version => 20120815184930) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -87,6 +87,11 @@ ActiveRecord::Schema.define(:version => 20120721094752) do
     t.boolean  "is_deleted",                                      :default => false
     t.boolean  "is_featured",                                     :default => false
     t.integer  "views",                                           :default => 0
+  end
+
+  create_table "documents_tags", :id => false, :force => true do |t|
+    t.integer "document_id"
+    t.integer "tag_id"
   end
 
   create_table "event_types", :force => true do |t|
@@ -215,6 +220,12 @@ ActiveRecord::Schema.define(:version => 20120721094752) do
   create_table "statuses", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
