@@ -1,7 +1,7 @@
 
 <% @pagetitle = "Add New Gedcom" %>
-<div class="introduction_block">
-	<span class="profile_heading">Add New Gedcom</span>
+<div class="introduction">
+	<span class="lead">Add New Gedcom</span>
 </div>
 <div class="container siteScale clearfix">
 	<div class="block whiteBG clearfix varMarginDouble border">
@@ -11,13 +11,15 @@
 			<div style="margin-left: 260px;">
 				<div class="userform">
 <%= form_for(@gedcom, :html => { :multipart => true }) do |f| %>
-  <div class="field">
-  <%= f.file_field :file %>
+  <div class="control-group">
+    <%= label_tag :file, "File" %>
+    <div class="controls">
+      <%= f.file_field :file %>
+    </div>
   </div>
-
-	<div class="field">
-		<label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
-	</div>
+  <div class="form-action">
+    <%= f.submit(:value=>"Save",:class=>"btn btn-success submit save") %>
+  </div>
 <% end %>
 				</div>
 			</div>

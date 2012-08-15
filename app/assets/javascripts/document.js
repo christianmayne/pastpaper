@@ -28,7 +28,7 @@ function add_fields(link, association, content) {
 
 
 $(function() {
-  $(".ajaxpaging .pagination a").live("click", function() {
+  	$(".ajaxpaging .pagination a").live("click", function() {
     $(".ajaxpaging .pagination").html("Page is loading...");
     $.getScript(this.href);
     return false;

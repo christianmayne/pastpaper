@@ -1,60 +1,91 @@
 <div class="userform">
-	<h3>Item Details</h3>
-  <div>Use this form to enter your details about the item - your stock number, the name you refer to this item by, the price and description - as well as the physical details about the item, such as the binding and the condition</div>
-  <br /><br />
-	<div class="field">
-		<%= f.label :stock_number%>
-		<%= f.text_field :stock_number ,{:placeholder => "Input Item code for your item",:class=>"text"} %>
-	</div>
-	<div class="field">
-		<%= f.label "Item_name"%>
-		<%= f.text_field :name ,{:placeholder => "Name your item",:class=>"text"} %>
-	</div>
-	<div class="field">
-		<%= f.label :document_type_id%>
-		<%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class => 'text' %>
-	</div>
-	<div class="field">
-		<label>Status </label>
-		<%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class => 'input-form-input' %>
-	</div>
-	<div class="field">
-		<label>Title </label>
-		<%= f.text_field :title, {:placeholder=>"Title of your item", :class => 'text'} %>
-	</div>
-	<div class="field">
-		<label>Length (mm)</label>
-		<%= f.number_field :length,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
-		<label>Width (mm)</label>
-		<%= f.number_field :width,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
-		<label>Depth (mm)</label>
-		<%= f.number_field :depth,  {:size => 8,:placeholder=>"0",:class => 'number'} %>
-		<label>Weight (g)</label>
-		<%= f.number_field :weight, {:size => 8, :placeholder=>"0",:class => 'number'} %>
-	</div>
-	<div class="field">
-		<label>Condition  </label>
-		<%= f.text_field :condition,{:placeholder=>"Condition of your item", :class => 'text'}  %>
-	</div>
-	<div class="field">
-		<label>Binding </label>
-		<%= f.text_field :binding, {:placeholder=>"Binding/cover of your item", :class => 'text'}  %>
-	</div>
-	<div class="field">
-		<label>Comments </label>
-		<%= f.text_area :comment,   {:placeholder=>"Description of your item with in 255 chars.",:class => 'text',:size=>"40x5"}  %>
-	</div>
-
-	<div class="field" id="sell_price" style="display: none;">
-		<label>Sale Price </label>
-		<%= f.number_field :sale_price, {:size => 20,:placeholder=>"Selling Price",:class=>"sell_price"} %>
-	</div>
+	<legend>Item Details</legend>
+	<div class="control-group">
+    <%= f.label :stock_number, :class=>"control-label"%>
+    <div class="controls">
+      <%= f.text_field :stock_number , {:placeholder => "Input Item code for your item" , :class => "input-xlarge" }%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Item_name, :class=>"control-label"%>
+    <div class="controls">
+      <%= f.text_field :name ,{:placeholder => "Name your item", :class=>"input-xlarge"} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :document_type, "Document Type", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => true, :class =>"input-xlarge"  %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :status, "Status", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class =>"input-xlarge"  %>
+    </div>
+  </div
+  <div class="control-group">
+    <%= label_tag :title, "Title", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.text_field :title ,{:placeholder => "Title of your item",:class=>"input-xlarge"} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :length, "Length", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :length,  {:size => 8,:placeholder=>"0",:class => 'input-mini'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :width, "Width", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :width,  {:size => 8,:placeholder=>"0",:class => 'input-mini'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :depth, "Depth", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :depth,  {:size => 8,:placeholder=>"0",:class => 'input-mini'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :weight, "Weight", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :weight,  {:size => 8,:placeholder=>"0",:class => 'input-mini'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :condition, "Condition", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :condition,  {:placeholder=>"Condition of your item",:class => 'input-xlarge'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :binding, "Binding", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :binding,  {:placeholder=>"Binding/cover of your item",:class => 'input-xlarge'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :comments, "Comments", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.text_area :comment,  {:placeholder=>"Description of your item with in 255 chars",:class => 'input-xlarge',:size=>"40x5"} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :sale_price, "Sale Price", :class=>"control-label"%>
+    <div class="controls">
+      <%= f.number_field :sale_price,  {:size => 20, :placeholder=>"Selling Price",:class => 'input-xlarge'} %>
+    </div>
+  </div>
 
 	<%if current_user.is_admin? %>
-		<div class="field">
-			<label>Featured Item</label>
-			<%= f.check_box :is_featured %>
-		</div>		
+	  <div class="control-group">
+      <%= label_tag :featured_item, "Featured Item", :class=>"control-label"%>
+      <div class="controls">
+        <%= f.check_box :is_featured ,  {:placeholder=>"Selling Price",:class => 'input-xlarge'} %>
+      </div>
+    </div>
 	<%end%>		
 </div>
 

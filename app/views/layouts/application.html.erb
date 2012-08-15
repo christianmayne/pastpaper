@@ -1,39 +1,154 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The Past on Paper | <%= @pagetitle %></title>
-  <%= stylesheet_link_tag "application" %>
-  <%= stylesheet_link_tag "pastonpaper" %>
-  <%= javascript_include_tag "application"  %>
-  <%= csrf_meta_tag %>
-  <script type="text/javascript">
-	  $(document).ready(function(){
-		  $("a[rel=lightbox]").lightBox();
-		  $('#container-1').tabs();       // Tab function
-		  $('#mycarousel').jcarousel();   // Slideshow
-	  });
-  </script>
-</head>
+  <head>
+    <meta charset="utf-8"/>
+    <title>The Past on Paper | <%= @pagetitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application"  %>
+    <%= csrf_meta_tag %>
+    <script type="text/javascript">
+      $("#loginModal").modal({"backdrop" : "static"});
+	    $(document).ready(function(){
+		    $("a[rel=lightbox]").lightBox();
+		    $('#container-1').tabs();       // Tab function
+		    $('#mycarousel').jcarousel();   // Slideshow
+	    });
+    </script>
+  </head>
 
-<body>
-	<div class="pop_container">
-
-		<!-- Header -->
-		<div class="header">
-    		<%= render "layouts/header" %>
-		</div><!-- End Header -->
-
-    	<div class="content_container">
-      	<!-- Page Content -->
-  			<%= yield %>
-    	</div><!-- End Content Container -->
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          
+          <div class="brand">
+	          <a href="/">
+		          The Past On Paper
+	          </a>
+          </div>
   
-		<!-- Footer -->
-    	<div class="footer">
-      		<%= render "layouts/footer"%>
-    	</div><!-- End Footer-->
-
-	</div><!-- End Pop Container -->
+          <ul class="nav ">
+	          <li class="divider-vertical"></li>
+	          <li><%= link_to "Home", '/' %></li>
+	          <% if current_user.present? %>
+     	          <li class="divider-vertical"></li>
+	              <li><%= link_to "Your Profile", user_home_path %></li >
+	              <!--<li class="divider-vertical"></li>-->
+	              <% if !current_user.is_admin? %>
+	              	<li><%= link_to "Your Items", documents_path %></li>
+	              	<li class="divider-vertical"></li>
+	              	<li><%= link_to "Add Your Item", new_document_path %></li>
+		          <% end %>
+	          <%end%>
+	          <li class="divider-vertical"></li>
+	          <li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
+	          <% if current_user && current_user.is_admin? %>
+	          <li class="divider-vertical"></li>
+	          <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
+             
+              	Administration <b class="caret"></b></a>
+	          	
+	          	
+	         <ul class="dropdown-menu">
+			<li class="shadeBlue"><%= link_to "Reports", admin_report_path%> </li>
+			<li class="shadeBlue"><%= link_to "Purchase Orders", admin_orders_path%> </li>
+			<li class="shadeBlue"><%= link_to "Users", admin_users_path%> </li>
+			<li class="shadeBlue"><%= link_to "All Items", admin_documents_path%> </li>
+			<li class="shadeYellow"><%= link_to "Document Types",admin_document_types_path %></li>
+			<li class="shadeYellow"><%= link_to "Document Status",admin_statuses_path %></li>
+			<li class="shadeYellow"><%= link_to "Attributes Types", admin_attribute_types_path%> </li>
+	    	<li class="shadeYellow"><%= link_to "Event Types", admin_event_types_path%></li>
+		</ul>
+	          	
+	          </li>
+	          <%end%>
+ 	          <li class="divider-vertical"></li>
+          </ul>
+          <% if current_user %>
+          
+          <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            
+             <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              
+              	Your actions <b class="caret"></b></a>
+            
+            
+            
+            <ul class="dropdown-menu">
+		<li><%= link_to "Your Profile", user_home_path%> </li>
+		<li><%= link_to "Change Password", changepassword_path%> </li>
+		<li><%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
+		<li><%= link_to "My Items",documents_path %></li>
+		<li><%= link_to "Add new Item", new_document_path%> </li>	
+		
+		<li>
+			<%  @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Gedcom documents"%>
+			<%= link_to @gedcom_link_text, gedcom_documents_path %></li>
+		<li><%= link_to 'Upload a new Gedcom', new_gedcom_document_path %></li>
+	</ul>
+            </li>
+             <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              	<i class="icon-user icon-white"></i>
+              	<%= current_user.username.to_s  %> <b class="caret"></b></a>
+               <ul class="dropdown-menu">
+                  <li><%= link_to("Sign Out", logout_path) %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to("My Account - #{current_user.name}", user_home_path) %></li>
+                  <li><%= link_to("Help", "#") %></li>
+                </ul>
+            </li>
+           <li class="divider-vertical"></li>
+          </ul>
+          
+          
+          
+       
+			    <%else%>
+			    <ul class="nav pull-right">
+            <li><a class="pull-right" data-toggle="modal" href="#loginModal" data-backdrop="static">Login</a></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Register" ,register_path , :class=>"pull-right"%></li>
+          </ul>
+			    
+			    <%end%>
+        </div>
+      </div>
+    </div>
+    
+   <div class="container-fluid">
+   
+      <div class="row-fluid">
+      	
+      	<div class="span12"  >
+      		<div class="row-fluid" style="background: #fff; ">
+   		<%= render "layouts/header"%>
+      			
+   		</div>
+      		<div class="" style="background: #fff; " id="mainpage">
+      				
+      			
+          	<%= yield %>
+          	
+          	
+          	
+          	<hr />
+         
+          	
+          	</div>
+          	</div>
+          </div>
+</div>
+         
+  <div class="container-fluid container-footer">
+          
+        <footer id="footer" class="row-fluid">
+            <p><%= render "layouts/footer"%></p>
+          </footer>
+          </div>
 </body>
-
 </html>

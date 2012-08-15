@@ -2,14 +2,18 @@
 
 <% unless @documents.blank? %>
   <div>
-    <table>
+    <table class="table table-striped table-bordered table-condensed clearfix">
       <tr>
         <th>Stock Number</th>	
         <th>Image</th>
         <th>Document Name</th>
         <th>Type</th>
         <th>Status</th>
-        <th>Action</th>
+        <% if (current_user.present? ) %>
+          <% if current_user.is_admin? %>
+            <th>Action</th>
+          <%end%>
+        <%end%>
       </tr>
       <% @documents.each do |document| %>
         <% if document.document_type.paper == true %>

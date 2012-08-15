@@ -1,14 +1,28 @@
 <!-- Footer Menu -->
-<div class="footer_links">
+<div class="pull-left">
 	<%= render "layouts/footer_menu" %>
 </div>
 
-<div class="footer_social">
-	<div class="footer_social_icon"><a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("icons/blog.gif",:height=>"16")%></a>Blog</div>
-	<div class="footer_social_icon"><a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.png",:height=>"16")%></a>Facebook</div>
-	<div class="footer_social_icon"><a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.png",:height=>"16")%></a>Twitter</div>
+<div class="pull-right">
+  <div class="centering" id="social-icon">
+	  <div class="pull-left">
+	    <a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("icons/blog.gif",:height=>"16")%><label>Blog</label></a>
+	   </div>
+	  <div class="pull-left">
+	    <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.png",:height=>"16")%><label>Facebook</label></a>	    
+	  </div>
+	  <div class="pull-left">
+	    <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.png",:height=>"16")%><label>Twitter</label></a>
+	  </div>
+	</div>
 </div>
-
-<div class="footer_credits">
-	<a href="http://www.pastonpaper.com">pastonpaper.com</a> is a <a href="http://www.watchthedot.com">watchthedot.com</a> website  &copy; <%= Time.now.year %> <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:height=>"16")%></a>
+<div style="clear:both; "></div>
+<div class="row-fluid central-nav">
+  <div class="centering">
+	  <a class="" href="http://www.pastonpaper.com">pastonpaper.com</a>
+	   is a 
+	   <a href="http://www.watchthedot.com">watchthedot.com</a> 
+	   website  &copy; <%= Time.now.year %> 
+	   <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:height=>"16")%></a>
+	 </div>
 </div>

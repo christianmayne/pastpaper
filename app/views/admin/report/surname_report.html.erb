@@ -1,14 +1,14 @@
 
 <!-- Container -->
-<div class="container siteScale clearfix">
-	<div class="block whiteBG varMarginDouble leftBox floatLeft border">
-		<div class="varPaddingDouble horPaddingDouble registraton">
+<div>
+	<div>
+		<div>
 			<h2><%= link_to "Reports" , admin_report_path%> &raquo; Surname list</h2>
 			There are: <%= @people.count %> individuals listed in the database
  			(<%= @male_people.count %> Males / <%= @female_people.count %> Females / <%= @unknown_people.count %> Unknown)
 			<br/>
 			<%= page_entries_info @surnames,:entry_name => 'Surname' %>
-			<table>
+			<table class="table table-striped table-bordered table-condensed">
 				<% @surnames.each do |sn| %>
 					<tr class="<%= cycle("odd","even")%>"><td><td><%= sn.last_name%></td><td> (<%= pluralize(sn.last_name_count,"Individual")%>)</td></tr>
 				<% end %>
@@ -16,8 +16,8 @@
  			<%= will_paginate @surnames%>
 		</div>
 	</div>
-	<div class="block whiteBG varPaddingDouble varMarginDouble rightBox floatRight horPaddingDouble border">
-   		<%= render "shared/usermenu"%>
+	<div>
+   		
 	</div>
 </div>
 <!-- Container End -->

@@ -1,22 +1,21 @@
 <% featured_items = 4 %>
 <% featured_documents = Document.find(:all, :conditions=> 'is_featured = true').sort_by{ rand }.slice(0..(featured_items-1)) %>
 
-<span class="sidebar_header">Featured Items</span>
+<span class="lead">Featured Items</span>
 <% featured_documents.each do |document| %>
 	<% if document.name.blank? %>
 		<% doctitle = document.title%>
 	<% else %>  
 		<% doctitle = document.name %>
 	<% end %>
-	<div class="sidebar_item">
-		<div class="sidebar_heading">
+	<div class="sidebar_item" >
+	    <div style="text-align:center;"><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle, :style => "border: solid 4px black;padding:1px"), document_path(document) unless document.default_image.nil? %></div>
+	    <div style="text-align:center; margin-top:6px;">
 			<% if document.name.blank? %>
 				<%= document.title %>
 			<% else %>
 				<%= document.name %>
 			<%end%>			
-			<br />
-		</div>
-		<div class="sidebar_photo"><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle), document_path(document) unless document.default_image.nil? %></div>
+	  </div>
 	</div>
 <% end %>
