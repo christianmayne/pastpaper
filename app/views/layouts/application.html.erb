@@ -1,234 +1,200 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <title>The Past on Paper | <%= @pagetitle %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application"  %>
-    <%= csrf_meta_tag %>
-    <script type="text/javascript">
-      $("#loginModal").modal({"backdrop" : "static"});
-	    $(document).ready(function(){
-		    $("a[rel=lightbox]").lightBox();
-		    $('#container-1').tabs();       // Tab function
-		    $('#mycarousel').jcarousel();   // Slideshow
-	    });
-    </script>
-  </head>
 
-  <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          
-          <div class="brand">
-	          <a href="/">
-		          The Past On Paper
-	          </a>
-          </div>
-  
-          <ul class="nav ">
-	          <li class="divider-vertical"></li>
-	          <li><%= link_to "Home", '/' %></li>
-	          <% if current_user.present? %>
-     	          <li class="divider-vertical"></li>
-	              <li><%= link_to "Your Profile", user_home_path %></li >
-	              <!--<li class="divider-vertical"></li>-->
-	              <% if !current_user.is_admin? %>
-	              	<li><%= link_to "Your Items", documents_path %></li>
-	              	<li class="divider-vertical"></li>
-	              	<li><%= link_to "Add Your Item", new_document_path %></li>
-		          <% end %>
-	          <%end%>
-	          <li class="divider-vertical"></li>
-	          <li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
-	          <% if current_user && current_user.is_admin? %>
-	          <li class="divider-vertical"></li>
-	          <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
-             
-              	Administration <b class="caret"></b></a>
-	          	
-	          	
-	         <ul class="dropdown-menu">
-			<li class="shadeBlue"><%= link_to "Reports", admin_report_path%> </li>
-			<li class="shadeBlue"><%= link_to "Purchase Orders", admin_orders_path%> </li>
-			<li class="shadeBlue"><%= link_to "Users", admin_users_path%> </li>
-			<li class="shadeBlue"><%= link_to "All Items", admin_documents_path%> </li>
-			<li class="shadeYellow"><%= link_to "Document Types",admin_document_types_path %></li>
-			<li class="shadeYellow"><%= link_to "Document Status",admin_statuses_path %></li>
-			<li class="shadeYellow"><%= link_to "Attributes Types", admin_attribute_types_path%> </li>
-	    	<li class="shadeYellow"><%= link_to "Event Types", admin_event_types_path%></li>
-		</ul>
-	          	
-	          </li>
-	          <%end%>
- 	          <li class="divider-vertical"></li>
-          </ul>
-          <% if current_user %>
-          
+<head>
+  <meta charset="utf-8"/>
+  <title>The Past on Paper | <%= @pagetitle %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application"  %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript">
+    $("#loginModal").modal({"backdrop" : "static"});
+    $(document).ready(function(){
+	    $("a[rel=lightbox]").lightBox();
+	    $('#container-1').tabs();       // Tab function
+	    $('#mycarousel').jcarousel();   // Slideshow
+    });
+  </script>
+</head>
+
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="brand">
+          <a href="/">
+	          The Past On Paper
+          </a>
+        </div>
+
+        <ul class="nav ">
+          <li class="divider-vertical"></li>
+          <li><%= link_to "Home", '/' %></li>
+          <% if current_user.present? %>
+   	          <li class="divider-vertical"></li>
+              <li><%= link_to "Your Profile", user_home_path %></li >
+              <!--<li class="divider-vertical"></li>-->
+              <% if !current_user.is_admin? %>
+              	<li><%= link_to "Your Items", documents_path %></li>
+              	<li class="divider-vertical"></li>
+              	<li><%= link_to "Add Your Item", new_document_path %></li>
+	          <% end %>
+          <%end%>
+          <li class="divider-vertical"></li>
+          <li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
+          <% if current_user && current_user.is_admin? %>
+            <li class="divider-vertical"></li>
+            <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Administration <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+		            <li class="shadeBlue"><%= link_to "Reports", admin_report_path%> </li>
+		            <li class="shadeBlue"><%= link_to "Purchase Orders", admin_orders_path%> </li>
+		            <li class="shadeBlue"><%= link_to "Users", admin_users_path%> </li>
+		            <li class="shadeBlue"><%= link_to "All Items", admin_documents_path%> </li>
+		            <li class="shadeYellow"><%= link_to "Document Types",admin_document_types_path %></li>
+		            <li class="shadeYellow"><%= link_to "Document Status",admin_statuses_path %></li>
+		            <li class="shadeYellow"><%= link_to "Attributes Types", admin_attribute_types_path%> </li>
+                <li class="shadeYellow"><%= link_to "Event Types", admin_event_types_path%></li>
+	            </ul>          	
+            </li>
+          <%end%>
+          <li class="divider-vertical"></li>
+        </ul>
+        <% if current_user %>
           <ul class="nav pull-right">
             <li class="divider-vertical"></li>
-            
-             <li class="dropdown">
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              
-              	Your actions <b class="caret"></b></a>
-            
-            
-            
-            <ul class="dropdown-menu">
-		<li><%= link_to "Your Profile", user_home_path%> </li>
-		<li><%= link_to "Change Password", changepassword_path%> </li>
-		<li><%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
-		<li><%= link_to "My Items",documents_path %></li>
-		<li><%= link_to "Add new Item", new_document_path%> </li>	
-		
-		<li>
-			<%  @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Gedcom documents"%>
-			<%= link_to @gedcom_link_text, gedcom_documents_path %></li>
-		<li><%= link_to 'Upload a new Gedcom', new_gedcom_document_path %></li>
-	</ul>
-            </li>
-             <li class="divider-vertical"></li>
             <li class="dropdown">
               <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              	<i class="icon-user icon-white"></i>
-              	<%= current_user.username.to_s  %> <b class="caret"></b></a>
-               <ul class="dropdown-menu">
-                  <li><%= link_to("Sign Out", logout_path) %></li>
-                  <li class="divider"></li>
-                  <li><%= link_to("My Account - #{current_user.name}", user_home_path) %></li>
-                  <li><%= link_to("Help", "#") %></li>
-                </ul>
+              	Your actions <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+	              <li><%= link_to "Your Profile", user_home_path%> </li>
+	              <li><%= link_to "Change Password", changepassword_path%> </li>
+	              <li><%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
+	              <li><%= link_to "My Items",documents_path %></li>
+	              <li><%= link_to "Add new Item", new_document_path%> </li>	
+            		<li><%  @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Gedcom documents"%><%= link_to @gedcom_link_text, gedcom_documents_path %></li>
+            		<li><%= link_to 'Upload a new Gedcom', new_gedcom_document_path %></li>
+          	  </ul>
             </li>
-           <li class="divider-vertical"></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-user icon-white"></i><%= current_user.username.to_s  %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to("Sign Out", logout_path) %></li>
+                <li class="divider"></li>
+                <li><%= link_to("My Account - #{current_user.name}", user_home_path) %></li>
+                <li><%= link_to("Help", "#") %></li>
+              </ul>
+            </li>
+            <li class="divider-vertical"></li>
           </ul>
-          
-          
-          
-       
-			    <%else%>
-			    <ul class="nav pull-right">
+        <%else%>
+		      <ul class="nav pull-right">
             <li><a class="pull-right" data-toggle="modal" href="#loginModal" data-backdrop="static">Login</a></li>
             <li class="divider-vertical"></li>
             <li><%= link_to "Register" ,register_path , :class=>"pull-right"%></li>
           </ul>
-			    
-			    <%end%>
+		    <%end%>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row-fluid">
+    	<div class="span12"  >
+    		<div class="row-fluid" style="background: #fff; ">
+       		<%= render "layouts/header"%>
+     		</div>
+    		<div class="" style="background: #fff; " id="mainpage">
+        	<%= yield %>
+        	<hr />
         </div>
       </div>
     </div>
-    
-   <div class="container-fluid">
-   
-      <div class="row-fluid">
-      	
-      	<div class="span12"  >
-      		<div class="row-fluid" style="background: #fff; ">
-   		<%= render "layouts/header"%>
-      			
-   		</div>
-      		<div class="" style="background: #fff; " id="mainpage">
-      				
-      			
-          	<%= yield %>
-          	
-          	
-          	
-          	<hr />
-         
-          	
-          	</div>
-          	</div>
-          </div>
-          
-</div>
-         
- <div class="container-fluid container-footer">
-    <div id="footer-cont">
-        <div class="rightCorner"></div>  
-	    <div class="leftCorner"></div>
-      	
-      	    <footer id="footer" class="row-fluid">
-	            <p><%= render "layouts/footer"%></p>
-	      	</footer>
-      	</div>
   </div>
-  
-  
-  <% if !current_user %>
-  <script>
-  	jQuery(document).ready(function($){
-      $('#PopModal').modal({
-    			keyboard: false,
-   				backdrop:"static"
-    		})
-		});
+       
+  <div class="container-fluid container-footer">
 
-  </script>
-  
-  <div class="modal fade" id="PopModal">
-    <div class="modal">
-    <div class="modal-header">
-    	<div style="text-align: center; color:#efefef; ">
-    		<h1>"Site coming soon"</h1>
+    <div id="footer-cont">
+      <div class="rightCorner"></div>  
+      <div class="leftCorner"></div>
+   	    <footer id="footer" class="row-fluid">
+          <p><%= render "layouts/footer"%></p>
+      	</footer>
     	</div>
-      
     </div>
-    <div class="modal-body" style=" padding:50px 0px 25px; color:#d9d9d9; padding:6px; ">
-    	<div>
-		     <p>We're busily working behind the curtain to bring you "The Past on Paper", a new website which aims to reunite genealogists and local historians with the Family Bibles, Photos, Letters, Diaries, Postcards, Maps, Wills, Deeds  and other historic paper items hidden away in the World's antique shops and private collections.</p>
-		     <p>We're hoping to launch very soon but if you'd like to be one of the first people to list your items on the site, or get the first opportunity to buy your family's heirlooms, please join our mailing list and we'll be in touch very soon!</p>
-		     <p>In the meantime, you can also see what we're upto by following us on Facebook or Twitter, or follow the news on our blog (when we have time to write on it!).</p>
-		     <h3 style="padding:6px 0px; color:#c93; font-style: italic; ">Please add me to the pastonpaper.com mailing list.</h3>
-		     <form>
-		     	<label>First Name :</label> <input type="text" /><br />
-		     	<label>Last Name :</label> <input type="text" /><br />
-		     	<label>Email :</label> <input type="text" /><br />
-		     	<label>&nbsp;</label><input type="submit" value="Join Now" class="btn btn-primary btn-warning" />
-		     </form>
-     	</div>
-     
-    </div>
-    <div class="modal-footer">
-    	<p style="text-align: center; color: #96c6f6;">If you already have a preview login, please use the form below to enter the site.</p>
-      <div class="login-box pull-right">
-        <% if !current_user %>
-        <% if flash[:alert]%>
-				<div class="alert alert-error"><%= flash[:alert]%></div>
-	  	<% end %>
-		      <div class="login-form-wrapper">
-		      
-		        <%= form_tag :login ,:id=>"userLogin" , :class => "form-inline" do |f| %>
-		          <%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
-					    <%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"18"} %> 
-					    <input class="btn btn-primary btn-warning" type="submit" id="submitLogin" name="submitLogin" value="Login" />
-					    <br/>
-				      <div class="pull-left">
-				        <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
-				      </div>
-				      <div class="pull-right" style="margin-right:55px;">
-          		  <a>Remember Me</a> <%= check_box_tag :remember_me, 1 %>
-          	  </div>
-          	<%end%>  
-          	
-			    </div>
-		    <%end%>
-		    <div class="social_links pull-right row-fluid">
-		    	<br />
-		  <span style="padding:3px; background:#efefef; ">  	
-          <a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("/assets/icons/blog.gif",:height=>"16")%></a>
-          <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/facebook.png",:height=>"16")%></a>
-          <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/twitter.png",:height=>"16")%></a>
-          </span>
-		    </div>	
+
+    <% if !current_user %>
+      <script>
+  	    jQuery(document).ready(function($){
+          $('#PopModal').modal({
+    			  keyboard: false,
+   				  backdrop:"static"
+    		  })
+	      });
+      </script>
+  
+      <div class="modal fade" id="PopModal">
+        <div class="modal">
+
+          <div class="modal-header">
+    	      <div style="text-align: center; color:#efefef; ">
+    		      <h1>www.pastonpaper.com<br />
+              Coming Soon!</h1>
+    	      </div>
+          </div>
+
+          <div class="modal-body" style=" padding:50px 0px 25px; color:#d9d9d9; padding:6px; ">
+    	      <div>
+              <p>We're busily working behind the curtain to bring you "The Past on Paper", a new website which aims to reunite genealogists and local historians with the Family Bibles, Photos, Letters, Diaries, Postcards, Maps, Wills, Deeds  and other historic paper items hidden away in the World's antique shops and private collections.</p>
+              <p>We're hoping to launch very soon but if you'd like to be one of the first people to list your items on the site, or get the first opportunity to buy your family's heirlooms, please join our mailing list and we'll be in touch very soon!</p>
+              <p>In the meantime, you can also see what we're upto by following us on Facebook or Twitter, or follow the news on our blog (when we have time to write on it!).</p>
+              <h3 style="padding:6px 0px; color:#c93; font-style: italic; ">Please add me to the pastonpaper.com mailing list.</h3>
+              <form>
+                <label>First Name :</label> <input type="text" /><br />
+                <label>Last Name :</label> <input type="text" /><br />
+                <label>Email :</label> <input type="text" /><br />
+                <label>&nbsp;</label><input type="submit" value="Join Now" class="btn btn-primary btn-warning" />
+              </form>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+          	<p style="text-align: center; color: #96c6f6;">If you already have a preview login, please use the form below to enter the site.</p>
+            <div class="login-box pull-right">
+              <% if !current_user %>
+                <% if flash[:alert]%>
+          				<div class="alert alert-error"><%= flash[:alert]%></div>
+          	  	<% end %>
+      		      <div class="login-form-wrapper">
+      		        <%= form_tag :login ,:id=>"userLogin" , :class => "form-inline" do |f| %>
+      		          <%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
+      					    <%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"18"} %> 
+      					    <input class="btn btn-primary btn-warning" type="submit" id="submitLogin" name="submitLogin" value="Login" />
+                    <br/>
+			              <div class="pull-left">
+			                <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
+			              </div>
+			              <div class="pull-right" style="margin-right:55px;">
+                      <a>Remember Me</a> <%= check_box_tag :remember_me, 1 %>
+                    </div>
+                  <%end%>  
+                </div>
+              <%end%>
+      		    <div class="social_links pull-right row-fluid">
+      		    	<br />
+          		  <span style="padding:3px; background:#efefef; ">  	
+                  <a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("/assets/icons/blog.gif",:height=>"16")%></a>
+                  <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/facebook.png",:height=>"16")%></a>
+                  <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/twitter.png",:height=>"16")%></a>
+                </span>
+      		    </div>	
+            </div>
+          </div>
+
+        </div>
       </div>
-      </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
-  
-  
 </body>
 </html>
