@@ -1,94 +1,73 @@
 <% @pagetitle = "Add New Document" %>
 <div class="introduction">
-	<span class="headline4 lead"><%= @pagetitle%></span>
+  <span class="headline4 lead"><%= @pagetitle%></span>
 </div>
+
 <div>
-	<div>
-		<div>
-			<div style="width:250px;float:left;">
-			<%= render :partial => "document_menu"%>
-			
-			</div>
-			<div style="margin-left: 260px;">
-				<h3>People</h3>
-				
-				<div style="">
-				<div class="accordion" >
-					   
-				
-				
-				<% @people.each do |person| %>
-				<% unless person.new_record? %>
-				
-				 <h3><a href="#"><%= person.full_name%>  <em><%= person.sex%></em></a></h3>
-				 <div>
-				 	<%@person = person%>
-				 	<%= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
-				   	<div class="userform">
-				   		<%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f|%>
-				   		
-<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
+  <div>
+    <div>
 
-<div class="fields varPaddingTop"> 
-	<div class="field">
-		<label>Title</label> <%= f.text_field :title, :size => 4%>
-	</div>
-	<div class="field">
-		<label>Firstname</label> <%= f.text_field :first_name %>
-	</div>
-	<div class="field">
-		<label>Middlename</label> <%= f.text_field :middle_name %>
-	</div>
-	<div class="field">
-		<label>	Surname </label><%= f.text_field :last_name %>
-	</div>
-	<div class="field">
-		<label>Sex </label><%= f.select :sex, people_gender ,{:style=>"width:100px;"}%>
-	</div>	
-		<strong class="shadeGrey">Add Facts of this person</strong>
-		
-		<%= f.fields_for :facts do |fact| %>
-		    <%= render :partial => "document_people/fact_fields", :locals => {:f => fact} %>
-		<% end %>
-		<span class="span-3 top-25"><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
-	</div>
+      <div style="width:250px;float:left;">
+        <%= render :partial => "document_menu"%>
+      </div>
 
+      <div style="margin-left: 260px;">
+        <h3>People</h3>
+        <div style="">
+          <div class="accordion" >
+            <% @people.each do |person| %>
+              <% unless person.new_record? %>
+              <h3><a href="#"><%= person.full_name%>  <em><%= person.sex%></em></a></h3>
+              <div>
+                <%@person = person%>
+                <%= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
+                <div class="userform">
+                  <%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f|%>
+                    <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
+                    <div class="fields varPaddingTop"> 
+                      <div class="field">
+                        <label>Title</label> <%= f.text_field :title, :size => 4%>
+                      </div>
+                      <div class="field">
+                        <label>Firstname</label> <%= f.text_field :first_name %>
+                      </div>
+                      <div class="field">
+                        <label>Middlename</label> <%= f.text_field :middle_name %>
+                      </div>
+                      <div class="field">
+                        <label>	Surname </label><%= f.text_field :last_name %>
+                      </div>
+                      <div class="field">
+                        <label>Sex </label><%= f.select :sex, people_gender ,{:style=>"width:100px;"}%>
+                      </div>	
+                      <strong class="shadeGrey">Add Facts of this person</strong>
+                      <%= f.fields_for :facts do |fact| %>
+                        <%= render :partial => "document_people/fact_fields", :locals => {:f => fact} %>
+                      <% end %>
+                      <span class="span-3 top-25"><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
+                    </div>
+                    <div class="field">
+                      <label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>			
+          <%end%>
+          <h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
+          <div>
+            <div class="userform">
+              <%@person = @document.people.new%>
+              <%= render :partial => "document_people/form"%>
+            </div>
+          </div>
+          <br />
 
-	<div class="field">
-		<label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
-	</div>
-
-				<% end %>
-				</div>
-				</div>
-				
-			
-				<% end %>			
-				<%end%>
-				
-				<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
-				<div>
-				<div class="userform">
-						
-						<%@person = @document.people.new%>
-<%= render :partial => "document_people/form"%>
-					</div>
-				
-				
-				
-				</div>
-				
-				<br />
-				
-				</div>
-				
-				
-				<br />
-				
-					<%= link_to "View this item" ,document_path(@document),:class=>"button"%>
-					
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
-</div>  
+        </div>
+        <br />
+        <%= link_to "View this item" ,document_path(@document),:class=>"button"%>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
