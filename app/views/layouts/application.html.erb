@@ -142,13 +142,72 @@
           	</div>
           	</div>
           </div>
+          
 </div>
          
-  <div class="container-fluid container-footer">
-          
-        <footer id="footer" class="row-fluid">
-            <p><%= render "layouts/footer"%></p>
-          </footer>
-          </div>
+ <div class="container-fluid container-footer">
+    <div id="footer-cont">
+        <div class="rightCorner"></div>  
+	    <div class="leftCorner"></div>
+      	
+      	    <footer id="footer" class="row-fluid">
+	            <p><%= render "layouts/footer"%></p>
+	      	</footer>
+      	</div>
+  </div>
+  
+  
+  <% if !current_user %>
+  <script>
+  	jQuery(document).ready(function($){
+      $('#PopModal').modal({
+    			keyboard: false,
+   				backdrop:"static"
+    		})
+		});
+
+  </script><div class="modal fade" id="PopModal">
+    <div class="modal-header">
+      
+    </div>
+    <div class="modal-body" style="height:500px;">
+     
+    </div>
+    <div class="modal-footer">
+      <div class="login-box pull-right">
+        <% if !current_user %>
+        <% if flash[:alert]%>
+				<div class="alert alert-error"><%= flash[:alert]%></div>
+	  	<% end %>
+		      <div class="login-form-wrapper">
+		      
+		        <%= form_tag :login ,:id=>"userLogin" , :class => "form-inline" do |f| %>
+		          <%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
+					    <%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"18"} %> 
+					    <input class="btn btn-primary" type="submit" id="submitLogin" name="submitLogin" value="Login" />
+					    <br/>
+				      <div class="pull-left">
+				        <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
+				      </div>
+				      <div class="pull-right" style="margin-right:55px;">
+          		  Remember Me <%= check_box_tag :remember_me, 1 %>
+          	  </div>
+          	<%end%>  
+          	
+			    </div>
+		    <%end%>
+		    <div class="social_links pull-right row-fluid">
+		    	<br />
+		    	
+          <a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("/assets/icons/blog.gif",:height=>"16")%></a>
+          <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/facebook.png",:height=>"16")%></a>
+          <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/twitter.png",:height=>"16")%></a>
+		    </div>	
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+  
 </body>
 </html>
