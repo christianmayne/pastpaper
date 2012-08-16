@@ -166,14 +166,33 @@
     		})
 		});
 
-  </script><div class="modal fade" id="PopModal">
+  </script>
+  
+  <div class="modal fade" id="PopModal">
+    <div class="modal">
     <div class="modal-header">
+    	<div style="text-align: center; color:#efefef; ">
+    		<h1>"Site coming soon"</h1>
+    	</div>
       
     </div>
-    <div class="modal-body" style="height:500px;">
+    <div class="modal-body" style=" padding:50px 0px 25px; color:#d9d9d9; padding:6px; ">
+    	<div>
+		     <p>We're busily working behind the curtain to bring you "The Past on Paper", a new website which aims to reunite genealogists and local historians with the Family Bibles, Photos, Letters, Diaries, Postcards, Maps, Wills, Deeds  and other historic paper items hidden away in the World's antique shops and private collections.</p>
+		     <p>We're hoping to launch very soon but if you'd like to be one of the first people to list your items on the site, or get the first opportunity to buy your family's heirlooms, please join our mailing list and we'll be in touch very soon!</p>
+		     <p>In the meantime, you can also see what we're upto by following us on Facebook or Twitter, or follow the news on our blog (when we have time to write on it!).</p>
+		     <h3 style="padding:6px 0px; color:#c93; font-style: italic; ">Please add me to the pastonpaper.com mailing list.</h3>
+		     <form>
+		     	<label>First Name :</label> <input type="text" /><br />
+		     	<label>Last Name :</label> <input type="text" /><br />
+		     	<label>Email :</label> <input type="text" /><br />
+		     	<label>&nbsp;</label><input type="submit" value="Join Now" class="btn btn-primary btn-warning" />
+		     </form>
+     	</div>
      
     </div>
     <div class="modal-footer">
+    	<p style="text-align: center; color: #96c6f6;">If you already have a preview login, please use the form below to enter the site.</p>
       <div class="login-box pull-right">
         <% if !current_user %>
         <% if flash[:alert]%>
@@ -184,13 +203,13 @@
 		        <%= form_tag :login ,:id=>"userLogin" , :class => "form-inline" do |f| %>
 		          <%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
 					    <%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"18"} %> 
-					    <input class="btn btn-primary" type="submit" id="submitLogin" name="submitLogin" value="Login" />
+					    <input class="btn btn-primary btn-warning" type="submit" id="submitLogin" name="submitLogin" value="Login" />
 					    <br/>
 				      <div class="pull-left">
 				        <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
 				      </div>
 				      <div class="pull-right" style="margin-right:55px;">
-          		  Remember Me <%= check_box_tag :remember_me, 1 %>
+          		  <a>Remember Me</a> <%= check_box_tag :remember_me, 1 %>
           	  </div>
           	<%end%>  
           	
@@ -198,11 +217,13 @@
 		    <%end%>
 		    <div class="social_links pull-right row-fluid">
 		    	<br />
-		    	
+		  <span style="padding:3px; background:#efefef; ">  	
           <a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("/assets/icons/blog.gif",:height=>"16")%></a>
           <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/facebook.png",:height=>"16")%></a>
           <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/twitter.png",:height=>"16")%></a>
+          </span>
 		    </div>	
+      </div>
       </div>
     </div>
   </div>
