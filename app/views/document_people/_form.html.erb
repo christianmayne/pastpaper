@@ -1,35 +1,45 @@
- 
-						<%= form_for(@person,:url=>:document_people) do |f|%>
-							<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
+<%= form_for(@person,:url=>:document_people) do |f|%>
+<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
+<div class="fields form-horizontal">
+	<div class="control-group">
+		<label class="control-label">Title</label>
+		<div class="controls">
+			<%= f.text_field :title, :size => 4%>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Firstname</label>
+		<div class="controls">
+			<%= f.text_field :first_name %>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Middlename</label>
+		<div class="controls">
+			<%= f.text_field :middle_name %>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Surname</label>
+		<div class="controls">
+			<%= f.text_field :last_name %>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Sex</label>
+		<div class="controls">
+			<%= f.select :sex, people_gender ,{:style=>"width:100px;"}%>
+		</div>
+	</div>
+	</div>
+	<strong class="shadeGrey">Facts of this person</strong>
+	<%= f.fields_for :facts do |fact| %>
+	<%= render :partial => "document_people/fact_fields", :locals => {:f => fact} %>
+	<% end %>
+	<br />
+	<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
 
-<div class="fields varPaddingTop"> 
-	<div class="field">
-		<label>Title</label> <%= f.text_field :title, :size => 4%>
-	</div>
-	<div class="field">
-		<label>Firstname</label> <%= f.text_field :first_name %>
-	</div>
-	<div class="field">
-		<label>Middlename</label> <%= f.text_field :middle_name %>
-	</div>
-	<div class="field">
-		<label>	Surname </label><%= f.text_field :last_name %>
-	</div>
-	<div class="field">
-		<label>Sex </label><%= f.select :sex, people_gender ,{:style=>"width:100px;"}%>
-	</div>	
-		<strong class="shadeGrey">Facts of this person</strong>
-		
-		<%= f.fields_for :facts do |fact| %>
-		    <%= render :partial => "document_people/fact_fields", :locals => {:f => fact} %>
-		<% end %>
-		<br />
-		<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
-	</div>
-
-
-	<div class="field">
-		<label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
-	</div>
-
-						<%end%>
+<div class="field">
+	<label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
+</div>
+<%end%> 

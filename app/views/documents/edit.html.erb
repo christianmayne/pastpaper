@@ -1,18 +1,20 @@
 <% @pagetitle = @document.name %>
 <div>
 	<div>
-		<div>
-			<div style="width:250px;float:left;">
+		<div class="row-fluid">
+			<div class="span4">
 				<%= render :partial => "document_menu"%>
 			</div>
-			<div style="margin-left: 260px;">
-					<div class="userform">
+			<div class="span8">
+					<div class="form-horizontal">
 					  <%= form_for @document, :html=>{ :multipart => true}  do |f| %>
 					      <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
 					      <%= render :partial => 'form', :locals => {:f => f}  %>
-					      <div class="field">
-						      <label>&nbsp;</label>
-						      <%= f.submit "Save" ,:class=>"button" %>
+					      <div class="control-group">
+						      <label class="control-label">&nbsp; </label>
+						      <div class="controls" style="text-align: center">
+						      <%= f.submit "Save" ,:class=>"btn" %>
+						      </div>
 					      </div>
 					    <% end %>
 					</div>

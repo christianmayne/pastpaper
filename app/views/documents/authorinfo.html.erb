@@ -5,11 +5,11 @@
 <% @pagetitle = "Add New Document" %>
 <div class="siteScale clearfix">
 	<div class="block whiteBG clearfix varMarginDouble border">
-		<div class="varPaddingDouble horPaddingDouble clearfix">
-			<div style="width:250px;float:left;">
+		<div class="row-fluid">
+			<div class="span4">
 			<%= render :partial => "document_menu"%>
 			</div>
-			<div style="margin-left: 260px;">
+			<div class="span8">
 					<div class="userform">
 					  <%= form_for @document,:url=> :document_authorinfo, :html=>{:method=>:post, :multipart => true}  do |f| %>
 					      <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
@@ -18,11 +18,11 @@
 							    <%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
 							  <% end %>
 							  
-							  <h3><%= link_to_add_fields "Add More", f, :attribute_documents %></h3>
+							  <span class="btn"><%= link_to_add_fields "Add More", f, :attribute_documents %></span>
   
 							<div class="field">
 						      <label>&nbsp;</label>
-						      <%= f.submit "Save" ,:class=>"button" %>
+						      <%= f.submit "Save" ,:class=>"btn" %>
 					      </div>
 					      <div class="" style="text-align: right">
 					 

@@ -1,4 +1,5 @@
-<ul class="nav nav-list nav-stacked ">
+<div class="">
+<ul class="nav nav-list ">
 	<% unless @document.new_record? %>
 		<li class="active"><%= link_to_unless_current "View Document", document_path(@document) %></li>
 		<li class="active"><%= link_to_unless_current "Document Info",(edit_document_path(@document) unless (@document.new_record?)), :class=>"active"%></span></li>
@@ -17,3 +18,4 @@
 		<li class="active"><a href="#">Facts</a></li>
 	<%end%>
 </ul>
+</div>
