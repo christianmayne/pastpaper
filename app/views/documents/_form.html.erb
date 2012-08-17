@@ -79,6 +79,23 @@
     </div>
   </div>
 
+  <!-- Document Tags -->
+  <div class="control-group">
+    <p>Tags</p>
+    <% @document.tags.each do | tag | %>
+      <%= tag.name %>
+    <% end %>
+  </div>
+
+  <div>
+    <div class="userform">
+      [New Tag Form]
+    </div>
+  </div>
+  <br />
+
+  <!-- End Document Tags -->
+
 	<%if current_user.is_admin? %>
 	  <div class="control-group">
       <%= label_tag :featured_item, "Featured Item", :class=>"control-label"%>
