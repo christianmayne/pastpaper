@@ -2,19 +2,19 @@
 <div class="introduction"><span class="lead headline4">Add Locations</span></div>
 <div >
 	<div>
-		<div>
-			<div style="width:250px;float:left;">
+		<div class="row-fluid">
+			<div class="span4">
 				<%= render :partial => "document_menu"%>
 			</div>
-			<div style="margin-left: 260px;">
+			<div class="span8">
 			<h3>Locations</h3>
 			<% @locations.each do |location| %>
 				<% unless location.new_record? %>
-					<div class="location_row" style="background: #fafafa; margin: 2px; padding:5px;">
-						<div class="floatLeft">
+					<div class="row-fluid" style="background: #fafafa; margin: 2px; padding:5px;">
+						<div class="span11">
 							<%= location.full_location %>
 						</div>  
-						<div class="floatRight">
+						<div class="span1">
 							<%= link_to image_tag("deleteicon.png"),document_document_location_path(location.document.id,location),:method => :delete, :confirm => "Are you sure to delete?"  %>
 						</div>
 						<br />
@@ -22,12 +22,12 @@
 				<% end %>			
 			<%end%>
 			<br />
-			<div class="userform">
+			<div class="form-horizontal">
 				<h3>Add Location For this <%= @document.document_type.name%></h3>
 					<%= render :partial => "document_locations/form"%>
-					<div class="" style="text-align: right">
-						<%= link_to "Next" ,document_itempeople_path(@document),:class=>"button"%>
-					</div>
+					
+						<%= link_to "Next" ,document_itempeople_path(@document),:class=>"btn pull-right"%>
+					
 				</div>
 			</div>
 		</div>

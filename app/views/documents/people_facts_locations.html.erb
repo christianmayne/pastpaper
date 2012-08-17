@@ -1,11 +1,11 @@
 <% @pagetitle = "Add New Document" %>
 <div>
 	<div>
-		<div>
-			<div style="width:250px;float:left;">
+		<div class="row-fluid">
+			<div class="span4">
 			<%= render :partial => "document_menu"%>
 			</div>
-			<div style="margin-left: 260px;">
+			<div class="span8">
 				<h3>Locations</h3>
 				
 				<% @locations.each do |location| %>

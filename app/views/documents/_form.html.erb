@@ -1,5 +1,6 @@
-<div class="userform">
-	<legend>Item Details</legend>
+<div class="">
+	<h3>Item Details</h3>
+	<hr />
 	<div class="control-group">
     <%= f.label :stock_number, :class=>"control-label"%>
     <div class="controls">
@@ -20,11 +21,11 @@
   </div>
   <div class="control-group">
     <%= label_tag :status, "Status", :class=>"control-label"%>
-    <div class="controls">
+       <div class="controls">
       <%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => true, :class =>"input-xlarge"  %>
     </div>
   </div
-  <div class="control-group">
+   <div class="control-group">
     <%= label_tag :title, "Title", :class=>"control-label"%>
     <div class="controls">
       <%= f.text_field :title ,{:placeholder => "Title of your item",:class=>"input-xlarge"} %>
@@ -104,13 +105,14 @@
       </div>
     </div>
 	<%end%>		
+	
 </div>
 
 <%if false%>
-	<table>
+	<table class="controls">
 		<tr>
 			<td>
-				<div class="borderBottom varPaddingDouble">
+				<div class="">
 					<h2>Your Item Info</h2>
 					<label>Stock Number </label>
 					<%= f.text_field :stock_number, :size=> 10  %>
@@ -146,7 +148,7 @@
 		<tr>
 			<td valign="top">
 				<!-- Document Information -->
-				<div class="borderBottom varPaddingDouble">
+				<div class="form">
 					<h2>Document Publishing Information</h2>
 					<span class="small">Information relating to the published aspects of your item</span><br />
 					<label>Title </label>
@@ -205,11 +207,11 @@
 			</td>
 		<tr>
 	</table>
-	<div class="borderBottom varPaddingDouble">
+	<div class="">
 		<%= f.fields_for :attribute_documents do |doc_attr| %>
 			<%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
 		<% end %>
-		<span class=""><%= link_to_add_fields "+ add another attribute", f, :attribute_documents %></span><br />
+		<span class="btn"><%= link_to_add_fields "+ add another attribute", f, :attribute_documents %></span><br />
 	</div>
 
 	<div class="borderBottom varPaddingDouble">
@@ -239,7 +241,7 @@
 			<% end %>
  
 			<div class="">
-				<span class=""><%= link_to_add_fields "+ Add new photo", f, :document_photos  %></span>
+				<span class="btn"><%= link_to_add_fields "+ Add new photo", f, :document_photos  %></span>
 			</div>	
 		</div>
 	</div>
@@ -250,7 +252,7 @@
 		<%= f.fields_for :people do |person_attr| %>
 			<%= render :partial => 'person_fields', :locals => {:f => person_attr}  %>
 		<% end %>    
-		<div class="span-1" style="width:100%"><%= link_to_add_fields "+ add another person", f, :people  %></div>
+		<div class="btn" style="width:100%"><%= link_to_add_fields "+ add another person", f, :people  %></div>
 	</div>
 
 	<!-- Add Other Locations -->

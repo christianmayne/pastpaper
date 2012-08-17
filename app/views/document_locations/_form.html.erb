@@ -2,36 +2,50 @@
 
 	<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @location}%>
 
-	<div class="field"> 
-		<label>	Street 1</label>
+	<div class="control-group"> 
+		<label class="control-label">	Street 1</label>
+		<div class="controls">
 		<%= f.text_field :street1,{:placeholder=>"street 1"} %>
+		</div>
 	</div>
-	<div class="field"> 
-		<label>	Street 2</label>
+	<div class="control-group"> 
+		<label class="control-label">	Street 2</label>
+		<div class="controls">
 		<%= f.text_field :street2,{:placeholder=>"street 2"}%>
+		</div>
 	</div>
-	<div class="field"> 
-		<label>	Town</label>
+	<div class="control-group"> 
+		<label class="control-label">	Town </label>
+		<div class="controls">
 		<%= f.text_field :town ,{:placeholder=>"Town"} %>
+		</div>
 	</div>
-	<div class="field"> 
-		<label>	County</label>
+	<div class="control-group"> 
+		<label class="control-label">	County </label>
+		<div class="controls">
 		<%= f.text_field :county,{:placeholder=>"County"} %>
+		</div>
 	</div>
 
-	<div class="field"> 
-		<label>	State</label>
+	<div class="control-group"> 
+		<label class="control-label">	State </label>
+		<div class="controls">
 		<%= f.text_field :state,{:placeholder=>"State"} %>
+		</div>
  	</div>
  
-	<div class="field"> 
-		<label>	Country</label>
+	<div class="control-group"> 
+		<label class="control-label">	Country </label>
+		<div class="controls">
 		<%= f.text_field :country,{:placeholder=>"Country"} %>
+		</div>
  	</div>
  
-	<div class="field"> 
-		<label>	&nbsp;</label>
-		<%= f.submit "&nbsp; Add &nbsp;".html_safe,:class=>"button" %>
+	<div class="control-group"> 
+		<label class="control-label">	&nbsp; </label>
+		<div class="controls">
+		<%= f.submit "&nbsp; Add &nbsp;".html_safe,:class=>"btn" %>
+		</div>
 	</div>
 
 <% end %> 

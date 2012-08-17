@@ -363,7 +363,7 @@ body,html  {
   padding-bottom: 6px;
   margin: auto;
   font-family: georgia;
-  font-size: 22px;
+  font-size: 16px;
   font-style: italic;
   height: 26px;
 }
@@ -648,22 +648,26 @@ select#search_publication_document_type_id{
     height:792px;
     margin-bottom:15px;
 }
-.modal{
+
+
+
+.popoverfront .modal{
+	
 	padding:15px;
 }
-.modal-header, .modal-body, .modal-footer{
+.popoverfront .modal-header, .popoverfront .modal-body, .popoverfront .modal-footer{
 	background-color: #00609F;
 }
-.modal-body label{
+.popoverfront .modal-body label{
 	float:left;
 	width:80px;
 	color:#6cf;
 	font-weight:bold;
 }
-.modal-body p{
+.popoverfront .modal-body p{
 	color:#6cf
 	text-align:justify;
 }
-.modal a{
+.popoverfront .modal a{
 	color: #39f;
 }

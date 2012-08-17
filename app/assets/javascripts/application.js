@@ -4,8 +4,10 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery-1.7.1.min
+//= require jquery
+//= require jquery_ujs
 //= require jquery-ui-1.8.19.custom.min
+
 //= require modernizr.custom.16753
 //= require selectivizr
 //= require jquery.validate

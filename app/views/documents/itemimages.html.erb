@@ -4,29 +4,31 @@
 </div>
 <div>
 	<div>
-		<div>
-			<div style="width:250px;float:left;">
+		<div class="row-fluid">
+			<div class="span4">
 				<%= render :partial => "document_menu"%>	
 			</div>
-			<div style="margin-left: 260px;">
+			<div class="span8">
 		
 						<% unless @document.document_photos.blank? %>
+  	 <ul class="thumbnails">
+  	 
   	  <% @document.document_photos.each do |dp|%>
 	  	  <% if dp.photo.exists? %>
-	  	  <div class="" style="margin:2px;float: left; width:150px; height:170px; padding:2px; text-align: center; border: solid #093540 1px;">
-		  	<%= image_tag dp.photo.url(:thumb)%><br />
-		  	<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"icon-delete" %>
+	  	  <li class="span3 thumbnail">
+		  	<%= image_tag dp.photo.url(:thumb),:class=>""%><br />
+		  	<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"btn btn-mini" %>
 		  <% unless dp.is_primary? %>
-						|<%= link_to "Make default",make_primary_image_path(dp.id) %>
-					<% else %>|
-				  	 <span style="color:#013401">   Default</span>
+						<%= link_to "Make default",make_primary_image_path(dp.id) ,:class=>"btn btn-mini" %>
+					<% else %>
+				  	 <span class="btn btn-mini disabled">   Default</span>
 					<% end %>
-		  </div>
+		  </li>
 		  <% end %>
 		 
 	  <% end %>
 	  
-		  <div class="clear"></div> 
+		 </ul>
   <% end %>
   
 				
@@ -35,7 +37,7 @@
 					      <%= render :partial => 'document_photos/form'  %>
 					 </div>
 					 <div class="" style="text-align: right">
-					 	<%= link_to "Next" ,document_locations_path(@document),:class=>"button"%>
+					 	<%= link_to "Next" ,document_locations_path(@document),:class=>"btn"%>
 					 </div>
 			</div>
 		</div>

@@ -9,12 +9,12 @@
 				<%= render :partial => "document_menu"%>
 			</div>
 			<div class="span6 offset1 pull-right">
-				<div class="userform">
+				<div class="userform form-horizontal">
 					<%= form_for @document, :html=>{ :multipart => true}  do |f| %>
 					  <fieldset>
 						  <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
 						  <%= render :partial => 'form', :locals => {:f => f}  %>
-						  <div  >
+						  <div style="text-align:center; " >
                 <button type="submit" class="btn btn-primary">Save</button>
               </div>
 				  	</fieldset>
