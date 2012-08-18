@@ -82,16 +82,25 @@
 
   <div class="span4">
     <b class="lead">Statistics</b><br />
-    You have <%= current_user.documents.count %> Items listed [link]<br /> 
-    <% Status.all.each do |status|  %>
-      You have <%= current_user.documents.find_all_by_status_id(status.id).count %> Items marked <%= status.name %> <br />
+    You have <%= link_to current_user.documents.count, documents_path %> Items Listed:<br /> 
+    <% if current_user.documents.count > 0 %> 
+      <ul>
+      <% Status.all.each do |status|  %>
+        <% if current_user.documents.find_all_by_status_id(status.id).count > 0 %>
+          <li><%= current_user.documents.find_all_by_status_id(status.id).count %> Items marked <%= status.name %></li>
+        <% end %>  
+      <% end %>
+      </ul>
     <% end %>
     <br />
-    <b>What you have listed</b><br />
-    <% DocumentType.order("name ASC").each do |type|  %>
-      <% if current_user.documents.find_all_by_document_type_id(type.id).count > 0 %>
-        <%= type.name %>: <%= current_user.documents.find_all_by_document_type_id(type.id).count %>  <br />
-      <% end %>  
+    
+    <% if current_user.documents.count > 0 %>
+      <b>What you have listed</b><br />
+      <% DocumentType.all.each do |type|  %>
+        <% if current_user.documents.find_all_by_document_type_id(type.id).count > 0 %>
+          <%= type.name %>: <%= current_user.documents.find_all_by_document_type_id(type.id).count %>  <br />
+        <% end %>  
+      <% end %>
     <% end %>
     
     <br />
