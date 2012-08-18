@@ -8,6 +8,27 @@
     <%= f.text_area :description ,{:rows=>"3"} %>
   
   <br />
+  <div style="width:300px;">
+    <h3>Display Options</h3>
+    <p>This section defines which items can appear in a specified section</p>
+    <table>
+      <tr>
+        <th>My Items</th>
+        <th>Latest Items</th>
+        <th>Featured Items</th>
+        <th>Search Results</th>
+      </tr>
+
+      <tr>
+        <td align="center"><%= f.check_box :show_my_items  %></td>
+        <td align="center"><%= f.check_box :show_latest_items  %></td>
+        <td align="center"><%= f.check_box :show_featured_items  %></td>
+        <td align="center"><%= f.check_box :show_search_results  %></td>
+      </tr>
+    </table>
+  </div>
+
+
   <div class="actions">
   	<%= f.label "" %>
     <%= f.submit %>

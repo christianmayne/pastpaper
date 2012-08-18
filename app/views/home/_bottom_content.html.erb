@@ -1,6 +1,10 @@
-<% latest_items = 37 %>
-<% latest_documents = Document.last(latest_items).shuffle %>
+<!-- Latest items must be for sale or display -->
+<!-- Must have a photo -->
+<!-- Must not be deleted -->
+<% latest_items = 33 %>
+<% #latest_documents = Document.where(:status => ["For Sale", "Sold"]).last(30) %>
 
+<% latest_documents = Document.show_latest_documents %>
 
 <div class="content well">
 	<h3>Latest Items</h3>

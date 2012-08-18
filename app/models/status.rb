@@ -1,7 +1,7 @@
 class Status < ActiveRecord::Base
   has_many :documents
-  #scope :alphabetically, :order => "name ASC"
-  default_scope order('statuses.name')
+
+  scope :alphabetically, :order => "name ASC"
 
   validates :name ,:presence => true
 

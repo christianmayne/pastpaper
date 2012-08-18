@@ -11,8 +11,12 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>My Items</th>
+    <th>Latest Items</th>
+    <th>Featured Items</th>
+    <th>Search results</th>
+
     <th></th>
-    
     <th></th>
   </tr>
 
@@ -20,6 +24,10 @@
   <tr>
     <td><%= status.name %></td>
     <td><%= status.description %></td>
+    <td align="center"><%= status.show_my_items %></td>
+    <td align="center"><%= status.show_latest_items %></td>
+    <td align="center"><%= status.show_featured_items %></td>
+    <td align="center"><%= status.show_search_results %></td>
     
     <td><%= link_to 'Edit', edit_admin_status_path(status) %></td>
     <td><%= link_to 'Destroy', admin_status_path(status), confirm: 'Are you sure?', method: :delete %></td>
