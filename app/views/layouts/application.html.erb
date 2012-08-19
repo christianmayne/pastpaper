@@ -42,7 +42,7 @@
 	          <% end %>
           <%end%>
           <li class="divider-vertical"></li>
-          <li><%= link_to "News", "http://www.pastonpaper.com/blog" %>
+          <li><%= link_to "News", "http://blog.pastonpaper.com/" %>
           <% if current_user && current_user.is_admin? %>
             <li class="divider-vertical"></li>
             <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Administration <b class="caret"></b></a>
@@ -174,7 +174,7 @@
       		    <div class="social_links pull-right row-fluid">
       		    	<br />
           		  <span style="padding:3px; background:#efefef; ">  	
-                  <a href="http://www.pastonpaper.com/blog" target="_blank"><%= image_tag("/assets/icons/blog.gif",:height=>"16")%></a>
+                  <a href="http://blog.pastonpaper.com/" target="_blank"><%= image_tag("/assets/icons/blog.gif",:height=>"16")%></a>
                   <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/facebook.png",:height=>"16")%></a>
                   <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/twitter.png",:height=>"16")%></a>
                 </span>
