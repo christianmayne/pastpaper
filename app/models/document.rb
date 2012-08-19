@@ -30,9 +30,9 @@ class Document < ActiveRecord::Base
   validates_inclusion_of :length, :in => 1..1000, :message => "should be between 1 and 1000", :allow_blank => true
   validates_inclusion_of :depth, :in  => 0..1000, :message => "should be less than 1000", :allow_blank => true
 
-  scope :show_latest_documents, joins(:status).where(:statuses => {:show_latest_items => ["1"]}).last(30)
-  scope :show_featured_documents,joins(:status).where(:is_featured => ["1"], :statuses => {:show_featured_items => ["1"]}).last(30)
-
+  scope :show_latest_documents, joins(:status).where(:statuses => {:show_latest_items => ["1"]})
+  scope :show_featured_documents,joins(:status).where(:is_featured => ["1"], :statuses => {:show_featured_items => ["1"]})
+  scope :has_photos, joins(:document_photos).group("document_id")
 
   def self.per_page
     50
