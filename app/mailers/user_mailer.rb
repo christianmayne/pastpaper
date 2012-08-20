@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "merosathilai@gmail.com"
+  default from: "Pastonpaper.com <noreply@pastonpaper.com>"
 
   
     def registration_notification(user)
@@ -40,5 +40,8 @@ class UserMailer < ActionMailer::Base
       :subject => "Thank you for your registration in Pastonpaper"
     )
   end
+  
+  
+  
     
 end
