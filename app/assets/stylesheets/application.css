@@ -649,9 +649,9 @@ select#search_publication_document_type_id{
     margin-bottom:15px;
 }
 
+.popoverfront{top:40% !important;}
 
-
-.popoverfront .modal{
+.popoverfront .modal1{
 	
 	padding:15px;
 }
