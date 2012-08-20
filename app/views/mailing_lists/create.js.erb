@@ -1,0 +1,11 @@
+<% if @status %>
+$("#mailing_list_status").show();
+$("#mailing_list_status").html("<div class='alert alert-success'> <%= @msg%></div>");
+$("#mailing_list_form")[0].reset();
+
+$('#mailing_list_status').fadeOut(5000);
+
+<% else %>
+$("#mailing_list_status").show();
+$("#mailing_list_status").html("<div class='alert alert-error'><a  class='close' data-dismiss='alert'>×</a><%= @msg%></div>");
+<% end %>
