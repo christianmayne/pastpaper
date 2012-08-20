@@ -665,9 +665,16 @@ select#search_publication_document_type_id{
 	font-weight:bold;
 }
 .popoverfront .modal-body p{
-	color:#6cf
+	color:#6cf;
 	text-align:justify;
 }
 .popoverfront .modal a{
 	color: #39f;
+}
+.popoverfront .modal-header{
+	padding:0px 15px;
+}
+.popoverfront .modal-header h1 {
+    font-size: 18px;
+    line-height: 20px;
 }
