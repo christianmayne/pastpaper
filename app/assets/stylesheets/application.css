@@ -470,8 +470,9 @@ tr.even {
 */
 .headline4{
   font-family:Baskerville,Times,'Times New Roman',serif;
-	/*font-size:30px;*/ 
-	color:#589017;
+	font-size:18px; 
+	color:#3D5055;
+	font-style:normal;
 	font-variant:small-caps;
 	font-weight:bold;
  /* letter-spacing: 2.5px;*/
@@ -587,8 +588,7 @@ tr.even {
 
 .well{
   background-color: #F3EFE7;
-  display: table;
-  content: "";  
+  
   -moz-box-shadow: inset 0 0 5px #888;
   -webkit-box-shadow: inset 0 0 5px#888;
   box-shadow: inner 0 0 5px #888;
@@ -629,6 +629,7 @@ select#search_publication_document_type_id{
 
 .publication select{background: #fff; width:120px;}
 .form-horizontal select{width:auto;}
+.navbar .brand a{font-size:22px; font-weight: bold;}
 .navbar .brand a:hover{
 	text-decoration:none;
 	color:#00ccff;	
@@ -638,12 +639,7 @@ select#search_publication_document_type_id{
 	margin-right:15px;
 	margin-top:15px;
 }
-.row-fluid .span3 {
-    width: 23.4%;
-}
-.row-fluid [class*="span"] {
-    margin-left: 2.1%;
-}
+
 #mainpage .content .left-side{
     height:792px;
     margin-bottom:15px;
