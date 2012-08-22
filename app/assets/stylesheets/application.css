@@ -26,7 +26,7 @@ body,html  {
 }
 /*Container*/
 .container-fluid{
-	padding:0px 180px !important;
+	
 }
 
 #page-container .wrapper{
@@ -221,7 +221,7 @@ body,html  {
 
 /*Footer*/
 .container-footer {
-    padding: 0px 167px !important;
+   padding: 0px 7px !important;
 }
 #footer-cont{
 	position:relative;
@@ -677,3 +677,5 @@ select#search_publication_document_type_id{
 .headline4 strong{
 	color:#369;
 }
+
+.social_share_item {margin:3px;}
