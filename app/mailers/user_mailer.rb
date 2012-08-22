@@ -41,7 +41,26 @@ class UserMailer < ActionMailer::Base
     )
   end
   
+  def offer_notification_owner(user,document,amount)
+    @user = user
+    @document = document
+     @amount = amount
+    mail(
+      :from => "Pastonpaper.com <noreply@pastonpaper.com>",
+      :to => @document.user.email,
+      :subject => "Offer on #{@document.display_name}"
+    )
+  end
   
-  
+  def offer_notification_user(user,document,amount)
+    @user = user
+    @document = document
+    @amount = amount
+    mail(
+      :from =>  "Pastonpaper.com <noreply@pastonpaper.com>",
+      :to => @user.email,
+      :subject => "you have made an offer on #{@document.display_name}"
+    )
+  end
     
 end

@@ -3,6 +3,10 @@ Pastpaper::Application.routes.draw do
   
  
  
+  get "offer/new"
+
+  post "offer/create"
+
   post "mailing_lists/create"
 
   resources :gedcom_documents

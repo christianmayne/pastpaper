@@ -1,0 +1,7 @@
+<%content= capture do%>
+      <%= render "form"%>
+<%end%>
+
+$('#modal-window .modal-header h3').html('Make an Offer');
+$('#modal-window .modal-body').html('<%= escape_javascript(content) %>');
+$('#modal-window .modal-footer').remove();

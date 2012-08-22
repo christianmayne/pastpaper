@@ -38,6 +38,11 @@ class Document < ActiveRecord::Base
     50
   end
 
+
+    def display_name
+      self.name ? self.name : self.title
+    end
+
   def document_status
     unless self.status.blank?
       self.status.name

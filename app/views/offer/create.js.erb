@@ -1,0 +1,16 @@
+<% if !@status %>
+	<%content= capture do%>
+		<div class="alert alert-error">
+			<%= @msg%>
+		</div>
+	      <%= render "form"%>
+	<%end%>
+
+	$('#modal-window .modal-header h3').html('Make an Offer');
+	$('#modal-window .modal-body').html('<%= escape_javascript(content) %>');
+	$('#modal-window .modal-footer').remove();
+
+<% else %>
+	$('#modal-window .modal-body').html("<div class='alert alert-success'><%= @msg%></div>");
+	
+<% end %>
