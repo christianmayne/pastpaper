@@ -5,7 +5,12 @@ jQuery(document).ready(function() {
 });
 
 </script>
-<% @pagetitle = @document.name %>
+
+<% if @document.name.blank? %>
+  <% @pagetitle = @document.title %>
+<% else %>
+  <% @pagetitle = @document.name %>
+<%end%>
 
 <!-- Update document views in db -->
 <% Document.increment_counter(:views, @document.id) %>
@@ -17,12 +22,8 @@ jQuery(document).ready(function() {
 		<% if @document.is_featured%>
 			<%= image_tag("icons/star.gif",:height=>"16", :title=>"This is a featured item",:style=>"margin:0 2px;")%>
 		<%end%>	
-		<% if @document.name.blank? %>
-			<%= @document.title %>
-		<% else %>  
-			<%= @document.name %>
-		<% end %>
-		
+
+    <%= @pagetitle %>
 		
 	</span>
 	<br />
@@ -120,22 +121,25 @@ jQuery(document).ready(function() {
       <br /><br />
     <% end %>
     </div>
-    <% @share_url= document_url(@document)%>
+    <% @share_url = document_url(@document)%>
     <% if !@document.blank? && !@document.document_photos.blank? %>
-	
-    
-    <% @fb_img = @document.default_image.photo.url(:thumb)%>
+      <% @fb_img = @document.default_image.photo.url(:thumb)%>
     <% end%>
-   
-  <% @share_data="Check this out "%>
-<div class="">
-	
-	<h4>Share this on</h4>
-<%= render :partial => "shared/social_share"%>
+    <%# share_length = 140 - 17  %>
+    <%# share_url_length = @share_url.length %>
+    <%# share_data_length = @pagetitle.length %>
+    <%# share_data_space = share_length - share_url_length - 1 %>
+    <%# if (share_data_space) < (share_data_length) %>
+      <%# @share_data = (@pagetitle.slice(0,share_data_space-3) +"...")+" "+@share_url %>
+    <%#else %>
+      <%# @share_data = @pagetitle + " " + @share_url%>
+    <%# end %> 
+    <% @share_data = @pagetitle %>
 
+    <div class="">
+    	<h4>Share this on</h4>
+      <%= render :partial => "shared/social_share"%>
     </div>
-    
-    
 	</div>
 
 </div>
