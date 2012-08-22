@@ -22,9 +22,11 @@ jQuery(document).ready(function() {
 		<% else %>  
 			<%= @document.name %>
 		<% end %>
+		
+		
 	</span>
 	<br />
-	
+			
 	<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
 		<strong class="">This item is for sale</strong>
 	<%else%>
@@ -36,8 +38,10 @@ jQuery(document).ready(function() {
     	<span class="pull-right"><%= link_to '<i class="icon-edit"></i> Edit Document'.html_safe, edit_document_path(@document),:class=>"btn btn-mini" %></span>
     <% end %>
 </div>
-
-<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
+<div class="row-fluid">
+	<% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
+	
+<div class="span2">
 	<% if current_user %>
 		<% payment_service_for @document.id, PAYPAL_ACCOUNT, :amount => @document.sale_price, :currency => 'GBP', :service => :paypal, :html => { :id => 'payment-form' } do |service| %>
         	<% service.customer :first_name => current_user.first_name, :last_name => current_user.last_name,:email => current_user.email %>
@@ -50,8 +54,12 @@ jQuery(document).ready(function() {
             <% submit_tag("Buy From Paypal".html_safe,:class=>"btn btn-warning") %>
 		<% end %>
 	<% end %>
-<% end %>	
-
+	</div>
+	<% end %>
+	<div class="span2">
+	<%= link_to "Make an offer" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
+</div>
+</div>
 <div class="row-fluid">
 
 	<div class="span3">
@@ -100,7 +108,9 @@ jQuery(document).ready(function() {
 		<% end %>
 	</div>
 
-	<div class="span3" ><strong class="lead">Description: </strong><br />
+	<div class="span3" >
+		<div class="well">
+		<strong class="lead">Description: </strong><br />
 		<strong><%= @document.try(:comment) %> </strong>
 		<br/>
     <% if @document.tags.any? %>      
@@ -109,6 +119,23 @@ jQuery(document).ready(function() {
       <% end %>
       <br /><br />
     <% end %>
+    </div>
+    <% @share_url= document_url(@document)%>
+    <% if !@document.blank? && !@document.document_photos.blank? %>
+	
+    
+    <% @fb_img = @document.default_image.photo.url(:thumb)%>
+    <% end%>
+   
+  <% @share_data="Check this out "%>
+<div class="well">
+	
+	<h4>Share this on</h4>
+<%= render :partial => "shared/social_share"%>
+
+    </div>
+    
+    
 	</div>
 
 </div>
