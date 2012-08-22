@@ -86,3 +86,15 @@ function enablesellprice()
 	  	    $("#sell_price").hide();
 	  }
  }
+ 
+
+
+
+
+// to enable ajax pop up 
+$(document).on('click', '.ajaxmodal', function(){
+	
+		$('#modal-window').modal('show');
+		
+		$('#modal-window .modal-footer').remove();
+  });

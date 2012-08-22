@@ -674,3 +674,6 @@ select#search_publication_document_type_id{
     font-size: 18px;
     line-height: 20px;
 }
+.headline4 strong{
+	color:#369;
+}
