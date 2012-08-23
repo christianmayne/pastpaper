@@ -131,7 +131,7 @@ body,html  {
 }
 
 #mainpage .introduction{
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 }
 /*
 #mainpage .introduction{
@@ -679,3 +679,13 @@ select#search_publication_document_type_id{
 }
 
 .social_share_item {margin:3px;}
+.document_details_container h4{
+	font-weight: bold;
+	padding-left:6px;
+	margin-top:12px;
+}
+.document_details_container .row-fluid .span3 {
+	padding: 6px;
+	font-weight: bold;
+	line-height: 16px;
+}
