@@ -128,6 +128,9 @@ jQuery(document).ready(function() {
     <% end%>
    
   <% @share_data="Check this out "%>
+  <% @share_description = @document.try(:comment)
+  # for facebook check head section of layout/application.html.erb
+  %>
 <div class="">
 	
 	<h4>Share this on</h4>
