@@ -17,35 +17,37 @@
 		
 		 	 <div class="person-row  well-small well" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px;">
 		 	 <div class="row-fluid" id = "">
-		 	<div class="span3"> <%="#{person.sex_symbol} " rescue ''%> <%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %></div>
-		 	<div class="span3"> <%= person.birth_date rescue '' %></div>
-		 	<div class="span3"> <%= person.death_date rescue '' %></div>
-		 	
-		 	<div class="span3"> <%unless person.person_events_except_dob.nil?%>
-          <a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink" >View</a>
-        <%end%>
-        </div>
-        </div>
-       
-         <%if !person.person_events_except_dob.nil?%>
-		<div  id = "pdetail_<%= person.id%>" class="pdetail hide well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; display:none;">
-		 	 		<%person.person_events_except_dob.each do |person_event|%>
-			    			<div class="well well-small">
-			    			<div class="row-fluid" >
-				    			<div class="span3"><%= "#{person_event.event_type.name}"%></div>
-				      			<div class="span9"><strong><%= " #{person_event.date_modifier} #{person_event.face_date_with_format}" %> </strong>
-				      				<%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
+				 	<div class="span3"> <%="#{person.sex_symbol} " rescue ''%> <%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %></div>
+				 	<div class="span3"> <%= person.birth_date rescue '' %></div>
+				 	<div class="span3"> <%= person.death_date rescue '' %></div>
+				 	
+				 	<div class="span3">
+				 			 <%unless person.person_events_except_dob.nil?%>
+		          			<a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink" >View</a>
+		        			<%end%>
+		        	</div>
+        		</div>
+      
+	         <%if !person.person_events_except_dob.nil?%>
+				<div  id = "pdetail_<%= person.id%>" class="row-fluid pdetail hide well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; ">
+			 	 		<%person.person_events_except_dob.each do |person_event|%>
+				    			<div class="well well-small">
+				    			<div class="row-fluid">
+					    			<div class="span3"><%= "#{person_event.event_type.name}"%></div>
+					      			<div class="span9">
+					      				<strong><%= " #{person_event.date_modifier} #{person_event.face_date_with_format}" %> </strong>
+					      				<%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
+					      			</div>
 				      			</div>
-			      			</div>
-			      			</div>
-			    	<%end%>
-			 	
-			<%end%>
+				      			</div>
+				    	<%end%>
+				 </div>	
+				<%end%>
 		 
-        
-      </div>
+         </div>
+      
 		 	
-		 </div>
+		 
 		
 		 
 		

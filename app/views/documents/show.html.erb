@@ -110,21 +110,23 @@ jQuery(document).ready(function() {
 
 	<div class="span3" >
 		<div class="well">
-		<strong class="lead">Description: </strong><br />
-		<div class="item_desc" style="max-height: 200px; overflow-y: auto"><%= @document.try(:comment) %> </div>
-		<br /><br />
+				<strong class="lead">Description: </strong><br />
+				<div class="item_desc" style="max-height: 200px; overflow-y: auto"><%= @document.try(:comment) %> </div>
+				<br /><br />
 	
-    </div>
-    	<div class="tags">
+    	</div>
+    	
+    <div class="tags">
     <% if @document.tags.any? %>  
-    <h4>Tags</h4>    
-      <% @document.tags.each do |tag| %>
-        <div class="well-small" style="background: #009999; color: #fff; float:left; padding:2px 4px; margin: 5px;"><%= tag.name %></div>   
-      <% end %>
-      <div style="clear:left;"></div>
-      </div>
+   		 <h4>Tags</h4>    
+	      <% @document.tags.each do |tag| %>
+	        	<div class="well-small" style="background: #009999; color: #fff; float:left; padding:2px 4px; margin: 5px;"><%= tag.name %></div>   
+	      <% end %>
+      		<div style="clear:left;"></div>
+    
       <br /><br />
     <% end %>
+    </div>
     <% @share_url= document_url(@document)%>
     <% if !@document.blank? && !@document.document_photos.blank? %>
 	
