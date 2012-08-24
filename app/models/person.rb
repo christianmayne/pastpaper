@@ -116,7 +116,7 @@ class Person < ActiveRecord::Base
   end
  def person_events_except_dob
       begin
-      res=   self.facts.find(:all, :joins => :event_type, :conditions => ["UPPER(event_types.name) != 'BIRTH' and UPPER(event_types.name) != 'DEATH' "],:order=>"person_events.date_event asc") 
+      res=   self.facts.find(:all, :joins => :event_type, :conditions => ["UPPER(event_types.name) != 'BIRTH' and UPPER(event_types.name) != 'DEATH' "],:order=>"facts.fact_year asc") 
       if !res.blank?
         return res
        else

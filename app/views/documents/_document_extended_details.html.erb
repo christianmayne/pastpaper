@@ -22,33 +22,35 @@
 		 	<div class="span3"> <%= person.death_date rescue '' %></div>
 		 	
 		 	<div class="span3"> <%unless person.person_events_except_dob.nil?%>
-          <a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" >View</a>
+          <a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink" >View</a>
         <%end%>
-        <%if !person.person_events_except_dob.nil?%>
-        	<%person.person_events_except_dob.each do |person_event|%>
-		    		  <%= "#{person_event.event_type.name}"%>
-		      		<%= "#{person_event.fact_year}" %>
-		      		<%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
-		    	<%end%>  
-        <%end%></div>
-		 	
-		 </div>
-		 </div>
-		 
-		 
-		 <%if !person.person_events_except_dob.nil?%>
-		<div  id = "pdetail_<%= person.id%>" class="person-row well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; display:none;">
-		 	 <div class="row-fluid" >
+        </div>
+        </div>
+       
+         <%if !person.person_events_except_dob.nil?%>
+		<div  id = "pdetail_<%= person.id%>" class="pdetail hide well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; display:none;">
+		 	 
 				
 	   	    		<%person.person_events_except_dob.each do |person_event|%>
-			    			<div class="span3"><%= "#{person_event.event_type.name}"%></div>
-			      			<div class="span3"><%= "#{person_event.fact_year}" %></div>
-			      			<div class="span3"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
-			      			<div class="span3"> </div>
+			    			<div class="well well-small">
+			    			<div class="row-fluid" >
+				    			<div class="span3"><%= "#{person_event.event_type.name}"%></div>
+				      			<div class="span9"><strong><%= " #{person_event.date_modifier} #{person_event.face_date_with_format}" %> </strong>
+				      			<%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
+				      			</div>
+			      			</div>
+			      			</div>
 			    	<%end%>
-			 	</div>
+			 	
 			<%end%>
 		 
+        
+      </div>
+		 	
+		 </div>
+		
+		 
+		
 		 <% end %>
 		
 		
