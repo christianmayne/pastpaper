@@ -70,7 +70,7 @@ function expandAllPdetail()
 	$(items_to_show).toggle();
 		
 	var viewlink= $('.viewlink');	
-	if(viewlink.html()=="View")
+	if(viewlink.html()=="View" )
 		{viewlink.html("Hide");}
 	else
 		{viewlink.html("View");}

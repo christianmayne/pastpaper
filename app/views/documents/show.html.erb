@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
 
 <!-- Show Individual Document page -->
 <div class="introduction well">
-	<span class="headline4 lead">
+	<span class="headline4 lead newfont">
 		<% if @document.is_featured%>
 			<%= image_tag("icons/star.gif",:height=>"16", :title=>"This is a featured item",:style=>"margin:0 2px;")%>
 		<%end%>	
@@ -111,13 +111,20 @@ jQuery(document).ready(function() {
 
 	<div class="span3" >
 		<div class="well">
-		<strong class="lead">Description: </strong><br />
-		<strong><%= @document.try(:comment) %> </strong>
-		<br/>
-    <% if @document.tags.any? %>      
-      <% @document.tags.each do |tag| %>
-        <span style="border-radius: 5px;background-color:#D5DEEF;margin-bottom: 10px;margin-right:10px; color: #3D5055;padding: 5px;display: inline; -moz-box-shadow: inset 0 0 5px #888;-webkit-box-shadow: inset 0 0 5px#888;box-shadow: inner 0 0 5px #888;"><%= tag.name %></span>
-      <% end %>
+				<strong class="lead">Description: </strong><br />
+				<div class="item_desc" style="max-height: 200px; overflow-y: auto"><%= @document.try(:comment) %> </div>
+				<br /><br />
+	
+    	</div>
+    	
+    <div class="tags">
+    <% if @document.tags.any? %>  
+   		 <h4>Tags</h4>    
+	      <% @document.tags.each do |tag| %>
+	        	<div class="well-small" style="background: #009999; color: #fff; float:left; padding:2px 4px; margin: 5px;"><%= tag.name %></div>   
+	      <% end %>
+      		<div style="clear:left;"></div>
+    
       <br /><br />
     <% end %>
     </div>
@@ -125,17 +132,12 @@ jQuery(document).ready(function() {
     <% if !@document.blank? && !@document.document_photos.blank? %>
       <% @fb_img = @document.default_image.photo.url(:thumb)%>
     <% end%>
-    <%# share_length = 140 - 17  %>
-    <%# share_url_length = @share_url.length %>
-    <%# share_data_length = @pagetitle.length %>
-    <%# share_data_space = share_length - share_url_length - 1 %>
-    <%# if (share_data_space) < (share_data_length) %>
-      <%# @share_data = (@pagetitle.slice(0,share_data_space-3) +"...")+" "+@share_url %>
-    <%#else %>
-      <%# @share_data = @pagetitle + " " + @share_url%>
-    <%# end %> 
-    <% @share_data = @pagetitle %>
-
+   
+    <% @share_data="Check this out "%>
+    <% @share_description = @document.try(:comment)
+      # for facebook check head section of layout/application.html.erb
+    %>
+	
     <div class="">
     	<h4>Share this on</h4>
       <%= render :partial => "shared/social_share"%>

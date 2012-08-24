@@ -1,7 +1,7 @@
 <% featured_items = 4 %>
 <% featured_documents = Document.show_featured_documents.sort_by{ rand }.slice(0..(featured_items-1)) %>
 
-<span class="lead">Featured Items</span>
+<span class="lead newfont">Featured Items</span>
 <% featured_documents.each do |document| %>
 	<% if document.name.blank? %>
 		<% doctitle = document.title%>
