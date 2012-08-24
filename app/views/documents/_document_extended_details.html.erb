@@ -29,14 +29,12 @@
        
          <%if !person.person_events_except_dob.nil?%>
 		<div  id = "pdetail_<%= person.id%>" class="pdetail hide well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; display:none;">
-		 	 
-				
-	   	    		<%person.person_events_except_dob.each do |person_event|%>
+		 	 		<%person.person_events_except_dob.each do |person_event|%>
 			    			<div class="well well-small">
 			    			<div class="row-fluid" >
 				    			<div class="span3"><%= "#{person_event.event_type.name}"%></div>
 				      			<div class="span9"><strong><%= " #{person_event.date_modifier} #{person_event.face_date_with_format}" %> </strong>
-				      			<%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
+				      				<%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
 				      			</div>
 			      			</div>
 			      			</div>
