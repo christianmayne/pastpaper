@@ -1,4 +1,4 @@
-<% latest_items = 36 %>
+<% latest_items = 33 %>
 <% #latest_documents = Document.show_latest_documents.joins(:document_photos).group("document_id").last(latest_items).shuffle %>
 <% latest_documents = Document.show_latest_documents.has_photos.last(latest_items).shuffle %>
 

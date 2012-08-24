@@ -39,7 +39,8 @@ body,html  {
 }
 /*Container*/
 .container-fluid{
-	
+  max-width: 1000px;
+  margin: auto;	
 }
 
 #page-container .wrapper{
@@ -691,7 +692,12 @@ select#search_publication_document_type_id{
 	color:#369;
 }
 
-.social_share_item {margin:3px;}
+.social_share_item {
+  margin:3px;
+  display:inline;
+  float: left;
+}
+
 .document_details_container h4{
 	font-weight: bold;
 	padding-left:6px;
