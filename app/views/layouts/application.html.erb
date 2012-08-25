@@ -1,6 +1,9 @@
+<% site_control_id = 3 %>
+<% @pop = SiteController.find(site_control_id) %>
+<% online = SiteStatus.find_by_status("Online") %>
+
 <!DOCTYPE html>
 <html>
-
 <head>
   <% @fb_dimg = 'http://pastonpaper.com/logo.jpg' %> 
   <meta property="og:title" content="<%= @pagetitle || "Pastonpaper.com "   %>"/>
@@ -33,6 +36,9 @@
           <a href="/">
 	          The Past On Paper
           </a>
+          <% if current_user.present? && current_user.is_admin? %>
+            : <%= @pop.profile_name %>
+          <% end %>
         </div>
 
         <ul class="nav ">
@@ -130,8 +136,7 @@
       });
     </script>
 
-    <% @pop = SiteController.first %>
-    <% online = SiteStatus.find_by_status("Online") %>
+
     <% if @pop.site_status!=online %>
       <%= render 'layouts/popover' %> 
     <% end %>
