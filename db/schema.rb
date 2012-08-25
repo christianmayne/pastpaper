@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120818120948) do
+ActiveRecord::Schema.define(:version => 20120825152934) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -215,6 +215,26 @@ ActiveRecord::Schema.define(:version => 20120818120948) do
     t.integer  "event_year"
     t.integer  "event_month"
     t.integer  "event_day"
+  end
+
+  create_table "site_controllers", :force => true do |t|
+    t.integer  "site_status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "site_name"
+    t.string   "site_url"
+    t.string   "profile_name"
+  end
+
+  create_table "site_statuses", :force => true do |t|
+    t.string   "status"
+    t.string   "description"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "heading"
+    t.boolean  "login_form"
+    t.boolean  "mailing_list_form"
   end
 
   create_table "statuses", :force => true do |t|
