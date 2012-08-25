@@ -51,7 +51,7 @@ function hideshowpdetail(elem)
 	
 	if(link.html()=="View")
 		{
-		link.html("hide");
+		link.html("Hide");
 		}else{
 			link.html("View");
 		}
@@ -74,7 +74,6 @@ function expandAllPdetail()
 		{viewlink.html("Hide");}
 	else
 		{viewlink.html("View");}
-	
 }
 
 function enablesellprice()

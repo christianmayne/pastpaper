@@ -5,9 +5,9 @@
     <div class="person-row well-small well" style="margin:2px;padding:2px 5px;">
       <div class="row-fluid" id = "">
         <div class="span3"> <strong>Name</strong></div>
-        <div class="span3"> <strong>Born</strong></div>
-        <div class="span3"> <strong>Died</strong></div>
-        <div class="span3"><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></div>
+        <div class="span4"> <strong>Born</strong></div>
+        <div class="span4"> <strong>Died</strong></div>
+        <div class="span1"><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></div>
       </div>
     </div>
 
@@ -15,77 +15,34 @@
       <div class="person-row  well-small well" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px;">
         <div class="row-fluid" id = "">
           <div class="span3"> <%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %></div>
-          <div class="span3"> <%= person.event_year("birth") rescue '' %> <%= person.event_town("birth") rescue '' %></div>
-          <div class="span3"> <%= person.event_year("death") rescue '' %></div>
+          <div class="span4"> <%= person.event_year("birth") rescue '' %> <%= person.event_town("birth") rescue '' %></div>
+          <div class="span4"> <%= person.event_year("death") rescue '' %> <%= person.event_town("death") rescue '' %></div>
 
-          <div class="span3">
-            <%unless person.person_events_except_dob.nil?%>
+          <div class="span1">
+            <%unless person.person_events_all.nil?%>
               <a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" class="viewlink" >View</a>
             <%end%>
           </div>
         </div>
 
-        <%if !person.person_events_except_dob.nil?%>
+        <%if !person.person_events_all.nil?%>
           <div  id = "pdetail_<%= person.id%>" class="row-fluid pdetail hide well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; ">
-            <%person.person_events_except_dob.each do |person_event|%>
-              <div class="well well-small">
+            <%person.person_events_all.each do |person_event|%>
+              <div class="">
                 <div class="row-fluid">
-                  <div class="span3"><%= "#{person_event.event_type.name}"%></div>
-                  <div class="span9">
-                    <strong><%= " #{person_event.date_modifier} #{person_event.face_date_with_format}" %> </strong>
-                    <%= "#{person_event.location.full_location}" unless person_event.location.blank?%>
-                  </div>
+                  <div class="span1"><%= "#{person_event.event_type.name}"%></div>
+                  <div class="span2"><%= " #{person_event.date_modifier} #{person_event.fact_date_with_format}" %></div>
+                  <div class="span7"><%= " #{person_event.location.full_location}" unless person_event.location.blank?%></div>
                 </div>
               </div>
             <%end%>
-          </div>	
+          </div>
         <%end%>
       </div>
     <% end %>
 
+	
 
-		
-<!--
-		<div class="">
-			<div class="person_heading_name">Name</div>
-			<div class="person_heading_born">Born</div>
-			<div class="person_heading_died">Died</div>
-			<div class="person_heading_expand"><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></div>
-		</div>
-
-		<% @document.people.order("last_name asc, first_name asc").each do |person|  %>
-
-      <div id="person_<%= person.id%>">
-        <div class="person_detail_name" style="background-color:<%=person.sex_color%>"> 
-          <%="#{person.sex_symbol} " rescue ''%> <%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %>
-        </div>
-        <div class="person_detail_born" style="background-color:<%=person.sex_color%>">
-          <%= person.birth_date rescue '' %><%#= "(#{person.birth_location})" unless person.birth_location.blank? %>
-        </div>
-        <div class="person_detail_died" style="background-color:<%=person.sex_color%>">
-        <%= person.death_date rescue '' %><%#= "(#{person.death_location})" unless person.death_location.blank? %>
-        </div>
-      </div>	
-      <%unless person.person_events_except_dob.nil?%>
-        <div class="person_detail_expand"><a href="javascript:hideshowpdetail('<%= person.id%>')" id="viewlink_<%=person.id%>" >View</a></div>	
-      <% end %>
-
-      <div style="clear:left"></div>
-
-      <%if !person.person_events_except_dob.nil?%>
-        <div id="pdetail_<%= person.id%>" class="viewContent odd clearfix hide pdetail">
-          <%person.person_events_except_dob.each do |person_event|%>
-            <div class="floatLeft contant odd"><%= "#{person_event.event_type.name}"%></div>
-            <div class="floatLeft space contant odd"><%= "#{person_event.fact_year}" %></div>
-            <div class="floatLeft contant odd"><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></div>
-            <div class="clear"></div>
-          <%end%>
-        </div>
-      <%end%>
-
-    <%end%>
-
--->
 		<!-- Locations Table -->
 		
 		<h4>Locations mentioned in this Document</h4>
@@ -112,24 +69,6 @@
         <%end%>
       <%end%>
    
-<!--
-		<div class="location_heading">
-			<div class="location_heading_address">Address</div>
-			<div class="location_heading_town">Town</div>
-			<div class="location_heading_county">County</div>
-			<div class="location_heading_country">Country</div>
-		</div>
-	
-		<% if !@document.blank? && !@document.locations.blank? %>
-			<% @document.locations.each do |location|  %>
-				<div class="<%= cycle('odd','even') %>">
-					<div class="location_detail_address"><%= location.street1%> <%= location.street2%></div>
-					<div class="location_detail_town"><%= location.town%></div>
-					<div class="location_detail_county"><%= location.county%></div>
-					<div class="location_detail_country"><%= location.country%></div>
-				</div>
-			<%end%>
-		<%end%>
--->
+
 	<% end %> 
 </div>
