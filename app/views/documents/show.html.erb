@@ -82,12 +82,16 @@ jQuery(document).ready(function() {
         <% unless @document.title.blank? %>
           <b>Title: </b><%= @document.title %><br />
         <% end %>
-        
-  			<% @document.attribute_documents.each do |doc_attr| %>
-         	<b><%= doc_attr.attribute_type.try(:name) %>: </b><%= "#{doc_attr.value}" %><%= ", #{doc_attr.attribute_location}" unless doc_attr.attribute_location.blank? %><%= ", #{doc_attr.attribute_year}" unless doc_attr.attribute_year.blank? %><br />
-        <% end %>
         <br />
-
+        <% @document.attribute_documents.group_by { |d| d.attribute_type.try(:name) }.each_pair do |type, doc_attrs| %>
+          <b><%= type %>: </b>
+          <% doc_attrs.each do |doc_attr| %>
+            <%= "  #{doc_attr.value}" %>
+            <%= ", #{doc_attr.attribute_location}" unless doc_attr.attribute_location.blank? %>
+            <%= ", #{doc_attr.attribute_year}" unless doc_attr.attribute_year.blank? %><br />
+          <% end %>
+        <% end %> 
+        <br />
         <% unless @document.comment.blank? %>
           <b>Description: </b>
           <%= @document.try(:comment) %>
