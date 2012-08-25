@@ -7,15 +7,11 @@ class PersonEvent < ActiveRecord::Base
   
   scope :born, :conditions => {:event_type_id => 1}
   
-   validates :event_month, :numericality => { :only_integer => true,:less_than_or_equal_to => 12,:greater_than_or_equal_to =>01 }
-  
+  validates :event_month, :numericality => { :only_integer => true,:less_than_or_equal_to => 12,:greater_than_or_equal_to =>01 }
   validates :event_day, :numericality => { :only_integer => true,:less_than_or_equal_to => 31,:greater_than_or_equal_to =>01 }
   validates :event_year, :numericality => { :only_integer => true }
   
-  
-  
  # validates :date_modifier
-  
   validates :event_type_id,:presence => true,:uniqueness => {:scope => :person_id ,:message=>"is already added"}
 
   

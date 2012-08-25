@@ -21,10 +21,8 @@ jQuery(document).ready(function() {
   # for facebook check head section of layout/application.html.erb
 %>
 
-
 <!-- Update document views in db -->
 <% Document.increment_counter(:views, @document.id) %>
-
 
 <!-- Show Individual Document page -->
 <div class="introduction well">
@@ -62,9 +60,12 @@ jQuery(document).ready(function() {
           <% end %>
       	<% end %>
       </div>
+      <div class="span3">
+        <%= link_to "Make offer" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
+      </div>
     <%end%>
-    <div class="span3">
-      <%= link_to "Make offer" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
+    <div class="span2">
+      <%= link_to "Message Owner" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
     </div>
 	<% end %>
 </div>
@@ -74,29 +75,52 @@ jQuery(document).ready(function() {
 
     <div class="span6">
       <div class="item_desc" style="overflow-y: auto">
-        <b>Type:</b>   <%= @document.document_type.try(:name) %><br />   
+        <% unless @document.document_type.blank? %>
+          <b>Type: </b><%= @document.document_type.try(:name) %><br />   
+        <%end%>
         
         <% unless @document.title.blank? %>
-          <b>Title:</b>  <%= @document.title %><br />
+          <b>Title: </b><%= @document.title %><br />
         <% end %>
         
   			<% @document.attribute_documents.each do |doc_attr| %>
-         	<b><%= doc_attr.attribute_type.try(:name) %>:</b> <%= "#{doc_attr.value}" %><%= ", #{doc_attr.attribute_location}" unless doc_attr.attribute_location.blank? %><%= ", #{doc_attr.attribute_year}" unless doc_attr.attribute_year.blank? %><br />
+         	<b><%= doc_attr.attribute_type.try(:name) %>: </b><%= "#{doc_attr.value}" %><%= ", #{doc_attr.attribute_location}" unless doc_attr.attribute_location.blank? %><%= ", #{doc_attr.attribute_year}" unless doc_attr.attribute_year.blank? %><br />
         <% end %>
         <br />
-        <%= @document.try(:comment) %>
-        <br /><br />
-          
+
+        <% unless @document.comment.blank? %>
+          <b>Description: </b>
+          <%= @document.try(:comment) %>
+          <br /><br />
+        <%end%>
+
+        <% unless @document.condition.blank? %>
+          <b>Condition: </b>
+          <%= @document.try(:condition) %>
+          <br /><br />
+        <% else %>
+          <i>A condition report has not been provided for this item</i><br /><br />
+        <%end%>
+      
         <!-- Other details -->
-       	<b>Dimensions</b><br />
-       	<%= "#{@document.try(:length)}mm x " unless @document.length.blank? %> 
-       	<%= "#{@document.try(:width)}mm x " unless @document.width.blank? %> 
-       	<%= "#{@document.try(:depth)}mm" unless @document.depth.blank? %><br />
-       	Weight: <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%><br />
+        <% if !@document.length.blank? || !@document.width.blank? || !@document.depth.blank? %>      	
+          Dimensions: 
+       	  <%= "#{@document.try(:length)}mm (length) " unless @document.length.blank? %> 
+       	  <%= "#{@document.try(:width)}mm (width)" unless @document.width.blank? %> 
+       	  <%= "#{@document.try(:depth)}mm (depth)" unless @document.depth.blank? %><br />
+        <% else %>
+          <i>No dimensions have been provided for this item</i><br />
+        <% end %>
+
+        <% if !@document.weight.blank? %>            
+       	  Weight: <%= "#{@document.try(:weight)}g" unless @document.weight.blank?%><br />
+        <% else %>
+          <i>No weight details have been provided for this item</i><br />
+        <%end%>
 
 		    <br />
         Listed by <%= @document.user.username %> on <%= @document.created_at.strftime("%d/%m/%Y")%><br />
-		    Stock Number: <%=@document.id%>/<%= @document.stock_number %><br />
+		    Reference Number: <%=@document.id%><%unless @document.stock_number.blank?%>/<%= @document.stock_number %><%end%><br />
       </div>   
     </div>
 
@@ -104,10 +128,12 @@ jQuery(document).ready(function() {
 	    <% if !@document.blank? && !@document.document_photos.blank? %>
 	      <ul class="thumbnails">
           <li class="span12"><%= image_tag @document.default_image.photo.url(:large) ,:class=>"thumbnail"%></li> 
-          <% @document.document_photos.each do |photo|  %>
-            <li class="span2" style="">
-              <a href="<%= photo.photo.url(:large) %>" class='thumbnail' rel="lightbox"><%= image_tag photo.photo.url(:small)%></a>
-            </li>
+          <% if @document.document_photos.count > 1 %>
+            <% @document.document_photos.each do |photo|  %>
+              <li class="span2" style="">
+                <a href="<%= photo.photo.url(:large) %>" class='thumbnail' rel="lightbox"><%= image_tag photo.photo.url(:small)%></a>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       <% end %>

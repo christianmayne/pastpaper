@@ -6,9 +6,6 @@ class Person < ActiveRecord::Base
   has_many :facts ,:dependent => :destroy
 
   accepts_nested_attributes_for :facts, :allow_destroy => true
-
-  #validates :first_name,:presence => true
-  #validates :last_name ,:presence => true
   
   validates :sex, :presence => true
   
@@ -24,21 +21,52 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def sex_symbol
-    #unless self.sex.blank?
-    # (self.sex == 'Male') ? "&#9794" : "&#9792"
-    #end
-  end
-  
-  def birth_date  
+  def event_year(event)
      unless self.facts.blank?
-      birth = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
-      return birth.try(:fact_year)
+      event = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
+      return event.try(:fact_year)
     else
       return "?"
     end  
   end
-  
+
+  def event_date(event)
+    unless self.person_events.blank?
+      event = self.person_events.find(:first, :joins => :event_type, :conditions => ["UPPERevent_types.name = '#{event}'"]).try(:date_event).strftime('%d %b %Y') rescue "?"
+      return "#{event}"
+    else
+      return "? - ?"
+    end
+  end
+
+  def event_location(event)
+     unless self.facts.blank?
+       fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
+       if fact.location
+        fact.location.full_location
+      end
+    end           
+  end
+
+  def event_county(event)
+     unless self.facts.blank?
+       fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
+       if fact.location
+        fact.location.full_county
+      end
+    end           
+  end
+
+  def event_town(event)
+     unless self.facts.blank?
+       fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
+       if fact.location
+        fact.location.full_town
+      end
+    end           
+  end
+
+
   def birth_location
      unless self.facts.blank?
       fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'BIRTH'"])
@@ -61,59 +89,7 @@ class Person < ActiveRecord::Base
     else
     end           
   end
-  
-  def death_date  
-     unless self.facts.blank?
-      death = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = 'DEATH'"])
-      return death.try(:fact_year)
-    else
-      return "?"
-    end  
-  end
-  
-  
-  def event_date
-    unless self.person_events.blank?
-      birth = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Birth'"]).try(:date_event).strftime('%d %b %Y') rescue "?"
-      death = self.person_events.find(:first, :joins => :event_type, :conditions => ["event_types.name = 'Death'"]).try(:date_event).strftime('%d %b %Y') rescue "?"
-      return "#{birth} - #{death}"
-    else
-      return "? - ?"
-    end
-    
-  
-    
-#    event = ""
-#    unless self.person_events.blank?
-#      self.person_events.each do |person_event|
-#        if person_event.event_type.name == 'Birth'
-#          event += person_event.date_event.blank? ? "ABT" : "#{person_event.date_event.strftime('%d %b %Y')}"
-#          if !person_event.city.blank? || !person_event.county.blank? || !person_event.country.blank?
-#            event += " ("
-#            event += "#{person_event.try(:"city")}, " unless person_event.city.blank?
-#            event += "#{person_event.try(:"county")}, " unless person_event.county.blank?
-#            event += "#{person_event.try(:"country")}" unless person_event.country.blank?
-#            event += ")"
-#          end
-#          event += " - "
-#        end
-#        if person_event.event_type.name == 'Death'
-#          event += person_event.date_event.blank? ? "ABT" : "#{person_event.date_event.strftime('%d %b %Y')}"
-#          if !person_event.city.blank? || !person_event.county.blank? || !person_event.country.blank?
-#            event += " ("
-#            event += "#{person_event.try(:"city")}, " unless person_event.city.blank?
-#            event += "#{person_event.try(:"county")}, " unless person_event.county.blank?
-#            event += "#{person_event.try(:"country")}" unless person_event.country.blank?
-#            event += ")"
-#          end
-#        end
-#      end
-#      event += "? - ?" if event == ""
-#    else
-#      event += "? - ?"
-#    end
-#    return event
-  end
+
  def person_events_except_dob
       begin
       res=   self.facts.find(:all, :joins => :event_type, :conditions => ["UPPER(event_types.name) != 'BIRTH' and UPPER(event_types.name) != 'DEATH' "],:order=>"facts.fact_year asc") 
@@ -130,6 +106,5 @@ class Person < ActiveRecord::Base
   def full_name
     "#{self.title} " + "#{self.first_name} " + " #{self.middle_name} " + "#{self.maiden_name} " + "#{self.last_name}"     
   end
-  
   
 end
