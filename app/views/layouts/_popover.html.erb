@@ -4,18 +4,18 @@
 
     <div class="modal-header">
       <div style="text-align: center; color:#efefef; ">
-        <h1><%= @pop.site_url %><br /><%= @pop.site_name %><br /><%= @pop.site_status.heading %></h1>
+        <h1><%= @site.site_url %><br /><%= @site.site_name %><br /><%= @site.popover_heading %></h1>
       </div>
     </div>
 
     <div class="modal-body" style=" padding:20px 0px; color:#d9d9d9; padding:6px 6px 0px; ">
       <div>
-        <p><%= @pop.site_status.message %>
+        <p><%= @site.popover_message %></p>
         <p>We're busily working behind the curtain to bring you "The Past on Paper", a new website which aims to reunite genealogists and local historians with the Family Bibles, Photos, Letters, Diaries, Postcards, Maps, Wills, Deeds  and other historic paper items hidden away in the World's antique shops and private collections.</p>
         <p>We're hoping to launch very soon but if you'd like to be one of the first people to list your items on the site, or get the first opportunity to buy your family's heirlooms, please join our mailing list and we'll be in touch very soon!</p>
         <p>In the meantime, you can also see what we're upto by following us on Facebook or Twitter, or follow the news on our blog (when we have time to write on it!).</p>
 
-        <% if @pop.site_status.mailing_list_form %>  
+        <% if @site.popover_mailinglist_form %>  
           <div id="mailing_list_status"></div>
           <h3 style="padding:0px; color:#c93; font-style: italic; ">Please add me to the pastonpaper.com mailing list.</h3>
           <%= form_tag( mailing_lists_create_path,:remote=>true,:method=>:post,:id=>"mailing_list_form") do %>
@@ -31,7 +31,7 @@
 
     <div class="modal-footer">
       
-      <% if @pop.site_status.login_form %>
+      <% if @site.popover_login_form %>
         <p style="text-align: center; color: #96c6f6;">If you already have a preview login, please use the form below to enter the site.</p>
         <div class="login-box pull-right">
           <% if !current_user %>

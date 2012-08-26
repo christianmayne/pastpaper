@@ -1,19 +1,13 @@
 Pastpaper::Application.routes.draw do
-  
-  
- 
  
   get "offer/new"
-
   post "offer/create"
-
   post "mailing_lists/create"
 
   resources :gedcom_documents
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  
   
   get 'logout' => 'sessions#destroy', :as => 'logout'
   post 'login' => 'sessions#create', :as => 'login'
@@ -28,45 +22,35 @@ Pastpaper::Application.routes.draw do
   resources :password_resets
   match 'password_resets/:id/edit' => "password_resets#edit" ,:as => 'password_reset_path'
   
-  
-  
   resources :documents do 
     collection do 
-    match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
+      match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
     end
-    
     match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
     match '/images' => 'documents#itemimages' ,:as => :itemimages
     match '/locations' => 'documents#locations',:as => :locations
     match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
-   
     match '/people_facts_locations' => 'documents#people_facts_locations',:as => :people_facts_loc
-    
     resources :document_locations
     resources :people ,:controller => "document_people"
     resources :document_facts
     resource :facts
-    
     resources :document_photos
-    
-      
   end
-  
-  
   
   match 'payments/cancel' => 'payments#paypal_cancel',:as => 'paypal_cancel'
   match 'payments/success' => 'payments#paypal_return',:as => 'paypal_return'
   match 'payments/ipn' => 'payments#create',:as => 'paypal_ipn'
   
-  
   resources :home do 
-   collection do
-    get 'document_search','simple_location_search','date_search','simple_people_search','simple_organisation_search','document_filter'
-    get 'search_results'
-    post 'search_results'
+    collection do
+      get 'document_search','simple_location_search','date_search','simple_people_search','simple_organisation_search','document_filter'
+      get 'search_results'
+      post 'search_results'
+    end
   end
-end
-match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
+
+  match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
   match 'documents/update/publishinginfo/:id' => 'documents#publishinginfo',:as => :publsihinginfo 
   match 'documents/document_image_remove/:id' => 'documents#remove_image',:as=>"remove_image"
   match 'documents/make_primary_image/:id' => 'documents#make_primary_image',:as => :make_primary_image
@@ -78,7 +62,7 @@ match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
   match 'privacy', :to => 'pages#privacy'
   match 'terms', :to => 'pages#terms'
 
-  
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -122,7 +106,6 @@ match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
 
   namespace :admin do
     resources :document_types

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825152934) do
+ActiveRecord::Schema.define(:version => 20120826142017) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -217,13 +217,19 @@ ActiveRecord::Schema.define(:version => 20120825152934) do
     t.integer  "event_day"
   end
 
-  create_table "site_controllers", :force => true do |t|
+  create_table "site_profiles", :force => true do |t|
     t.integer  "site_status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "site_name"
     t.string   "site_url"
     t.string   "profile_name"
+    t.boolean  "selling_enabled",          :default => true
+    t.boolean  "popover_enabled",          :default => false
+    t.string   "popover_heading"
+    t.boolean  "popover_mailinglist_form", :default => true
+    t.boolean  "popover_login_form",       :default => true
+    t.text     "popover_message"
   end
 
   create_table "site_statuses", :force => true do |t|

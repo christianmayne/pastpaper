@@ -1,3 +1,5 @@
+<% @site = SiteController.first %>
+
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
@@ -45,7 +47,7 @@ jQuery(document).ready(function() {
   <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
    	<div class="span2"><%= link_to '<i class="icon-edit"></i> Edit Document'.html_safe, edit_document_path(@document),:class=>"ajaxmodal btn btn-warning" %></div><br /><br />
   <% else %>
-	  <% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50   %>
+	  <% if @site.selling_enabled && @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50   %>
       <div class="span1">
 	      <% if current_user %>
 	      	<% payment_service_for @document.id, PAYPAL_ACCOUNT, :amount => @document.sale_price, :currency => 'GBP', :service => :paypal, :html => { :id => 'payment-form' } do |service| %>

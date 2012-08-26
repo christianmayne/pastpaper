@@ -1,6 +1,4 @@
-<% site_control_id = 3 %>
-<% @pop = SiteController.find(site_control_id) %>
-<% online = SiteStatus.find_by_status("Online") %>
+<% @site = SiteProfile.first %>
 
 <!DOCTYPE html>
 <html>
@@ -13,7 +11,7 @@
   <meta property="og:description" content = "<%= @share_description || "Item on pastonpaper.com"%>" />
   <meta property="fb:app_id" content="354188527987106" />
   <meta charset="utf-8"/>
-  <title>The Past on Paper | <%= @pagetitle %></title>
+  <title><%= @site.site_url %> | <%= @pagetitle %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application"  %>
@@ -37,7 +35,7 @@
 	          The Past On Paper
           </a>
           <% if current_user.present? && current_user.is_admin? %>
-            : <%= @pop.profile_name %>
+            : <%= @site.profile_name %>
           <% end %>
         </div>
 
@@ -137,7 +135,7 @@
     </script>
 
 
-    <% if @pop.site_status!=online %>
+    <% if @site.popover_enabled %>
       <%= render 'layouts/popover' %> 
     <% end %>
   <% end %>
