@@ -236,6 +236,7 @@ body,html  {
 /*Footer*/
 .container-footer {
    padding: 0px 7px !important;
+   max-width:1026px;
 }
 #footer-cont{
 	position:relative;
@@ -698,16 +699,29 @@ select#search_publication_document_type_id{
   float: left;
 }
 
-.document_details_container h4{
-	font-weight: bold;
-	padding-left:6px;
-	margin-top:12px;
+.document_details_container h4 {
+    font-family: helvetica;
+    font-weight: bold;
+    margin-top: 12px;
+    padding-left: 6px;
 }
-.document_details_container .row-fluid .span3 {
-	padding: 6px;
+
+.document_details_container .row-fluid .span3, .document_details_container .row-fluid .span4, .document_details_container .row-fluid .span1 {
 	font-weight: bold;
-	line-height: 16px;
+    line-height: 16px;
+    margin: 0px;
+    padding: 6px 3px 0px;
+    vertical-align: middle;
 }
 .search_container .headline4{
 	font-size:20px;
 }
+.item_desc {
+    color: #336699;
+    font-size: 14px;
+    font-family: Helvetica, arial;
+}
+.item_desc b{
+	color:#069;
+}
+
