@@ -4,11 +4,11 @@
 <html>
 <head>
   <% @fb_dimg = 'http://pastonpaper.com/logo.jpg' %> 
-  <meta property="og:title" content="<%= @pagetitle || "Pastonpaper.com "   %>"/>
+  <meta property="og:title" content="<%= @pagetitle || "www.pastonpaper.com "   %>"/>
   <meta property="og:image" content=" <%= @fb_img  || @fb_dimg %>"/>
-  <meta property="og:url" content="<%= @share_url || 'http://pastonpaper.com'%>" />
+  <meta property="og:url" content="<%= @share_url || 'http://www.pastonpaper.com'%>" />
   <meta property="og:site_name" content="pastonpaper.com"/>
-  <meta property="og:description" content = "<%= @share_description || "Item on pastonpaper.com"%>" />
+  <meta property="og:description" content = "<%= @share_description || "Item on www.pastonpaper.com"%>" />
   <meta property="fb:app_id" content="354188527987106" />
   <meta charset="utf-8"/>
   <title><%= @site.site_url %> | <%= @pagetitle %></title>
@@ -59,7 +59,6 @@
     <% end %>
   <% end %>
 
-  <div class="container-fluid container-footer">
 
   <div id="footer-cont">
     <div class="rightCorner"></div>  
