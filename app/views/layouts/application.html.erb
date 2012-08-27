@@ -3,11 +3,11 @@
 
 <head>
   <% @fb_dimg = 'http://pastonpaper.com/logo.jpg' %> 
-  <meta property="og:title" content="<%= @pagetitle || "Pastonpaper.com "   %>"/>
+  <meta property="og:title" content="<%= @pagetitle || "www.pastonpaper.com "   %>"/>
   <meta property="og:image" content=" <%= @fb_img  || @fb_dimg %>"/>
-  <meta property="og:url" content="<%= @share_url || 'http://pastonpaper.com'%>" />
+  <meta property="og:url" content="<%= @share_url || 'http://www.pastonpaper.com'%>" />
   <meta property="og:site_name" content="pastonpaper.com"/>
-  <meta property="og:description" content = "<%= @share_description || "Item on pastonpaper.com"%>" />
+  <meta property="og:description" content = "<%= @share_description || "Item on www.pastonpaper.com"%>" />
   <meta property="fb:app_id" content="354188527987106" />
   <meta charset="utf-8"/>
   <title>The Past on Paper | <%= @pagetitle %></title>
@@ -168,7 +168,7 @@
           	  	<% end %>
       		      <div class="login-form-wrapper">
       		        <%= form_tag :login ,:id=>"userLogin" , :class => "form-inline" do |f| %>
-      		          <%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
+      		           
       					    <%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"18"} %> 
       					    <input class="btn btn-primary btn-warning" type="submit" id="submitLogin" name="submitLogin" value="Login" />
                     <br/>

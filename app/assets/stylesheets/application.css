@@ -711,3 +711,41 @@ select#search_publication_document_type_id{
 .search_container .headline4{
 	font-size:20px;
 }
+
+
+input.person-title { 
+  font-size: 10px;
+  width: 50px;
+}
+
+input.person-firstname,
+input.person-middlename,
+input.person-lastname { 
+  font-size: 10px;
+  width: 130px;
+}
+
+select .person-gender {
+  font-size: 10px;
+  width: 50px;
+}
+
+input.person-date-dd {
+  font-size: 10px;
+  width:25px;
+}
+
+input.person-date-yyyy {
+  font-size: 10px;
+  width: 50px;
+}
+
+select.person-fact-type {
+  font-size: 10px;
+  width:50px;
+}
+
+.fact-label {
+ font-size: 10px; 
+ width: 100px;
+}
