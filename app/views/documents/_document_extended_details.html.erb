@@ -26,7 +26,7 @@
         </div>
 
         <%if !person.person_events_all.nil?%>
-          <div  id = "pdetail_<%= person.id%>" class="row-fluid pdetail hide well-small" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px; ">
+          <div  id = "pdetail_<%= person.id%>" class="row-fluid pdetail hide well-small">
             <%person.person_events_all.each do |person_event|%>
               <div class="">
                 <div class="row-fluid">
