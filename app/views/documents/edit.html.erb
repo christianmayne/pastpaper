@@ -1,24 +1,24 @@
 <% @pagetitle = @document.name %>
 <div>
-	<div>
-		<div class="row-fluid">
-			<div class="span4">
-				<%= render :partial => "document_menu"%>
-			</div>
-			<div class="span8">
-					<div class="form-horizontal">
-					  <%= form_for @document, :html=>{ :multipart => true}  do |f| %>
-					      <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
-					      <%= render :partial => 'form', :locals => {:f => f}  %>
-					      <div class="control-group">
-						      <label class="control-label">&nbsp; </label>
-						      <div class="controls" style="text-align: center">
-						      <%= f.submit "Save" ,:class=>"btn" %>
-						      </div>
-					      </div>
-					    <% end %>
-					</div>
-			</div>
-		</div>
-	</div>
+  <div>
+    <div class="row-fluid">
+      <div class="span4">
+        <%= render :partial => "document_menu"%>
+      </div>
+      <div class="span8">
+        <div class="form-horizontal">
+          <%= form_for @document, :html=>{ :multipart => true}  do |f| %>
+            <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
+            <%= render :partial => 'item_details', :locals => {:f => f}  %>
+            <div class="control-group">
+              <label class="control-label">&nbsp; </label>
+              <div class="controls" style="text-align: center">
+                <%= f.submit "Save" ,:class=>"btn" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>    

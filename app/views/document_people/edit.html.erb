@@ -1,4 +1,4 @@
-
+<!-- Obsolete? -->
 
 <% @pagetitle = "Add New Document" %>
 <div class="container siteScale clearfix">
@@ -14,7 +14,7 @@
 						<%= form_for(@person,:url=>document_person_path(@person.document.id,@person)) do |f|%>
 							<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
 
-<div class="fields varPaddingTop"> 
+<div class="fields varPaddingTop">
 	<div class="field">
 		<label>Title</label> <%= f.text_field :title, :size => 4%>
 	</div>

@@ -1,5 +1,8 @@
+<!-- CM> Duplicated file  both used -->
 <div class="fields">
   <div class="fields form-horizontal">
+    <span style="color:red;">DEBUG: documents/_fact_fields.html<br />
+    DEBUG: should be using document_people/_fact_fields.html.erb</span>
     <div class="fact-label">Fact:</div>
     <%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name, :class=>"person-fact-type", :include_blank => "Event" %> 
     Date: <%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
@@ -8,7 +11,6 @@
     <%= link_to_remove_fields image_tag("deleteicon.png"), f %>
     <%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"miniselect"} %>
   </div>
-
 </div>
 <br />
 
