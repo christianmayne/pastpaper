@@ -1,29 +1,13 @@
-<!-- Obsolete? -->
+<!-- CM> Duplicated file -->
 <div class="fields">
-  <table>
-    <tr class="">
-      <td>Fact</td><td><%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name %></td>
-      <td>Location</td><td><%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => true},{:class=>"miniselect"} %></td>
-    </tr>
-
-    <tr>
-      <td>Modifiers</td><td><%= f.select :date_modifier, PersonEvent::DATE_MODIFIERS,:include_blank=>true,:title=>"ABT:About,AFT:after"%></td>
-      <td>Date</td><td><%= f.number_field :fact_year, :size => 5, :placeholder=>"yyyy" %>
-      <%=f.select :fact_month,[["Jan",1],["Feb",2],["Mar",3],["Apr",4],["May",5],["Jun",6],["Jul",7],["Aug",8],["Sep",9],["Oct",10],["Nov",11],["Dec",12]],:include_blank=>"mm"%>
-      <%= f.number_field :fact_day, :size => 5, :placeholder=>"dd" %></td>
-      <td><%= link_to_remove_fields image_tag("deleteicon.png"), f %></td>
-    </tr>
-  </table> 
-  <hr />
-</div>
-
-<div class="fields">
-  <div>
-    Fact: <%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name %> 
-    Date: <%= f.number_field :fact_day, :size => 5, :placeholder=>"dd" %><%=f.select :fact_month,[["Jan",1],["Feb",2],["Mar",3],["Apr",4],["May",5],["Jun",6],["Jul",7],["Aug",8],["Sep",9],["Oct",10],["Nov",11],["Dec",12]],:include_blank=>"mm"%><%= f.number_field :fact_year, :size => 5, :placeholder=>"yyyy" %>
-  </div>
-  <div>
-    Location: </td><td><%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => true},{:class=>"miniselect"} %></td>
+  <div class="fields form-horizontal">
+    <div class="fact-label">Fact:</div>
+    <%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name, :class=>"person-fact-type", :include_blank => "Event" %> 
+    Date: <%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
+          <%= f.select :fact_month,[["Jan",1],["Feb",2],["Mar",3],["Apr",4],["May",5],["Jun",6],["Jul",7],["Aug",8],["Sep",9],["Oct",10],["Nov",11],["Dec",12]],:include_blank=>"month", :class=>""%>
+          <%= f.text_field :fact_year, :placeholder=>"yyyy", :class=>"person-date-yyyy" %>
+    <%= link_to_remove_fields image_tag("deleteicon.png"), f %>
+    <%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"miniselect"} %>
   </div>
 </div>
 

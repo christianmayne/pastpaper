@@ -2,7 +2,7 @@
 <ul class="nav nav-list ">
 	<% unless @document.new_record? %>
 		<li class=""><%= link_to_unless_current "View Item", document_path(@document) %></li>
-		<li class=""><%= link_to_unless_current "Item Information",(edit_document_path(@document) unless (@document.new_record?)), :class=>"active"%></span></li>
+		<li class=""><%= link_to_unless_current "Item Details",(edit_document_path(@document) unless (@document.new_record?)), :class=>"active"%></span></li>
 	<% end %>
 	<% unless @document.new_record? %>
 		<li class=""><%= link_to_unless_current "Publication Info",document_authorinfo_path(@document) unless @document.new_record? %></span></li>
@@ -10,7 +10,7 @@
 		<li class=""><%= link_to_unless_current "Locations",document_locations_path(@document) unless @document.new_record?%></span></li>
 		<li class=""><%= link_to_unless_current "People & Events",document_itempeople_path(@document) unless @document.new_record?%></span></li>
 	<% else %>
-		<li class=""><a href="#">Item Information</a></li>
+		<li class=""><a href="#">Item Details</a></li>
 		<li class=""><a href="#">Publication Info</a></li>
 		<li class=""><a href="#">Item Images</a></li>
 		<li class=""><a href="#">Locations</a></li>
