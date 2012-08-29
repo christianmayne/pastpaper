@@ -240,6 +240,9 @@ body,html  {
 }
 #footer-cont{
 	position:relative;
+	margin: auto;
+    max-width: 1000px;
+    
 }
 .container-footer .leftCorner {
     background-position: 0 1px;
