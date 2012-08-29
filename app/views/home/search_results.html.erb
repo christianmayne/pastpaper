@@ -1,5 +1,6 @@
 <div class="alert alert-info">
   <div class="lead newfont">
+	<% if !@documents.blank? %>
 	<%= page_entries_info @documents %>
     <% if session[:search_params][:search_type].to_i == 1 %>
 		  with people matching your search criteria
@@ -9,6 +10,7 @@
 		  publications matching your search criteria	
     <%else%>
 		  Items matching your search criteria
+    <%end%>
     <%end%>
   </div>
 </div>
