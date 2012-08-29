@@ -41,5 +41,5 @@
 		</tr>
 	<% end %>
 </table>
-<%= will_paginate @documents %>
+ <%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>
 <%end%>

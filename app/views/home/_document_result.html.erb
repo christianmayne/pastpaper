@@ -75,7 +75,8 @@
   <div class="ajaxpaging">
     <div class="clearfix">
       <div class="floatLeft">
-        <%= will_paginate @documents %>
+      
+         <%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>
       </div>
 
       <div class="floatRight">
