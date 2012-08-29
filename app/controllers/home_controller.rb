@@ -38,17 +38,18 @@ class HomeController < ApplicationController
       @documents = Document.search_publication(params[:search_publication], params[:page])
     else
       if !session[:search_params].blank? && !params[:document_filter].blank?
-        session[:search_params]['document_type_id'] = params[:document_filter][:document_type_id]
-        session[:search_params]['document_status'] =  params[:document_filter][:document_status]
+        session[:search_params][:document_type_id] = params[:document_filter][:document_type_id]
+        session[:search_params][:document_status] =  params[:document_filter][:document_status]
         #raise session[:search_params].inspect
         per_page = params[:per_page] || 50
         if session[:search_params][:search_type].to_i == 1
-          @documents = Document.search_document(session[:search_params] ,params[:page],per_page.to_i)
+          @documents = Document.search_people(session[:search_params] ,params[:page],per_page.to_i)
         elsif session[:search_params][:search_type].to_i == 2
-          @documents = Document.people_search(session[:search_params] ,params[:page],per_page.to_i)
-        elsif session[:search_params][:search_type].to_i == 3
           @documents = Document.search_location(session[:search_params] ,params[:page],per_page.to_i)
+        elsif session[:search_params][:search_type].to_i == 3
+          @documents = Document.search_publication(session[:search_params] ,params[:page],per_page.to_i)
         else
+          
         end
       end
       #redirect_to root_path
@@ -63,15 +64,16 @@ class HomeController < ApplicationController
 #    end
   
     if request.xhr?
-      per_page = params[:per_page] || 50
-      if session[:search_params][:search_type].to_i == 1
-        @documents = Document.search_document(session[:search_params] ,params[:page],per_page.to_i)
-      elsif session[:search_params][:search_type].to_i == 2
-        @documents = Document.people_search(session[:search_params] ,params[:page],per_page.to_i)
-      elsif session[:search_params][:search_type].to_i == 3
-        @documents = Document.search_location(session[:search_params] ,params[:page],per_page.to_i)
-      else
-      end
+        per_page = params[:per_page] || 50
+        if session[:search_params][:search_type].to_i == 1
+          @documents = Document.search_people(session[:search_params] ,params[:page],per_page.to_i)
+        elsif session[:search_params][:search_type].to_i == 2
+          @documents = Document.search_location(session[:search_params] ,params[:page],per_page.to_i)
+        elsif session[:search_params][:search_type].to_i == 3
+          @documents = Document.search_publication(session[:search_params] ,params[:page],per_page.to_i)
+        else
+          
+        end
     end
 
   end
