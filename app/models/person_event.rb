@@ -11,9 +11,8 @@ class PersonEvent < ActiveRecord::Base
   validates :event_day, :numericality => { :only_integer => true,:less_than_or_equal_to => 31,:greater_than_or_equal_to =>01 }
   validates :event_year, :numericality => { :only_integer => true }
   
- # validates :date_modifier
+  # validates :date_modifier
   validates :event_type_id,:presence => true,:uniqueness => {:scope => :person_id ,:message=>"is already added"}
-
   
   def location
     [self.street1, self.street2, self.city, self.county, self.country].delete_if{|ad_elem| ad_elem.blank?}.join(', ')
