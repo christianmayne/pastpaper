@@ -3,7 +3,22 @@ class Admin::DocumentsController < ApplicationController
   # GET /document_types
   # GET /document_types.json
   def index
-    @documents = Document.paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+    conditions = []
+    if !params[:document_filter].blank?
+        document_type_id = params[:document_filter][:document_type_id] 
+        status_id =  params[:document_filter][:document_status] 
+        if !document_type_id.blank? && !status_id.blank?
+          conditions = ["document_type_id = ? and status_id = ?",document_type_id,status_id]
+        elsif !document_type_id.blank?
+          conditions = ["document_type_id = ?",document_type_id]
+        elsif !status_id.blank?
+           conditions = ["status_id = ?",status_id]
+        else
+          conditions = []
+        end
+    end 
+    
+    @documents = Document.where(conditions).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
   end
 
 

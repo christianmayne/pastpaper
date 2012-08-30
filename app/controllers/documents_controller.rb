@@ -5,8 +5,23 @@ class DocumentsController < ApplicationController
   before_filter :prepare_document ,:only => [:show,:itemimages,:authorinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations,:permanently_delete]
   
   def index
-    @documents = current_user.documents.paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-  end
+       conditions = []
+    if !params[:document_filter].blank?
+        document_type_id = params[:document_filter][:document_type_id] 
+        status_id =  params[:document_filter][:document_status] 
+        if !document_type_id.blank? && !status_id.blank?
+          conditions = ["document_type_id = ? and status_id = ?",document_type_id,status_id]
+        elsif !document_type_id.blank?
+          conditions = ["document_type_id = ?",document_type_id]
+        elsif !status_id.blank?
+           conditions = ["status_id = ?",status_id]
+        else
+          conditions = []
+        end
+    end 
+    @documents = current_user.documents.where(conditions).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+  
+   end
 
   def show
   end
