@@ -41,34 +41,39 @@
       </div>
     <% end %>
 
-	
-
 		<!-- Locations Table -->
 		
 		<h4>Locations mentioned in this Document</h4>
-		  <div class="well " style=" margin:2px; padding:2px 5px;">
-		 <div class="row-fluid" >
-        	<div class="span3"><strong>Address</strong></div>
-         	<div class="span3"><strong>Town</strong></div>
-         	<div class="span3"><strong>County</strong></div>
-         	<div class="span3"><strong>Country</strong></div>
-      	 </div>
-      	 </div>
-    
-      <% if !@document.blank? && !@document.locations.blank? %>
-        <% @document.locations.each do |location|  %>
-          <div class="well " style=" margin:2px; padding:2px 5px;"> 
-		 
+    <div class="well " style=" margin:2px; padding:2px 5px;">
+      <div class="row-fluid" >
+        <div class="span3"><strong>Address</strong></div>
+        <div class="span3"><strong>Town</strong></div>
+        <div class="span3"><strong>County</strong></div>
+        <div class="span3"><strong>Country</strong></div>
+      </div>
+    </div>
+
+    <% if !@document.blank? && !@document.locations.blank? %>
+      <% @document.locations.each do |location|  %>
+        <div class="well " style=" margin:2px; padding:2px 5px;"> 
           <div class="row-fluid">
             <div class="span3"><%= location.street1%> <%= location.street2%></div>
             <div class="span3"><%= location.town%></div>
             <div class="span3"><%= location.county%></div>
             <div class="span3"><%= location.country%></div>
-         </div>
-         </div>
-        <%end%>
+          </div>
+          <% location.facts.each do | fact | %>
+            <div class="">
+              <div class="row-fluid">
+                <div class="span3"><%= fact.person.first_name%> <%= fact.person.last_name%></div>
+                <div class="span3"><%= fact.event_type.name %></div>
+                <div class="span5"><%=fact.date_modifier %> <%= fact.fact_day %> <%= fact.fact_month %> <%= fact.fact_year %></div>
+              </div>               
+            </div>
+          <%end%>
+        </div>
       <%end%>
-   
-
+    <%end%>
 	<% end %> 
+
 </div>

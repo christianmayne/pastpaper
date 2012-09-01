@@ -1,6 +1,8 @@
 class Location < ActiveRecord::Base
 
   belongs_to :document
+  has_many :facts
+
    #validates :town,:presence => true
    #validates :country ,:presence => true
   def full_location
