@@ -1,6 +1,5 @@
 <% @countries = Location.find :all, :order=>"country ASC", :select => "DISTINCT country" %>
-
-<%placesearch = capture do %>
+<% placesearch = capture do %>
 	<div id="place" class="">
 		<%= form_for :search_place, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
 			<%= f.hidden_field :search_type, :value=>2 %>
@@ -23,6 +22,7 @@
 		<%end%>
 	</div>
 <%end%>	
+
 
 <div class="place hero-unit">
 	<span class="lead newfont">Search for a place</span>

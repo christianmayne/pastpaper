@@ -35,6 +35,9 @@ class HomeController < ApplicationController
     elsif !params[:search_publication].blank?
       session[:search_params] = params[:search_publication]
       @documents = Document.search_publication(params[:search_publication], params[:page])
+    elsif !params[:search_date].blank?
+      session[:search_params] = params[:search_date]
+      @documents = Document.search_date(params[:search_date], params[:page])      
     else
       if !session[:search_params].blank? && !params[:document_filter].blank?
         session[:search_params][:document_type_id] = params[:document_filter][:document_type_id] unless params[:document_filter][:document_type_id].blank? 
