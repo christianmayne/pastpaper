@@ -38,10 +38,9 @@ class Document < ActiveRecord::Base
     50
   end
 
-
-    def display_name
-      self.name ? self.name : self.title
-    end
+  def display_name
+    self.name ? self.name : self.title
+  end
 
   def document_status
     unless self.status.blank?
@@ -276,10 +275,12 @@ class Document < ActiveRecord::Base
 
   def search_date(search_params)
   end
-  
+ 
+ 
   def people_list(firstname, lastname)
     self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
   end
+
 
   def default_image
     unless self.document_photos.nil?

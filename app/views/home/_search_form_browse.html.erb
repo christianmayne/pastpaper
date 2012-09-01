@@ -1,0 +1,17 @@
+<div class="publication hero-unit">
+	<span class="lead newfont">Browse by Type</span>
+	<span class="info-text">
+		Chose an item and browse through what we have ins tock
+	</span>
+	<!-- Search by Publication -->
+	<% browse = capture do %>
+		<div id="publication" class="">
+			<%= form_for :search_publication, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
+				<%= f.hidden_field :search_type, :value=>3 %>
+				<%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt => "Please select type", :class => 'text  input-large' %>
+  			<%= f.submit "",:class=>"btn btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Browse" %>
+			<%end%>
+		</div>
+	<%end%>	
+	<%= browse %>
+</div> <!-- End Search Form (Place)-->
