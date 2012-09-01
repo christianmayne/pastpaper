@@ -1,15 +1,15 @@
 <div id="page-header">
-		<div class="status_message">
-			<% if flash[:alert]%>
-				<div class="alert alert-error span12 centering"><%= flash[:alert]%></div>
-	  	<% end %>
-	  	<% if flash[:error]%>
-				<div class="alert alert-error span12 centering"><%= flash[:error]%></div>
-	  	<% end %>
-	  	<% if flash[:notice]%>
-				<div class="alert alert-success span12 centering"><%= flash[:notice]%></div>
-	  	<% end %><!-- End Status Message -->	
-		</div>
+	<div class="status_message">
+		<% if flash[:alert]%>
+			<div class="alert alert-error span12 centering"><%= flash[:alert]%></div>
+  	<% end %>
+  	<% if flash[:error]%>
+			<div class="alert alert-error span12 centering"><%= flash[:error]%></div>
+  	<% end %>
+  	<% if flash[:notice]%>
+			<div class="alert alert-success span12 centering"><%= flash[:notice]%></div>
+  	<% end %><!-- End Status Message -->	
+	</div>
 
   <!-- Logo -->
   <div class="logo pull-left brand">
@@ -19,13 +19,12 @@
   </div>
   <!-- End Logo-->
 
-
   <div class="pull-right">
     <div>
     	<ul class="breadcrumb currently_listed">
     		<li><h5>Currently listed - </h5></li>
     		<li><b><%= Person.count%></b> Individuals.<span class="divider">|</span></li>
-    		<li><b><%=Location.count%></b> Locations.<span class="divider">|</span></li>
+    		<li><b><%= Location.count%></b> Locations.<span class="divider">|</span></li>
     		<li><b><%= Document.count %></b> Items.</li>
 	    </ul>
 	  </div>
@@ -38,9 +37,6 @@
       </div>
     <% end %>
   </div>  
-
-
-  
 
   <div class="modal fade" id="loginModal" >
     <div class="modal-header">
@@ -58,7 +54,7 @@
 					    <input class="btn btn-primary" type="submit" id="submitLogin" name="submitLogin" value="Login" />
 					    <br/>
 				      <div class="pull-left">
-				        <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
+                <%= link_to "Register" ,register_path , :class=>"pull-left"%>&nbsp|&nbsp<%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
 				      </div>
 				      <div class="pull-right">
           		  Remember Me <%= check_box_tag :remember_me, 1 %>
@@ -81,6 +77,3 @@
 
   </div>
 </div> <!--End Page Header-->
-
-
-

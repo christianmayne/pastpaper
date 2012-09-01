@@ -1,3 +1,5 @@
+<% @countries = Location.find :all, :order=>"country ASC", :select => "DISTINCT country" %>
+
 <%placesearch = capture do %>
 	<div id="place" class="">
 		<%= form_for :search_place, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
@@ -5,7 +7,8 @@
 			<!-- Search place -->
 			<%= f.text_field :city,{:placeholder => "Town",:size=>15, :class=>"search_input_place input-medium"} %>
 			<%= f.text_field :county,{:placeholder => "County",:size=>15, :class=>"search_input_place input-medium"} %>
-			<%= f.text_field :country,{:placeholder => "Country",:size=>20, :class=>"search_input_place input-medium"} %>
+			<%#= f.text_field :country,{:placeholder => "Country",:size=>20, :class=>"search_input_place input-medium"} %>
+      <%= f.select(:country, @countries.map(&:country), {:include_blank => 'Select a Country'}) %>
 
       <% if site.preview_mode = false %>
 			  <!-- Search Dates -->
@@ -21,11 +24,10 @@
 	</div>
 <%end%>	
 
-
 <div class="place hero-unit">
 	<span class="lead newfont">Search for a place</span>
 	<div class="info-text">
-		Search for your home or town in our large collection of historic documents including Family Bibles, Photogrpahs, Wills, Letters and Postcards
+		Search for your home or town in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards
 	</div>
 	<%= placesearch %>
 </div>
