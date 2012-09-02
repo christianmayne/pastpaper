@@ -62,12 +62,12 @@
             <div class="span3"><%= location.county%></div>
             <div class="span3"><%= location.country%></div>
           </div>
-          <% location.facts.each do | fact | %>
+          <% location.facts.order("fact_year asc, fact_month asc, fact_day asc").each do | fact | %>
             <div class="">
               <div class="row-fluid">
-                <div class="span3"><%= fact.person.first_name%> <%= fact.person.last_name%></div>
-                <div class="span3"><%= fact.event_type.name %></div>
-                <div class="span5"><%=fact.date_modifier %> <%= fact.fact_day %> <%= fact.fact_month %> <%= fact.fact_year %></div>
+                <div class="span2"><%= "#{fact.date_modifier} #{fact.fact_date_with_format}" %></div>
+                <div class="span1"><%= "#{fact.event_type.name}" %></div>
+                <div class="span5"><%= "#{fact.person.full_name}" %></div>
               </div>               
             </div>
           <%end%>
