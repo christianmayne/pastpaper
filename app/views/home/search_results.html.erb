@@ -1,20 +1,23 @@
+<% if !@documents.blank? %>
 <div class="alert alert-info">
   <div class="lead newfont">
-	<% if !@documents.blank? %>
+
 	<%= page_entries_info @documents %>
-    <% if session[:search_params][:search_type].to_i == 1 %>
+    	<% if session[:search_params][:search_type].to_i == 1 %>
 		  with people matching your search criteria
-    <%elsif session[:search_params][:search_type].to_i == 2 %>
+    	<%elsif session[:search_params][:search_type].to_i == 2 %>
 		  with locations matching your search criteria
-	  <%elsif session[:search_params][:search_type].to_i == 3 %>
+	 	 <%elsif session[:search_params][:search_type].to_i == 3 %>
 		  publications matching your search criteria	
-    <%else%>
+   		 <%else%>
 		  Items matching your search criteria
-    <%end%>
-    <%end%>
+    	<%end%>
+    	
   </div>
 </div>
-
+<%else%>
+    	<div class=" newfont alert alert-error  "> No Items found. </div>
+ <%end%>
 <div class="content row-fluid">
 
 <% if @documents.blank? %>
@@ -37,8 +40,17 @@
 		<div class="pull-right">
 			<%= form_for :document_filter, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
 				You can filter your search : 
-				<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"Select document type"} %>
-				<%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"Select document status"}  %>
+				<% if !session[:search_params].blank? && !session[:search_params][:document_type_id].blank? %>
+					<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"All",:selected=>session[:search_params][:document_type_id]} %>
+				<% else %>
+					<%= f.collection_select :document_type_id , DocumentType.alphabetically , :id,:name,{:prompt=>"All"} %>
+				<% end %>
+				<% if !session[:search_params].blank? && !session[:search_params][:document_status].blank? %>
+					<%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"All",:selected=>session[:search_params][:document_status]}  %>
+				<% else %>
+					<%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"All"}  %>
+				<% end %>
+				
 				<%= f.submit "Go",:class=>"btn btn-primary"%>
 			<%end%>
 		</div>
