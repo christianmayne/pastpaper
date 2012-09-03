@@ -38,10 +38,9 @@ class Document < ActiveRecord::Base
     50
   end
 
-
-    def display_name
-      self.name ? self.name : self.title
-    end
+  def display_name
+    self.name ? self.name : self.title
+  end
 
   def document_status
     unless self.status.blank?
@@ -220,6 +219,36 @@ class Document < ActiveRecord::Base
   end
 
 
+
+  def self.search_date(search_params,page,per_page=50)
+    condition_str  = ""
+
+    if !search_params[:dd].blank?
+      dd = search_params[:dd].to_i
+      condition_str += "#{dd} "
+    end
+    if !search_params[:mm].blank?
+      mm = search_params[:mm].to_i
+      condition_str += "#{mm} "
+    end
+    if !search_params[:yyyy].blank?
+      yyyy = search_params[:yyyy].to_i
+      condition_str += " #{yyyy} "
+    end
+
+    unless condition_str.blank?
+      self.paginate_by_sql("SELECT * from facts
+                            LEFT JOIN people on people.id = facts.person_id
+                            LEFT JOIN documents on documents.id = people.document_id
+                            WHERE fact_year = #{yyyy}
+                            GROUP BY documents.id", :per_page => per_page,:page => page)
+    else
+      self.where("1=0").paginate(:per_page=>1,:page=>page)
+    end
+  end
+
+
+
   def self.search_publication(search_params,page,per_page=50)
     condition  = ""
 
@@ -274,12 +303,12 @@ class Document < ActiveRecord::Base
   end
 
 
-  def search_date(search_params)
-  end
-  
+ 
+ 
   def people_list(firstname, lastname)
     self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
   end
+
 
   def default_image
     unless self.document_photos.nil?

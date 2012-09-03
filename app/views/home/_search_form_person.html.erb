@@ -1,28 +1,30 @@
+<%personsearch = capture do %>
+	<div id="person" class="">
+		<%= form_for :search_people, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
+			<%= f.hidden_field :search_type, :value=>1 , :class=>"input-small"%>
+			<!-- Search Name -->
+			<%= f.text_field :first_name,{:placeholder => "First Name",:size=>25, :class=>"search_input_name input-large"} %>
+			<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>25, :class=>"search_input_name clear_right input-large"} %>
+			<!-- Search Dates -->
+      
+      <% if site.preview_mode = false %>
+        <br />
+			  <label>DOB FROM</label>
+			  <%= f.text_field :date_birth_from, :size => 10, :class => 'input-mini' , :placeholder=>"YYYY", :style =>'width:77px;' %>
+			  <label>DOB TO</label>
+			  <%= f.text_field :date_death_from,  :size => 10, :class => 'input-mini' ,:placeholder=>"YYYY", :style =>'width:96px;' %>
+      <% end %>
+
+			<%= f.submit "",:class=>"btn btn-primary pull-right",:id=>"searchbyperson", :value=>"Search" %>
+		<% end %>
+	</div>
+<%end%>
+
+
 <div class="person hero-unit">
 	<span class="lead newfont">Search for a person</span>
 	<div class="info-text">
     	Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards
 	</div>
-
-	<!-- Search by Person -->
-	<%personsearch = capture do %>
-		<div id="person" class="">
-			<%= form_for :search_people, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
-				<%= f.hidden_field :search_type, :value=>1 , :class=>"input-small"%>
-				<!-- Search Name -->
-				<%= f.text_field :first_name,{:placeholder => "First Name",:size=>15, :class=>"search_input_name input-medium"} %>
-				<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>15, :class=>"search_input_name clear_right input-medium"} %><br />
-				<!-- Search Dates -->
-				<label>DOB FROM</label>
-				<%= f.text_field :date_birth_from, :size => 10, :class => 'input-mini' , :placeholder=>"YYYY", :style =>'width:77px;' %>
-				<label>DOB TO</label>
-				<%= f.text_field :date_death_from,  :size => 10, :class => 'input-mini' ,:placeholder=>"YYYY", :style =>'width:96px;' %>
-				<%= f.submit "",:class=>"btn btn-primary",:id=>"searchbypersion", :value=>"Search" %>
-			<% end %>
-		</div>
-	<%end%>
-	<!-- Search by Person End -->
-
 	<%= personsearch %>
-
-</div> <!-- End Search Form (person) -->
+</div>

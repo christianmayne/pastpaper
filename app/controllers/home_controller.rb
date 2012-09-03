@@ -23,8 +23,7 @@ class HomeController < ApplicationController
       #raise params[:search_people].inspect
       session[:search_params] = params[:search_document]
       @documents = Document.search_document(params[:search_document], params[:page])
-      # cm> search @documents using document.type != stone
-      # cm> followed by type is equal to stone
+
     elsif !params[:search_people].blank?
       #raise params[:search_people].inspect
       session[:search_params] = params[:search_people]
@@ -36,6 +35,9 @@ class HomeController < ApplicationController
     elsif !params[:search_publication].blank?
       session[:search_params] = params[:search_publication]
       @documents = Document.search_publication(params[:search_publication], params[:page])
+    elsif !params[:search_date].blank?
+      session[:search_params] = params[:search_date]
+      @documents = Document.search_date(params[:search_date], params[:page])      
     else
       if !session[:search_params].blank? && !params[:document_filter].blank?
         session[:search_params][:document_type_id] = params[:document_filter][:document_type_id]  
@@ -53,6 +55,7 @@ class HomeController < ApplicationController
         end
       end
       #redirect_to root_path
+     
     end
 
 #     if !params[:search_people].blank?

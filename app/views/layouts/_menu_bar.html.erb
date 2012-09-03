@@ -6,7 +6,7 @@
           The Past On Paper
         </a>
         <% if current_user.present? && current_user.is_admin? %>
-          : <%= @site.profile_name %>
+          : <%= site.profile_name %>
         <% end %>
       </div>
 
@@ -19,14 +19,14 @@
             <!--<li class="divider-vertical"></li>-->
             <% if !current_user.is_admin? %>
             	<li><%= link_to "Your Items", documents_path %></li>
-              <% if @site.listing_enabled %>
+              <% if site.listing_enabled %>
               	<li class="divider-vertical"></li>
               	<li><%= link_to "Add Your Item", new_document_path %></li>
               <%end%>
           <% end %>
         <%end%>
         <li class="divider-vertical"></li>
-        <li><%= link_to "News", "http://blog.pastonpaper.com/" %>
+        <li><%= link_to "Blog", "http://blog.pastonpaper.com/" %>
         <% if current_user && current_user.is_admin? %>
           <li class="divider-vertical"></li>
           <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Administration <b class="caret"></b></a>
@@ -55,7 +55,7 @@
               <li><%= link_to "Change Password", changepassword_path%> </li>
               <li><%= link_to "Deactivate My account", deactivateaccount_path,:class=>"" ,:method => :delete ,:confirm => "Are you sure? This action cannot be undone."%></li>
               <li><%= link_to "My Items",documents_path %></li>
-              <% if @site.listing_enabled %>
+              <% if site.listing_enabled %>
                 <li><%= link_to "Add new Item", new_document_path%> </li>	
               <%end%>
           		<li><%  @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Gedcom documents"%><%= link_to @gedcom_link_text, gedcom_documents_path %></li>

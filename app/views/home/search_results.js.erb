@@ -1,1 +1,7 @@
-$("#document_results").html("<%= escape_javascript(render :partial => 'document_result')%>");
+<%pageentryinfo = capture do %>
+	<%= page_entries_info @documents,:entry_name => 'item' %>
+<% end %>
+
+$("#page_entry_info").html("<%= escape_javascript(pageentryinfo.html_safe) %>");
+$("#document_results").html("<%= escape_javascript(render :partial => "search_result")%>");
+

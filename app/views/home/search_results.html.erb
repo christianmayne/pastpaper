@@ -1,8 +1,10 @@
+<% @pagetitle = "Search Results" %>
 <% if !@documents.blank? %>
 <div class="alert alert-info">
   <div class="lead newfont">
-
+<span id="page_entry_info">
 	<%= page_entries_info @documents %>
+	</span>
     	<% if session[:search_params][:search_type].to_i == 1 %>
 		  with people matching your search criteria
     	<%elsif session[:search_params][:search_type].to_i == 2 %>
@@ -34,9 +36,10 @@
 	<div class="search_results_container">
 		<div class="row-fluid">
 		<div class="pull-left">
-			<%= link_to "Back to search" ,root_path,:class=>"btn"%>
+			<%= link_to "Back" ,root_path,:class=>"btn"%>
 		</div>
-		
+	  <% if site.preview_mode == false  %>
+    
 		<div class="pull-right">
 			<%= form_for :document_filter, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
 				You can filter your search : 
@@ -52,18 +55,13 @@
 				<% end %>
 				
 				<%= f.submit "Go",:class=>"btn btn-primary"%>
-			<%end%>
-		</div>
+			  <%end%>
+        </div>
+   
+    <% end %>
 	</div>
 	<div id="document_results">
-		<%= render :partial => "document_result"%>
-	</div>
+    <%= render :partial => "search_result"%>
+  </div>
 </div>
 <%end%>
-</div>
-
-
-
-
-
-

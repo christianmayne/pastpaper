@@ -3,6 +3,7 @@ class DocumentsController < ApplicationController
   ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
   #before_filter :require_login, :only => [:index,:show]
   before_filter :prepare_document ,:only => [:show,:itemimages,:authorinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations,:permanently_delete]
+
   
   def index
        conditions = []
@@ -19,8 +20,9 @@ class DocumentsController < ApplicationController
           conditions = []
         end
     end 
+
     @documents = current_user.documents.where(conditions).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-  
+    #@document_types = current_user.documents.where(conditions).document_types
    end
 
   def show

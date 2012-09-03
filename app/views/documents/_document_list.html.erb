@@ -20,7 +20,7 @@
 				<%= f.submit "Go",:class=>"btn btn-primary"%>
 			<%end%>
 			</div>
-			<div class="span4"><%= page_entries_info @documents,:entry_name => 'item' %></div>
+			<div class="span4" id="page_entry_info"><%= page_entries_info @documents,:entry_name => 'item' %></div>
 			</div>
 <%= render "documents/document_common_list"%>
  <%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>

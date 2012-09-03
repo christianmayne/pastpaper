@@ -1,66 +1,65 @@
 <div id="page-header">
-		<div class="status_message">
-			<% if flash[:alert]%>
-				<div class="alert alert-error span12 centering"><%= flash[:alert]%></div>
-	  	<% end %>
-	  	<% if flash[:error]%>
-				<div class="alert alert-error span12 centering"><%= flash[:error]%></div>
-	  	<% end %>
-	  	<% if flash[:notice]%>
-				<div class="alert alert-success span12 centering"><%= flash[:notice]%></div>
-	  	<% end %><!-- End Status Message -->	
-		</div>
+	<div class="status_message">
+		<% if flash[:alert]%>
+			<div class="alert alert-error span12 centering"><%= flash[:alert]%></div>
+  	<% end %>
+  	<% if flash[:error]%>
+			<div class="alert alert-error span12 centering"><%= flash[:error]%></div>
+  	<% end %>
+  	<% if flash[:notice]%>
+			<div class="alert alert-success span12 centering"><%= flash[:notice]%></div>
+  	<% end %><!-- End Status Message -->	
+	</div>
+
   <!-- Logo -->
   <div class="logo pull-left brand">
 	  <a href="/" class="pull-left">
 		  <%= image_tag("logo.jpg")%>
 	  </a>
-	   <div class="pull-right " style="padding: 10px;">
-	   
-	     
-	   <br/>
-	<% if !current_user %>    
-		<strong><%= link_to "Register now !" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%>&nbsp;&nbsp;&nbsp; for full access to our database.</strong>
-	<% end %>
-	   </div>
   </div>
-  
-  <div class="pull-right">
-  	
-  	<ul class="breadcrumb currently_listed">
-  		
-  		<li><h5>Currently listed - </h5></li>
-  		<li><b><%= Person.count%></b> Individuals.<span class="divider">|</span></li>
-  		<li><b><%=Location.count%></b> Locations.<span class="divider">|</span></li>
-  		<li><b><%= Document.count %></b> Items.</li>
-	</ul>
-	     </div>
   <!-- End Logo-->
-  
+
+  <div class="pull-right">
+    <div>
+    	<ul class="breadcrumb currently_listed">
+    		<li><h5>Currently listed - </h5></li>
+    		<li><b><%= Person.count%></b> Individuals.<span class="divider">|</span></li>
+    		<li><b><%= Location.count%></b> Locations.<span class="divider">|</span></li>
+    		<li><b><%= Document.count %></b> Items.</li>
+	    </ul>
+	  </div>
+
+    <% if !current_user %> 
+      <div>
+       	<ul class="breadcrumb currently_listed">
+      	  <li><a class="strong" style="color:red;" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%>  now for full access to our database</li>
+        </ul>
+      </div>
+    <% end %>
+  </div>  
 
   <div class="modal fade" id="loginModal" >
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">×</button>
       <h3>Login </h3>
     </div>
+
     <div class="modal-body">
       <div class="login-box pull-right">
         <% if !current_user %>
 		      <div class="login-form-wrapper">
-		      
 		        <%= form_tag :login ,:id=>"userLogin" , :class => "form-inline" do |f| %>
 		          <%= text_field_tag :username,nil,{:placeholder=>"Username",:size=>"20"} %> 
 					    <%= password_field_tag :password,nil, {:placeholder=>"Password",:size=>"18"} %> 
 					    <input class="btn btn-primary" type="submit" id="submitLogin" name="submitLogin" value="Login" />
 					    <br/>
 				      <div class="pull-left">
-				        <%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
+                <%= link_to "Register" ,register_path , :class=>"pull-left"%>&nbsp|&nbsp<%= link_to "Forgot Password?" ,forgot_password_path ,:id=>"fpassword"%>
 				      </div>
 				      <div class="pull-right">
           		  Remember Me <%= check_box_tag :remember_me, 1 %>
           	  </div>
           	<%end%>  
-          	
 			    </div>
 		    <%end%>
 		    <div class="social_links pull-right row-fluid">
@@ -71,11 +70,10 @@
 		    </div>	
       </div>
     </div>
+
     <div class="modal-footer">
       <a href="#" class="btn" data-dismiss="modal">Close</a>
     </div>
+
   </div>
 </div> <!--End Page Header-->
-
-
-

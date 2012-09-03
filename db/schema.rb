@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827073921) do
+ActiveRecord::Schema.define(:version => 20120901095839) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -231,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20120827073921) do
     t.boolean  "popover_login_form",       :default => true
     t.text     "popover_message"
     t.boolean  "listing_enabled",          :default => true
+    t.boolean  "preview_mode",             :default => true
   end
 
   create_table "site_statuses", :force => true do |t|

@@ -1,5 +1,3 @@
-<% @site = SiteProfile.first %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +9,7 @@
   <meta property="og:description" content = "<%= @share_description || "Item on www.pastonpaper.com"%>" />
   <meta property="fb:app_id" content="354188527987106" />
   <meta charset="utf-8"/>
-  <title><%= @site.site_url %> | <%= @pagetitle %></title>
+  <title><%= site.site_url %> | <%= @pagetitle %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application"  %>
@@ -25,7 +23,6 @@
     });
   </script>
 </head>
-
 <body>
   <%= render 'layouts/menu_bar' %>
   
@@ -54,7 +51,7 @@
     </script>
 
 
-    <% if @site.popover_enabled %>
+    <% if site.popover_enabled %>
       <%= render 'layouts/popover' %> 
     <% end %>
   <% end %>
