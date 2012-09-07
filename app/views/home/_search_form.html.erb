@@ -1,3 +1,13 @@
+<% adverts = ['<a href="http://www.anrdoezrs.net/click-6185997-10660760" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660760" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.kqzyfj.com/click-6185997-10391798" target="_top"><img src="http://www.awltovhc.com/image-6185997-10391798" width="728" height="90" alt="728x90: I’m, your Nan" border="0"/></a>',
+              '<a href="http://www.anrdoezrs.net/click-6185997-10660758" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660758" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.tkqlhce.com/click-6185997-10660751" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660751" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.anrdoezrs.net/click-6185997-10880818" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10880818" width="728" height="90" alt="14 Day Free Trial " border="0"/></a>'
+             ]
+  x = rand(adverts.count)
+%> 
+
+
 <span class="lead headline4 newfont">Search our Database</span>
 <div id="search-form">
   <%= render "search_form_information"%>
@@ -7,8 +17,12 @@
   <%= render "search_form_place" %>
 
   <div>
-  <%= render "search_form_browse" %>
-  <%= render "search_form_date" %>
+    <%= render "search_form_browse" %>
+    <%= render "search_form_date" %>
+  </div>
+
+  <div>
+    <%= adverts[x].html_safe %>
   </div>
 
 </div>
