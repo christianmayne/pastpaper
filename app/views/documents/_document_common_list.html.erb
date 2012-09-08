@@ -1,45 +1,43 @@
 <% unless @documents.blank? %>
-  
-  	<div class="well well-small" style="margin: 2px 0;">
+  <div class="well well-small" style="margin: 2px 0;">
     <div class="row-fluid">
-    	<div class="span1">Stock #</div>
-    	<div class="span1">Image</div>
-    	<div class="span4">Item Name</div>
-    	<div class="span2">Type</div>
-    	<div class="span2">Status</div>
-    	<div class="span2">
-    		<% if (current_user.present? ) %>
+      <div class="span1">Stock #</div>
+      <div class="span1">Image</div>
+      <div class="span4">Item Name</div>
+      <div class="span2">Type</div>
+      <div class="span2">Status</div>
+      <div class="span2">
+        <% if (current_user.present? ) %>
           <% if current_user.is_admin? %>
-    		Actions
-    		<%end%><%end%>
-    	</div>
+            Actions
+          <%end%>
+        <%end%>
+      </div>
     </div>
-    </div>
-     <% @documents.each do |document| %>
+  </div>
+  <% @documents.each do |document| %>
     <div class="well well-small" style="margin: 2px 0;">
-    <div class="row-fluid">
-    <div class="span1"><%= link_to document.stock_number, document_path(document) %></div>
-    	<div class="span1"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document),:class=>"thumbnail" unless document.default_image.nil? %></div>
-    	<div class="span4"> 
-    		 <% if document.name.blank? %>
-                <%= link_to document.title, document_path(document) %>
-              <% else %>  
-                <%= link_to document.name, document_path(document) %>
-              <% end %>
-              </div>
-    	<div class="span2"><%= link_to document.document_type_name, document_path(document) %></div>
-    	<div class="span2"><%= link_to document.document_status, document_path(document) %></div>
-    	<div class="span2"> <% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
-             
-                <%= link_to image_tag("editicon.gif"), edit_document_path(document),:class=>"btn btn-mini" %> 
-                <%= link_to image_tag("deleteicon.png"), document_path(document),:class=>"btn btn-mini", :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
-               <%= link_to "D", permanent_delete_documents_path(document),:title=>"Premanently delete",:class=>"btn btn-mini btn-danger", :method => :delete, :confirm => "Are you sure you wish to permenantly delete the current document?" if document.is_deleted? %>
-					<%= link_to "R", admin_restore_document_path(document),:title=>"Restore",:class=>"btn btn-mini btn-warning" ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
-            <% end %></div>
+      <div class="row-fluid">
+        <div class="span1"><%= link_to document.stock_number, document_path(document) %></div>
+        <div class="span1"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document),:class=>"thumbnail" unless document.default_image.nil? %></div>
+        <div class="span4"> 
+          <% if document.name.blank? %>
+            <%= link_to document.title, document_path(document) %>
+          <% else %>  
+            <%= link_to document.name, document_path(document) %>
+          <% end %>
+        </div>
+        <div class="span2"><%= link_to document.document_type_name, document_path(document) %></div>
+        <div class="span2"><%= link_to document.document_status, document_path(document) %></div>
+        <div class="span2">
+          <% if !current_user.blank? && (current_user.is_document_owner(document.user_id) || current_user.is_admin?) %>
+            <%= link_to image_tag("editicon.gif"), edit_document_path(document),:class=>"btn btn-mini" %> 
+            <%= link_to image_tag("deleteicon.png"), document_path(document),:class=>"btn btn-mini", :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
+            <%= link_to "D", permanent_delete_documents_path(document),:title=>"Premanently delete",:class=>"btn btn-mini btn-danger", :method => :delete, :confirm => "Are you sure you wish to permenantly delete the current document?" if document.is_deleted? %>
+            <%= link_to "R", admin_restore_document_path(document),:title=>"Restore",:class=>"btn btn-mini btn-warning" ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>
+          <% end %>
+        </div>
+      </div>
     </div>
- 
-    </div>
-
- <% end %>
- 
- <% end %>
+  <% end %>
+<% end %>
