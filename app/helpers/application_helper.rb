@@ -17,9 +17,9 @@ module ApplicationHelper
     link_to_function(name, ("add_fields(this, '#{association}', '#{escape_javascript(fields)}')"))
   end
 
-
   def people_gender
     [["Unknown", "Unknown"],["Male", "Male"], ["Female", "Female"]]
   end
+
   
 end

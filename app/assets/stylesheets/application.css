@@ -313,15 +313,15 @@ body,html  {
   top: -4px;
 }
 .sidebar_item {
-    background-color: #F3EFE7;
-    border: 1px solid #888888;
-    border-radius: 5px 5px 5px 5px;
-    color: #3D5055;
-    /*height: 150px;*/
-   height:auto;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    width: 170px;
+  background-color: #F3EFE7;
+  border: 1px solid #888888;
+  border-radius: 5px 5px 5px 5px;
+  color: #3D5055;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  width: 170px;
+  height: 155px;
+  overflow: hidden;
 }
 
 .sidebar_heading {

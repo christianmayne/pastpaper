@@ -1,3 +1,15 @@
+<% banner_ads = ['<a href="http://www.anrdoezrs.net/click-6185997-10660760" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660760" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.kqzyfj.com/click-6185997-10391798" target="_top"><img src="http://www.awltovhc.com/image-6185997-10391798" width="728" height="90" alt="728x90: I’m, your Nan" border="0"/></a>',
+              '<a href="http://www.anrdoezrs.net/click-6185997-10660758" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660758" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.tkqlhce.com/click-6185997-10660751" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660751" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.anrdoezrs.net/click-6185997-10880818" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10880818" width="728" height="90" alt="14 Day Free Trial " border="0"/></a>',
+              '<a href="http://www.jdoqocy.com/click-6185997-10660719" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660719" width="728" height="90" alt="728x90_Genes Reunited" border="0"/></a>',
+              '<a href="http://www.dpbolvw.net/click-6185997-10931192" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931192" width="728" height="90" alt="" border="0"/></a>',
+              '<a href="http://www.jdoqocy.com/click-6185997-10931171" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10931171" width="728" height="90" alt="" border="0"/></a>',
+              '<a href="http://www.kqzyfj.com/click-6185997-10931162" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931162" width="728" height="90" alt="" border="0"/></a>',
+             ]
+%> 
+
 <script type="text/javascript">
 
 jQuery(document).ready(function() {
@@ -152,7 +164,16 @@ jQuery(document).ready(function() {
 
 
 <% if !current_user %>
-  <div class="row-fluid"><div class="well">Please <a class="strong" style="color:red;" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%> to see full details about this item</div></div>
+  <div class="row-fluid">
+    <div class="well">
+      <center>Please <a class="strong" style="color:red;" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%> to see full details about this item</center>
+    </div>
+  </div>
+  <div class="rowfluid">
+    <div class="well">
+      <center><%= banner_ads[rand(banner_ads.count)].html_safe %></center>
+    </div>
+  </div>
 <% else %>
 	<%= render "document_extended_details" %>
 <% end %>
