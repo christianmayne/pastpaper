@@ -1,3 +1,5 @@
+<% person_images = ['/assets/photos/person01.png', '/assets/photos/person02.png'] %>
+
 <%personsearch = capture do %>
 	<div id="person" class="">
 		<%= form_for :search_people, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
@@ -21,7 +23,7 @@
 <%end%>
 
 
-<div class="person hero-unit" style="background:#d5deef url(/assets/photos/person01.png) no-repeat right";>
+<div class="person hero-unit" style="background:#d5deef url(<%= person_images[rand(person_images.count)] %>) no-repeat right";>
 	<span class="lead newfont"">Search for a person</span>
 	<div class="info-text" style="width:400px;">
     	Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards
