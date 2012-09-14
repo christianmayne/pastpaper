@@ -1,120 +1,91 @@
 <% @pagetitle = "Profile :: #{current_user.name.humanize}" %>
+<% @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Gedcom Files"%>
 
 <div class="introduction well">
   <span class="headline4 lead newfont"><%=current_user.name%>'s Profile</span>
-  <span class="pull-right">Summary of information stored on your Past on Paper account<br />
-    <span class="pull-right"><b>Username: <%= current_user.username %></b></span>
-  </span>
+  <span class="pull-right">Summary of information stored on your Past on Paper account</span>
 </div>
 
+<div>
 
-<div class="profile_header_text">
-  <b>Hello <%= current_user.first_name %>.</b> This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
-</div>
-<hr />
-
-<div class="row-fluid">
-  <div class="span4">
-    <div class="">
-      <b class="lead">Account Details</b>
-      <table class="table table-striped table-bordered table-condensed">
-        <tr class="odd">
-          <td width="16%" class="strong">Username</td>
-          <td width="84%"><%= current_user.username%></td>
-        </tr>
-        <tr class="odd">
-          <td width="16%" class="strong">Full Name</td>
-          <td width="84%"><%= current_user.name%></td>
-        </tr>
-        <tr class="even">
-          <td class="strong">Email Address</td>		
-          <td><%= current_user.email%></td>
-        </tr>
-        <tr class="even">
-          <td class="strong">DOB</td>
-          <td><%= current_user.date_of_birth%></td>
-        </tr>
-      </table>
+  <div class="well">
+    <div class="profile_header_text">
+      <b>Hello <%= current_user.first_name %>.</b><br />This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
     </div>
-  </div>
+    <br /><br />
 
-  <div class="span4">
-    <b class="lead">Your Address</b>
-    <table class="table table-striped table-bordered table-condensed">     
-      <tr class="odd">
-        <td width="16%" class="strong">Address1</td>
-        <td width="84%"><%= current_user.address1%></td>
-      </tr>
-      <tr class="odd">
-        <td class="strong">Address2</td>
-        <td><%= current_user.address2%></td>
-      </tr>
-      <tr class="odd">
-        <td class="strong">Town / City</td>
-        <td><%= current_user.city%></td>
-      </tr>        
-      <tr class="odd">
-        <td class="strong">County</td>
-        <td><%= current_user.county%></td>
-      </tr>        
-      <tr class="odd">
-        <td class="strong">Postcode</td>
-        <td><%= current_user.post_code%></td>
-      </tr>        
-      <tr class="odd">
-        <td class="strong">Country</td>
-        <td><%= current_user.country%></td>
-      </tr>        
-      <tr class="even">
-        <td class="strong">Telephone:</td>
-        <td><%= current_user.tel_number%></td>
-      </tr>
-      <tr class="odd">
-        <td class="strong">Mobile:</td>
-        <td><%= current_user.mobile_number%></td>
-      </tr>
-      <tr class="even">
-        <td class="strong">DOB:</td>
-        <td><%= current_user.date_of_birth%></td>
-      </tr>
-    </table>
+    <div class="span7">
+      <h4>Personal Details</h4><br />
+      <b>Username: </b><%= current_user.username %><br />
+      <b>Email Address: </b><%= current_user.email %><br />
+      <b>Full name: </b><%= current_user.name %><br />
+      <br/>
+      <b>Address</b>
+      <br />
+      <% if !current_user.address1.empty? %>
+        <%= current_user.address1 %><br />
+      <% end %>
+      <% if !current_user.address2.empty? %>
+        <%= current_user.try(:address2) %><br />
+      <% end %>
+      <% if !current_user.city.empty? %>
+        <%= current_user.city %><br />
+      <% end %>
+      <% if !current_user.county.empty? %>
+        <%= current_user.county %><br />
+      <% end %> 
+      <% if !current_user.post_code.empty? %>      
+        <%= current_user.post_code %><br />
+      <% end %>
+      <% if !current_user.country.empty? %>
+        <%= current_user.country %><br />
+      <% end %>
+      <br />
+      <% if !current_user.tel_number.empty? %>
+        <b>Tel: </b><%= current_user.tel_number %><br />
+      <% end %>
+      <% if !current_user.mobile_number.empty? %>
+        <b>Mobile: </b><%= current_user.mobile_number %><br />
+      <% end %>
+      <br /><br />
+      <div>
+        <%= link_to "Change Your Details" , edit_user_path(current_user) ,:class=>"btn btn-primary" %>
+      </div>
 
-    <div class="varMarginTop">
-    <%= link_to "Change Your Details" , edit_user_path(current_user) ,:class=>"generalLink btn btn-success" %>
     </div>
-  </div>
 
-  <div class="span4">
-    <b class="lead">Statistics</b><br />
-    You have <%= link_to current_user.documents.count, documents_path %> Items Listed:<br /> 
-    <% if current_user.documents.count > 0 %> 
-      <ul>
-      <% Status.alphabetically.each do |status|  %>
-        <% if current_user.documents.find_all_by_status_id(status.id).count > 0 %>
-          <li><%= current_user.documents.find_all_by_status_id(status.id).count %> Items marked <%= status.name %></li>
-        <% end %>  
+    <div class="span3 pull-right">
+      <h4>Statistics</h4><br />
+      <%= link_to ("You Have "+(current_user.documents.count.to_s)+" Items Listed"), documents_path %><br /> 
+      <% if current_user.documents.count > 0 %> 
+        <ul>
+        <% Status.alphabetically.each do |status|  %>
+          <% if current_user.documents.find_all_by_status_id(status.id).count > 0 %>
+            <li><%= current_user.documents.find_all_by_status_id(status.id).count %> Items marked <%= status.name %></li>
+          <% end %>  
+        <% end %>
+        </ul>
       <% end %>
-      </ul>
-    <% end %>
-    <br />
-    
-    <% if current_user.documents.count > 0 %>
-      <b>What you have listed</b><br />
-      <% DocumentType.alphabetically.each do |type|  %>
-        <% if current_user.documents.find_all_by_document_type_id(type.id).count > 0 %>
-          <%= type.name %>: <%= current_user.documents.find_all_by_document_type_id(type.id).count %>  <br />
-        <% end %>  
+      <br />
+      <b>Search Helpers</b><br />
+     <%= link_to @gedcom_link_text, gedcom_documents_path %><br />
+     
+
+      <br />
+      <% if current_user.documents.count > 0 %>
+        <b>Item breakdown</b><br />
+        <% DocumentType.alphabetically.each do |type|  %>
+          <% if current_user.documents.find_all_by_document_type_id(type.id).count > 0 %>
+            <%= type.name %>: <%= current_user.documents.find_all_by_document_type_id(type.id).count %>  <br />
+          <% end %>  
+        <% end %>
       <% end %>
-    <% end %>
-    
-    <br />
-    <b>Search Helpers</b><br />
-    You have <%= current_user.gedcom_documents.count %> Gedcom files uploaded<br />
+      
+      <br />
+
+    </div>
+
+    <div style="clear:both; "></div>
   </div>
 
 </div>
-
-<% if false%>
-  <%= render "shared/usermenu"%>
-<% end %>
-<br /><br />
