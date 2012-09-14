@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914133933) do
+ActiveRecord::Schema.define(:version => 20120914161527) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -312,6 +312,7 @@ ActiveRecord::Schema.define(:version => 20120914133933) do
     t.string   "interest_other_text"
     t.boolean  "terms_accepted",                  :default => false
     t.boolean  "dealer_account",                  :default => false
+    t.boolean  "is_dealer",                       :default => false
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

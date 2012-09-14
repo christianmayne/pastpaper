@@ -53,7 +53,7 @@
                 <li><%= link_to "Your Items",documents_path %></li>
              		<li><%  @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Your Gedcom Files"%><%= link_to @gedcom_link_text, gedcom_documents_path %></li>
                 <li class="divider"></li>
-                <% if site.listing_enabled %>
+                <% if site.listing_enabled && current_user.is_dealer %>
                   <li><%= link_to "Add New Item", new_document_path%> </li>	
                 <%end%>
             		<li><%= link_to 'Add New Gedcom', new_gedcom_document_path %></li>
