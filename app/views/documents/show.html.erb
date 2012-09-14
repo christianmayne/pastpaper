@@ -112,6 +112,13 @@ jQuery(document).ready(function() {
           <br /><br />
         <%end%>
 
+        <% if @document.document_type.name = "Bible" %>
+          The Family Register lists <%= @document.people.count %> individuals<br />
+          <br /><br />
+        <% end %>
+
+
+
         <% unless @document.condition.blank? %>
           <b>Condition: </b>
           <%= @document.try(:condition) %>
@@ -119,6 +126,7 @@ jQuery(document).ready(function() {
         <% else %>
           <span>A condition report has not been provided for this item</span><br /><br />
         <%end%>
+
       
         <!-- Other details -->
         <% if !@document.length.blank? || !@document.width.blank? || !@document.depth.blank? %>      	
@@ -166,7 +174,12 @@ jQuery(document).ready(function() {
 <% if !current_user %>
   <div class="row-fluid">
     <div class="well">
-      <center>Please <a class="strong" style="color:red;" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%> to see full details about this item</center>
+      <center>
+        <% if @document.document_type.name = "Bible" %>
+          The Family Register lists <%= @document.people.count %> individuals<br />
+        <%end%>
+        Please <a class="strong" style="color:red;" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%> to see full details
+      </center>
     </div>
   </div>
   <div class="rowfluid">
