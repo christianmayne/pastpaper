@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "Pastonpaper.com <noreply@pastonpaper.com>"
+  default from: "Pastonpaper.com <info@pastonpaper.com>"
 
   
     def registration_notification(user)
@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
       @url  = root_url
       mail(
         :to => user.email,
-        :subject => "Thank you for your registration in Pastonpaper"
+        :subject => "Thank you for your registration on Pastonpaper.com"
       )
     end
   
@@ -37,7 +37,7 @@ class UserMailer < ActionMailer::Base
     @url  = user_activation_url(user.activation_token)
     mail(
       :to => user.email,
-      :subject => "Thank you for your registration in Pastonpaper"
+      :subject => "Thank you for your registration on Pastonpaper.com"
     )
   end
   
