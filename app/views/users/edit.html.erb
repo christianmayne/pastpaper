@@ -4,9 +4,8 @@
 </div>
 
 <div class="general_page">
-
     <%= form_for(@user)  do |f| %>
-
+      <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
       <div class="well span5 pull-left">
         <h4>Basic Details</h4>
         <br />
@@ -16,7 +15,6 @@
         <%= link_to "Change Password", changepassword_path%>
         <br/><br /><br />
         <%= f.check_box :dealer_account %> I am interested in listing my items on the site<br />
-
       </div>
 
       <div class="well span6 pull-right">
@@ -51,9 +49,6 @@
       <br />
     <% end %>
   </div>
-
-
-
 
   <div style="clear:both; "></div>
 
