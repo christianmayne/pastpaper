@@ -1,8 +1,12 @@
 <% @pagetitle = "Profile :: #{current_user.name.humanize}" %>
 
-<div class="introduction">
-  <span class="headline4 lead">Your Profile</span>
+<div class="introduction well">
+  <span class="headline4 lead newfont"><%=current_user.name%>'s Profile</span>
+  <span class="pull-right">Summary of information stored on your Past on Paper account<br />
+    <span class="pull-right"><b>Username: <%= current_user.username %></b></span>
+  </span>
 </div>
+
 
 <div class="profile_header_text">
   <b>Hello <%= current_user.first_name %>.</b> This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
@@ -106,12 +110,7 @@
     <br />
     <b>Search Helpers</b><br />
     You have <%= current_user.gedcom_documents.count %> Gedcom files uploaded<br />
-    You have XX Saved Searches<br />
   </div>
-
-  
-
-
 
 </div>
 

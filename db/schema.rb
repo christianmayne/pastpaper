@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908151800) do
+ActiveRecord::Schema.define(:version => 20120914133933) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -148,6 +148,16 @@ ActiveRecord::Schema.define(:version => 20120908151800) do
     t.string   "sex"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "location_countries", :force => true do |t|
+    t.string   "name"
+    t.string   "iso_code"
+    t.decimal  "longitude",  :precision => 10, :scale => 0
+    t.decimal  "latitude",   :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sort_order",                                :default => 999
   end
 
   create_table "locations", :force => true do |t|
@@ -291,6 +301,17 @@ ActiveRecord::Schema.define(:version => 20120908151800) do
     t.datetime "last_activity_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.boolean  "interest_familyhistory",          :default => false
+    t.boolean  "interest_localhistory",           :default => false
+    t.boolean  "interest_oldbooks",               :default => false
+    t.boolean  "interest_olddocuments",           :default => false
+    t.boolean  "interest_oldnewspapers",          :default => false
+    t.boolean  "interest_oldphotos",              :default => false
+    t.boolean  "interest_oldpostcards",           :default => false
+    t.boolean  "interest_other",                  :default => false
+    t.string   "interest_other_text"
+    t.boolean  "terms_accepted",                  :default => false
+    t.boolean  "dealer_account",                  :default => false
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

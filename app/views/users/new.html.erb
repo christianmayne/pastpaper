@@ -1,129 +1,95 @@
-<!-- Container -->
-<div class="registraton form-horizontal">     
-  <%= form_for(@user)  do |f| %>
-    <fieldset>
-      <legend>New Registration</legend>
-      <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
-      <div class="control-group">
-        <%= f.label :first_name , :class => "control-label" %>
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on">*</span><%= f.text_field :first_name,{:required=>true, :class=>"input-xlarge"}%>
-          </div>
+<% @location_countries = LocationCountry.find :all, :order=>"sort_order, name ASC" %>
+
+<div class="introduction well">
+  <span class="headline4 lead newfont">Register a New User</span>
+</div>
+
+<div class="general_page">
+
+  <div>
+    <p>Thank you for registering a new account with The Past on Paper.  We only require basic details about you, and we don't share this data with anyone. Please read our <a href="/privacy">Privacy Policy</a> and our Terms & Conditions</a>, as you will need to accept these before you can register.</p>
+    <p>If you think you might want to list items on the site, please let us know by selecting the checkbox so we can inform you as soon as this feature has been unlocked.</p>
+    <p>We hope you enjoy using The Past on Paper, and that we may help reunite you with some of your family heirlooms</p>
+  </div>
+
+  <br />
+  <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
+  <br /> 
+
+  <div>
+    <%= form_for(@user)  do |f| %>
+
+      <div class="well span5 pull-left">
+        <h4>Basic Details</h4>
+        <span>Username </span><br /><%= f.text_field :username,{:required=>true, :class=>"xlarge", :placeholder=>"Username*"}%><br />
+        <span>Email Address </span><br /><%= f.text_field :email,{:required=>true, :class=>"xlarge", :placeholder=>"Email Address*"}%><br />
+
+        <span style="width=30px;">Choose a Password</span>
+        <fieldset>
+          <%= f.password_field :password,{:required=>true, :class=>"input-medium", :placeholder=>"Password*"}%>
+          <%= f.password_field :password_confirmation,{:required=>true, :class=>"input-medium", :placeholder=>"Confirm Password*"}%>
+          <span class="help-inline">Passwords must be greater than 6 characters in length etc</span>
+        </fieldset>
+        
+        <br/><br />
+        <%= f.check_box :dealer_account %> I am interested in listing my items on the site<br />
+
+      </div>
+
+      <div class="well span6 pull-right">
+        <h4>Personal Details</h4>
+        <fieldset>
+          <%= f.text_field :first_name,{:required=>true, :class=>"input-medium", :placeholder=>"First Name*"}%>
+          <%= f.text_field :last_name,{:required=>true, :class=>"input-medium", :placeholder=>"Last Name*"}%>
+        </fieldset>
+        <%= f.text_field :address1,{ :class=>"input-xlarge", :placeholder=>"Street Address 1"}%><br />
+        <%= f.text_field :address2,{ :class=>"input-xlarge", :placeholder=>"Street Address 2"}%><br />
+        <%= f.text_field :city,{ :class=>"input-large", :placeholder=>"Town / City"}%>
+  
+        <fieldset>
+          <%= f.text_field :county,{ :class=>"input-large", :placeholder=>"State / County"}%>
+          <%= f.text_field :post_code,{ :class=>"input-small", :placeholder=>"ZIP / Postcode"}%>
+        </fieldset>
+
+       <%= f.select(:country, @location_countries.map(&:name), {:include_blank => 'Select a Country*'}, :required=>true) %>
+
+        <br />
+        <fieldset>
+          <%= f.text_field :tel_number,{ :class=>"input-medium", :placeholder=>"Telephone"}%>
+          <%= f.text_field :mobile_number,{ :class=>"input-medium", :placeholder=>"Mobile"}%>
+        </fieldset>
+      </div>
+  
+      <div class="well span11 pull-left">
+        <h4>Your Interests</h4>
+        So we can improve what we offer, it would be useful if you could tell us what particular aspect of The Past on Paper interests you.  Please select all that apply.<br /><br />
+        <div class="span12 pullleft">
+          <div class="span2"><%= f.check_box :interest_familyhistory, {:label=>"Family History"} %> Family History </div>
+          <div class="span2"><%= f.check_box :interest_localhistory %> Local History</div>
+        </div>
+        <div class="span12 pull-left">
+          <div class="span2"><%= f.check_box :interest_oldbooks %> Old Books</div>
+          <div class="span2"><%= f.check_box :interest_olddocuments %> Old Documents</div>
+          <div class="span2"><%= f.check_box :interest_oldnewspapers %> Old Newspapers</div>
+          <div class="span2"><%= f.check_box :interest_oldphotos %> Old Photos</div>
+          <div class="span2"><%= f.check_box :interest_oldpostcards %> Old Postcards</div>
+        </div>
+        <div class="span12 pull-left">
+          <div class="span5"><%= f.check_box :interest_other %> Other  <%= f.text_field :interest_other_text, :placeholder=>"Please Specify" %></div>
         </div>
       </div>
 
-      <div class="control-group">
-        <%= f.label :last_name , :class => "control-label" %>
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on">*</span><%= f.text_field :last_name,{:required=>true, :class=>"input-xlarge"}%>
-          </div>
-        </div>
+      <div" class="well span11 pull-left">
+        <h4>Terms & Conditions</h4>
+        <br />
+        <%= f.check_box :terms_accepted, {:required=>true } %> Please indicate that you have read and accept the <a href="/terms/" target="_TOP">Terms and Conditions</a><br /><br />
+        <button type="submit" class="btn">Submit</button>
       </div>
-        
-      <div class="control-group">
-        <%= f.label :username , :class => "control-label" %>
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on">*</span><%= f.text_field :username,{:required=>true, :class=>"input-xlarge"}%>
-          </div>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :password , :class => "control-label" %>
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on">*</span><%= f.password_field :password,{:required=>true, :class=>"input-xlarge"}%>
-          </div>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :password_confirmation , :class => "control-label" %>
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on">*</span><%= f.password_field :password_confirmation,{:required=>true, :class=>"input-xlarge"}%>
-          </div>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :email , :class => "control-label" %>
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on">*</span><%= f.text_field :email,{:required=>true, :class=>"input-xlarge"}%>
-          </div>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :address1 , :class => "control-label" %>
-        <div class="controls">
-            <%= f.text_field :address1,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :address2 , :class => "control-label" %>
-        <div class="controls">
-            <%= f.text_field :address2,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :city,"City/Town", :class => "control-label" %>
-        <div class="controls">
-            <%= f.text_field :city,{:class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :county,"County/State", :class => "control-label" %>
-        <div class="controls">
-            <%= f.text_field :county,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :post_code,:class => "control-label" %>
-        <div class="controls">
-            <%= f.text_field :post_code,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :country,:class => "control-label" %>
-        <div class="controls">
-            <%= f.text_field :country,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :tel_number,:class => "control-label" %>
-        <div class="controls">
-            <%= f.number_field :tel_number,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :mobile_number,:class => "control-label" %>
-        <div class="controls">
-            <%= f.number_field :mobile_number,{ :class=>"input-xlarge"}%>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :date_of_birth,:class => "control-label" %>
-        <div class="controls">
-          <%= f.date_select  :date_of_birth, :start_year => Date.today.year-110, :end_year => Date.today.year-1,:include_blank => true, :class=>"input-small"%>
-        </div>
-      </div>
-        
-      <div class="form-actions">
-        <%= f.submit(:value=>"Register",:class=>"btn btn-primary submit") %>
-      </div>
-    </fieldset>
-  <% end %>
+
+      <br />
+    <% end %>
+  </div>
+
+  <div style="clear:both; "></div>
+
 </div>
