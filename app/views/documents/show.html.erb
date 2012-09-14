@@ -28,10 +28,15 @@ jQuery(document).ready(function() {
 <% if !@document.blank? && !@document.document_photos.blank? %>
   <% @fb_img = @document.default_image.photo.url(:thumb)%>
 <% end%>
-<% @share_data="Check this out "%>
-<% @share_description = @document.try(:comment)
-  # for facebook check head section of layout/application.html.erb
-%>
+<% @share_data=""%>
+<% if @document.name.blank? %>
+  <% @share_data=@document.try(:title) %>
+  <% @share_description = @document.try(:title) %>
+<% else %>
+  <% @share_data=@document.try(:name) %>
+  <% @share_description = @document.try(:name) %>
+  <%# for facebook check head section of layout/application.html.erb %>
+<% end %>
 
 <!-- Update document views in db -->
 <% Document.increment_counter(:views, @document.id) %>
