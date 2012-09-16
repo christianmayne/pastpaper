@@ -1,3 +1,6 @@
+<% newspaper_ad = '' %>
+
+
 <% @pagetitle = "Search Results" %>
 
 <div class="alert alert-info">
@@ -20,6 +23,22 @@
     <div class="pull-left">
 	    <%= link_to "Back" ,root_path,:class=>"btn"%>
     </div>
+
+
+    <% if session[:search_params][:document_type_id].to_i == 4 %>
+      <div class="row-fluid" style="margin-bottom:10px;">
+        <div class="pull-right">
+          <script language="javascript" type="text/javascript">
+            var myTarget="http://track.webgains.com/click.html?wglinkid=85629&wgcampaignid=122233&js=0";
+            var uri = "http://track.webgains.com/link.html?wglinkid=85629&wgcampaignid=122233";
+            document.write('<a href="'+myTarget+'" target="_blank" onMouseOver="window.status=\'http://www.historic-newspapers.co.uk\';return true;" onMouseOut="window.status=\'\'"><img src="'+uri+'" width="728" height="90" border="0" alt="Historic Newspapers"/></a>');
+          </script>
+        </div>
+      </div>
+    <%end%>
+
+
+
     <% if site.preview_mode = false %>
       <% if @documents.count > 1 %>
         <div class="pull-right">
