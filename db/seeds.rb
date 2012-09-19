@@ -7,17 +7,17 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(:first_name=>"admin" ,:last_name=>"admin",:username=>"adminuser",:email=>"admin@pastonpaper.com",:password=>"123456",:password_confirmation=>"123456")
 
-ShippingZone.create[{:id=>1, :name=>"UK Zone 1", :description=>"UK to UK"},
-                      {:id=>2, :name=>"UK Zone 2", :description=>"UK to EU, not including islands"},
-                      {:id=>3, :name=>"UK Zone 3", :description=>"UK to EU Islands"}]                      
+ShippingZone.create[{:name=>"UK Zone 1", :description=>"UK to UK"},
+                      {:name=>"UK Zone 2", :description=>"UK to EU, not including islands"},
+                      {:name=>"UK Zone 3", :description=>"UK to EU Islands"}]                      
 
-ShipingZonePrice.create[{:id=>1, :shipping_zone_id=>1, :weight_g=>100, :price=>1},
-                          {:id=>2, :shipping_zone_id=>1, :weight_g=>250, :price=>2},
-                          {:id=>3, :shipping_zone_id=>1, :weight_g=>500, :price=>2},
-                          {:id=>4, :shipping_zone_id=>1, :weight_g=>750, :price=>4},
-                          {:id=>5, :shipping_zone_id=>1, :weight_g=>1000, :price=>5},
-                          {:id=>6, :shipping_zone_id=>1, :weight_g=>2000, :price=>7},
-                          {:id=>7, :shipping_zone_id=>1, :weight_g=>25000, :price=>12}]
+ShipingZonePrice.create[{:shipping_zone_id=>4, :weight_g=>100, :price=>1},
+                          {:shipping_zone_id=>4, :weight_g=>250, :price=>2},
+                          {:shipping_zone_id=>4, :weight_g=>500, :price=>2},
+                          {:shipping_zone_id=>4, :weight_g=>750, :price=>4},
+                          {:shipping_zone_id=>4, :weight_g=>1000, :price=>5},
+                          {:shipping_zone_id=>4, :weight_g=>2000, :price=>7},
+                          {:shipping_zone_id=>4, :weight_g=>25000, :price=>12}]
 
 LocationCountry.create      [{:name => 'Aland Islands', :iso_code => 'AX'},
                               {:name => 'Albania', :iso_code => 'AL'},
