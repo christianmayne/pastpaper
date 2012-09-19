@@ -53,7 +53,14 @@ jQuery(document).ready(function() {
   <% if site.selling_enabled %>
 	  <% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
 		  <strong class="">This item is for sale</strong>
-      <strong class="pull-right"><%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %></strong>
+      <strong class="pull-right">
+        <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %> 
+        <% if @document.shipping_price == 0 %>
+          (Free Shipping)
+        <%else%>
+          (+ <%= number_to_currency(@document.shipping_price, :unit => "&pound;") %> Shipping)
+        <%end%>
+      </strong>
 	  <%else%>
 		  <strong >This item is not for sale</strong>
 	  <% end %>	
@@ -84,7 +91,8 @@ jQuery(document).ready(function() {
                                           :state => current_user.county,
                                           :zip => current_user.post_code %>
 
-              <% service.item_name  service.shipping '0.00' %>
+              <% service.item_name  @pagetitle %>
+              <% service.shipping @document.shipping_price %>
               <% service.tax '0.00' %>
               <% service.notify_url paypal_ipn_url %>
               <% service.return_url paypal_return_url %>

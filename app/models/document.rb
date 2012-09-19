@@ -79,6 +79,26 @@ class Document < ActiveRecord::Base
   end
 
 
+  def shipping_price
+    doc_id = self.id
+    shipping_price = ShippingZonePrice.find_by_sql("SELECT z.price as price
+                                                      FROM shipping_zone_prices z, documents d
+                                                      WHERE d.id = '#{doc_id}'
+                                                      AND z.weight_g > d.weight
+                                                      ORDER BY z.weight_g asc limit 1").first.try(:price)
+    if shipping_price == nil
+      shipping_price = 0
+    end
+
+    
+    return shipping_price
+  end
+
+  def shipping_price_new
+
+  end
+
+
 
   def self.simple_search(search_param)
     condition  = ""
