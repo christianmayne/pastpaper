@@ -99,7 +99,7 @@ jQuery(document).ready(function() {
       <%end%>
 
     <%else%>
-      <div class="well">We can only process orders from the UK at the moment. We are working on this right now.  If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%=@document.id%><%unless @document.stock_number.blank?%>/<%= @document.stock_number %><%end%></div>
+      <div class="well">We can only process orders from the UK at the moment. We are working on this right now.  If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%= @document.reference_number %></div>
     <%end%>
 
 
@@ -168,7 +168,7 @@ jQuery(document).ready(function() {
 
 		    <br />
         Listed by <%= @document.user.username %> on <%= @document.created_at.strftime("%d/%m/%Y")%><br />
-		    Reference Number: <%=@document.id%><%unless @document.stock_number.blank?%>/<%= @document.stock_number %><%end%><br />
+		    Reference Number: <%= @document.reference_number %><br />
       </div>   
     </div>
 
