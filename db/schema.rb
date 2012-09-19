@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914161527) do
+ActiveRecord::Schema.define(:version => 20120919123433) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(:version => 20120914161527) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "document_comments", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "document_id"
   end
 
   create_table "document_facts", :force => true do |t|
@@ -228,6 +236,21 @@ ActiveRecord::Schema.define(:version => 20120914161527) do
     t.integer  "event_day"
   end
 
+  create_table "shipping_zone_prices", :force => true do |t|
+    t.integer  "shipping_zone_id"
+    t.decimal  "weight_g",         :precision => 10, :scale => 0
+    t.decimal  "price",            :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shipping_zones", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+  end
+
   create_table "site_profiles", :force => true do |t|
     t.integer  "site_status_id"
     t.datetime "created_at"
@@ -313,6 +336,7 @@ ActiveRecord::Schema.define(:version => 20120914161527) do
     t.boolean  "terms_accepted",                  :default => false
     t.boolean  "dealer_account",                  :default => false
     t.boolean  "is_dealer",                       :default => false
+    t.integer  "location_country_id"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"
