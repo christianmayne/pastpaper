@@ -11,12 +11,12 @@ ShippingZone.create[{:id=>1, :name=>"UK Zone 1", :description=>"UK to UK"},
                       {:id=>2, :name=>"UK Zone 2", :description=>"UK to EU, not including islands"},
                       {:id=>3, :name=>"UK Zone 3", :description=>"UK to EU Islands"}]                      
 
-ShipingZonePrice.create[{:id=>1, :shipping_zone_id=>1, :weight_g=>100, :price=>1}
-                          {:id=>2, :shipping_zone_id=>1, :weight_g=>250, :price=>2}
-                          {:id=>3, :shipping_zone_id=>1, :weight_g=>500, :price=>2}
-                          {:id=>4, :shipping_zone_id=>1, :weight_g=>750, :price=>4}
-                          {:id=>5, :shipping_zone_id=>1, :weight_g=>1000, :price=>5}
-                          {:id=>6, :shipping_zone_id=>1, :weight_g=>2000, :price=>7}
+ShipingZonePrice.create[{:id=>1, :shipping_zone_id=>1, :weight_g=>100, :price=>1},
+                          {:id=>2, :shipping_zone_id=>1, :weight_g=>250, :price=>2},
+                          {:id=>3, :shipping_zone_id=>1, :weight_g=>500, :price=>2},
+                          {:id=>4, :shipping_zone_id=>1, :weight_g=>750, :price=>4},
+                          {:id=>5, :shipping_zone_id=>1, :weight_g=>1000, :price=>5},
+                          {:id=>6, :shipping_zone_id=>1, :weight_g=>2000, :price=>7},
                           {:id=>7, :shipping_zone_id=>1, :weight_g=>25000, :price=>12}]
 
 LocationCountry.create      [{:name => 'Aland Islands', :iso_code => 'AX'},
