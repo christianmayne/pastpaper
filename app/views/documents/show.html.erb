@@ -72,11 +72,12 @@ jQuery(document).ready(function() {
    	<div class="span2"><%= link_to '<i class="icon-edit"></i> Edit Document'.html_safe, edit_document_path(@document),:class=>"ajaxmodal btn btn-warning" %></div><br /><br />
   <% else %>
 
-    <% if current_user.location_country.name == "United Kingdom" %>
+    <% if current_user %>
 
-	    <% if site.selling_enabled && @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50   %>
-        <div class="span1">
-	        <% if current_user %>
+      <% if current_user.location_country.name == "United Kingdom" %>
+
+        <% if site.selling_enabled && @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50   %>
+          <div class="span1">
           	<% payment_service_for @document.id, PAYPAL_ACCOUNT, 
                 :amount => @document.sale_price, 
                 :currency => 'GBP', 
@@ -99,19 +100,21 @@ jQuery(document).ready(function() {
               <% service.cancel_return_url paypal_cancel_url %> 
               <% submit_tag("Buy Item".html_safe,:class=>"btn btn-warning") %>
           	<% end %>
-          <%end%>
-        </div>
-        <div class="span3">
-          <%= link_to "Make offer" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
-        </div>
+            
+          </div>
+          <div class="span3">
+            <%= link_to "Make offer" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
+          </div>
+        <%else%>
+          <div class="well">
+            We can only process orders from the UK at the moment. We are working on this right now.  
+            If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%= @document.reference_number %>
+          </div>
+        <%end%>
+
       <%end%>
-
-    <%else%>
-      <div class="well">We can only process orders from the UK at the moment. We are working on this right now.  If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%= @document.reference_number %></div>
-    <%end%>
-
-
-	<% end %>
+	  <%end%>
+  <%end%>
 </div>
 
 <div class="row-fluid">
