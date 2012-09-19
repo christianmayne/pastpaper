@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "Pastonpaper.com <info@pastonpaper.com>"
+  default from: "Past on Paper <info@pastonpaper.com>"
 
   
     def registration_notification(user)
@@ -46,7 +46,7 @@ class UserMailer < ActionMailer::Base
     @document = document
      @amount = amount
     mail(
-      :from => "Pastonpaper.com <noreply@pastonpaper.com>",
+      :from => "Past on Paper <info@pastonpaper.com>",
       :to => @document.user.email,
       :subject => "Offer on #{@document.display_name}"
     )
@@ -57,7 +57,7 @@ class UserMailer < ActionMailer::Base
     @document = document
     @amount = amount
     mail(
-      :from =>  "Pastonpaper.com <noreply@pastonpaper.com>",
+      :from =>  "Past on Paper <info@pastonpaper.com>",
       :to => @user.email,
       :subject => "you have made an offer on #{@document.display_name}"
     )
