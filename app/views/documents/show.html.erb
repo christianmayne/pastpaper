@@ -105,14 +105,15 @@ jQuery(document).ready(function() {
           <div class="span3">
             <%= link_to "Make offer" ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-warning",:remote=>true%>
           </div>
-        <%else%>
-          <div class="well">
-            We can only process orders from the UK at the moment. We are working on this right now.  
-            If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%= @document.reference_number %>
-          </div>
         <%end%>
 
+      <%else%>
+        <div class="well">
+          We can only process orders from the UK at the moment. We are working on this right now.  
+          If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%= @document.reference_number %>
+        </div>
       <%end%>
+
 	  <%end%>
   <%end%>
 </div>
