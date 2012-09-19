@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919111232) do
+ActiveRecord::Schema.define(:version => 20120919123433) do
 
   create_table "attribute_documents", :force => true do |t|
     t.integer  "document_id"
@@ -234,6 +234,21 @@ ActiveRecord::Schema.define(:version => 20120919111232) do
     t.integer  "event_year"
     t.integer  "event_month"
     t.integer  "event_day"
+  end
+
+  create_table "shipping_zone_prices", :force => true do |t|
+    t.integer  "shipping_zone_id"
+    t.decimal  "weight_g",         :precision => 10, :scale => 0
+    t.decimal  "price",            :precision => 10, :scale => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shipping_zones", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "site_profiles", :force => true do |t|
