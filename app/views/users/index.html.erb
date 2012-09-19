@@ -37,9 +37,7 @@
       <% if !current_user.post_code.empty? %>      
         <%= current_user.post_code %><br />
       <% end %>
-      <% if !current_user.country.empty? %>
-        <%= current_user.country %><br />
-      <% end %>
+      <%= current_user.location_country.name %><br />
       <br />
       <% if !current_user.tel_number.empty? %>
         <b>Tel: </b><%= current_user.tel_number %><br />

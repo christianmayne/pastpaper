@@ -33,7 +33,8 @@
           <%= f.text_field :post_code,{ :class=>"input-small", :placeholder=>"ZIP / Postcode"}%>
         </fieldset>
 
-        <%= f.select(:country, @location_countries.map(&:name), {:include_blank => 'Select a Country*'}, :required=>true) %>
+        <%#= f.select(:country, @location_countries.map(&:name), {:include_blank => 'Select a Country*'}, :required=>true) %>
+        <%= f.select(:location_country_id, @location_countries.map{|c| [c.name, c.id]}, {:include_blank => 'Select a Country*'}, :required=>true) %>
 
         <br />
         <fieldset>

@@ -18,8 +18,10 @@ class User < ActiveRecord::Base
 
   
   authenticates_with_sorcery!
-  has_many:documents
+  has_many :documents
   has_many :gedcom_documents, :dependent => :destroy
+
+  belongs_to :location_country
  
 def name
       [self.first_name, self.last_name].delete_if{|ad_elem| ad_elem.blank?}.join(' ')
