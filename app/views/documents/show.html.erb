@@ -58,7 +58,7 @@ jQuery(document).ready(function() {
         <% if @document.shipping_price == 0 %>
           (Free Shipping)
         <%else%>
-          (+ <%= number_to_currency(@document.shipping_price, :unit => "&pound;") %> Shipping)
+          (+ <%= number_to_currency(@document.shipping_price, :unit => "&pound;") %> P&P)
         <%end%>
       </strong>
 	  <%else%>
