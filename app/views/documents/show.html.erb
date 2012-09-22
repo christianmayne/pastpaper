@@ -177,6 +177,12 @@ jQuery(document).ready(function() {
         <% else %>
           <span>No weight details have been provided for this item</span><br />
         <%end%>
+        <br />
+        
+        <% if @document.tag_list.present? %>
+          <small>Tags: <%= @document.tag_list %></small>
+          <br />
+        <%end%>
 
 		    <br />
         Listed by <%= @document.user.username %> on <%= @document.created_at.strftime("%d/%m/%Y")%><br />

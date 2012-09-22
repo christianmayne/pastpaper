@@ -10,7 +10,7 @@ class Document < ActiveRecord::Base
   belongs_to :status
   belongs_to :user
 
-  has_and_belongs_to_many :tags
+  acts_as_taggable
 
   #accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true, :reject_if => proc { |att| att['attribute_type_id'].blank? && att['value'].blank?  }
   accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true

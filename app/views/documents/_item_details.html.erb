@@ -82,17 +82,12 @@
 
   <!-- Document Tags -->
   <div class="control-group">
-    <p>Tags</p>
-    <% @document.tags.each do | tag | %>
-      <%= tag.name %>
-    <% end %>
-  </div>
-
-  <div>
-    <div class="userform">
-      [New Tag Form]
+    <%= label_tag :tag_list, "Tag List", :class=>"control-label" %>
+    <div class="controls">
+      <%= f.text_field :tag_list %>
     </div>
   </div>
+
   <br />
 
   <!-- End Document Tags -->
