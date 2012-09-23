@@ -1,4 +1,4 @@
-<div id="page-header">
+<div id="row">
 	<div class="status_message">
 		<% if flash[:alert]%>
 			<div class="alert alert-error span12 centering"><%= flash[:alert]%></div>
@@ -14,7 +14,7 @@
   <!-- Logo -->
   <div class="logo pull-left brand">
 	  <a href="/" class="pull-left">
-		  <%= image_tag("logo.jpg")%>
+		  <%= image_tag("pop-header.jpg")%>
 	  </a>
   </div>
   <!-- End Logo-->
@@ -23,9 +23,9 @@
 
     <div>
     	<ul class="breadcrumb currently_listed">
-    		<li><h5>Currently listed - </h5></li>
-    		<li><b><%= Person.count%></b> Individuals.<span class="divider">|</span></li>
-    		<li><b><%= Location.count%></b> Locations.<span class="divider">|</span></li>
+    		<li><h5>Listing </h5></li>
+    		<li><b><%= Person.count%></b> Individuals,</li>
+    		<li><b><%= Location.count%></b> Locations, and </li>
     		<li><b><%= Document.count %></b> Items.</li>
 	    </ul>
 	  </div>
@@ -78,4 +78,6 @@
     </div>
 
   </div>
+
 </div> <!--End Page Header-->
+
