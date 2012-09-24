@@ -770,3 +770,25 @@ select.person-fact-type {
  width: 100px;
 }
 
+
+/* Xian Redsign */
+.lightblue {
+  background-color: #D5DEEF
+}
+
+.lightgreen {
+  background-color: #D0EDEA;
+}
+
+.lightyellow{
+  background-color: #EAF8E1;
+}
+
+.searchbox {
+  height:280px;
+}
+
+.featuredbox {
+  height:200px;
+}
+
