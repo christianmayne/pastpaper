@@ -1,0 +1,22 @@
+<% top_latest_items = 12 %>
+<% top_latest_documents = Document.show_latest_documents.has_photos.last(top_latest_items) %>
+
+<div class="row">
+ <hr>
+  <div class="hidden-phone">
+    <ul class="thumbnails">
+	    <% top_latest_documents.each do |document| %>
+		    <% if document.name.blank? %>
+			    <% doctitle = document.title%>
+		    <% else %>  
+			    <% doctitle = document.name %>
+		    <% end %>
+		    <li class="span1">
+		    <% if document.default_image.present? %>
+		      <%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle, :class=>"img-rounded"), document_path(document) unless document.default_image.nil? %>
+		    <%end%>
+		    </li>
+	    <% end %>
+    </ul>	
+  </div>
+</div>

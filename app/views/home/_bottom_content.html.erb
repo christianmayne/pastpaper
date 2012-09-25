@@ -1,21 +1,50 @@
-<% latest_items = 33 %>
-<% #latest_documents = Document.show_latest_documents.joins(:document_photos).group("document_id").last(latest_items).shuffle %>
-<% latest_documents = Document.show_latest_documents.has_photos.last(latest_items).shuffle %>
+<div class="row well">
+  <div class="span6">
+    <div class="row-fluid">
+      <div class="span2"><a href="http://blog.pastonpaper.com" target="_TOP"><%= image_tag("icons/blog.jpg",:height=>"50", :width=>"50",  :title=>"Past on paper Blog")%></a></div>
+      <div class="span6"><h3>From <a href="http://blog.pastonpaper.com" target="_TOP">The Blog</a></h3></div>
+    </div>
+    <% @latest_blog_posts = RSS::Parser.parse(open('http://blog.pastonpaper.com/?feed=rss2').read, false).items[0...5] %>
+    <% unless @latest_blog_posts.nil? %>
+      <ul>
+        <% @latest_blog_posts.each do |post| %>
+          <% if nil != post && post.respond_to?(:pubDate) %>
+            <li>
+              <%= link_to post.title, post.link, :target => "_blank" %>
+              (<%= time_ago_in_words(post.pubDate) %> ago)<br/>
+              <%= truncate(post.description, :length=>140, :omission => '...').html_safe %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>
+        <em>No blog posts to show.</em>
+      </p>
+    <% end %>
+  </div>
 
-<div class="content well">
-	<h3>Latest Items</h3>
-	<ul class="thumbnails">
-		<% latest_documents.each do |document| %>
-			<% if document.name.blank? %>
-				<% doctitle = document.title%>
-			<% else %>  
-				<% doctitle = document.name %>
-			<% end %>
-				<li class="span1">
-				<% if document.default_image.present? %>
-				  <%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle), document_path(document) ,:class=>"thumbnail" unless document.default_image.nil? %>
-				<%end%>
-				</li>
-		<% end %>
-	</ul>	
-</div> <!-- latest items-->
+  <div class="span6">
+    <div class="row-fluid">      
+      <div class="span2"><a href="http://www.facebook.com/pastonpaper" target="_TOP"><%= image_tag("icons/facebook.jpg",:height=>"50", :width=>"50",  :title=>"Past on Paper on Facebook")%></a></div>
+      <div class="span6"><h3>From <a href="http://www.facebook.com/pastonpaper" target="_TOP">Facebook</a></h3></div>
+    </div>
+    <% @latest_facebook_posts = RSS::Parser.parse(open('http://www.facebook.com/feeds/page.php?id=132623756852735&format=rss20').read, false).items[0...5] %> 
+    <% unless @latest_facebook_posts.nil? %>
+      <ul>
+        <% @latest_facebook_posts.each do |post| %>
+          <% if nil != post && post.respond_to?(:pubDate) %>
+            <li>
+              <%= link_to post.title.html_safe, post.link, :target => "_blank" %>
+              (<%= time_ago_in_words(post.pubDate) %> ago)
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>
+        <em>No blog posts to show.</em>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -8,9 +8,26 @@
 	</div>
 <%end%>	
 
-<div class="publication hero-unit span6"  style="background:#EAF8E1 url(/assets/photos/type01.png) no-repeat right;">
-	<span class="lead newfont">Browse by Type</span>
-	<span class="info-text">
-	</span>
-	<%= browse %>
-</div> <!-- End Search Form (Place)-->
+<% @fact_years = Fact.find :all, :order=>"fact_year ASC", :select => "DISTINCT fact_year" %>
+<% datesearch = capture do %>
+	<div id="place" class="">
+		<%= form_for :search_date, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
+			<%= f.hidden_field :search_type, :value=>4 %>
+			<!-- Search place -->
+			<%#= f.text_field :dd,{:placeholder=>"DD", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
+			<%#= f.text_field :mm,{:placeholder=>"MM", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
+			<%#= f.text_field :yyyy,{:placeholder=>"YYYY", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
+      <%= f.select(:yyyy, @fact_years.map(&:fact_year), {:include_blank => 'Select a Year'}, :class=>"search-query input-medium") %>
+  		<%= f.submit "",:class=>"btn button btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Search" %>
+		<%end%>
+	</div>
+<%end%>	
+
+<div class="span4 lightyellow well searchbox">
+  <h2>Browse</h2>
+  <p class="muted">Browse by item type</p>    
+  <%= browse %>
+     
+  <p class="muted">Search for a date in history</p>
+  <%= datesearch %>
+</div>

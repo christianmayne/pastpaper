@@ -1,0 +1,16 @@
+<% featured_items = 6 %>
+<% featured_documents = Document.show_featured_documents.sort_by{ rand }.slice(0..(featured_items-1)) %>
+
+<div class="row">
+  <% featured_documents.each do |document|  %>  
+    <div class="span2 well featuredbox">
+      <% if document.name.blank? %>
+        <% doctitle = document.title%>
+      <% else %>  
+	      <% doctitle = document.name %>
+      <% end %>
+      <div class="row-fluid"><center><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle, :class=>"img-polaroid"), document_path(document) unless document.default_image.nil? %></center></div>
+      <div class="row-fluid"><%= truncate(doctitle, :length => 50, :omission => '...') %></div>
+    </div>
+  <%end%>
+</div>

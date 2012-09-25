@@ -1,107 +1,4 @@
-<% top_latest_items = 12 %>
-<% top_latest_documents = Document.show_latest_documents.has_photos.last(top_latest_items) %>
-<% featured_items = 6 %>
-<% featured_documents = Document.show_featured_documents.sort_by{ rand }.slice(0..(featured_items-1)) %>
-<% banner_ads = ['<a href="http://www.anrdoezrs.net/click-6185997-10660760" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660760" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
-              '<a href="http://www.kqzyfj.com/click-6185997-10391798" target="_top"><img src="http://www.awltovhc.com/image-6185997-10391798" width="728" height="90" alt="728x90: I’m, your Nan" border="0"/></a>',
-              '<a href="http://www.anrdoezrs.net/click-6185997-10660758" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660758" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
-              '<a href="http://www.tkqlhce.com/click-6185997-10660751" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660751" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
-              '<a href="http://www.anrdoezrs.net/click-6185997-10880818" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10880818" width="728" height="90" alt="14 Day Free Trial " border="0"/></a>',
-              '<a href="http://www.jdoqocy.com/click-6185997-10660719" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660719" width="728" height="90" alt="728x90_Genes Reunited" border="0"/></a>',
-              '<a href="http://www.dpbolvw.net/click-6185997-10931192" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931192" width="728" height="90" alt="" border="0"/></a>',
-              '<a href="http://www.jdoqocy.com/click-6185997-10931171" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10931171" width="728" height="90" alt="" border="0"/></a>',
-              '<a href="http://www.kqzyfj.com/click-6185997-10931162" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931162" width="728" height="90" alt="" border="0"/></a>',
-             ]
-%> 
-
-<%personsearch = capture do %>
-	<div id="person" class="">
-		<%= form_for :search_people, :url => search_results_home_index_path, :html => {:class=>""} do |f| %>
-			<%= f.hidden_field :search_type, :value=>1 , :class=>"input-small"%>
-			<%= f.text_field :first_name,{:placeholder => "First Name",:size=>25, :class=>"input-medium"} %>
-			<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>25, :class=>"input-medium"} %>
-      <% if site.preview_mode = false %>
-        <br />
-			  <label>DOB FROM</label>
-			  <%= f.text_field :date_birth_from, :size => 10, :class => 'input-mini' , :placeholder=>"YYYY", :style =>'width:77px;' %>
-			  <label>DOB TO</label>
-			  <%= f.text_field :date_death_from,  :size => 10, :class => 'input-mini' ,:placeholder=>"YYYY", :style =>'width:96px;' %>
-      <% end %>
-			<%= f.submit "",:class=>"btn btn-primary pull-right",:id=>"searchbyperson", :value=>"Search" %>
-		<% end %>
-	</div>
-<%end%>
-
-<% @countries = Location.find :all, :order=>"country ASC", :select => "DISTINCT country" %>
-<% placesearch = capture do %>
-	<div id="place" class="">
-		<%= form_for :search_place, :url => search_results_home_index_path, :html => {:class=>""} do |f| %>
-			<%= f.hidden_field :search_type, :value=>2 %>
-			<!-- Search place -->
-			<%= f.text_field :city,{:placeholder => "Town",:size=>15, :class=>"input-small"} %>
-			<%= f.text_field :county,{:placeholder => "County",:size=>15, :class=>"input-medium"} %>
-      <%= f.select(:country, @countries.map(&:country), {:include_blank => 'Select a Country'}, :class=>"input-medium") %>
-      <% if site.preview_mode = false %>
-			  <!-- Search Dates -->
-        <br />
-			  <label>DATE FROM</label>
-			  <%= f.text_field :date_from, {:placeholder=>"YYYY", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
-			  <label>DATE FROM</label>
-			  <%= f.text_field :date_to, {:placeholder=>"YYYY",:size => 10, :style =>'width:70px;', :class => "search_input_date input-mini"} %>
-      <%end%>
-			<%= f.submit "",:class=>"btn button btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Search" %>
-		<%end%>
-	</div>
-<%end%>	
-
-<% @fact_years = Fact.find :all, :order=>"fact_year ASC", :select => "DISTINCT fact_year" %>
-<% datesearch = capture do %>
-	<div id="place" class="">
-		<%= form_for :search_date, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
-			<%= f.hidden_field :search_type, :value=>4 %>
-			<!-- Search place -->
-			<%#= f.text_field :dd,{:placeholder=>"DD", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
-			<%#= f.text_field :mm,{:placeholder=>"MM", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
-			<%#= f.text_field :yyyy,{:placeholder=>"YYYY", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
-      <%= f.select(:yyyy, @fact_years.map(&:fact_year), {:include_blank => 'Select a Year'}, :class=>"search-query input-medium") %>
-  		<%= f.submit "",:class=>"btn button btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Search" %>
-		<%end%>
-	</div>
-<%end%>	
-
-<% browse = capture do %>
-	<div id="publication" class="">
-		<%= form_for :search_publication, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
-			<%= f.hidden_field :search_type, :value=>3 %>
-			<%= f.collection_select :document_type_id, DocumentType.paper.alphabetically, :id, :name, :prompt => "Please select type", :class => 'text  input-large' %>
-			<%= f.submit "",:class=>"btn btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Browse" %>
-		<%end%>
-	</div>
-<%end%>	
-
-
-<div class="row">
-
-  <%#= link_to 'Family Bibles', search_results_home_index_path %>
-  <hr>
-  <div class="hidden-phone">
-    <ul class="thumbnails">
-	    <% top_latest_documents.each do |document| %>
-		    <% if document.name.blank? %>
-			    <% doctitle = document.title%>
-		    <% else %>  
-			    <% doctitle = document.name %>
-		    <% end %>
-		    <li class="span1">
-		    <% if document.default_image.present? %>
-		      <%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle, :class=>"img-rounded"), document_path(document) unless document.default_image.nil? %>
-		    <%end%>
-		    </li>
-	    <% end %>
-    </ul>	
-  </div>
-</div>
-
+<%= render 'latest_items' %>
 
 <% if !current_user %>
   <div class="row">
@@ -113,48 +10,17 @@
   </div>
 <%end%>
 
-
-
 <div class="row">
-  <div class="span4 lightblue well searchbox">
-    <h2>Person Search</h2>
-    <p class="muted">Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards</p>
-    <%= personsearch %>
-  </div>
-
-  <div class="span4 lightgreen well searchbox">
-    <h2>Place Search</h2>
-    <p class="muted">Search for your home or town in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards</p>
-    <%= placesearch %>
- </div>
-
-  <div class="span4 lightyellow well searchbox">
-    <h2>Browse</h2>
-    <p class="muted">Browse by item type</p>    
-    <%= browse %>
-       
-    <p class="muted">Search for a date in history</p>
-    <%= datesearch %>
-  </div>
+  <%= render 'search_form_person' %>
+  <%= render 'search_form_place' %>
+  <%= render 'search_form_browse' %>
 </div>
 
 <div class="row well">
   <center><%= banner_ads[rand(banner_ads.count)].html_safe %></center>
 </div>
 
-<div class="row">
-  <% featured_documents.each do |document|  %>  
-    <div class="span2 well featuredbox">
-      <% if document.name.blank? %>
-        <% doctitle = document.title%>
-      <% else %>  
-	      <% doctitle = document.name %>
-      <% end %>
-      <div class="row-fluid"><center><%= link_to image_tag(document.default_image.photo.url(:small), :title=>doctitle, :class=>"img-polaroid"), document_path(document) unless document.default_image.nil? %></center></div>
-      <div class="row-fluid"><%= truncate(doctitle, :length => 50, :omission => '...') %></div>
-    </div>
-  <%end%>
-</div>
+<%= render 'featured_items' %>
 
 <div class="row well"">
   <center>
@@ -166,55 +32,4 @@
   <center>
 </div>
 
-<div class="row well">
-  <div class="span6">
-    <div class="row-fluid">
-      <div class="span2"><a href="http://blog.pastonpaper.com" target="_TOP"><%= image_tag("icons/blog.jpg",:height=>"50", :width=>"50",  :title=>"Past on paper Blog")%></a></div>
-      <div class="span6"><h3>From <a href="http://blog.pastonpaper.com" target="_TOP">The Blog</a></h3></div>
-    </div>
-    <% @latest_blog_posts = RSS::Parser.parse(open('http://blog.pastonpaper.com/?feed=rss2').read, false).items[0...5] %>
-    <% unless @latest_blog_posts.nil? %>
-      <ul>
-        <% @latest_blog_posts.each do |post| %>
-          <% if nil != post && post.respond_to?(:pubDate) %>
-            <li>
-              <%= link_to post.title, post.link, :target => "_blank" %>
-              (<%= time_ago_in_words(post.pubDate) %> ago)<br/>
-              <%= truncate(post.description, :length=>140, :omission => '...').html_safe %>
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>
-        <em>No blog posts to show.</em>
-      </p>
-    <% end %>
-  </div>
-
-  <div class="span6">
-    <div class="row-fluid">      
-      <div class="span2"><a href="http://www.facebook.com/pastonpaper" target="_TOP"><%= image_tag("icons/facebook.jpg",:height=>"50", :width=>"50",  :title=>"Past on Paper on Facebook")%></a></div>
-      <div class="span6"><h3>From <a href="http://www.facebook.com/pastonpaper" target="_TOP">Facebook</a></h3></div>
-    </div>
-    <% @latest_facebook_posts = RSS::Parser.parse(open('http://www.facebook.com/feeds/page.php?id=132623756852735&format=rss20').read, false).items[0...5] %> 
-    <% unless @latest_facebook_posts.nil? %>
-      <ul>
-        <% @latest_facebook_posts.each do |post| %>
-          <% if nil != post && post.respond_to?(:pubDate) %>
-            <li>
-              <%= link_to post.title.html_safe, post.link, :target => "_blank" %>
-              (<%= time_ago_in_words(post.pubDate) %> ago)
-            </li>
-          <% end %>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>
-        <em>No blog posts to show.</em>
-      </p>
-    <% end %>
-
-
-  </div>
-</div>
+<%= render 'bottom_content' %>
