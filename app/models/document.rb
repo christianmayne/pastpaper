@@ -89,15 +89,13 @@ class Document < ActiveRecord::Base
     if shipping_price == nil
       shipping_price = 0
     end
-
-    
+   
     return shipping_price
   end
 
+
   def shipping_price_new
-
   end
-
 
 
   def self.simple_search(search_param)

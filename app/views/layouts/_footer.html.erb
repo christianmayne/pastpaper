@@ -1,31 +1,39 @@
 <!-- Footer Menu -->
-<div class="pull-left">
-	<%= render "layouts/footer_menu" %>
+<div class="row" style="margin-bottom:10px;">
+	<center>
+		  <%= link_to "Home",root_path %> | 
+		  <%= link_to "About Us",about_path %> | 
+		  <%= link_to "Terms",terms_path %> |
+		  <%= link_to "Privacy",privacy_path %> | 
+		  <%= link_to "Contact Us","http://blog.pastonpaper.com/contact/" %>
+	  </ul>
+  </center>
 </div>
 
-<div class="pull-right">
-  <div class="centering" id="social-icon">
-	  <div class="pull-left">
-	    <a href="http://blog.pastonpaper.com/" target="_blank"><%= image_tag("icons/blog.png",:height=>"16", :title=>"Past on paper Blog")%></a>
-	   </div>
-	  <div class="pull-left">
-	    <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.png",:height=>"16", :title=>"Facebook")%></a>	    
-	  </div>
-	  <div class="pull-left">
-	    <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.png",:height=>"16", :title=>"Twitter")%></a>
-	  </div>
- 	  <div class="pull-left">
-      <a href="http://www.pinterest.com/pastonpaper" target="_blank"><%= image_tag("/assets/icons/pinterest.png",:height=>"16", :title=>"Pinterest")%></a>
-    </div>
-	</div>
+<div class="row" style="margin-bottom:10px;">
+  <center>
+    <script type="text/javascript" language="javascript" src="http://www.kqzyfj.com/placeholder-6095967?sid=footer&target=_top&mouseover=N"></script> 
+    <script language="javascript" type="text/javascript">
+      var myTarget='http://track.webgains.com/click.html?wglinkid=15&wgcampaignid=122233&js=0&clickref=footer';
+      var uri = 'http://track.webgains.com/link.html?wglinkid=15&wgcampaignid=122233';
+      document.write('<a href="'+myTarget+'" target="_blank" onMouseOver="window.status=\'http://www.historic-newspapers.co.uk\';return true;" onMouseOut="window.status=\'\'"><img src="'+uri+'" width="88" height="31" border="0" alt=""/></a>');
+    </script>
+
+    <a href="http://blog.pastonpaper.com/" target="_blank"><%= image_tag("icons/blog.jpg",:height=>"31", :width=>"31",  :title=>"Past on paper Blog")%></a> 
+    <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.jpg", :height=>"31", :width=>"31", :title=>"Facebook")%></a> 	    
+    <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.jpg", :height=>"31", :width=>"31", :title=>"Twitter")%></a> 
+    <a href="http://www.pinterest.com/pastonpaper" target="_blank"><%= image_tag("icons/pinterest.png", :height=>"31", :width=>"31", :title=>"Pinterest")%></a> 
+  </center>
 </div>
-<div style="clear:both; "></div>
-<div class="row-fluid central-nav">
-  <div class="centering">
-	  <a class="" href="http://www.pastonpaper.com">pastonpaper.com</a>
-	   is a 
-	   <a href="http://www.watchthedot.com">watchthedot.com</a> 
-	   website  &copy; <%= Time.now.year %> 
-	   <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:height=>"16")%></a>
-	 </div>
+
+
+<div class="row">
+  <center>
+    <a href="http://www.pastonpaper.com">pastonpaper.com</a>
+     is a 
+    <a href="http://www.watchthedot.com">watchthedot.com</a> 
+     website  &copy; <%= Time.now.year %> 
+    <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:height=>"16", :width=>"16")%></a>
+  </center>
 </div>
+

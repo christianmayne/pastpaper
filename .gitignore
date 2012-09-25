@@ -13,3 +13,4 @@ Gemfile.lock
 public/google*
 nbproject/
 config/database.yml
+*.old
