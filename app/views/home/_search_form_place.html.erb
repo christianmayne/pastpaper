@@ -4,16 +4,16 @@
 		<%= form_for :search_place, :url => search_results_home_index_path, :html => {:class=>""} do |f| %>
 			<%= f.hidden_field :search_type, :value=>2 %>
 			<!-- Search place -->
-			<%= f.text_field :city,{:placeholder => "Town",:size=>15, :class=>"input-small"} %>
-			<%= f.text_field :county,{:placeholder => "County",:size=>15, :class=>"input-medium"} %>
+			<%= f.text_field :city,{:placeholder => "Town", :class=>"input-small"} %>
+			<%= f.text_field :county,{:placeholder => "County", :class=>"input-medium"} %>
       <%= f.select(:country, @countries.map(&:country), {:include_blank => 'Select a Country'}, :class=>"input-medium") %>
       <% if site.preview_mode = false %>
 			  <!-- Search Dates -->
         <br />
 			  <label>DATE FROM</label>
-			  <%= f.text_field :date_from, {:placeholder=>"YYYY", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
+			  <%= f.text_field :date_from, {:placeholder=>"YYYY", :size => 10, :class=>"search_input_date input-mini"} %>
 			  <label>DATE FROM</label>
-			  <%= f.text_field :date_to, {:placeholder=>"YYYY",:size => 10, :style =>'width:70px;', :class => "search_input_date input-mini"} %>
+			  <%= f.text_field :date_to, {:placeholder=>"YYYY",:size => 10, :class => "search_input_date input-mini"} %>
       <%end%>
 			<%= f.submit "",:class=>"btn button btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Search" %>
 		<%end%>
