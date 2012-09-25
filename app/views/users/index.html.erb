@@ -1,89 +1,79 @@
+<% banner_ads = ['<a href="http://www.anrdoezrs.net/click-6185997-10660760" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660760" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.kqzyfj.com/click-6185997-10391798" target="_top"><img src="http://www.awltovhc.com/image-6185997-10391798" width="728" height="90" alt="728x90: I’m, your Nan" border="0"/></a>',
+              '<a href="http://www.anrdoezrs.net/click-6185997-10660758" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660758" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.tkqlhce.com/click-6185997-10660751" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660751" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
+              '<a href="http://www.anrdoezrs.net/click-6185997-10880818" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10880818" width="728" height="90" alt="14 Day Free Trial " border="0"/></a>',
+              '<a href="http://www.jdoqocy.com/click-6185997-10660719" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660719" width="728" height="90" alt="728x90_Genes Reunited" border="0"/></a>',
+              '<a href="http://www.dpbolvw.net/click-6185997-10931192" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931192" width="728" height="90" alt="" border="0"/></a>',
+              '<a href="http://www.jdoqocy.com/click-6185997-10931171" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10931171" width="728" height="90" alt="" border="0"/></a>',
+              '<a href="http://www.kqzyfj.com/click-6185997-10931162" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931162" width="728" height="90" alt="" border="0"/></a>',
+             ]
+%> 
+
 <% @pagetitle = "Profile :: #{current_user.name.humanize}" %>
-<% @gedcom_link_text =  @gedcom_link_text ?  @gedcom_link_text:"Gedcom Files"%>
+<% last_listed_items = 12 %>
+<% your_items = current_user.documents.has_photos.last(last_listed_items) %>
 
-<div class="introduction well">
-  <span class="headline4 lead newfont"><%=current_user.name%>'s Profile</span>
-  <span class="pull-right">Summary of information stored on your Past on Paper account</span>
-</div>
-
-<div>
-
-  <div class="well">
-    <div class="profile_header_text">
-      <b>Hello <%= current_user.first_name %>.</b><br />This is a summary of the information stored on your profile.   You can change your personal details at any time using the "Edit Details" button below
-    </div>
-    <br /><br />
-
-    <div class="span7">
-      <h4>Personal Details</h4><br />
-      <b>Username: </b><%= current_user.username %><br />
-      <b>Email Address: </b><%= current_user.email %><br />
-      <b>Full name: </b><%= current_user.name %><br />
-      <br/>
-      <b>Address</b>
-      <br />
-      <% if !current_user.address1.empty? %>
-        <%= current_user.address1 %><br />
-      <% end %>
-      <% if !current_user.address2.empty? %>
-        <%= current_user.try(:address2) %><br />
-      <% end %>
-      <% if !current_user.city.empty? %>
-        <%= current_user.city %><br />
-      <% end %>
-      <% if !current_user.county.empty? %>
-        <%= current_user.county %><br />
-      <% end %> 
-      <% if !current_user.post_code.empty? %>      
-        <%= current_user.post_code %><br />
-      <% end %>
-      <%= current_user.location_country.name %><br />
-      <br />
-      <% if !current_user.tel_number.empty? %>
-        <b>Tel: </b><%= current_user.tel_number %><br />
-      <% end %>
-      <% if !current_user.mobile_number.empty? %>
-        <b>Mobile: </b><%= current_user.mobile_number %><br />
-      <% end %>
-      <br /><br />
+<div class="row-fluid">
+  <div class="hero-unit">
+    <h3>Hello <%= current_user.first_name %>.</h3><br />
+    <div class="small">This is a summary of the information stored on your Past on paper account.   You can change your personal details at any time using the "Edit Details" button below</div><br />
+    <div class="row-fluid">
       <div>
-        <%= link_to "Change Your Details" , edit_user_path(current_user) ,:class=>"btn btn-primary" %>
+        <h4>Username: <%= current_user.username %></h4>
+        <h4>Email Address: <%= current_user.email%></h4>
+        <p>Address: <% if !current_user.address1.empty? %><%= current_user.address1 %>, <% end %>
+                    <% if !current_user.address2.empty? %><%= current_user.try(:address2) %>, <% end %>
+                    <% if !current_user.city.empty? %><%= current_user.city %>, <% end %>
+                    <% if !current_user.county.empty? %><%= current_user.county %>, <% end %>
+                    <% if !current_user.post_code.empty? %><%= current_user.post_code %>, <% end %>
+                    <%= current_user.location_country.name %></p>
+        <p><% if !current_user.tel_number.empty? %>Tel: <%= current_user.tel_number %><% end %></p>
+        <p><% if !current_user.mobile_number.empty? %>Mobile: <%= current_user.mobile_number %><% end %></p>
       </div>
-
     </div>
-
-    <div class="span3 pull-right">
-      <h4>Statistics</h4><br />
-      <%= link_to ("You Have "+(current_user.documents.count.to_s)+" Items Listed"), documents_path %><br /> 
-      <% if current_user.documents.count > 0 %> 
-        <ul>
-        <% Status.alphabetically.each do |status|  %>
-          <% if current_user.documents.find_all_by_status_id(status.id).count > 0 %>
-            <li><%= current_user.documents.find_all_by_status_id(status.id).count %> Items marked <%= status.name %></li>
-          <% end %>  
-        <% end %>
-        </ul>
-      <% end %>
-      <br />
-      <b>Search Helpers</b><br />
-     <%= link_to @gedcom_link_text, gedcom_documents_path %><br />
-     
-
-      <br />
-      <% if current_user.documents.count > 0 %>
-        <b>Item breakdown</b><br />
-        <% DocumentType.alphabetically.each do |type|  %>
-          <% if current_user.documents.find_all_by_document_type_id(type.id).count > 0 %>
-            <%= type.name %>: <%= current_user.documents.find_all_by_document_type_id(type.id).count %>  <br />
-          <% end %>  
-        <% end %>
-      <% end %>
-      
-      <br />
-
+    <div class="row-fluid">
+      <div class="span8">
+        <h4><%= link_to ("You Have "+(current_user.documents.count.to_s)+" Items Listed"), documents_path %></h4>
+        <h4><%= link_to ("You Have "+(current_user.gedcom_documents.count.to_s)+" Gedcom Files Uploaded"), gedcom_documents_path %> <i class="icon-question-sign"></i></h4>
+      </div>
+      <div class="span4">
+        <span class="pull-right" style="margin-top:25px;"><%= link_to "Edit Details" , edit_user_path(current_user) ,:class=>"btn btn-primary" %></span>
+      </div>
     </div>
-
-    <div style="clear:both; "></div>
   </div>
-
 </div>
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3>Your last <%= last_listed_items %> listed Items</h3>
+  </div>
+  <div class="span6">
+    <span class="pull-right" style="margin-top:25px;"><%= link_to ("View all "+(current_user.documents.count.to_s)+" of your items"), documents_path %></h4></span>
+  </div>
+</div>
+<div class="row-fluid">  
+  <ul class="thumbnails">
+    <% your_items.each do |document| %>
+	    <% if document.name.blank? %>
+		    <% doctitle = document.title%>
+	    <% else %>  
+		    <% doctitle = document.name %>
+	    <% end %>
+	    <li class="span1">
+	    <% if document.default_image.present? %>
+	      <%= link_to image_tag(document.default_image.photo.url(:small), :title => doctitle, :class=>"img-rounded"), document_path(document) unless document.default_image.nil? %>
+	    <%end%>
+	    </li>
+    <% end %>
+  </ul>	
+</div>
+
+<hr>
+<div class="row">
+  <center><%= banner_ads[rand(banner_ads.count)].html_safe %></center>
+</div>
+<hr>
+
+<%#= render 'statistics' %>
+

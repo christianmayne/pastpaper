@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <div class="span4">
+    <h4>Statistics</h4>
+    <% if current_user.documents.count > 0 %> 
+      <ul>
+      <% Status.alphabetically.each do |status|  %>
+        <% if current_user.documents.find_all_by_status_id(status.id).count > 0 %>
+          <li><%= current_user.documents.find_all_by_status_id(status.id).count %> Items marked <%= status.name %></li>
+        <% end %>  
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="span4">
+    <% if current_user.documents.count > 0 %>
+      <h4>Item breakdown</h4>
+      <% DocumentType.alphabetically.each do |type|  %>
+        <% if current_user.documents.find_all_by_document_type_id(type.id).count > 0 %>
+          <%= type.name %>: <%= current_user.documents.find_all_by_document_type_id(type.id).count %>  <br />
+        <% end %>  
+      <% end %>
+    <% end %>
+  </div>
+</div>
