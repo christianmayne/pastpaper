@@ -33,7 +33,7 @@
       <div class="row">
         <% if !current_user %> 
          	<ul class="breadcrumb currently_listed" style="margin-bottom:0px;">
-        	  <li><a class="strong" style="color:red;" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong", :id=>"registerUser", :style => "color:red"%>  now for full access to our database</li>
+        	  <li><a class="strong text-error" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a> or <%= link_to "Register" ,register_path, :class=>"strong text-error", :id=>"registerUser" %>  now for full access to our database</li>
           </ul>
         <% end %>
       </div>
