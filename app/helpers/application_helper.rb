@@ -32,5 +32,9 @@ module ApplicationHelper
      '<a href="http://www.kqzyfj.com/click-6185997-10931162" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931162" width="728" height="90" alt="" border="0"/></a>']
   end
 
+  def banner_ad
+    return banner_ads[rand(banner_ads.count)].html_safe
+  end
+
   
 end

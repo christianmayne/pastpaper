@@ -1,0 +1,63 @@
+<% if !@document.blank? && !@document.people.blank? %>
+
+  <div class="row-fluid">
+    <div class="span11"><h4>This item mentions <%= @document.people.count %> individuals</h4></div>
+    <div class="span1" style="margin-top:10px;">(<a href="javascript:toggle_div(peoplelist, 'show all', 'hide all', 'viewpeoplelist')" id="viewpeoplelist">hide all</i></a>)</div>
+  </div>
+
+  <div id="peoplelist">
+
+    <div class="well"  style="margin:2px; padding:2px 5px;">
+        <div class="span3"><strong>Name</strong></div>
+        <div class="span3"><strong>Born</strong></div>
+        <div class="span3"><strong>Died</strong></div>
+        <div class="span1"><small><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></small></div>
+    </div>
+
+    <% @document.people.order("last_name asc, first_name asc").each do |person|  %>
+      <div class="person-row  well-small well" style="background-color:<%=person.sex_color%>;margin:2px;padding:2px 5px;">
+        <div class="row-fluid">
+          <div class="span3">
+            <strong><%= "#{person.title.titleize} " rescue '' %><%= "#{person.first_name} " rescue 'unknown ' %><%= " #{person.middle_name.titleize}" rescue '' %><%= " #{person.last_name}" rescue ' unknown' %></strong>
+          </div>
+          <div class="span3"><%= person.event_year("birth") rescue '' %><br /><small><%= person.event_county("birth") rescue '' %></small></div>
+          <div class="span3"><%= person.event_year("death") rescue '' %><br /><small><%= person.event_county("death") rescue '' %></small></div>
+
+          <div class="span3">
+            <%unless person.person_events_all.nil? %>
+              <span class="pull-right"><%= person.person_events_all.count %> events listed <a href="javascript:hideshowpdetail('<%= person.id %>')" id="viewlink_<%=person.id%>" class="viewlink" ><i class="icon-zoom-in"></i></a></span>
+            <%end%>
+          </div>
+        </div>
+
+        <%if !person.person_events_all.nil?%>
+          <div  id = "pdetail_<%= person.id%>" class="row-fluid pdetail hide well-small">
+            <%person.person_events_all.each do |person_event|%>
+              <div class="">
+                <div class="row" style="line-height:16px; margin-left: 0px;">
+                  <div class="span1"></div>
+                  <div class="span2"><strong><small><%= person_event.event_type.name %></small></strong></div>
+                  <div class="span7">
+                    <% if person_event.fact_date_with_format != '' %>
+                      <strong><small><%= person_event.fact_date_with_format %></small></strong><br />
+                    <%end%>
+                    <small><%= "#{person_event.location.full_location}" unless person_event.location.blank?%></small>
+                  </div>
+                </div>
+              </div>
+            <%end%>
+          </div>
+        <%end%>
+      </div>
+    <% end %>
+
+    <br /><br />
+  </div>
+ 
+<%else%>
+  <div class="row-fluid">
+    <br />
+    <h4>No Genealogical Information has been indexed for this item</h4>
+  </div>
+<%end%>
+  

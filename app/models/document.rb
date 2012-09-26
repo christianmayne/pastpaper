@@ -5,6 +5,7 @@ class Document < ActiveRecord::Base
   has_many :people, :dependent => :destroy
   has_many :document_photos, :dependent => :destroy
   has_many :document_facts
+  has_many :facts, :through => :people
 
   belongs_to :document_type
   belongs_to :status
@@ -95,6 +96,30 @@ class Document < ActiveRecord::Base
 
 
   def shipping_price_new
+  end
+
+  def last_name_list
+    list = self.people.select("DISTINCT last_name").order("last_name ASC")
+    list_string = list.map { |f| f.last_name }.join ', '
+    return list_string.reverse.sub(/,/, ' dna ').reverse
+  end
+
+  def earliest_fact_year
+    min = self.facts.where("fact_year > 0").first(:order => 'fact_year asc');
+    if min.nil?
+      return 0
+    else
+      return min.fact_year
+    end
+  end
+
+  def latest_fact_year
+    max = self.facts.where("fact_year > 0").first(:order => 'fact_year desc');
+    if max.nil?
+      return 0
+    else
+      return max.fact_year
+    end
   end
 
 

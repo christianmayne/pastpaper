@@ -1,10 +1,18 @@
-<% @pagetitle = "Add New Document" %>
-<div class="introduction"><span class="lead headline4 newfont">Add Locations</span></div>
+<% @pagetitle = "Edit " + page_title %>
+<% sub_title = "Locations" %>
+
+<div class="well">
+  <div class="row-fluid">
+      <h4><%= @pagetitle %></h4>
+      <h6><%= sub_title %></h6>
+  </div>
+</div>
+
 <div >
 	<div>
 		<div class="row-fluid">
 			<div class="span4">
-				<%= render :partial => "document_menu"%>
+				<%= render :partial => "form_menu"%>
 			</div>
 			<div class="span8">
 			<h3>Locations</h3>

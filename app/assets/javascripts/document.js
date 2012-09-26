@@ -7,19 +7,6 @@ function remove_fields (link) {
   
 }
 
-/*function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  /*$(link).next().({
-    before: content.replace(regexp, new_id)
-  });
-  */
-  
- /* $(link).next().html(content.replace(regexp, new_id));
-  //alert(content.replace(regexp, new_id));
-  // $(link).next().before(content.replace(regexp, new_id));
-}
-*/
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
@@ -49,14 +36,30 @@ function hideshowpdetail(elem)
 	var a='#pdetail_'+elem;
 	var link=$("#viewlink_"+elem);
 	
-	if(link.html()=="View")
+	if(link.html()=="<i class=\"icon-zoom-in\"></i>")
 		{
-		link.html("Hide");
+		link.html("<i class=\"icon-zoom-out\"></i>");
 		}else{
-			link.html("View");
+			link.html("<i class=\"icon-zoom-in\"></i>");
 		}
 	$(a).toggle();
 }
+
+function hideshowldetail(elem)
+{
+	var a='#ldetail_'+elem;
+	var link=$("#viewlocation_"+elem);
+	
+	if(link.html()=="<i class=\"icon-zoom-in\"></i>")
+		{
+		link.html("<i class=\"icon-zoom-out\"></i>");
+		}else{
+			link.html("<i class=\"icon-zoom-in\"></i>");
+		}
+	$(a).toggle();
+}
+
+
 
 function expandAllPdetail()
 {
@@ -70,11 +73,29 @@ function expandAllPdetail()
 	$(items_to_show).toggle();
 		
 	var viewlink= $('.viewlink');	
-	if(viewlink.html()=="View" )
-		{viewlink.html("Hide");}
+	if(viewlink.html()=="<i class=\"icon-zoom-in\"></i>" )
+		{viewlink.html("<i class=\"icon-zoom-out\></i>");}
 	else
-		{viewlink.html("View");}
+		{viewlink.html("<i class=\"icon-zoom-in\"></i>");}
 }
+
+function toggle_div(div, show_text, hide_text, id)
+{
+  var div_to_toggle=div;
+  var link=$("#"+id);
+
+  if (link.html()==hide_text) {
+    link.html(show_text);
+  }
+  else {
+    link.html(hide_text);
+  }
+
+  $(div_to_toggle).toggle();
+}
+
+
+
 
 function enablesellprice()
   {

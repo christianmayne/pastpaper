@@ -1,0 +1,49 @@
+<% if !@document.blank? && !@document.locations.blank? %>
+
+  <div class="row-fluid">
+    <div class="span11"><h4>This item mentions <%= @document.locations.count %> locations</h4></div>
+    <div class="span1" style="margin-top:10px;">(<a href="javascript:toggle_div(locationlist, 'show all', 'hide all', 'viewlocationlist')" id="viewlocationlist">hide all</i></a>)</div>
+  </div>
+
+  <div id="locationlist">
+    <% @document.locations.order("country, county, town asc").each do |location|  %>
+      <div class="person-row  well-small well" style="margin:2px;padding:2px 5px;"> 
+        <div class="row-fluid">
+          <strong><%= location.full_location %></strong>
+          <div class="pull-right">
+            <% if location.facts.any?%>
+              <span class="pull-right"><%= location.facts.count %> events listed <a href="javascript:hideshowldetail('<%= location.id %>')" id="viewlocation_<%=location.id%>" class="viewlocation" ><i class="icon-zoom-in"></i></a></span>
+            <%end%>
+          </div>
+        </div>
+        
+        <%if !location.facts.nil?%>
+          <div id="ldetail_<%= location.id %>" class="row-fluid pdetail hide well-small"> 
+            <% location.facts.order("fact_year, fact_month, fact_date asc").each do | fact | %>
+              <div class="">
+                <div class="row" style="line-height:8px;">
+                  <div class="span1"></div>
+                  <div class="span2"><strong><small><%= fact.fact_date_with_format %></small></strong></div>
+                  <div class="span7"><small><%= fact.person.full_name %>, <%= fact.event_type.name %></small></div>
+                </div>
+              </div>
+            <%end%>
+          </div>
+        <%end%>
+
+      </div>
+    <%end%>
+  </div>
+
+<%else%>
+  <div class="row-fluid">
+    <h4>No Location Information has been indexed for this item</h4>
+  </div>
+<%end%>
+
+
+
+
+
+
+

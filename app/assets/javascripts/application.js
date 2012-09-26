@@ -16,3 +16,8 @@
 //= require bootstrap
 //= require bootstrap-collapse
 //= require document
+
+function login_message(message)
+{
+  alert(message);
+}

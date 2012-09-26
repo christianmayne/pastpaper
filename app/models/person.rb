@@ -24,11 +24,9 @@ class Person < ActiveRecord::Base
   end
 
   def event_year(event)
-     unless self.facts.blank?
+    unless self.facts.blank?
       event = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
       return event.try(:fact_year)
-     else
-      return "?"
     end  
   end
 
