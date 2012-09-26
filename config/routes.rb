@@ -61,6 +61,7 @@ Pastpaper::Application.routes.draw do
   match 'contact', :to => 'pages#contact'
   match 'privacy', :to => 'pages#privacy'
   match 'terms', :to => 'pages#terms'
+  match 'help', :to => 'pages#help'
 
 
   # Sample of regular route:
