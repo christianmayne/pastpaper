@@ -2,42 +2,36 @@
 <% sub_title = "Publication Information" %>
 
 <div class="well">
-  <div class="row-fluid">
-      <h4><%= @pagetitle %></h4>
-      <h6><%= sub_title %></h6>
-  </div>
+	<div class="row-fluid">
+			<h4><%= @pagetitle %></h4>
+			<h6><%= sub_title %></h6>
+	</div>
 </div>
 
-<div class="siteScale clearfix">
-	<div class="block whiteBG clearfix varMarginDouble border">
-		<div class="row-fluid">
-			<div class="span4">
-			<%= render :partial => "form_menu"%>
+<div class="row-fluid">
+	<%= render :partial => "form_menu"%>
+</div>
+
+<div class="row-fluid">
+	<h3><%= sub_title %></h3>
+	<div class="userform">
+		<%= form_for @document,:url=> :document_authorinfo, :html=>{:method=>:post, :multipart => true}  do |f| %>
+			<%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
+			<div class="borderBottom varPaddingDouble">
+				<%= f.fields_for :attribute_documents do |doc_attr| %>
+					<%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
+				<% end %>
+				<span class="btn"><%= link_to_add_fields "Add More", f, :attribute_documents %></span>
+
+				<div class="field">
+					<label>&nbsp;</label>
+					<%= f.submit "Save" ,:class=>"btn" %>
+				</div>
+				<div class="" style="text-align: right">
+					<%= link_to "Next" ,document_itemimages_path(@document),:class=>"btn"%>
+				</div>
 			</div>
-			<div class="span8">
-					<div class="userform">
-					  <%= form_for @document,:url=> :document_authorinfo, :html=>{:method=>:post, :multipart => true}  do |f| %>
-					      <%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
-					     	<div class="borderBottom varPaddingDouble">
-							  <%= f.fields_for :attribute_documents do |doc_attr| %>
-							    <%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
-							  <% end %>
-							  
-							  <span class="btn"><%= link_to_add_fields "Add More", f, :attribute_documents %></span>
-  
-							<div class="field">
-						      <label>&nbsp;</label>
-						      <%= f.submit "Save" ,:class=>"btn" %>
-					      </div>
-					      <div class="" style="text-align: right">
-					 
-					 	<%= link_to "Next" ,document_itemimages_path(@document),:class=>"btn"%>
-					 
-					 </div>
-					      </div>
-					    <% end %>
-					</div>
-			</div>
-		</div>
+		<% end %>
 	</div>
-</div>  
+</div>
+
