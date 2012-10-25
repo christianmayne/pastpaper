@@ -134,9 +134,9 @@
           <span class="span2 strong"><%= type %></span>
           <span class="span10">
             <% doc_attrs.each do |doc_attr| %>
-              <%= "  #{doc_attr.value}" %>
-              <%= ", #{doc_attr.attribute_location}" unless doc_attr.attribute_location.blank? %>
-              <%= ", #{doc_attr.attribute_year}" unless doc_attr.attribute_year.blank? %><br />
+              <%= "#{doc_attr.full_details}" unless doc_attr.full_location.blank? %>
+              <%= "<br />".html_safe unless doc_attr.full_date.blank? %>
+              <%= "#{doc_attr.full_date}" unless doc_attr.full_date.blank? %><br />
             <% end %>
           </span>
         </div>
