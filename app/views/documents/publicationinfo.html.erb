@@ -15,7 +15,7 @@
 <legend>Publication Information</legend>
 
 <div class="row-fluid form-horizontal">
-	<%= form_for @document,:url=> :document_authorinfo, :html=>{:method=>:post, :multipart => true}  do |f| %>
+	<%= form_for @document,:url=> :document_publicationinfo, :html=>{:method=>:post, :multipart => true}  do |f| %>
 		<%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
 		<%= f.fields_for :document_attributes do |doc_attr| %>
 				<%= render :partial => 'document_attribute_fields', :locals => {:f => doc_attr}  %>

@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   require 'active_merchant/billing/integrations/action_view_helper'
   ActionView::Base.send(:include, ActiveMerchant::Billing::Integrations::ActionViewHelper) 
   #before_filter :require_login, :only => [:index,:show]
-  before_filter :prepare_document ,:only => [:show,:itemimages,:authorinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations,:permanently_delete]
+  before_filter :prepare_document ,:only => [:show,:itemimages,:publicationinfo,:edit,:update,:destroy,:locations,:itempeople,:people_facts_locations,:permanently_delete]
 
   
   def index
@@ -38,7 +38,7 @@ class DocumentsController < ApplicationController
     @document = current_user.documents.new(params[:document])
     if @document.save
       flash[:notice] = "Successfully created..."
-       redirect_to document_authorinfo_url(@document)
+       redirect_to document_publicationinfo_url(@document)
     else
       render :action => 'new'
     end
@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
   end
 
   
-  def authorinfo
+  def publicationinfo
    # @document = current_user.documents.find(params[:document_id])
     if request.post?
       if @document.update_attributes(params[:document])
@@ -75,9 +75,9 @@ class DocumentsController < ApplicationController
     if @document.save
       flash[:notice] = "Successfully updated"
       if current_user.is_admin?
-        redirect_to document_authorinfo_url(@document)
+        redirect_to document_publicationinfo_url(@document)
       else
-      redirect_to document_authorinfo_url(@document)
+      redirect_to document_publicationinfo_url(@document)
       end
     else
       flash[:error] = "Error"

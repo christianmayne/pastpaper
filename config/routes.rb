@@ -26,7 +26,9 @@ Pastpaper::Application.routes.draw do
     collection do 
       match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
     end
-    match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
+    #match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
+    # CM >
+    match '/publicationinfo' => 'documents#publicationinfo',:as => :publicationinfo
     match '/images' => 'documents#itemimages' ,:as => :itemimages
     match '/locations' => 'documents#locations',:as => :locations
     match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
@@ -50,8 +52,10 @@ Pastpaper::Application.routes.draw do
     end
   end
 
-  match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
-  match 'documents/update/publishinginfo/:id' => 'documents#publishinginfo',:as => :publsihinginfo 
+  #match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
+  # CM >
+  match 'documents/publicationinfo/:id' => 'documents#publicationinfo',:as => :publicationinfo
+  match 'documents/update/publishinginfo/:id' => 'documents#publishinginfo',:as => :publishinginfo 
   match 'documents/document_image_remove/:id' => 'documents#remove_image',:as=>"remove_image"
   match 'documents/make_primary_image/:id' => 'documents#make_primary_image',:as => :make_primary_image
   match 'person_detail/:id' => 'documents#person_detail',:as=>'person_detail'
