@@ -17,14 +17,14 @@
 <div class="row-fluid form-horizontal">
 	<%= form_for @document,:url=> :document_authorinfo, :html=>{:method=>:post, :multipart => true}  do |f| %>
 		<%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
-		<%= f.fields_for :attribute_documents do |doc_attr| %>
-				<%= render :partial => 'attribute_document_fields', :locals => {:f => doc_attr}  %>
+		<%= f.fields_for :document_attributes do |doc_attr| %>
+				<%= render :partial => 'document_attribute_fields', :locals => {:f => doc_attr}  %>
 		<% end %>
 
 		<div class="row">
 			<div class="span7"></div>
 			<%= f.submit "Save",:class=>"span2 btn" %>
-			<div class="span2 btn"><%= link_to_add_fields "Add More", f, :attribute_documents %></div>
+			<div class="span2 btn"><%= link_to_add_fields "Add More", f, :document_attributes %></div>
 
 			<%#= link_to "Next", document_itemimages_path(@document),:class=>"span2 btn pull-right"%>
 		</div>

@@ -1,4 +1,4 @@
-class AttributeDocument < ActiveRecord::Base
+class DocumentAttribute < ActiveRecord::Base
 
   belongs_to :document
   belongs_to :location

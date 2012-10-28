@@ -1,6 +1,6 @@
 class Document < ActiveRecord::Base
 
-  has_many :attribute_documents, :dependent => :destroy
+  has_many :document_attributes, :dependent => :destroy
   has_many :locations, :dependent => :destroy
   has_many :people, :dependent => :destroy
   has_many :document_photos, :dependent => :destroy
@@ -13,8 +13,8 @@ class Document < ActiveRecord::Base
 
   acts_as_taggable
 
-  #accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true, :reject_if => proc { |att| att['attribute_type_id'].blank? && att['value'].blank?  }
-  accepts_nested_attributes_for :attribute_documents, :allow_destroy => :true
+  #accepts_nested_attributes_for :document_attributes, :allow_destroy => :true, :reject_if => proc { |att| att['attribute_type_id'].blank? && att['value'].blank?  }
+  accepts_nested_attributes_for :document_attributes, :allow_destroy => :true
   accepts_nested_attributes_for :locations, :allow_destroy => :true
   accepts_nested_attributes_for :people, :allow_destroy => :true
   accepts_nested_attributes_for :document_photos, :allow_destroy => :true#,:limit => 4,:reject_if => proc { |attributes| attributes['photo'].blank? }
@@ -128,8 +128,8 @@ class Document < ActiveRecord::Base
     condition += "documents.document_type_id = '#{search_param[:document_type_id]}' OR " unless search_param[:document_type_id].blank?
     condition += "documents.status = '#{search_param[:socument_status_id]}' OR " unless search_param[:document_status_id].blank?
     condition += "documents.title LIKE '%#{search_param[:document_title]}%' OR " unless search_param[:document_title].blank?
-    condition += "attribute_types.name = 'publisher' AND attribute_documents.value = '#{search_param[:document_publisher]}' OR " unless search_param[:document_publisher].blank?
-    condition += "attribute_types.name = 'author' AND attribute_documents.value = '#{search_param[:document_author]}' OR " unless search_param[:document_author].blank?
+    condition += "attribute_types.name = 'publisher' AND document_attributes.value = '#{search_param[:document_publisher]}' OR " unless search_param[:document_publisher].blank?
+    condition += "attribute_types.name = 'author' AND document_attributes.value = '#{search_param[:document_author]}' OR " unless search_param[:document_author].blank?
     condition += "people.name_first = '#{search_param[:firstname]}' OR " unless search_param[:firstname].blank?
     condition += "people.name_maiden = '#{search_param[:lastname]}' OR " unless search_param[:lastname].blank?
     condition += "YEAR(person_events.date_event) >= '#{search_param[:date_birth_from]}'
@@ -152,8 +152,8 @@ class Document < ActiveRecord::Base
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id
                         LEFT JOIN document_statuses ON document_statuses.id = documents.document_status_id
-                        LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
-                        LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
+                        LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+                        LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
                         LEFT JOIN person_events ON person_events.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = person_events.event_type_id
@@ -216,8 +216,8 @@ class Document < ActiveRecord::Base
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id
                         LEFT JOIN statuses ON statuses.id = documents.status_id
-                        LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
-                        LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
+                        LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+                        LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
                         LEFT JOIN facts ON facts.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = facts.event_type_id
@@ -258,8 +258,8 @@ class Document < ActiveRecord::Base
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id
                         LEFT JOIN statuses ON statuses.id = documents.status_id
-                        LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
-                        LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
+                        LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+                        LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
                         LEFT JOIN facts ON facts.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = facts.event_type_id
@@ -315,8 +315,8 @@ class Document < ActiveRecord::Base
     #condition += "documents.document_type_id = '#{search_params[:document_type_id]}' AND " unless search_params[:document_type_id].blank?
     #condition += "documents.status_id = '#{search_params[:document_status_id]}' AND " unless search_params[:document_status_id].blank?
     condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
-    condition += "attribute_types.name = 'Publisher' AND UPPER(attribute_documents.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
-    condition += "attribute_types.name = 'Author' AND UPPER(attribute_documents.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
+    condition += "attribute_types.name = 'Publisher' AND UPPER(document_attributes.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
+    condition += "attribute_types.name = 'Author' AND UPPER(document_attributes.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
     if !search_params[:document_type_id].blank?
       condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
     end
@@ -324,8 +324,8 @@ class Document < ActiveRecord::Base
       condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
     end
 
-    #condition += "(extract(year FROM attribute_documents.on_date) >= '#{date_from}'
-    # AND extract(year FROM attribute_documents.on_date) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
+    #condition += "(extract(year FROM document_attributes.on_date) >= '#{date_from}'
+    # AND extract(year FROM document_attributes.on_date) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
 
     #condition += "(extract(year FROM person_events.date_event) >= '#{date_from}'
     #             AND extract(year FROM person_events.date_event) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
@@ -342,8 +342,8 @@ class Document < ActiveRecord::Base
                         LEFT JOIN users ON users.id = documents.user_id
                         LEFT JOIN document_types ON document_types.id = documents.document_type_id
                         LEFT JOIN statuses ON statuses.id = documents.status_id
-                        LEFT JOIN attribute_documents ON attribute_documents.document_id = documents.id
-                        LEFT JOIN attribute_types ON attribute_types.id = attribute_documents.attribute_type_id
+                        LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+                        LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
                         LEFT JOIN people ON people.document_id = documents.id
                         LEFT JOIN facts ON facts.person_id = people.id
                         LEFT JOIN event_types ON event_types.id = facts.event_type_id

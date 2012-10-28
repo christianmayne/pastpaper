@@ -60,7 +60,7 @@ class DocumentsController < ApplicationController
         
       end
     else
-       @attribute_documents = @document.attribute_documents.build
+       @document_attributes = @document.document_attributes.build
     end
   end
 
@@ -179,13 +179,13 @@ private
   def prepare_document
      if params[:id]
         #if current_user.is_admin?
-          @document = Document.find(params[:id], :include => [:attribute_documents])
+          @document = Document.find(params[:id], :include => [:document_attributes])
         #else
         #  @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
         #end
      elsif params[:document_id]
         #if current_user.is_admin?
-          @document = Document.find(params[:document_id], :include => [:attribute_documents])
+          @document = Document.find(params[:document_id], :include => [:document_attributes])
         #else
         #  @document = current_user.documents.find(params[:document_id], :include => [:attribute_documents])
         #end  

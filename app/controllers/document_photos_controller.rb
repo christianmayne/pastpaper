@@ -51,9 +51,9 @@ class DocumentPhotosController < ApplicationController
  def prepare_document
      if params[:document_id]
         if current_user.is_admin?
-          @document = Document.find(params[:document_id], :include => [:attribute_documents])
+          @document = Document.find(params[:document_id], :include => [:document_attributes])
         else
-          @document = current_user.documents.find(params[:document_id], :include => [:attribute_documents])
+          @document = current_user.documents.find(params[:document_id], :include => [:document_attributes])
         end  
      end  
   end 

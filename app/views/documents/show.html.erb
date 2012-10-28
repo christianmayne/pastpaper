@@ -129,7 +129,7 @@
         </div>
       <% end %>
 
-      <% @document.attribute_documents.group_by { |d| d.attribute_type.try(:name) }.each_pair do |type, doc_attrs| %>
+      <% @document.document_attributes.group_by { |d| d.attribute_type.try(:name) }.each_pair do |type, doc_attrs| %>
         <div class="row-fluid">
           <span class="span2 strong"><%= type %></span>
           <span class="span10">

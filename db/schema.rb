@@ -11,9 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121025192527) do
+ActiveRecord::Schema.define(:version => 20121028170452) do
 
-  create_table "attribute_documents", :force => true do |t|
+  create_table "attribute_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "document_attributes", :force => true do |t|
     t.integer  "document_id"
     t.integer  "attribute_type_id"
     t.string   "value"
@@ -31,13 +38,6 @@ ActiveRecord::Schema.define(:version => 20121025192527) do
     t.string   "county"
     t.string   "state"
     t.string   "country"
-  end
-
-  create_table "attribute_types", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "document_comments", :force => true do |t|
