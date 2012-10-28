@@ -1,20 +1,36 @@
-<div class="fields" >
-	<%= f.collection_select :attribute_type_id, AttributeType.all, :id, :name, :prompt => true, :class => '' %>
-  <%= f.text_field  :value, :size=>20, :class => 'text', :placeholder=> 'Name' %>
-  <br>
-	<%= f.select :date_modifier, [['Before','BEF'],['After','AFT'],['About','ABT'],['Estimated','EST']] %>
-  <%= f.number_field :attribute_day, :size=>1, :placeholder=>"dd" %>
-  <%= f.number_field :attribute_month, :size=>1, :placeholder=>"mm" %>
-  <%= f.number_field :attribute_year, :size=>1, :placeholder=>"yyyy" %>
-  <br />
-  <%= f.text_field  :street1, :size=>20, :class => 'text', :placeholder=>'Street1' %>
-  <%= f.text_field  :street2, :size=>20, :class => 'text', :placeholder=>'Street2' %><br />
-  <%= f.text_field  :town, :size=>20, :class => 'text', :placeholder=>'Town / City' %>
-  <%= f.text_field  :county, :size=>20, :class => 'text', :placeholder=>'County' %><br />
-  <%= f.text_field  :state, :size=>20, :class => 'text', :placeholder=>'State'%>
-  <%= f.text_field  :country, :size=>20, :class => 'text', :placeholder=>'Country' %><br />
 
+<div class="fields">
+	<div class="controls controls-row">
+		<%= f.collection_select :attribute_type_id, AttributeType.all, :id, :name, :prompt => true, :class => 'span3' %>
+		<%= f.text_field  :value, :placeholder=> 'Name', :class=>'span6' %>
+		<%= link_to_remove_fields "Remove", f %>
+	</div>
+	<br />
+	<div class="controls ">
+		<%= f.select :date_modifier, [['Before','BEF'],['After','AFT'],['About','ABT'],['Estimated','EST']], {:prompt=>"Exactly", :class => 'span3'} %>
+	  <%= f.number_field :attribute_day,  {:placeholder=>"dd",:class => 'span1'} %>
+	  <%= f.number_field :attribute_month,   {:placeholder=>"mm", :class => 'span1'} %>
+	  <%= f.number_field :attribute_year,   {:placeholder=>"yyyy", :class => 'span2'} %>
+	</div>
+	<br />
+	<div class="controls controls-row">
+		<%= f.text_field  :street1, :placeholder=>'Address 1', :class=>"span6" %>
+	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :street2, :placeholder=>'Address 2', :class=>"span6" %>
+	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :town, :placeholder=>'Town / City', :class=>'span6' %>
+	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :county, :placeholder=>'County', :class=>'span6' %>
+	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :state, :placeholder=>'State', :class=>'span6'%>
+	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :country, :placeholder=>'Country', :class=>'span6' %>
+	</div>
 
-	<%= link_to_remove_fields image_tag("deleteicon.png"), f %>
+	<hr />
 </div>
-<br />

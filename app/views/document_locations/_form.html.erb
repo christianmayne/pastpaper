@@ -2,50 +2,30 @@
 
 	<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @location}%>
 
-	<div class="control-group"> 
-		<label class="control-label">	Street 1</label>
-		<div class="controls">
-		<%= f.text_field :street1,{:placeholder=>"street 1"} %>
-		</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :street1, :placeholder=>'Address 1', :class=>"span6" %>
 	</div>
-	<div class="control-group"> 
-		<label class="control-label">	Street 2</label>
-		<div class="controls">
-		<%= f.text_field :street2,{:placeholder=>"street 2"}%>
-		</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :street2, :placeholder=>'Address 2', :class=>"span6" %>
 	</div>
-	<div class="control-group"> 
-		<label class="control-label">	Town </label>
-		<div class="controls">
-		<%= f.text_field :town ,{:placeholder=>"Town"} %>
-		</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :town, :placeholder=>'Town / City', :class=>'span6' %>
 	</div>
-	<div class="control-group"> 
-		<label class="control-label">	County </label>
-		<div class="controls">
-		<%= f.text_field :county,{:placeholder=>"County"} %>
-		</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :county, :placeholder=>'County', :class=>'span6' %>
 	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :state, :placeholder=>'State', :class=>'span6'%>
+	</div>
+	<div class="controls controls-row">
+		<%= f.text_field  :country, :placeholder=>'Country', :class=>'span6' %>
+	</div>
+	<br />
 
-	<div class="control-group"> 
-		<label class="control-label">	State </label>
-		<div class="controls">
-		<%= f.text_field :state,{:placeholder=>"State"} %>
-		</div>
- 	</div>
- 
-	<div class="control-group"> 
-		<label class="control-label">	Country </label>
-		<div class="controls">
-		<%= f.text_field :country,{:placeholder=>"Country"} %>
-		</div>
- 	</div>
- 
-	<div class="control-group"> 
-		<label class="control-label">	&nbsp; </label>
-		<div class="controls">
-		<%= f.submit "&nbsp; Add &nbsp;".html_safe,:class=>"btn" %>
-		</div>
+	<div class="row">
+		<div class="span9"></div>
+		<%= f.submit "Add",:class=>"span2 btn" %>
 	</div>
 
 <% end %> 
+
