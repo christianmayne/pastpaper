@@ -25,27 +25,8 @@
 					<%@person = person%>
 					<%= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
 					<div class="userform">
-						<%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f|%>
-							<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
-							<div class="fields form-horizontal">
-									<div style="margin-left:0px;">
-										<%= f.text_field :title, :placeholder=>"Title", :class=>"person-title" %>
-										<%= f.text_field :first_name, :placeholder=>"First Name", :class=>"person-firstname" %>
-										<%= f.text_field :middle_name, :placeholder=>"Middle Names", :class=>"person-middlename" %>
-										<%= f.text_field :last_name, :placeholder=>"Last Name", :class=>"person-lastname"  %>
-										Sex: <%= f.select :sex, people_gender, :class=>""%>
-									</div>
-							</div>
-
-							<strong class="shadeGrey">Facts for this person</strong>
-							<%= f.fields_for :facts do |fact| %>
-								<%= render :partial => "document_people/fact_fields", :locals => {:f => fact} %>
-							<% end %>
-							<br />
-							<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
-							<div class="field">
-								<label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
-							</div>
+						<%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f| %>
+							<%= render :partial => "document_people/form", :locals => {:f => f } %>
 						<% end %>
 					</div>
 				</div>
@@ -55,8 +36,10 @@
 		<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
 		<div>
 			<div class="userform">
-				<%@person = @document.people.new%>
-				<%= render :partial => "document_people/form"%>
+				<% @person = @document.people.new %>
+				<%= form_for(@person,:url=>:document_people) do |f|%>
+					<%= render :partial => "document_people/form", :locals => {:f => f } %>
+				<%end%> 
 			</div>
 		</div>
 		<br />
