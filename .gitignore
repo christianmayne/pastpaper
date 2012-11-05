@@ -15,4 +15,7 @@ nbproject/
 config/database.yml
 *.old
 *.bak
-
+.rvmrc
+.sass_cache/
+*.backup
+public/system/files/
