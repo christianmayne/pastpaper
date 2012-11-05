@@ -16,6 +16,6 @@ config/database.yml
 *.old
 *.bak
 .rvmrc
-.sass_cache/
+.sass-cache/
 *.backup
 public/system/files/
