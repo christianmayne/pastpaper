@@ -40,14 +40,6 @@ ActiveRecord::Schema.define(:version => 20121028170452) do
     t.string   "country"
   end
 
-  create_table "document_comments", :force => true do |t|
-    t.integer  "user_id"
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "document_id"
-  end
-
   create_table "document_facts", :force => true do |t|
     t.integer  "document_id"
     t.integer  "fact_id"
@@ -304,24 +296,7 @@ ActiveRecord::Schema.define(:version => 20121028170452) do
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
   add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
-  create_table "taggings_backup", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context"
-    t.datetime "created_at"
-  end
-
-  add_index "taggings_backup", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings_backup", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
-
   create_table "tags", :force => true do |t|
-    t.string "name"
-  end
-
-  create_table "tags_backup", :force => true do |t|
     t.string "name"
   end
 

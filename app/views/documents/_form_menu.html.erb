@@ -4,7 +4,7 @@
 
 		<ul class="nav nav-bar">
 			<% unless @document.new_record? %>
-				<li><%= link_to_unless_current "View Item", document_path(@document),  %></li>
+				<li><%= link_to_unless_current("View Item", document_path(@document))  %></li>
 				<% unless current_page?(edit_document_path(@document)) %>
 					<li><%= link_to_unless_current("Item Details", edit_document_path(@document)) %></li>
 				<% else %>
