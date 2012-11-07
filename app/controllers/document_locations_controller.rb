@@ -8,13 +8,13 @@ class DocumentLocationsController < ApplicationController
   # GET /profiles/new.json
   def index
     # @document = current_user.documents.find(params[:document_id])   
-    @document_photos =  @document.document_photos
+    #@document_photos =  @document.document_photos
   end
   
   def new
     #@document = current_user.documents.find(params[:document_id])   
-    @document_photo =  @document.document_photos.new
-    
+    #@document_photo =  @document.document_photos.new
+   
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user_image }
@@ -33,6 +33,17 @@ class DocumentLocationsController < ApplicationController
       render "new"
     end
   end
+
+
+  def update
+    @location = @document.locations.find(params[:id])
+    if @location.update_attributes(params[:location])
+      redirect_to document_locations_url(@document)
+    else
+      render "edit"
+    end
+  end
+
 
  
   # DELETE /profiles/1

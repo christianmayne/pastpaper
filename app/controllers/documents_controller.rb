@@ -89,7 +89,7 @@ class DocumentsController < ApplicationController
   def locations
    # @document = current_user.documents.find(params[:document_id])
     @locations = @document.locations.order("id asc")
-    @location = @document.locations.new
+    #@location = @document.locations.new
   end
 
   
