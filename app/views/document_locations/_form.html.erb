@@ -1,4 +1,4 @@
-<%= form_for(@location,:url=>:document_document_locations) do |f| %>
+
 
 	<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @location}%>
 
@@ -24,8 +24,7 @@
 
 	<div class="row">
 		<div class="span9"></div>
-		<%= f.submit "Save",:class=>"span2 btn" %>
+		<%#= f.submit "",:class=>"span2 btn" %>
 	</div>
 
-<% end %> 
 
