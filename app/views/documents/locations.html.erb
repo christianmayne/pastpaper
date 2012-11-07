@@ -1,4 +1,4 @@
-<% @pagetitle = "Editxxx " + page_title %>
+<% @pagetitle = "Edit " + page_title %>
 <% sub_title = "Locations" %>
 
 <div class="well">
@@ -13,28 +13,28 @@
 </div>
 
 <legend>Locations</legend>
-<p>Add Location For this <%= @document.document_type.name%></p>
-
-<div class="row-fluid form-horizontal">
-	<%= render :partial => "document_locations/form"%>
-	<%= link_to "Next" ,document_itempeople_path(@document),:class=>"btn pull-right"%>
-</div>
-<br />
 
 <div class="row-fluid">
-	<legend>Locations already associated with this item</legend>
-	<% @locations.each do |location| %>
-		<% unless location.new_record? %>
-			<div class="row-fluid" style="background: #fafafa; margin: 2px; padding:5px;">
-				<div class="span11">
-					<%= location.full_location %>
-				</div>  
-				<div class="span1">
+	<div class="accordion">
+
+		<h3><a href="#">Add Location For this <%= @document.document_type.name%></a></h3>
+		<div><%= render :partial => "document_locations/form"%></div>
+
+		<% @locations.each do |location| %>
+			<% unless location.new_record? %>
+				<h3><a href="#"><%= location.full_location %></a></h3>
+				<div>
+					Form here<br />		
 					<%= link_to image_tag("deleteicon.png"),document_document_location_path(location.document.id,location),:method => :delete, :confirm => "Are you sure to delete?"  %>
-				</div>
-				<br />
-			</div>
-		<% end %>			
-	<%end%>
+				</div>	
+			<% end %>			
+		<%end%>
+
+	</div> <!-- End Accordion -->
+	
+	<br />
+	<%= link_to "Next" ,document_itempeople_path(@document),:class=>"btn pull-right"%>
+
 </div>
+
 <hr />
