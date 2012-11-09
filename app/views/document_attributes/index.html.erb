@@ -35,7 +35,7 @@
 						<%= f.submit "Save",:class=>"span2 btn" %>
 					<%end%>
 					<br />		
-					<%= link_to image_tag("deleteicon.png"),document_document_attributes_path(document_attribute.document.id,document_attribute),:method => :delete, :confirm => "Are you sure to delete?"  %>
+					<%= link_to image_tag("deleteicon.png"),document_document_attribute_path(document_attribute.document.id,document_attribute),:method => :delete, :confirm => "Are you sure to delete?"  %>
 				</div>	
 			<% end %>			
 		<%end%>
