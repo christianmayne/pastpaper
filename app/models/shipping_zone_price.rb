@@ -1,3 +1,5 @@
 class ShippingZonePrice < ActiveRecord::Base
-  belongs_to :shipping_zone
+
+	belongs_to :shipping_zone
+
 end

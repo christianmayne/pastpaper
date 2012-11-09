@@ -1,12 +1,13 @@
 class Status < ActiveRecord::Base
-  has_many :documents
 
-  scope :alphabetically, :order => "name ASC"
+	has_many :documents
 
-  validates :name ,:presence => true
+	scope :alphabetically, :order => "name ASC"
 
-  def self.for_filter
-    self.where("UPPER(name) != 'HIDDEN'")
-  end
+	validates :name ,:presence => true
+
+	def self.for_filter
+		self.where("UPPER(name) != 'HIDDEN'")
+	end
 
 end

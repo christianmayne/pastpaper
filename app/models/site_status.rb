@@ -1,5 +1,5 @@
 class SiteStatus < ActiveRecord::Base
 
-  has_one :site_profile
+	has_one :site_profile
 
 end
