@@ -4,7 +4,6 @@ class LocationsController < ApplicationController
   before_filter :prepare_document
 
  def index
-   # @document = current_user.documents.find(params[:document_id])
     @locations = @document.locations.order("id asc")
     @location = @document.locations.new
   end

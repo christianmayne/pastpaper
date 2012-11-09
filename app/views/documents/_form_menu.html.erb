@@ -13,8 +13,8 @@
 			<% end %>
 
 			<% unless @document.new_record? %>
-				<% unless current_page?(document_publicationinfo_path(@document)) %>
-					<li><%= link_to("Publication Info", document_publicationinfo_path(@document)) %></li>
+				<% unless current_page?(document_document_attributes_path(@document)) %>
+					<li><%= link_to("Publication Info", document_document_attributes_path(@document)) %></li>
 				<% else %>
 					<li class="active"><a>Publication Info</a></li>
 				<% end %>	
