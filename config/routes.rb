@@ -22,15 +22,19 @@ Pastpaper::Application.routes.draw do
   resources :password_resets
   match 'password_resets/:id/edit' => "password_resets#edit" ,:as => 'password_reset_path'
   
+  # CM> This is a fudge  for some reason new is not showing up under resource
+  #match '/documents/:id/locations/create' => 'locations#create'
+  
   resources :documents do 
     collection do 
       match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
     end
-    #match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
+
+    match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
     # CM >
     match '/publicationinfo' => 'documents#publicationinfo',:as => :publicationinfo
     match '/images' => 'documents#itemimages' ,:as => :itemimages
-    match '/locations' => 'documents#locations',:as => :locations
+    #match '/locations' => 'documents#locations',:as => :locations
     #match '/locations' => 'locations#index', :as => :locations
     #match '/document_locations' => 'documents#locations',:as => :locations
     match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
@@ -72,12 +76,7 @@ Pastpaper::Application.routes.draw do
   match 'terms', :to => 'pages#terms'
   match 'help', :to => 'pages#help'
 
-  resources :christian do
-    resource :mayne
-  end
-
-
-  # Sample of regular route:
+   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 

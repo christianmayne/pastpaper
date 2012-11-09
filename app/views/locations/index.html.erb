@@ -1,6 +1,6 @@
 <% @pagetitle = "Edit " + page_title %>
 <% sub_title = "Locations" %>
-
+locations/index.html.erb
 <div class="well">
 	<div class="row-fluid">
 			<h4><%= @pagetitle %></h4>
@@ -9,7 +9,7 @@
 </div>
 
 <div class="row-fluid">
-	<%= render :partial => "form_menu"%>
+	<%= render :partial => "documents/form_menu"%>
 </div>
 
 <legend>Locations</legend>
@@ -17,16 +17,21 @@
 <div class="row-fluid">
 	<div class="accordion">
 
-
-
-
+ 		<h3><a href="#">Add Location For this <%= @document.document_type.name%></a></h3>
+		<div>
+			<%= form_for([@document,@location]) do |f| %>
+			<%#= form_for(@document,:url=>new_document_location_path(@location)) do |f| %>
+				<%= render :partial => "locations/form", :locals =>{:f=>f} %>
+				<%= f.submit "Save",:class=>"span2 btn" %>
+			<%end%>
+		</div>
 
 		<% @locations.each do |location| %>
 			<% unless location.new_record? %>
 				<h3><a href="#"><%= location.full_location %></a></h3>
 				<div>
-					<% @location = location %>
-					<%= form_for(@location, :url=>document_location_path(@document,@location), :method=>:put) do |f| %>
+					<% @doc_location = location %>
+					<%= form_for(@doc_location, :url=>document_location_path(@document,@doc_location), :method=>:put) do |f| %>
 						<%= render :partial => "locations/form", :locals=>{:f=>f} %>
 						<%= f.submit "Save",:class=>"span2 btn" %>
 					<%end%>

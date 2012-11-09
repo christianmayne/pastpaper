@@ -28,11 +28,11 @@ class DocumentLocationsController < ApplicationController
   def create
     #@document = current_user.documents.find(params[:document_id])
     @location = @document.locations.build(params[:location])
-    if @location.save
-      redirect_to document_locations_url(@document)
-    else
-      render "new"
-    end
+    #if @location.save
+    #  redirect_to document_locations_url(@document)
+    #else
+    #  render "new"
+    #end
   end
 
 
