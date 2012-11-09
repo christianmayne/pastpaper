@@ -1,0 +1,48 @@
+<% @pagetitle = "Edit " + page_title %>
+<% sub_title = "People & Facts" %>
+people/index.html.erb
+
+<div class="well">
+	<div class="row-fluid">
+			<h4><%= @pagetitle %></h4>
+			<h6><%= sub_title %></h6>
+	</div>
+</div>
+
+<div class="row-fluid">
+	<%= render :partial => "documents/form_menu"%>
+</div>
+
+<div class="span9">
+	<h3>People</h3>
+	
+	<div class="accordion" >
+
+		<% @people.each do |person| %>
+			<% unless person.new_record? %>
+				<h3><a href="#"><%= person.full_name%>  <em><%= person.sex %></em></a></h3>
+				<div>
+					<%@person = person%>
+					<%= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
+					<div class="userform">
+						<%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f| %>
+							<%= render :partial => "form", :locals => {:f => f } %>
+						<% end %>
+					</div>
+				</div>
+			<% end %>			
+		<%end%>
+
+		<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
+		<div>
+			<div class="userform">
+				<% @person = @document.people.new %>
+				<%= form_for(@person,:url=>:document_people) do |f|%>
+					<%= render :partial => "form", :locals => {:f => f } %>
+				<%end%> 
+			</div>
+		</div>
+		<br />
+
+	</div> <!-- End Accordion -->
+</div>

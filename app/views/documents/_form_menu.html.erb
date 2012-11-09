@@ -31,8 +31,8 @@
 					<li class="active"><a>Locations</a></li>
 				<% end %>	
 
-				<% unless current_page?(document_itempeople_path(@document)) %>
-					<li><%= link_to("People & Events", document_itempeople_path(@document)) %></li>
+				<% unless current_page?(document_people_path(@document)) %>
+					<li><%= link_to("People & Events", document_people_path(@document)) %></li>
 				<% else %>
 					<li class="active"><a>People & Events</a></li>
 				<% end %>	

@@ -36,13 +36,14 @@ Pastpaper::Application.routes.draw do
     #match '/locations' => 'documents#locations',:as => :locations
     #match '/locations' => 'locations#index', :as => :locations
     #match '/document_locations' => 'documents#locations',:as => :locations
-    match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
+    #match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
     match '/people_facts_locations' => 'documents#people_facts_locations',:as => :people_facts_loc
     #resources :document_locations
     #resources :locations, :controller=>"locations"
     resources :document_attributes
     resources :locations
-    resources :people ,:controller => "document_people"
+    #resources :people ,:controller => "document_people"
+    resources :people
     resources :document_facts
     resource :facts
     resources :document_photos
