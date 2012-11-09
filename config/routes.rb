@@ -41,6 +41,7 @@ Pastpaper::Application.routes.draw do
     match '/people_facts_locations' => 'documents#people_facts_locations',:as => :people_facts_loc
     #resources :document_locations
     #resources :locations, :controller=>"locations"
+    resources :document_attributes
     resources :locations
     resources :people ,:controller => "document_people"
     resources :document_facts

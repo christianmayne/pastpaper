@@ -3,8 +3,14 @@ class LocationsController < ApplicationController
   before_filter :require_login
   before_filter :prepare_document
 
-  def new
+ def index
+   # @document = current_user.documents.find(params[:document_id])
+    @locations = @document.locations.order("id asc")
+    @location = @document.locations.new
   end
+
+  #def new
+  #end
 
   def create
     @location = @document.locations.build(params[:location])
@@ -25,11 +31,6 @@ class LocationsController < ApplicationController
     end
   end
 
- def index
-   # @document = current_user.documents.find(params[:document_id])
-    @locations = @document.locations.order("id asc")
-    @location = @document.locations.new
-  end
 
   def destroy
     @location = @document.locations.find(params[:id])
