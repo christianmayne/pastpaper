@@ -1,19 +1,19 @@
 class PagesController < ApplicationController
 
-  def about
-    @pagetitle="About"
-  end
+	def about
+		@pagetitle="About"
+	end
 
-  def contact
-    @pagetitle="Contact Us"
-  end
+	def contact
+		@pagetitle="Contact Us"
+	end
 
-  def privacy
-    @pagetitle="Privacy Policy"
-  end
+	def privacy
+		@pagetitle="Privacy Policy"
+	end
 
-  def terms
-    @pagetitle="Terms & Conditions"
-  end
-  
+	def terms
+		@pagetitle="Terms & Conditions"
+	end
+	
 end
