@@ -19,8 +19,8 @@
 					<li class="active"><a>Publication Info</a></li>
 				<% end %>	
 
-				<% unless current_page?(document_itemimages_path(@document)) %>
-					<li><%= link_to("Item Images", document_itemimages_path(@document)) %></li>
+				<% unless current_page?(document_document_photos_path(@document)) %>
+					<li><%= link_to("Item Images", document_document_photos_path(@document)) %></li>
 				<% else %>
 					<li class="active"><a>Item Images</a></li>
 				<% end %>	

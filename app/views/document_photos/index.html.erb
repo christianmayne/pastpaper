@@ -1,18 +1,44 @@
-<div class="feedBox myform">
-<h3>Images</h3>
+<% @pagetitle = "Edit " + page_title %>
+<% sub_title = "Item Images" %>
+document_photos/index.html.erb
+<div class="well">
+	<div class="row-fluid">
+			<h4><%= @pagetitle %></h4>
+			<h6><%= sub_title %></h6>
+	</div>
+</div>
 
+<div class="row-fluid">
+	<%= render :partial => "documents/form_menu"%>
+</div>			
 
-<div class="images clearfix">
-  <% unless current_user.user_images.nil? %>
-  	  <% current_user.user_images.each do |user_image|%>
-	  	  <% if user_image.attachment.exists? %>
-	  	  <div class="" style="margin:2px;float: left; width:254px; height:220px; padding:2px; text-align: center; border: solid #093540 1px;">
-		  	<%= image_tag user_image.attachment.url(:thumb)%><br />
-		  	<%= link_to "Remove",user_image,confirm: 'Are you sure?', method: :delete,:class=>"icon-delete" %>
-		  </div>
-		  <% end %>
-	  <% end %>
-  <% end %>
-  
-  </div>
+<div class="row-fluid">
+
+	<% unless @document.document_photos.blank? %>
+		<ul class="thumbnails">
+			<% @document.document_photos.each do |dp|%>
+				<% if dp.photo.exists? %>
+					<li class="span3 thumbnail">
+						<%= image_tag dp.photo.url(:thumb),:class=>""%><br />
+						<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"btn btn-mini" %>
+						<% unless dp.is_primary? %>
+							<%= link_to "Make default",make_primary_image_path(dp.id) ,:class=>"btn btn-mini" %>
+						<% else %>
+							<span class="btn btn-mini disabled">   Default</span>
+						<% end %>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+	<% end %>
+	<br />
+
+	<div class="userform">
+		<%= render :partial => 'document_photos/form'  %>
+	</div>
+
+	<div class="" style="text-align: right">
+		<%= link_to "Next" ,document_locations_path(@document),:class=>"btn"%>
+	</div>
+
 </div>

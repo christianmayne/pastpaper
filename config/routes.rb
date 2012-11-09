@@ -6,9 +6,6 @@ Pastpaper::Application.routes.draw do
 
   resources :gedcom_documents
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-  
   get 'logout' => 'sessions#destroy', :as => 'logout'
   post 'login' => 'sessions#create', :as => 'login'
   match 'forgot_password' => 'password_resets#new',:as=>'forgot_password'
@@ -22,33 +19,18 @@ Pastpaper::Application.routes.draw do
   resources :password_resets
   match 'password_resets/:id/edit' => "password_resets#edit" ,:as => 'password_reset_path'
   
-  # CM> This is a fudge  for some reason new is not showing up under resource
-  #match '/documents/:id/locations/create' => 'locations#create'
-  
   resources :documents do 
     collection do 
       match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
     end
-
-    #match '/authorinfo' => 'documents#authorinfo',:as => :authorinfo
-    #match '/publicationinfo' => 'documents#publicationinfo',:as => :publicationinfo
-    match '/images' => 'documents#itemimages' ,:as => :itemimages
-    #match '/locations' => 'documents#locations',:as => :locations
-    #match '/locations' => 'locations#index', :as => :locations
-    #match '/document_locations' => 'documents#locations',:as => :locations
-    #match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
     match '/people_facts_locations' => 'documents#people_facts_locations',:as => :people_facts_loc
-    #resources :document_locations
-    #resources :locations, :controller=>"locations"
     resources :document_attributes
     resources :locations
-    #resources :people ,:controller => "document_people"
     resources :people
     resources :document_facts
     resource :facts
     resources :document_photos
   end
-
    
   match 'payments/cancel' => 'payments#paypal_cancel',:as => 'paypal_cancel'
   match 'payments/success' => 'payments#paypal_return',:as => 'paypal_return'
@@ -62,12 +44,8 @@ Pastpaper::Application.routes.draw do
     end
   end
 
-  #match 'documents/authorinfo/:id' => 'documents#authorinfo',:as => :authorinfo
-  # CM >
-  #match 'documents/publicationinfo/:id' => 'documents#publicationinfo',:as => :publicationinfo
-  #match 'documents/update/publishinginfo/:id' => 'documents#publishinginfo',:as => :publishinginfo 
-  match 'documents/document_image_remove/:id' => 'documents#remove_image',:as=>"remove_image"
-  match 'documents/make_primary_image/:id' => 'documents#make_primary_image',:as => :make_primary_image
+  match 'documents/document_image_remove/:id' => 'document_photos#remove_image',:as=>"remove_image"
+  match 'documents/make_primary_image/:id' => 'document_photos#make_primary_image',:as => :make_primary_image
   match 'person_detail/:id' => 'documents#person_detail',:as=>'person_detail'
 
   #static pages
