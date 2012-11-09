@@ -17,14 +17,9 @@
 <div class="row-fluid">
 	<div class="accordion">
 
- 		<h3><a href="#">Add Location For this <%= @document.document_type.name%></a></h3>
-		<div>
-			<% @location = @document.locations.new %>
-			<%= form_for(@location,:url=>:document_document_locations, :method=>:post) do |f| %>
-				<%= render :partial => "document_locations/form", :locals =>{:f=>f} %>
-				<%= f.submit "Save",:class=>"span2 btn" %>
-			<%end%>
-		</div>
+
+
+
 
 		<% @locations.each do |location| %>
 			<% unless location.new_record? %>
@@ -32,11 +27,11 @@
 				<div>
 					<% @location = location %>
 					<%= form_for(@location, :url=>document_location_path(@document,@location), :method=>:put) do |f| %>
-						<%= render :partial => "document_locations/form", :locals=>{:f=>f} %>
+						<%= render :partial => "locations/form", :locals=>{:f=>f} %>
 						<%= f.submit "Save",:class=>"span2 btn" %>
 					<%end%>
 					<br />		
-					<%= link_to image_tag("deleteicon.png"),document_document_location_path(location.document.id,location),:method => :delete, :confirm => "Are you sure to delete?"  %>
+					<%= link_to image_tag("deleteicon.png"),document_location_path(location.document.id,location),:method => :delete, :confirm => "Are you sure to delete?"  %>
 				</div>	
 			<% end %>			
 		<%end%>

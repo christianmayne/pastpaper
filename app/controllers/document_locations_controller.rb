@@ -12,7 +12,8 @@ class DocumentLocationsController < ApplicationController
   end
   
   def new
-    #@document = current_user.documents.find(params[:document_id])   
+    #@location = @document.locations.new
+    #@location = current_user.documents.find(params[:document_id])   
     #@document_photo =  @document.document_photos.new
    
     respond_to do |format|
@@ -44,6 +45,11 @@ class DocumentLocationsController < ApplicationController
     end
   end
 
+  def show
+     # @document = current_user.documents.find(params[:document_id])
+    @locations = @document.locations.order("id asc")
+    @location = @document.locations.new
+  end
 
  
   # DELETE /profiles/1

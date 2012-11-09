@@ -31,17 +31,20 @@ Pastpaper::Application.routes.draw do
     match '/publicationinfo' => 'documents#publicationinfo',:as => :publicationinfo
     match '/images' => 'documents#itemimages' ,:as => :itemimages
     match '/locations' => 'documents#locations',:as => :locations
-    match '/document_locations' => 'documents#locations',:as => :locations
+    #match '/locations' => 'locations#index', :as => :locations
+    #match '/document_locations' => 'documents#locations',:as => :locations
     match '/itempeople'  => 'documents#itempeople' ,:as => :itempeople
     match '/people_facts_locations' => 'documents#people_facts_locations',:as => :people_facts_loc
-    resources :document_locations
-    resources :locations, :controller=>"document_locations"
+    #resources :document_locations
+    #resources :locations, :controller=>"locations"
+    resources :locations
     resources :people ,:controller => "document_people"
     resources :document_facts
     resource :facts
     resources :document_photos
   end
-  
+
+   
   match 'payments/cancel' => 'payments#paypal_cancel',:as => 'paypal_cancel'
   match 'payments/success' => 'payments#paypal_return',:as => 'paypal_return'
   match 'payments/ipn' => 'payments#create',:as => 'paypal_ipn'
@@ -68,6 +71,10 @@ Pastpaper::Application.routes.draw do
   match 'privacy', :to => 'pages#privacy'
   match 'terms', :to => 'pages#terms'
   match 'help', :to => 'pages#help'
+
+  resources :christian do
+    resource :mayne
+  end
 
 
   # Sample of regular route:

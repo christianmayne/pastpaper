@@ -1,0 +1,27 @@
+locations/_form.html.erb
+<%= render :partial => "shared/validationerror" ,:locals =>{:obj => @location}%>
+
+<div class="controls controls-row">
+	<%= f.text_field  :street1, :placeholder=>'Address 1', :class=>"span6" %>
+</div>
+<div class="controls controls-row">
+	<%= f.text_field  :street2, :placeholder=>'Address 2', :class=>"span6" %>
+</div>
+<div class="controls controls-row">
+	<%= f.text_field  :town, :placeholder=>'Town / City', :class=>'span6' %>
+</div>
+<div class="controls controls-row">
+	<%= f.text_field  :county, :placeholder=>'County', :class=>'span6' %>
+</div>
+<div class="controls controls-row">
+	<%= f.text_field  :state, :placeholder=>'State', :class=>'span6'%>
+</div>
+<div class="controls controls-row">
+	<%= f.text_field  :country, :placeholder=>'Country', :class=>'span6' %>
+</div>
+<br />
+
+<div class="row">
+	<div class="span9"></div>
+	<%#= f.submit "",:class=>"span2 btn" %>
+</div>
