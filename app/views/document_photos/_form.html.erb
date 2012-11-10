@@ -1,20 +1,13 @@
 <div class="form-horizontal">
-  <h3>Upload Image</h3>
-  <hr />
-  /document_photos/_form.html.erb
   <%= form_for(@document_photo, :url=>:document_document_photos,:multipart => :true) do |f| %>
     <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @document_photo}%>
-    <div class="control-group"> 
-      <label class="control-label">Upload Image </label>
-      <div class="controls">
-        <%= f.file_field :photo %>
-      </div>
+
+    <div class="row-fluid">
+      <div class="span1"></div>
+      <div class="span2">Upload New Image</div>
+      <div class="span5"><%= f.file_field :photo %></div>
+      <div class="span2"><%= f.submit "Upload" ,:class=>"btn"%></div>
     </div>
-    <div class="control-group"> 
-      <label class="control-label">&nbsp;</label>
-      <div class="controls">
-        <%= f.submit "Upload" ,:class=>"btn"%>
-      </div>
-    </div>
+
   <% end %>
 </div>

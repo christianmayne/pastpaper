@@ -1,6 +1,5 @@
 <% @pagetitle = "Edit " + page_title %>
 <% sub_title = "People & Facts" %>
-people/index.html.erb
 
 <div class="well">
 	<div class="row-fluid">
@@ -13,10 +12,29 @@ people/index.html.erb
 	<%= render :partial => "documents/form_menu"%>
 </div>
 
-<div class="span9">
-	<h3>People</h3>
-	
+<div class="row-fluid">
+  <div class="span11"><h4>People</h4></div>
+  <div class="span1" style="margin-top:10px;">(<a href="javascript:toggle_div(helptext, 'show', 'hide', 'viewhelptext')" id="viewhelptext">hide</i></a>)</div>
+</div>
+
+<div class="row-fluid" id="helptext">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis aliquet nisi sed elementum. Vivamus non odio risus. Sed vitae tristique massa. Duis elementum eleifend tortor vitae faucibus. Nulla id felis ac nunc aliquam tincidunt vel quis libero. Pellentesque eget libero mi. Phasellus vitae augue ligula, quis tincidunt orci. Quisque vulputate lacus vitae justo viverra pellentesque. Quisque eu nisl orci. Duis sit amet urna turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+</div>
+<hr />
+
+<div class="row-fluid">
 	<div class="accordion" >
+		
+		<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
+		<div>
+			<div class="userform">
+				<% @person = @document.people.new %>
+				<%= form_for(@person,:url=>:document_people) do |f|%>
+					<%= render :partial => "form", :locals => {:f => f } %>
+				<%end%> 
+			</div>
+		</div>
 
 		<% @people.each do |person| %>
 			<% unless person.new_record? %>
@@ -33,15 +51,7 @@ people/index.html.erb
 			<% end %>			
 		<%end%>
 
-		<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
-		<div>
-			<div class="userform">
-				<% @person = @document.people.new %>
-				<%= form_for(@person,:url=>:document_people) do |f|%>
-					<%= render :partial => "form", :locals => {:f => f } %>
-				<%end%> 
-			</div>
-		</div>
+
 		<br />
 
 	</div> <!-- End Accordion -->
