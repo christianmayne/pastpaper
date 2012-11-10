@@ -75,6 +75,7 @@ Pastpaper::Application.routes.draw do
 	match 'postcards' => 'documents#postcards'
 	match 'photos' => 'documents#photos'
 	match 'maps' => 'documents#maps'
+	match 'ephemera' => 'documents#ephemera'
 
 	root :to => 'home#index'
 

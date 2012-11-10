@@ -115,6 +115,11 @@ class DocumentsController < ApplicationController
     render "documents/browse"
   end
 
+  def ephemera
+    @pagetitle = "Browse all Maps"
+     @documents = Document.where(:document_type_id => 13).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+    render "documents/browse"
+  end
 
 
 private
