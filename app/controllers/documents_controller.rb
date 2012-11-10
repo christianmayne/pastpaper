@@ -91,23 +91,40 @@ class DocumentsController < ApplicationController
     @location = @document.locations.new
   end
 
+  def bibles
+    @pagetitle = "Browse all Bibles"
+    @documents = Document.where(:document_type_id => 1).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+    render "documents/browse"
+  end
+
+  def postcards
+    @pagetitle = "Browse all Postcards"
+     @documents = Document.where(:document_type_id => 3).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+    render "documents/browse"
+  end
+
+  def photos
+    @pagetitle = "Browse all Photos"
+     @documents = Document.where(:document_type_id => 2).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+    render "documents/browse"
+  end
+
+  def maps
+    @pagetitle = "Browse all Maps"
+     @documents = Document.where(:document_type_id => 19).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+    render "documents/browse"
+  end
+
+
 
 private
 
   def prepare_document
-     if params[:id]
-        #if current_user.is_admin?
-          @document = Document.find(params[:id], :include => [:document_attributes])
-        #else
-        #  @document = current_user.documents.find(params[:id], :include => [:attribute_documents])
-        #end
-     elsif params[:document_id]
-        #if current_user.is_admin?
-          @document = Document.find(params[:document_id], :include => [:document_attributes])
-        #else
-        #  @document = current_user.documents.find(params[:document_id], :include => [:attribute_documents])
-        #end  
-     end  
+    if params[:id]
+      @document = Document.find(params[:id], :include => [:document_attributes])
+    elsif params[:document_id]
+      @document = Document.find(params[:document_id], :include => [:document_attributes])
+    end  
   end
 
   def prepare_all_location

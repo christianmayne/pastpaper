@@ -70,6 +70,12 @@ Pastpaper::Application.routes.draw do
 		match 'report/location_report' => 'report#location_report',:as=>:location_report
 	end
 
+	# Browse Links
+	match 'bibles' => 'documents#bibles'
+	match 'postcards' => 'documents#postcards'
+	match 'photos' => 'documents#photos'
+	match 'maps' => 'documents#maps'
+
 	root :to => 'home#index'
 
 end
