@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% @fb_dimg = 'http://pastonpaper.com/logo.jpg' %> 
+  <% @fb_dimg = 'http://pastonpaper.com/logo.jpg' %>
   <meta property="og:title" content="<%= @pagetitle || "www.pastonpaper.com "   %>"/>
   <meta property="og:image" content=" <%= @fb_img  || @fb_dimg %>"/>
   <meta property="og:url" content="<%= @share_url || 'http://www.pastonpaper.com'%>" />
@@ -9,6 +9,7 @@
   <meta property="og:description" content = "<%= @share_description || "Item on www.pastonpaper.com"%>" />
   <meta property="fb:app_id" content="354188527987106" />
   <meta charset="utf-8"/>
+  <meta description="<%= @meta_description %>" />
   <title><%= site.site_url %> | <%= @pagetitle %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <%= stylesheet_link_tag "application" %>
@@ -48,6 +49,7 @@
     	<div class="span12"  >
     		<div class="row-fluid" style="background: #fff; ">
        		<%= render "layouts/header"%>
+          <%= render "layouts/browse"%>
      		</div>
     		<div class="" style="background: #fff; " id="mainpage">
         	<%= yield %>
