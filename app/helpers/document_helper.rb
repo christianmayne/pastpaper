@@ -9,8 +9,9 @@ module DocumentHelper
 	end
 
 	def document_summary
-		document_summary = @pagetitle
+		document_summary = "#{page_title}"
 		document_summary << ". "
+
     document_summary << "This #{@document.document_type.name} mentions #{@document.people.count} individuals and #{@document.locations.count} locations"
 
     if @document.earliest_fact_year == 0 && @document.latest_fact_year == 0
@@ -28,6 +29,9 @@ module DocumentHelper
       	document_summary << "Surnames listed are #{@document.last_name_list}." 
       end
     end
+
+    return document_summary
+
   end
 
 
