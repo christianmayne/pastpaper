@@ -2,7 +2,6 @@
 <% top_latest_documents = Document.show_latest_documents.has_photos.last(top_latest_items) %>
 
 <div class="row">
- <hr>
   <div class="hidden-phone">
     <ul class="thumbnails">
 	    <% top_latest_documents.each do |document| %>

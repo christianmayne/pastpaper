@@ -5,7 +5,6 @@
 </script>
 
 <% @pagetitle = page_title %>
-
 <!-- Helper put in place but not finished -->
 <% @share_url = document_url(@document)%>
 <% if !@document.blank? && !@document.document_photos.blank? %>
@@ -20,6 +19,8 @@
   <% @share_description = @document.try(:name) %>
   <%# for facebook check head section of layout/application.html.erb %>
 <% end %>
+
+<% @meta_description = document_summary %>
 
 <% increment_view_counter %>
 
