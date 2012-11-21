@@ -71,11 +71,26 @@ Pastpaper::Application.routes.draw do
 	end
 
 	# Browse Links
+	
+	
 	match 'bibles' => 'documents#bibles'
-	match 'postcards' => 'documents#postcards'
-	match 'photos' => 'documents#photos'
-	match 'maps' => 'documents#maps'
+	match 'books' => 'documents#books'
+	match 'certificates' => 'documents#certificates'
+	match 'deeds' => 'documents#deeds'
+	match 'diaries' => 'documents#diaries'
+	match 'directories' => 'documents#directories'
 	match 'ephemera' => 'documents#ephemera'
+	match 'indentures' => 'documents#indentures'
+	match 'journals' => 'documents#journals'
+	match 'letters' => 'documents#letters'
+	match 'magazines' => 'documents#magazines'
+	match 'maps' => 'documents#maps'
+	match 'marriage-settlements' => 'documents#marriage_settlements'
+	match 'newspapers' => 'documents#newspapers'
+	match 'notebooks' => 'documents#notebooks'
+	match 'photos' => 'documents#photos'
+	match 'postcards' => 'documents#postcards'
+	match 'wills' => 'documents#wills'
 
 	root :to => 'home#index'
 
