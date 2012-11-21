@@ -1,4 +1,4 @@
-<%personsearch = capture do %>
+<% personsearch = capture do %>
 	<div id="person" class="">
 		<%= form_for :search_people, :url => search_results_home_index_path, :html => {:class=>""} do |f| %>
 			<%= f.hidden_field :search_type, :value=>1 , :class=>"input-small"%>
@@ -16,9 +16,9 @@
 	</div>
 <%end%>
 
-  <div class="span4 lightblue well searchbox">
-    <h2>Person Search</h2>
-    <p class="muted">Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards</p>
-    <%= personsearch %>    
-  </div>
+<div class="span4 lightblue well searchbox">
+  <h2>Person Search</h2>
+  <p class="muted">Search for your ancestors in our large collection of historic documents including Family Bibles, Photographs, Wills, Letters and Postcards</p>
+  <%= personsearch %>    
+</div>
 
