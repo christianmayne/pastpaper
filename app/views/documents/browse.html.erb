@@ -5,3 +5,4 @@
 </div>
 <!-- Container -->
 <div ><%= render :partial => "documents/document_common_list"%></div>
+<%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>
