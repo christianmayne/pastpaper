@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
 	def about
-		@pagetitle="About"
+		@pagetitle="About The Past on Paper"
 	end
 
 	def contact
