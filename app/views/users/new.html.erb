@@ -1,11 +1,13 @@
-<div class="introduction well">
-  <span class="headline4 lead newfont">Register a New User</span>
+<div class="well">
+  <div class="row-fluid">
+    <h4>Register as a New User</h4>
+  </div>  
 </div>
 
-<div class="general_page">
+<div>
 
   <div>
-    <p>xxxThank you for registering a new account with The Past on Paper.  We only require basic details about you, and we don't share this data with anyone. Please read our <a href="/privacy">Privacy Policy</a> and our Terms & Conditions</a>, as you will need to accept these before you can register.</p>
+    <p>Thank you for registering a new account with The Past on Paper.  We only require basic details about you, and we don't share this data with anyone. Please read our <a href="/privacy">Privacy Policy</a> and our <a href="/terms/">Terms & Conditions</a>, as you will need to accept these before you can register.</p>
     <p>If you think you might want to list items on the site, please let us know by selecting the checkbox so we can inform you as soon as this feature has been unlocked.</p>
     <p>We hope you enjoy using The Past on Paper, and that we may help reunite you with some of your family heirlooms</p>
   </div>
@@ -14,80 +16,15 @@
   <%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
   <br /> 
 
-  <div>
-    <%= form_for(@user)  do |f| %>
+  <%= form_for(@user)  do |f| %>
 
-      <div class="well span5 pull-left">
-        <h4>Basic Details</h4>
-        <span>Username </span><br /><%= f.text_field :username,{:required=>true, :class=>"xlarge", :placeholder=>"Username*"}%><br />
-        <span>Email Address </span><br /><%= f.text_field :email,{:required=>true, :class=>"xlarge", :placeholder=>"Email Address*"}%><br />
+    <%= render 'user_details_form', :f => f %>
 
-        <span style="width=30px;">Choose a Password</span>
-        <fieldset>
-          <%= f.password_field :password,{:required=>true, :class=>"input-medium", :placeholder=>"Password*"}%>
-          <%= f.password_field :password_confirmation,{:required=>true, :class=>"input-medium", :placeholder=>"Confirm Password*"}%>
-          <span class="help-inline">Passwords must be at least 6 characters long and contain at least one letter and one number</span>
-        </fieldset>
-        
-        <br/><br />
-        <%= f.check_box :dealer_account %> I am interested in listing my items on the site<br />
+    <%= render 'user_interests_form',  :f => f %>
 
-      </div>
+    <%= render 'user_terms_form', :f=> f %>
 
-      <div class="well span6 pull-right">
-        <h4>Personal Details</h4>
-        <fieldset>
-          <%= f.text_field :first_name,{:required=>true, :class=>"input-medium", :placeholder=>"First Name*"}%>
-          <%= f.text_field :last_name,{:required=>true, :class=>"input-medium", :placeholder=>"Last Name*"}%>
-        </fieldset>
-        <%= f.text_field :address1,{ :class=>"input-xlarge", :placeholder=>"Street Address 1"}%><br />
-        <%= f.text_field :address2,{ :class=>"input-xlarge", :placeholder=>"Street Address 2"}%><br />
-        <%= f.text_field :city,{ :class=>"input-large", :placeholder=>"Town / City"}%>
-  
-        <fieldset>
-          <%= f.text_field :county,{ :class=>"input-large", :placeholder=>"State / County"}%>
-          <%= f.text_field :post_code,{ :class=>"input-small", :placeholder=>"ZIP / Postcode"}%>
-        </fieldset>
-
-       <%#= f.select(:country, @location_countries.map(&:name), {:include_blank => 'Select a Country*'}, :required=>true) %>
-       <%= f.select(:location_country_id, location_countries.map{|c| [c.name, c.id]}, {:include_blank => 'Select a Country*'}, :required=>true) %>
-
-        <br />
-        <fieldset>
-          <%= f.text_field :tel_number,{ :class=>"input-medium", :placeholder=>"Telephone"}%>
-          <%= f.text_field :mobile_number,{ :class=>"input-medium", :placeholder=>"Mobile"}%>
-        </fieldset>
-      </div>
-  
-      <div class="well span11 pull-left">
-        <h4>Your Interests</h4>
-        So we can improve what we offer, it would be useful if you could tell us what particular aspect of The Past on Paper interests you.  Please select all that apply.<br /><br />
-        <div class="span12 pullleft">
-          <div class="span2"><%= f.check_box :interest_familyhistory, {:label=>"Family History"} %> Family History </div>
-          <div class="span2"><%= f.check_box :interest_localhistory %> Local History</div>
-        </div>
-        <div class="span12 pull-left">
-          <div class="span2"><%= f.check_box :interest_oldbooks %> Old Books</div>
-          <div class="span2"><%= f.check_box :interest_olddocuments %> Old Documents</div>
-          <div class="span2"><%= f.check_box :interest_oldnewspapers %> Old Newspapers</div>
-          <div class="span2"><%= f.check_box :interest_oldphotos %> Old Photos</div>
-          <div class="span2"><%= f.check_box :interest_oldpostcards %> Old Postcards</div>
-        </div>
-        <div class="span12 pull-left">
-          <div class="span5"><%= f.check_box :interest_other %> Other  <%= f.text_field :interest_other_text, :placeholder=>"Please Specify" %></div>
-        </div>
-      </div>
-
-      <div" class="well span11 pull-left">
-        <h4>Terms & Conditions</h4>
-        <br />
-        <%= f.check_box :terms_accepted, {:required=>true } %> Please indicate that you have read and accept the <a href="/terms/" target="_TOP">Terms and Conditions</a><br /><br />
-        <button type="submit" class="btn">Submit</button>
-      </div>
-
-      <br />
-    <% end %>
-  </div>
+  <%end%>
 
   <div style="clear:both; "></div>
 

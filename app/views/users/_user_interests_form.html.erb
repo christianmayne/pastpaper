@@ -1,0 +1,20 @@
+<div class="well">
+  <div class="row-fluid">
+      <h4>Your Interests</h4>
+      So we can improve what we offer, it would be useful if you could tell us what particular aspect of The Past on Paper interests you.  Please select all that apply.<br /><br />
+      <div class="span12 pull-left">
+        <div class="span2"><%= f.check_box :interest_familyhistory, {:label=>"Family History"} %> Family History </div>
+        <div class="span2"><%= f.check_box :interest_localhistory %> Local History</div>
+      </div>
+      <div class="span12 pull-left">
+        <div class="span2"><%= f.check_box :interest_oldbooks %> Old Books</div>
+        <div class="span2"><%= f.check_box :interest_olddocuments %> Old Documents</div>
+        <div class="span2"><%= f.check_box :interest_oldnewspapers %> Old Newspapers</div>
+        <div class="span2"><%= f.check_box :interest_oldphotos %> Old Photos</div>
+        <div class="span2"><%= f.check_box :interest_oldpostcards %> Old Postcards</div>
+      </div>
+      <div class="span12 pull-left">
+        <div class="span5"><%= f.check_box :interest_other %> Other  <%= f.text_field :interest_other_text, :placeholder=>"Please Specify" %></div>
+      </div>
+  </div>
+</div>  

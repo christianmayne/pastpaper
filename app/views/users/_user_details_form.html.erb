@@ -1,0 +1,43 @@
+<div class="row-fluid">
+
+  <div class="well span6 pull-left">
+     <h4>Basic Details</h4>
+      <span>Username </span><br /><%= f.text_field :username,{:required=>true, :class=>"xlarge", :placeholder=>"Username*"}%><br />
+      <span>Email Address </span><br /><%= f.text_field :email,{:required=>true, :class=>"xlarge", :placeholder=>"Email Address*"}%><br />
+
+      <span style="width=30px;">Choose a Password</span>
+      <fieldset>
+        <%= f.password_field :password,{:required=>true, :class=>"input-medium", :placeholder=>"Password*"}%>
+        <%= f.password_field :password_confirmation,{:required=>true, :class=>"input-medium", :placeholder=>"Confirm Password*"}%>
+        <span class="help-inline">Passwords must be at least 6 characters long and contain at least one letter and one number</span>
+      </fieldset>
+      
+      <br/><br />
+      <%= f.check_box :dealer_account %> I am interested in listing my items on the site<br />
+  </div>
+
+  <div class="well span6 pull-right">
+    <h4>Personal Details</h4>
+    <fieldset>
+      <%= f.text_field :first_name,{:required=>true, :class=>"input-medium", :placeholder=>"First Name*"}%>
+      <%= f.text_field :last_name,{:required=>true, :class=>"input-medium", :placeholder=>"Last Name*"}%>
+    </fieldset>
+    <%= f.text_field :address1,{ :class=>"input-xlarge", :placeholder=>"Street Address 1"}%><br />
+    <%= f.text_field :address2,{ :class=>"input-xlarge", :placeholder=>"Street Address 2"}%><br />
+    <%= f.text_field :city,{ :class=>"input-large", :placeholder=>"Town / City"}%>
+
+    <fieldset>
+      <%= f.text_field :county,{ :class=>"input-large", :placeholder=>"State / County"}%>
+      <%= f.text_field :post_code,{ :class=>"input-small", :placeholder=>"ZIP / Postcode"}%>
+    </fieldset>
+
+   <%= f.select(:location_country_id, location_countries.map{|c| [c.name, c.id]}, {:include_blank => 'Select a Country*'}, :required=>true) %>
+
+    <br />
+    <fieldset>
+      <%= f.text_field :tel_number,{ :class=>"input-medium", :placeholder=>"Telephone"}%>
+      <%= f.text_field :mobile_number,{ :class=>"input-medium", :placeholder=>"Mobile"}%>
+    </fieldset>
+  </div>
+
+</div>

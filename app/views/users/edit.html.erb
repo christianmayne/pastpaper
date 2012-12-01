@@ -1,12 +1,15 @@
-<% @location_countries = LocationCountry.find :all, :order=>"sort_order, name ASC" %>
-<div class="introduction well">
-  <span class="headline4 lead newfont">Update Your Details</span>
+<div class="well">
+  <div class="row-fluid">
+    <h4>Update Your Details</h4>
+  </div>  
 </div>
 
-<div class="general_page">
+<div>
 
-  </div>
-    <%= render 'form' %>
+  <%= form_for(@user)  do |f| %>
+    <%= render 'user_details_form', :f => f %>
+  <%end%>
+
   <div style="clear:both; "></div>
 
 </div>

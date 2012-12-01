@@ -515,22 +515,7 @@ tr.even {
 
 .headline4:after
 {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	bottom: 15px;
-	right: 15px;
-	width: 70%;
-	height: 10px;
-	background: rgba(0, 0, 0, .7);
-	-webkit-box-shadow: 0 15px 10px rgba(0,0,0, .7);
-	-moz-box-shadow: 0 15px 10px rgba(0, 0, 0, .7);
-	box-shadow: 0 15px 10px rgba(0, 0, 0, .7);
-	-webkit-transform: rotate(2deg);
-	-moz-transform: rotate(2deg);
-	-o-transform: rotate(2deg);
-	-ms-transform: rotate(2deg);
-	transform: rotate(2deg);		
+
 }
 
 #big-info 
