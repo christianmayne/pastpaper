@@ -20,10 +20,10 @@
       document.write('<a href="'+myTarget+'" target="_blank" onMouseOver="window.status=\'http://www.historic-newspapers.co.uk\';return true;" onMouseOut="window.status=\'\'"><img src="'+uri+'" width="88" height="31" border="0" alt=""/></a>');
     </script>
 
-    <a href="http://blog.pastonpaper.com/" target="_blank"><%= image_tag("icons/blog.jpg",:height=>"31", :width=>"31",  :title=>"Past on paper Blog")%></a> 
-    <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.jpg", :height=>"31", :width=>"31", :title=>"Facebook")%></a> 	    
-    <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.jpg", :height=>"31", :width=>"31", :title=>"Twitter")%></a> 
-    <a href="http://www.pinterest.com/pastonpaper" target="_blank"><%= image_tag("icons/pinterest.png", :height=>"31", :width=>"31", :title=>"Pinterest")%></a> 
+    <a href="http://blog.pastonpaper.com/" target="_blank"><%= image_tag("icons/blog.jpg",:title=>"Past on paper Blog",:class=>"social-icon")%></a> 
+    <a href="http://www.facebook.com/pastonpaper" target="_blank"><%= image_tag("icons/facebook.jpg",:title=>"Facebook", :class=>"social-icon")%></a> 	    
+    <a href="http://twitter.com/pastonpaper" target="_blank"><%= image_tag("icons/twitter.jpg", :title=>"Twitter", :class=>"social-icon")%></a> 
+    <a href="http://www.pinterest.com/pastonpaper" target="_blank"><%= image_tag("icons/pinterest.png", :title=>"Pinterest", :class=>"social-icon")%></a> 
   </center>
 </div>
 
@@ -34,7 +34,7 @@
      is a 
     <a href="http://www.watchthedot.com">watchthedot.com</a> 
      website  &copy; <%= Time.now.year %> 
-    <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:height=>"16", :width=>"16")%></a>
+    <a href="http://www.watchthedot.com"><%= image_tag("icons/wtd.png",:class=>"social-icon-small")%></a>
   </center>
 </div>
 
