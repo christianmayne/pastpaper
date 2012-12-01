@@ -1,5 +1,3 @@
-<% @location_countries = LocationCountry.find :all, :order=>"sort_order, name ASC" %>
-
 <div class="introduction well">
   <span class="headline4 lead newfont">Register a New User</span>
 </div>
@@ -7,7 +5,7 @@
 <div class="general_page">
 
   <div>
-    <p>Thank you for registering a new account with The Past on Paper.  We only require basic details about you, and we don't share this data with anyone. Please read our <a href="/privacy">Privacy Policy</a> and our Terms & Conditions</a>, as you will need to accept these before you can register.</p>
+    <p>xxxThank you for registering a new account with The Past on Paper.  We only require basic details about you, and we don't share this data with anyone. Please read our <a href="/privacy">Privacy Policy</a> and our Terms & Conditions</a>, as you will need to accept these before you can register.</p>
     <p>If you think you might want to list items on the site, please let us know by selecting the checkbox so we can inform you as soon as this feature has been unlocked.</p>
     <p>We hope you enjoy using The Past on Paper, and that we may help reunite you with some of your family heirlooms</p>
   </div>
@@ -52,7 +50,7 @@
         </fieldset>
 
        <%#= f.select(:country, @location_countries.map(&:name), {:include_blank => 'Select a Country*'}, :required=>true) %>
-       <%= f.select(:location_country_id, @location_countries.map{|c| [c.name, c.id]}, {:include_blank => 'Select a Country*'}, :required=>true) %>
+       <%= f.select(:location_country_id, location_countries.map{|c| [c.name, c.id]}, {:include_blank => 'Select a Country*'}, :required=>true) %>
 
         <br />
         <fieldset>

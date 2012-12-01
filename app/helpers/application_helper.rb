@@ -21,6 +21,10 @@ module ApplicationHelper
 		[["Unknown", "Unknown"],["Male", "Male"], ["Female", "Female"]]
 	end
 
+	def location_countries
+		return LocationCountry.find :all, :order=>"sort_order, name ASC"
+	end
+
 	def banner_ads
 		['<a href="http://www.anrdoezrs.net/click-6185997-10660760" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660760" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
 		 '<a href="http://www.anrdoezrs.net/click-6185997-10660758" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660758" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
