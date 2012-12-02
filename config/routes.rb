@@ -1,5 +1,9 @@
 Pastpaper::Application.routes.draw do
  
+  #get "errors/error_404"
+
+  #get "errors/error_500"
+
 	get "offer/new"
 	post "offer/create"
 	post "mailing_lists/create"
@@ -93,5 +97,11 @@ Pastpaper::Application.routes.draw do
 	match 'wills' => 'documents#wills'
 
 	root :to => 'home#index'
+
+	# Error handling
+	# To test in development, remove condition
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
+  end
 
 end
