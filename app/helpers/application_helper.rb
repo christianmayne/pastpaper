@@ -40,5 +40,12 @@ module ApplicationHelper
 		return banner_ads[rand(banner_ads.count)].html_safe
 	end
 
+	def latest_items(items)
+		latest_items = Document.show_latest_documents.has_photos.last(items)
+	end	
+
+	def random_items(items)
+		random_items = Document.has_photos.find(:all, :limit => items, :order => "RAND()")
+	end
 	
 end

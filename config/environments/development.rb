@@ -10,7 +10,7 @@ Pastpaper::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  # set config.consider_all_requests_local to 
+  # CM> set config.consider_all_requests_local to 
   # false to show error pages
   # true to show debug info
   config.consider_all_requests_local       = false

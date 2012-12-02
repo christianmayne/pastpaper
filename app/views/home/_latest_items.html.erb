@@ -1,10 +1,7 @@
-<% top_latest_items = 12 %>
-<% top_latest_documents = Document.show_latest_documents.has_photos.last(top_latest_items) %>
-
 <div class="row">
   <div class="hidden-phone">
     <ul class="thumbnails">
-	    <% top_latest_documents.each do |document| %>
+	    <% latest_items(12).each do |document| %>
 		    <% if document.name.blank? %>
 			    <% doctitle = document.title%>
 		    <% else %>  
