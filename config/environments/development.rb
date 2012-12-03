@@ -13,7 +13,7 @@ Pastpaper::Application.configure do
   # CM> set config.consider_all_requests_local to 
   # false to show error pages
   # true to show debug info
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
