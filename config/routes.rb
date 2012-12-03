@@ -36,7 +36,11 @@ Pastpaper::Application.routes.draw do
 		resource :facts
 		resources :document_photos
 	end
-	 
+	
+	#resources :people do
+	#	resources :documents
+	#end	
+
 	match 'payments/cancel' => 'payments#paypal_cancel',:as => 'paypal_cancel'
 	match 'payments/success' => 'payments#paypal_return',:as => 'paypal_return'
 	match 'payments/ipn' => 'payments#create',:as => 'paypal_ipn'
@@ -46,6 +50,8 @@ Pastpaper::Application.routes.draw do
 			get 'document_search','simple_location_search','date_search','simple_people_search','simple_organisation_search','document_filter'
 			get 'search_results'
 			post 'search_results'
+			get 'search_results_person'
+			post 'search_results_person'
 		end
 	end
 

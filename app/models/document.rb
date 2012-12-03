@@ -157,7 +157,7 @@ class Document < ActiveRecord::Base
 		end
 	end
 
-	def search_people_new(search_params,page,per_page=50)
+	def self.search_people_new(search_params,page,per_page=50)
   	people = Person.find_all_by_last_name("Jones")
 		#people.each do |person| puts person.document.name
 	end
