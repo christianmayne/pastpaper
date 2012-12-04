@@ -13,7 +13,7 @@
 			<div class="row-fluid">
 				<div class="span1"><%= link_to image_tag(person.document.default_image.photo.url(:small)), document_path(person.document),:class=>"thumbnail" unless person.document.default_image.nil? %></div>
 				<div class="span4">
-					<div class="span7"><%= person.full_name %></div>
+					<div class="span7"><%= link_to(person.full_name, document_path(person.document)) %></div>
 					<div class="span5">
 						<small>
 							<div class="row"><small>born: <%= person.event_year("birth") rescue '' %> <%= person.event_county("birth") rescue '' %></small></div>
