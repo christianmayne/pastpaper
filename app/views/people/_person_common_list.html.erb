@@ -1,4 +1,4 @@
-  <% @documents.each do |document| %>
-  	PersonId: <%=document.id%> - <%= document.first_name %> <%= document.last_name %><br />
-  	Document: <%= document.document.name %><br /><br />
+  <% @people.each do | person | %>
+  	PersonId: <%= person.id%> - <%= person.first_name %> <%= person.last_name %><br />
+  	Document: <%= person.document.name %><br /><br />
   <% end %>	
