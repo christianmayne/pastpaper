@@ -104,7 +104,8 @@ class Person < ActiveRecord::Base
 			condition += " status_id != 7 and is_deleted is false"
 			self.paginate_by_sql("SELECT DISTINCT people.* FROM people
 												LEFT JOIN documents ON documents.id = people.document_id
-												WHERE #{condition} ",:per_page=>per_page,:page=>page)
+												WHERE #{condition} 
+												ORDER BY last_name, first_name",:per_page=>per_page,:page=>page)
 		else
 			self.where("1=0").paginate(:per_page=>1,:page=>page)
 		end

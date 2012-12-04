@@ -159,6 +159,8 @@ class Document < ActiveRecord::Base
 
 
 	def self.search_people(search_params,page,per_page=50)
+
+		#Work out search birth date range
 		search_params[:date_birth_to] = '0' if search_params[:date_birth_to].blank?
 		if !search_params[:date_birth_from].blank?
 			date_birth_from = search_params[:date_birth_from].to_i
@@ -168,6 +170,7 @@ class Document < ActiveRecord::Base
 			end
 		end
 
+		# Work out search death dates to search from and to 
 		search_params[:date_death_to] = '0' if search_params[:date_death_to].blank?
 		if !search_params[:date_death_from].blank?
 			date_death_from = search_params[:date_death_from].to_i
