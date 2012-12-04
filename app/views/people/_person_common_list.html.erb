@@ -1,29 +1,35 @@
 <% unless @people.blank? %>
 	<div class="well well-small" style="margin: 2px 0;">
 		<div class="row-fluid">
-			<div class="span1">Stock #</div>
 			<div class="span1">Image</div>
-			<div class="span3">Person</div>
-			<div class="span3">Item Name</div>
-			<div class="span2">Type</div>
-			<div class="span2">Status</div>
+			<div class="span4">Person</div>
+			<div class="span5">Item Name</div>
+			<div class="span1">Type</div>
+			<div class="span1">Status</div>
 		</div>
 	</div>
 	<% @people.each do |person| %>
 		<div class="well well-small" style="margin: 2px 0;">
 			<div class="row-fluid">
-				<div class="span1"><%= link_to person.document.stock_number, document_path(person.document) %></div>
 				<div class="span1"><%= link_to image_tag(person.document.default_image.photo.url(:small)), document_path(person.document),:class=>"thumbnail" unless person.document.default_image.nil? %></div>
-				<div class="span3"><%= person.full_name %></div>
-				<div class="span3"> 
+				<div class="span4">
+					<div class="span7"><%= person.full_name %></div>
+					<div class="span5">
+						<small>
+							<div class="row"><small>born: <%= person.event_year("birth") rescue '' %> <%= person.event_county("birth") rescue '' %></small></div>
+							<div class="row"><small>died: <%= person.event_year("death") rescue '' %> <%= person.event_county("death") rescue '' %></small></div>
+						</small>
+					</div>	
+				</div>
+				<div class="span5"> 
 					<% if person.document.name.blank? %>
 						<%= link_to person.document.title, document_path(person.document) %>
 					<% else %>  
 						<%= link_to person.document.name, document_path(person.document) %>
 					<% end %>
 				</div>
-				<div class="span2"><%= link_to person.document.document_type_name, document_path(person.document) %></div>
-				<div class="span2"><%= link_to person.document.document_status, document_path(person.document) %></div>
+				<div class="span1"><%= link_to person.document.document_type_name, document_path(person.document) %></div>
+				<div class="span1"><%= link_to person.document.document_status, document_path(person.document) %></div>
 			</div>
 		</div>
 	<% end %>
