@@ -1,36 +1,33 @@
 <% if session[:search_params][:search_type].to_i == 1 %>
-
-  <h1>People Search results</h1>  
   <%= render "people/person_common_list"%> 
-
+  <% @documents = @people %>
 <% else %>
-
   <%= render "documents/document_common_list"%> 
-  <div class="ajaxpaging">
-    <div class="clearfix">
-      <div class="floatLeft">
-         <%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>
+<% end %>
+
+<div class="ajaxpaging">
+  <div class="clearfix">
+    <div class="floatLeft">
+       <%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>
+    </div>
+
+    <%if @documents.total_entries > 50%>
+      <div class="floatRight">
+        Display 
+        <%= link_to "50", search_results_home_index_path(:per_page=>50),:remote=>true%> 
+        <%= link_to "| 100", search_results_home_index_path(:per_page=>100),:remote=>true if @documents.total_entries > 50%> 
+        <%= link_to "150", search_results_home_index_path(:per_page=>150),:remote=>true if @documents.total_entries > 100%> 
+        <%= link_to "| 500", search_results_home_index_path(:per_page=>500),:remote=>true if @documents.total_entries > 150%> 
+        items per page
       </div>
+    <%end%>
 
-      <%if @documents.total_entries > 50%>
-        <div class="floatRight">
-          Display 
-          <%#= link_to "50", search_results_home_index_path(:per_page=>50),:remote=>true%> 
-          <%#= link_to "| 100", search_results_home_index_path(:per_page=>100),:remote=>true if @documents.total_entries > 50%> 
-          <%#= link_to "150", search_results_home_index_path(:per_page=>150),:remote=>true if @documents.total_entries > 100%> 
-          <%#= link_to "| 500", search_results_home_index_path(:per_page=>500),:remote=>true if @documents.total_entries > 150%> 
-          items per page
-        </div>
-      <%end%>
-
-    </div>
   </div>
+</div>
 
-  <% if @documents.blank? %>
-    <br />
-    <div class="bottom_container row-fluid">
-      <%= render 'bottom_content' %>
-    </div>
-  <% end %>
-
-<%end%>
+<% if @documents.blank? %>
+  <br />
+  <div class="bottom_container row-fluid">
+    <%= render 'bottom_content' %>
+  </div>
+<% end %>

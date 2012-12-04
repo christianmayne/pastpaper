@@ -26,7 +26,8 @@ class HomeController < ApplicationController
 		elsif !params[:search_people].blank?
 			session[:search_params] = params[:search_people]
 			#@documents = Document.search_people(params[:search_people], params[:page])
-			@people = Person.find_all_by_last_name(params[:search_people][:last_name])
+			#@people = Person.find_all_by_last_name(params[:search_people][:last_name])
+			@people = Person.search_people(params[:search_people], params[:page])
 		elsif !params[:search_place].blank?
 			session[:search_params] = params[:search_place]
 			@documents = Document.search_location(params[:search_place], params[:page])
@@ -63,10 +64,6 @@ class HomeController < ApplicationController
 			else
 			end
 		end
-	end
-
-	def search_results_people
-		@people = Person.find_all_by_last_name("Jones")
 	end
 
 end

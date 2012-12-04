@@ -69,32 +69,48 @@ class Person < ActiveRecord::Base
 
 	def person_events_all
 		begin
-		res = self.facts.find(:all, :joins => :event_type, :order=>"facts.fact_year asc") 
-		if !res.blank?
-			return res
-		else
-		 return nil
-		end
-		rescue 
+			res = self.facts.find(:all, :joins => :event_type, :order=>"facts.fact_year asc") 
+			if !res.blank?
+				return res
+			else
+		 		return nil
+			end
+			rescue 
 		end  
 	end
 
 	def person_events_except_dob
 		begin
-		res=self.facts.find(:all, :joins => :event_type, :conditions => ["UPPER(event_types.name) != 'BIRTH' and UPPER(event_types.name) != 'DEATH' "],:order=>"facts.fact_year asc") 
-		if !res.blank?
-			return res
-		else
-			return nil
-		end
-		rescue 	
+			res=self.facts.find(:all, :joins => :event_type, :conditions => ["UPPER(event_types.name) != 'BIRTH' and UPPER(event_types.name) != 'DEATH' "],:order=>"facts.fact_year asc") 
+			if !res.blank?
+				return res
+			else
+				return nil
+			end
+			rescue 	
 		end  
 	end
+
 	
-	#def search_people(search_params,page,per_page=50)
-  #	people = Person.find_all_by_last_name(search_params[:last_name])
-	#	people.each do |person| puts person.document.name
-	#end
+	def self.search_people(search_params,page,per_page=50)
+
+
+		condition  = ""
+		condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
+		condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
+
+		# 
+		unless condition.blank?
+			condition += " status_id != 7 and is_deleted is false"
+			self.paginate_by_sql("SELECT DISTINCT people.* FROM people
+												LEFT JOIN documents ON documents.id = people.document_id
+												WHERE #{condition} ",:per_page=>per_page,:page=>page)
+		else
+			self.where("1=0").paginate(:per_page=>1,:page=>page)
+		end
+
+  	
+	end
 
 
 end
