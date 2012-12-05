@@ -1,30 +1,25 @@
-<% banner_ads = ['<a href="http://www.anrdoezrs.net/click-6185997-10660760" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660760" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
-              '<a href="http://www.kqzyfj.com/click-6185997-10391798" target="_top"><img src="http://www.awltovhc.com/image-6185997-10391798" width="728" height="90" alt="728x90: I’m, your Nan" border="0"/></a>',
-              '<a href="http://www.anrdoezrs.net/click-6185997-10660758" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660758" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
-              '<a href="http://www.tkqlhce.com/click-6185997-10660751" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10660751" width="728" height="90" alt="728x90: Free trial" border="0"/></a>',
-              '<a href="http://www.anrdoezrs.net/click-6185997-10880818" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10880818" width="728" height="90" alt="14 Day Free Trial " border="0"/></a>',
-              '<a href="http://www.jdoqocy.com/click-6185997-10660719" target="_top"><img src="http://www.ftjcfx.com/image-6185997-10660719" width="728" height="90" alt="728x90_Genes Reunited" border="0"/></a>',
-              '<a href="http://www.dpbolvw.net/click-6185997-10931192" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931192" width="728" height="90" alt="" border="0"/></a>',
-              '<a href="http://www.jdoqocy.com/click-6185997-10931171" target="_top"><img src="http://www.lduhtrp.net/image-6185997-10931171" width="728" height="90" alt="" border="0"/></a>',
-              '<a href="http://www.kqzyfj.com/click-6185997-10931162" target="_top"><img src="http://www.tqlkg.com/image-6185997-10931162" width="728" height="90" alt="" border="0"/></a>',
-             ]
-%> 
-
+<% if session[:search_params][:search_type].to_i == 1 %>
+  <% @documents = @people %>
+<%end%>  
 
 <% @pagetitle = "Search Results" %>
 
+
 <div class="alert alert-info">
   <div class="lead">
-    <%#= page_entries_info @documents %>
-    <% if session[:search_params][:search_type].to_i == 1 %>
+    
+    <!--
+    <%#= page_entries_info @documents, {:entry_name=>'item',:plural_name=>'items'} %>
+    <%# if session[:search_params][:search_type].to_i == 1 %>
       with people matching your search criteria
-    <%elsif session[:search_params][:search_type].to_i == 2 %>
+    <%#elsif session[:search_params][:search_type].to_i == 2 %>
       with locations matching your search criteria
-    <%elsif session[:search_params][:search_type].to_i == 3 %>
+    <%#elsif session[:search_params][:search_type].to_i == 3 %>
       publications matching your search criteria	
-    <%else%>
+    <%#else%>
+    -->
       Items matching your search criteria
-    <%end%>
+    <%#end%>
   </div>
 </div>
 
@@ -33,7 +28,6 @@
     <div class="pull-left">
 	    <%= link_to "Back" ,root_path,:class=>"btn"%>
     </div>
-
 
     <% if session[:search_params][:document_type_id].to_i == 4 %>
       <div class="row-fluid" style="margin-bottom:10px;">
@@ -60,7 +54,6 @@
   <div>
  
     <% if session[:search_params][:search_type].to_i == 1 %>
-      <% @documents = @people %>
       <%= render "people/person_common_list"%> 
     <% else %>
       <%= render "documents/document_common_list"%> 

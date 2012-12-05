@@ -30,8 +30,8 @@ class HomeController < ApplicationController
 			@people = Person.search_people(params[:search_people], params[:page])
 		elsif !params[:search_place].blank?
 			session[:search_params] = params[:search_place]
-			#@documents = Document.search_location(params[:search_place], params[:page])
-			@documents = Document.search_location(params[:search_place]).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+			@documents = Document.search_location(params[:search_place], params[:page])
+			#@documents = Document.search_location(params[:search_place]).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
 		elsif !params[:search_publication].blank?
 			session[:search_params] = params[:search_publication]
 			@documents = Document.search_publication(params[:search_publication], params[:page])
