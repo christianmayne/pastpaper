@@ -1,0 +1,12 @@
+<% if site.preview_mode = false %>
+  <% if @documents.count > 1 %>
+    <div class="pull-right">
+      <%= form_for :document_filter, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
+        You can filter your search : 
+        <%= f.collection_select :document_type_id , DocumentType.paper.alphabetically , :id,:name,{:prompt=>"Select document type"} %>
+        <%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"Select document status"}  %>
+        <%= f.submit "Go",:class=>"btn btn-primary"%>
+      <%end%>
+    </div>
+  <%end%>
+<% end %>
