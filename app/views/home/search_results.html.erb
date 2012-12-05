@@ -1,9 +1,8 @@
 <% if session[:search_params][:search_type].to_i == 1 %>
   <% @documents = @people %>
-<%end%>  
+<%end%>
 
 <% @pagetitle = "Search Results" %>
-
 
 <div class="alert alert-info">
   <div class="lead">
@@ -55,9 +54,11 @@
  
     <% if session[:search_params][:search_type].to_i == 1 %>
       <%= render "people/person_common_list"%> 
+    <% elsif session[:search_params][:search_type].to_i == 2 %>
+      <%= render "locations/location_common_list"%> 
     <% else %>
       <%= render "documents/document_common_list"%> 
-     <% end %>
+    <% end %>
 
      <%= will_paginate @documents, :renderer => BootstrapLinkRenderer %>
 

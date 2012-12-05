@@ -110,8 +110,7 @@ class Person < ActiveRecord::Base
 		else
 			self.where("1=0").paginate(:per_page=>1,:page=>page)
 		end
-
-  	
+ 	
 	end
 
 
