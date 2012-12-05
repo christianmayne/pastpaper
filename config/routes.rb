@@ -1,7 +1,6 @@
 Pastpaper::Application.routes.draw do
  
   #get "errors/error_404"
-
   #get "errors/error_500"
 
 	get "offer/new"
@@ -81,8 +80,6 @@ Pastpaper::Application.routes.draw do
 	end
 
 	# Browse Links
-	
-	
 	match 'bibles' => 'documents#bibles'
 	match 'books' => 'documents#books'
 	match 'certificates' => 'documents#certificates'

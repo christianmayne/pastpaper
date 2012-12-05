@@ -1,8 +1,0 @@
-<div class="row-fluid">
-  <div class="span12">
-    <h3><%= @pagetitle %></div>
-  </div>
-</div>
-<!-- Container -->
-<div ><%= render :partial => "documents/document_common_list"%></div>
-<%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>

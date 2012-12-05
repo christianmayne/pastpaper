@@ -14,7 +14,7 @@
 <% @pagetitle = "Search Results" %>
 
 <div class="alert alert-info">
-  <div class="lead newfont">
+  <div class="lead">
     <%#= page_entries_info @documents %>
     <% if session[:search_params][:search_type].to_i == 1 %>
       with people matching your search criteria
@@ -53,21 +53,30 @@
       </div>
     <%end%>
 
+    <%= render "search_filter" %>
 
-    <% if site.preview_mode = false %>
-      <% if @documents.count > 1 %>
-        <div class="pull-right">
-          <%= form_for :document_filter, :url => search_results_home_index_path, :html => {:class=>"form-inline"} do |f| %>
-            You can filter your search : 
-            <%= f.collection_select :document_type_id , DocumentType.paper.alphabetically , :id,:name,{:prompt=>"Select document type"} %>
-            <%= f.collection_select :document_status , Status.for_filter , :id,:name,{:prompt=>"Select document status"}  %>
-            <%= f.submit "Go",:class=>"btn btn-primary"%>
-          <%end%>
-        </div>
-      <%end%>
-    <% end %>
   </div>
-  <div id="document_results">
-    <%= render :partial => "search_result"%>
+
+  <div>
+ 
+    <% if session[:search_params][:search_type].to_i == 1 %>
+      <% @documents = @people %>
+      <%= render "people/person_common_list"%> 
+    <% else %>
+      <%= render "documents/document_common_list"%> 
+     <% end %>
+
+     <%= will_paginate @documents, :renderer => BootstrapLinkRenderer %>
+
+    <% if @documents.blank? %>
+      <br />
+      <div class="bottom_container row-fluid">
+        <%= render 'bottom_content' %>
+      </div>
+    <% end %>
+  
   </div>
 </div>
+
+
+

@@ -228,6 +228,7 @@ class Document < ActiveRecord::Base
 	def self.search_location(search_params,page,per_page=50)
 		condition_str  = ""
 
+		# work out from and to dates
 		if !search_params[:date_from].blank?
 			date_from = search_params[:date_from].to_i
 		end

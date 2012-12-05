@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
 	before_filter :prepare_document ,:only => [:show, :edit,:update,:destroy,:permanently_delete,:itemimages,:people_facts_locations]
 	
 	def index
+		@pagetitle = "Your Items"
 		conditions = []
 		if !params[:document_filter].blank?
 				document_type_id = params[:document_filter][:document_type_id] 
@@ -96,133 +97,133 @@ class DocumentsController < ApplicationController
 		@pagetitle = "Browse all Family Bibles"
 		@meta_description = "Browse our entire stock of Antique Family Bibles, Large Leatherbound Family Bibles, Victorian Family Bibles, Georgian Family Bibles, Edwardian Family Bibles"
 		@documents = Document.where(:document_type_id => 1).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def books
 		@pagetitle = "Browse all Books"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 6).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def certificates
 		@pagetitle = "Browse all Certificates"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 9).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def deeds
 		@pagetitle = "Browse all Deeds"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 17).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def diaries
 		@pagetitle = "Browse all Diaries"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 8).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def directories
 		@pagetitle = "Browse all Directories"
 		@meta_description = "Browse all listed antique trade directories for genealogists, Kelly's Directory, Pigot's Directory, White's Directory."
 		@documents = Document.where(:document_type_id => 5).paginate(:page =>params[:page], :order =>'title asc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def ephemera
 		@pagetitle = "Browse all Ephemera"
 		@meta_description = "Browse our collection of ephemera.  Antique documents, receipts, vintage advertisements, trade posters, property sale posters, and lots more."
 		@documents = Document.where(:document_type_id => 13).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def indentures
 		@pagetitle = "Browse all Indentures"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 18).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def journals
 		@pagetitle = "Browse all Journals"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 15).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def letters
 		@pagetitle = "Browse all Letters"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 11).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def magazines
 		@pagetitle = "Browse all Magazines"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 14).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def maps
 		@pagetitle = "Browse all Antique Maps"
 		@meta_description = "Browse our collection of antique and vintage road maps, street maps, town plans, county maps and country maps from John Speed, Carrington Bowles, Emmanuel Bowen and many more"
 		@documents = Document.where(:document_type_id => 19).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def marriage_settlements
 		@pagetitle = "Browse all Marriage Settlements"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 10).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def newspapers
 		@pagetitle = "Browse all Newspapers"
 		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
 		@documents = Document.where(:document_type_id => 4).paginate(:page =>params[:page], :order =>'name asc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def notebooks
 		@pagetitle = "Browse all Notebooks"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 7).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def photos
 		@pagetitle = "Browse all Old Photos"
 		@meta_description = "Browse our collection of named and identifiable Victorian and Edwardian Photographs, Tin Types, Carte de Visites, Cabinet Cards and daguerreotypes"
 		@documents = Document.where(:document_type_id => 2).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def postcards
 		@pagetitle = "Browse all Postcards"
 		@meta_description = "Browse our stock of old postcards and antique postcards, indexed by sender, recepient and scene.  Postcards from Francis Frith, J Salmon and many more"
 		@documents = Document.where(:document_type_id => 3).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 	def wills
 		@pagetitle = "Browse all Wills"
 		@meta_description = "Browse our collection of old vellum Wills and Probate documents, 1600s, 1700s, 1800s, and 1900s"
 		@documents = Document.where(:document_type_id => 16).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-		render "documents/browse"
+		render "documents/index"
 	end
 
 
   def ephemera
     @pagetitle = "Browse all Maps"
      @documents = Document.where(:document_type_id => 13).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
-    render "documents/browse"
+    render "documents/index"
   end
 
 

@@ -96,7 +96,6 @@ class Person < ActiveRecord::Base
 	
 	def self.search_people(search_params,page,per_page=50)
 
-
 		condition  = ""
 		condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
 		condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
