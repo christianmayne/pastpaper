@@ -48,4 +48,8 @@ module ApplicationHelper
 		random_items = Document.has_photos.find(:all, :limit => items, :order => "RAND()")
 	end
 	
+	def db_countries
+		Location.find :all, :order=>"country ASC", :select => "DISTINCT country"
+	end
+
 end

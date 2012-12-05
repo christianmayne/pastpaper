@@ -1,4 +1,4 @@
-<% @countries = Location.find :all, :order=>"country ASC", :select => "DISTINCT country" %>
+
 <% placesearch = capture do %>
 	<div id="place" class="">
 		<%= form_for :search_place, :url => search_results_home_index_path, :html => {:class=>""} do |f| %>
@@ -6,7 +6,7 @@
 			<!-- Search place -->
 			<%= f.text_field :city,{:placeholder => "Town", :class=>"input-small"} %>
 			<%= f.text_field :county,{:placeholder => "County", :class=>"input-medium"} %>
-      <%= f.select(:country, @countries.map(&:country), {:include_blank => 'Select a Country'}, :class=>"input-medium") %>
+      <%= f.select(:country, db_countries.map(&:country), {:include_blank => 'Select a Country'}, :class=>"input-medium") %>
       <% if site.preview_mode = false %>
 			  <!-- Search Dates -->
         <br />
