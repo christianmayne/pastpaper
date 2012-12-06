@@ -60,7 +60,9 @@
       <%= render "documents/document_common_list"%> 
     <% end %>
 
-     <%= will_paginate @documents, :renderer => BootstrapLinkRenderer %>
+
+    <%= will_paginate @documents, :renderer => BootstrapLinkRenderer %>
+
 
     <% if @documents.blank? %>
       <br />

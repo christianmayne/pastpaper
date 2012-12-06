@@ -20,17 +20,19 @@ class Location < ActiveRecord::Base
 
 		condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(locations.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
 		condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(locations.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
-		condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
+		condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') " unless search_params[:country].blank?
 
 		unless condition_str.blank?
-			condition_str += " status_id != 7 and is_deleted is false"
-			self.paginate_by_sql("SELECT DISTINCT locations.* FROM locations
-													LEFT JOIN documents ON documents.id = locations.document_id
-													WHERE #{condition_str} 
-													ORDER BY country, state, county, town",:per_page => per_page,:page => page)
+			#condition_str += " status_id != 7 and is_deleted is false"
+			#self.paginate_by_sql("SELECT DISTINCT locations.* FROM locations
+			#										LEFT JOIN documents ON documents.id = locations.document_id
+			#										WHERE #{condition_str} 
+			#										ORDER BY country, state, county, town",:per_page => per_page,:page => page)
+			self.where(condition_str).paginate(:per_page=>per_page,:page=>page)
 		else
 			self.where("1=0").paginate(:per_page=>1,:page=>page)
 		end
 	end
 
 end
+

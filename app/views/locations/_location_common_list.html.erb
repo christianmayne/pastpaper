@@ -1,0 +1,35 @@
+<% unless @documents.blank? %>
+	<div class="well well-small" style="margin: 2px 0;">
+		<div class="row-fluid">
+			<div class="span1">Image</div>
+			<div class="span4">Location</div>
+			<div class="span5">Item Name</div>
+			<div class="span1">Type</div>
+			<div class="span1">Status</div>
+		</div>
+	</div>
+	<% @documents.each do |location| %>
+		<div class="well well-small" style="margin: 2px 0;">
+			<div class="row-fluid">
+				<div class="span1"><%= link_to image_tag(location.document.default_image.photo.url(:small)), document_path(location.document),:class=>"thumbnail" unless location.document.default_image.nil? %></div>
+				<div class="span4">
+					<div class="row-fluid"><%= link_to(location.full_location, document_path(location.document)) %></div>
+					<div class="row-fluid">
+						<% location.facts.each do |fact| %>
+							<small><%= fact.fact_year %> <%=fact.event_type.name %> <%= fact.person.full_name %></small><br />
+						<%end%>		
+					</div>	
+				</div>
+				<div class="span5"> 
+					<% if location.document.name.blank? %>
+						<%= link_to location.document.title, document_path(location.document) %>
+					<% else %>  
+						<%= link_to location.document.name, document_path(location.document) %>
+					<% end %>
+				</div>
+				<div class="span1"><%= link_to location.document.document_type_name, document_path(location.document) %></div>
+				<div class="span1"><%= link_to location.document.document_status, document_path(location.document) %></div>
+			</div>
+		</div>
+	<% end %>
+<% end %>
