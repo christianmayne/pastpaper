@@ -1,3 +1,9 @@
+<% unless @page_description.blank? %>
+	<div class="well">
+		<%= @page_description %>
+	</div>
+<%end%>	
+
 <% unless @people.blank? %>
 	<div class="well well-small" style="margin: 2px 0;">
 		<div class="row-fluid">

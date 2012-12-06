@@ -55,6 +55,9 @@ class PeopleController < ApplicationController
 	
 	def surname_search
 		@people = Person.find_all_by_last_name(params[:last_name], :order=>:first_name)
+		last_name = @people.first.last_name
+		@pagetitle = last_name+" Family Surname, Family Bibles, Letters, Wills and Old Photos"
+		@page_description = "This is a list of items in The Past on Paper stock list relating to the #{last_name} family.  Browse our stocklist and find items belonging to your ancestors"
 		render 'people/_person_common_list'
 	end	
 
