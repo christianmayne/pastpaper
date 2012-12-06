@@ -95,9 +95,26 @@ class Document < ActiveRecord::Base
 
 	def last_name_list
 		list = self.people.select("DISTINCT last_name").order("last_name ASC")
-		list_string = list.map { |f| f.last_name }.join ', '
+		list.delete_if{ |f| f.last_name.empty? }
+		list_string = list.map { |f| f.last_name }.join ', ' 
 		return list_string.reverse.sub(/,/, ' dna ').reverse
 	end
+
+	def county_list
+		# This currently includes duplicates which is not good
+		list = self.locations.order("country, county, town asc")
+		list_string = list.map { |f| f.full_county }.join '; '
+		return list_string.reverse.sub(/,/, ' dna ').reverse
+	end
+
+	def town_list
+		# This currently includes duplicates which is not good
+		list = self.locations.order("country, county, town asc")
+		list_string = list.map { |f| f.full_town }.join '; '
+		return list_string.reverse.sub(/,/, ' dna ').reverse
+	end
+
+
 
 	def earliest_fact_year
 		min = self.facts.where("fact_year > 0").first(:order => 'fact_year asc');
