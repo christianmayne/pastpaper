@@ -80,6 +80,9 @@ Pastpaper::Application.routes.draw do
 	end
 
 	# Browse Links
+	match 'surnames' => 'people#surnames'
+	match 'surnames/:last_name' => 'people#surname_search'
+
 	match 'bibles' => 'documents#bibles'
 	match 'books' => 'documents#books'
 	match 'certificates' => 'documents#certificates'

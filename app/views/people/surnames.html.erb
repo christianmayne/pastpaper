@@ -1,0 +1,26 @@
+<% @pagetitle = "Browse all Surnames" %>
+<%   
+	@people = Person.all
+  @male_people = Person.where("UPPER(sex) = ?","MALE".upcase)
+  @female_people = Person.where("UPPER(sex) = ?","FEMALE".upcase)
+  @unknown_people = Person.where("UPPER(sex) = ?","UNKNOWN".upcase)
+	@surnames = Person.select("last_name,count(*) as last_name_count").group("last_name").where("last_name != ?","").order("last_name") 
+  @surnames_count = @surnames.to_a.size
+%>
+
+<div class="well">
+	<div class="row-fluid">
+			<h4><%= @pagetitle %></h4>
+	</div>
+</div>
+
+<div class="row-fluid">
+	There are: <%= @people.count %> individuals listed in the database
+	(<%= @male_people.count %> Males / <%= @female_people.count %> Females / <%= @unknown_people.count %> Unknown)
+	<br/><br />
+	<% @surnames.each do |sn| %>
+		<div class="span2">
+			<%= link_to sn.last_name, '/surnames/'+sn.last_name %> 
+		</div>	
+	<% end %>	
+</div>

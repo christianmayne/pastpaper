@@ -53,6 +53,10 @@ class PeopleController < ApplicationController
 		end
 	end
 	
+	def surname_search
+		@people = Person.find_all_by_last_name(params[:last_name], :order=>:first_name)
+		render 'people/_person_common_list'
+	end	
 
 private
 
