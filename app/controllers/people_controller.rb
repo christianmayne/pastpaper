@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-	before_filter :require_login
+	#before_filter :require_login, :except=>[:surname_search, :show]
 	before_filter :prepare_document
 
 	def index
