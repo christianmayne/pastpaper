@@ -20,8 +20,8 @@ class Location < ActiveRecord::Base
 
 		condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(locations.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
 		condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(locations.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
-		condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') " unless search_params[:country].blank?
-
+		condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') AND" unless search_params[:country].blank?
+		condition_str += "(1=1)"
 		unless condition_str.blank?
 			#condition_str += " status_id != 7 and is_deleted is false"
 			#self.paginate_by_sql("SELECT DISTINCT locations.* FROM locations
