@@ -1,0 +1,11 @@
+<% if document_photo.photo.exists? %>
+	<li class="span3 thumbnail">
+		<%= image_tag document_photo.photo.url(:thumb),:class=>""%><br />
+		<%= link_to "Remove",document_document_photo_path(document_photo.document,document_photo),confirm: 'Are you sure?', method: :delete,:class=>"btn btn-mini" %>
+		<% unless document_photo.is_primary? %>
+			<%= link_to "Make default",make_primary_image_path(document_photo.id) ,:class=>"btn btn-mini" %>
+		<% else %>
+			<span class="btn btn-mini disabled">Default</span>
+		<% end %>
+	</li>
+<% end %>

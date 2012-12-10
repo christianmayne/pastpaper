@@ -16,6 +16,9 @@
 //= require bootstrap
 //= require bootstrap-collapse
 //= require document
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require document_photos
 
 function login_message(message)
 {

@@ -1,0 +1,5 @@
+<% if @document_photo.new_record? %>
+  alert("Failed to upload photo: <%= j @document_photo.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#photos").append("<%= j render(@document_photo) %>");
+<% end %>

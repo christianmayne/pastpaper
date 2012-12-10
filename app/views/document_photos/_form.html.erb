@@ -1,13 +1,18 @@
-<div class="form-horizontal">
-  <%= form_for(@document_photo, :url=>:document_document_photos,:multipart => :true) do |f| %>
-    <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @document_photo}%>
-
-    <div class="row-fluid">
-      <div class="span1"></div>
-      <div class="span2">Upload New Image</div>
-      <div class="span5"><%= f.file_field :photo %></div>
-      <div class="span2"><%= f.submit "Upload" ,:class=>"btn"%></div>
+<%= form_for DocumentPhoto.new, :url=>:document_document_photos, :html => {:class => 'form-horizontal'} do |f| %>
+  <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @document_photo}%>
+  <div class="control-group">
+    <%= f.label :photo, "Upload new images", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :photo, multiple: true, name: "document_photo[photo]" %>
+      <%# f.submit "Upload" ,:class=>"btn"%>
     </div>
+  </div>
+<% end %>
 
-  <% end %>
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
 </div>
+</script>
+

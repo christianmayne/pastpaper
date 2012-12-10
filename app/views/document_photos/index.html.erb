@@ -21,7 +21,7 @@
   Upload images of your item here.  Images can be in jpg, gif or png formats and should not be larger than 5mb in size.  Images will be resized when they have been uploaded.  You can also delete images using this form, or set a different primary image for your item.
   <br /><br />
   Please note uploads can take some time, so please be patient after you have clicked submit.  Your image will appear on the page when it has been uploaded.
-/div>
+</div>
 <hr />
 
 <div class="row-fluid">
@@ -33,20 +33,8 @@
 	<hr>
 
 	<% unless @document.document_photos.blank? %>
-		<ul class="thumbnails">
-			<% @document.document_photos.each do |dp|%>
-				<% if dp.photo.exists? %>
-					<li class="span3 thumbnail">
-						<%= image_tag dp.photo.url(:thumb),:class=>""%><br />
-						<%= link_to "Remove",document_document_photo_path(dp.document,dp),confirm: 'Are you sure?', method: :delete,:class=>"btn btn-mini" %>
-						<% unless dp.is_primary? %>
-							<%= link_to "Make default",make_primary_image_path(dp.id) ,:class=>"btn btn-mini" %>
-						<% else %>
-							<span class="btn btn-mini disabled">   Default</span>
-						<% end %>
-					</li>
-				<% end %>
-			<% end %>
+		<ul id="photos" class="thumbnails">
+			<%= render @document.document_photos%>
 		</ul>
 	<% end %>
 	<br />

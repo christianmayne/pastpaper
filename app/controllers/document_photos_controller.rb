@@ -16,9 +16,10 @@ class DocumentPhotosController < ApplicationController
   end
 
   def create
-    @document_photo = @document.document_photos.build(params[:document_photo])
-    @document_photo.save
-    redirect_to document_document_photos_url(@document)
+    @document_photo = @document.document_photos.create(params[:document_photo])
+    #@document_photo = @document.document_photos.build(params[:document_photo])
+    #@document_photo.save
+    #redirect_to document_document_photos_url(@document)
   end
 
   def destroy
