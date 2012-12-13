@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1'
+gem 'rails', '3.1.8'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -19,13 +19,13 @@ gem 'aws-s3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1"
-  gem 'coffee-rails', "~> 3.1"
+  gem 'sass-rails', "  ~> 3.1.6"
+  gem 'coffee-rails', "~> 3.1.1"
   gem 'uglifier'
   gem 'jquery-fileupload-rails'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 1.0.18"
 gem "activemerchant", :git=> "git://github.com/Shopify/active_merchant.git"
 
 group :production do
