@@ -9,12 +9,14 @@ gem 'mysql2'
 
 gem "execjs"
 gem "therubyracer"
+
 gem 'sorcery'
 
 gem 'will_paginate','3.0.2'
 gem "paperclip", "~> 2.3"
 #gem "s3", :git => "git://github.com/qoobaa/s3.git"
 gem 'aws-s3'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.

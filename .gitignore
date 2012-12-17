@@ -19,3 +19,6 @@ config/database.yml
 .sass-cache/
 *.backup
 public/system/files/
+public/BingSiteAuth.xml
+public/assets/
+vendor/cache
