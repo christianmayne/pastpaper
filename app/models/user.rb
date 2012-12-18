@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 	authenticates_with_sorcery!
 	has_many :documents
 	has_many :gedcom_documents, :dependent => :destroy
+	has_many :comments, :dependent => :destroy
 
 	belongs_to :location_country
 

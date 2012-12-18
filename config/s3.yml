@@ -5,4 +5,5 @@ production:
 development:
   access_key_id : AKIAJPUP4YU53PT7MRYQ
   secret_access_key : 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
-  bucket : pastonpaper-dev
+  #bucket : pastonpaper-dev
+  bucket : pastonpaper

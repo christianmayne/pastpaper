@@ -1,5 +1,5 @@
 Pastpaper::Application.routes.draw do
- 
+
   #get "errors/error_404"
   #get "errors/error_500"
 
@@ -34,6 +34,8 @@ Pastpaper::Application.routes.draw do
 		#resources :document_facts
 		resource :facts
 		resources :document_photos
+		resources :comments
+
 	end
 	
 	#resources :people do

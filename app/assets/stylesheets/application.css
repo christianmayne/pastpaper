@@ -801,3 +801,19 @@ select.person-fact-type {
 .featuredbox {
   height:200px;
 }
+
+
+.commentbox{
+background-color: #ececec;
+width: 450px;
+padding: 10px;
+}
+
+.commentfooter{
+background: url(/assets/icons/arrow.gif) 20px 0 no-repeat; /*20px 0 equals horizontal and vertical position of arrow. Adjust as desired (ie: 20px -5px).*/
+padding-left: 58px;
+padding-top: 1px;
+margin-bottom: 2em;
+font-size: 90%;
+color: #4A4A4A;
+}

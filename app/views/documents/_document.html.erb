@@ -1,0 +1,360 @@
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+      jQuery('#mycarousel').jcarousel();
+  });
+</script>
+
+<% @pagetitle = page_title %>
+<!-- Helper put in place but not finished -->
+<% @share_url = document_url(@document)%>
+<% if !@document.blank? && !@document.document_photos.blank? %>
+  <% @fb_img = @document.default_image.photo.url(:thumb)%>
+<% end%>
+<% @share_data=""%>
+<% if @document.name.blank? %>
+  <% @share_data=@document.try(:title) %>
+  <% @share_description = @document.try(:title) %>
+<% else %>
+  <% @share_data=@document.try(:name) %>
+  <% @share_description = @document.try(:name) %>
+  <%# for facebook check head section of layout/application.html.erb %>
+<% end %>
+
+<% @meta_description = document_summary %>
+
+<% increment_view_counter %>
+
+<div>
+
+  <div class="well">
+    <div class="row-fluid">
+      <div class="span11">
+        <h4><%= page_title %></h4>
+      </div>
+    	<% if @document.is_featured %>
+        <div class="span1"><span class="pull-right"><%= image_tag("icons/star.gif", :title=>"This is a featured item")%></span></div>
+      <% end%>
+    </div>
+    
+    <div class=row-fluid">    
+      <% if site.selling_enabled %>
+        <% if !current_user %>
+          <strong class="text-error">You must be logged in to see sale and purchasing information about this item</strong>
+        <%else%>
+          <% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
+            <strong class="">This item is for sale</strong>
+            <strong class="pull-right">
+              <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %> 
+              <% if @document.shipping_price == 0 %>
+                (Free Shipping)
+              <%else%>
+                (+ <%= number_to_currency(@document.shipping_price, :unit => "&pound;") %> P&P)
+              <%end%>
+            </strong>
+          <%else%>
+            <strong >This item is not for sale</strong>
+          <% end %>	
+        <%end%>
+      <%else%>
+        <strong>Selling is currently not enabled on this site</strong>
+      <%end%>
+    </div>   
+  </div>
+
+  <div class="row-fluid">
+    <% if !current_user.blank? && (current_user.is_document_owner(@document.user_id) || current_user.is_admin) %>
+     	<div class="span3"><%= link_to '<i class="icon-edit icon-white"></i> Edit Document'.html_safe, edit_document_path(@document),:class=>"ajaxmodal btn btn-primary" %></div><br /><br />
+    <% else %>
+
+      <% if current_user %>
+        <% if current_user.location_country.name == "United Kingdom" %>
+          <% if site.selling_enabled && @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50   %>
+            <div class="span1">
+            	<% payment_service_for @document.id, PAYPAL_ACCOUNT, 
+                  :amount => @document.sale_price, 
+                  :currency => 'GBP', 
+                  :service => :paypal, 
+                  :html => { :id => 'payment-form' } do |service| %>
+                <% service.customer :first_name => current_user.first_name, 
+                                    :last_name => current_user.last_name,
+                                    :email => current_user.email %>
+                <% service.billing_address  :city => current_user.city, 
+                                            :address1 => current_user.address1, 
+                                            :address2 => current_user.address2,
+                                            :state => current_user.county,
+                                            :zip => current_user.post_code %>
+
+                <% service.item_name  @pagetitle %>
+                <% service.shipping @document.shipping_price %>
+                <% service.tax '0.00' %>
+                <% service.notify_url paypal_ipn_url %>
+                <% service.return_url paypal_return_url %>
+                <% service.cancel_return_url paypal_cancel_url %> 
+                <% submit_tag("Buy Item",:class=>"btn btn-primary") %>
+            	<% end %>
+            </div>
+            <div class="span2">
+              <span class="pull-right"><%= link_to '<i class="icon-envelope icon-white"></i> Make offer'.html_safe ,offer_new_path(:document_id => @document.id),:class=>"ajaxmodal btn btn-primary",:remote=>true%></span>
+            </div>
+          <%end%>
+        <%else%>
+          <div class="well">
+            We can only process orders from the UK at the moment. We are working on this right now.  
+            If you'd like to buy this item, please <%= link_to "contact us","http://blog.pastonpaper.com/contact/" %> quoting reference <%= @document.reference_number %>
+          </div>
+        <%end%>
+	    <%end%>
+    <%end%>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span11"><h4>Item Details</h4></div>
+    <div class="span1" style="margin-top:10px;">(<a href="javascript:toggle_div(itemdetails, 'show all', 'hide all', 'viewitemdetails')" id="viewitemdetails">hide all</i></a>)</div>
+  </div>
+
+  <div class="row-fluid" id="itemdetails">
+
+    <div class="span6">
+
+      <% unless @document.document_type.blank? %>
+        <div class="row-fluid">
+          <span class="span2 strong">Type</span>
+          <span class="span10"><%= @document.document_type.try(:name) %></span>
+        </div>
+      <%end%>
+      
+      <% unless @document.title.blank? %>
+        <div class="row-fluid">
+          <span class="span2 strong">Title</span>
+          <span class="span10"><%= @document.title %></span>
+        </div>
+      <% end %>
+
+      <% @document.document_attributes.group_by { |d| d.attribute_type.try(:name) }.each_pair do |type, doc_attrs| %>
+        <div class="row-fluid">
+          <span class="span2 strong"><%= type %></span>
+          <span class="span10">
+            <% doc_attrs.each do |doc_attr| %>
+              <%= "#{doc_attr.full_details}" unless doc_attr.full_details.blank? %>
+              <%= "<br />".html_safe unless doc_attr.full_date.blank? %>
+              <%= "#{doc_attr.full_date}" unless doc_attr.full_date.blank? %><br />
+            <% end %>
+          </span>
+        </div>
+      <% end %> 
+
+      <div class="row-fluid">
+        <span class="span2 strong">Binding</span>
+        <% unless @document.binding.blank? %>
+          <span class="span10"><%= @document.try(:binding) %></span>
+        <% else %>
+          <span class="span10">No binding details have been provided for this item</span>
+        <%end%>
+      </div>
+
+      <div class="row-fluid">
+        <span class="span2 strong">Condition</span>
+        <% unless @document.condition.blank? %>
+          <span class="span10"><%= @document.try(:condition) %></span>
+        <% else %>
+          <span class="span10">A condition report has not been provided for this item</span>
+        <%end%>
+      </div>
+
+      <div class="row-fluid">    
+    	  <span class="span2 strong">Weight</span>
+        <% if !@document.weight.blank? %> 
+          <span class="span10"><%= "#{@document.try(:weight)}g" unless @document.weight.blank?%></span>
+        <% else %>
+          <span class="span10">No weight details have been provided for this item</span>
+        <%end%>
+      </div>
+
+      <div class="row-fluid">   
+        <span class="span2 strong">Dimensions</span>
+        <% if !@document.length.blank? || !@document.width.blank? || !@document.depth.blank? %>      	
+          <span class="span10">
+            <%= "#{@document.try(:length)}mm (length) " unless @document.length.blank? %> 
+            <%= "#{@document.try(:width)}mm (width)" unless @document.width.blank? %> 
+            <%= "#{@document.try(:depth)}mm (depth)" unless @document.depth.blank? %>
+          </span>
+          <% else %>
+            <span class="span10">No dimensions have been provided for this item</span>
+          <% end %>
+      </div>
+
+      <% if site.selling_enabled %>
+        <% if current_user %>
+          <% if @document.is_on_sale? && !@document.sale_price.blank? && @document.sale_price > 0.50 %>
+            <div class="row-fluid">
+              <span class="span2 strong">Price</span>
+              <span class="span10">
+                <%= number_to_currency(@document.try(:sale_price), :unit => " &pound;").html_safe unless @document.sale_price.blank? %> 
+                <% if @document.shipping_price == 0 %>
+                  (Free Shipping)
+                <%else%>
+                  (+ <%= number_to_currency(@document.shipping_price, :unit => "&pound;") %> P&P)
+                <%end%>
+              </span>
+            </div>
+          <%end%>
+        <%end%>
+      <%end%>
+
+      <br />      
+      <div class="row-fluid">
+        <strong>Research Summary</strong><br>
+        This item mentions <%= @document.people.count %> individuals and <%= @document.locations.count %> locations
+        <% if @document.earliest_fact_year == 0 && @document.latest_fact_year == 0 %>
+          .
+        <% elsif @document.earliest_fact_year == @document.latest_fact_year %>
+          and covers events in <%= @document.earliest_fact_year %>.
+        <% else %>
+          and covers events from <%= @document.earliest_fact_year %> to <%= @document.latest_fact_year %>.
+        <%end%>
+        
+        <% if @document.people.any? %>
+          <% if @document.people.count == 1 %>
+            Surname listed is <%= @document.last_name_list %>. 
+          <%else%>
+            Surnames listed are <%= @document.last_name_list %>. 
+          <%end%>
+        <%end%>
+
+        Full details about individuals and locations mentioned are available below to registered users. 
+      </div>
+     
+      <% if @document.tag_list.present? %>
+        <small><strong>Tags: </strong><%= @document.tag_list %></small>
+      <%end%>
+      <br />
+      <br />
+      <small>Listed by <%= @document.user.username %> on <%= @document.created_at.strftime("%d/%m/%Y")%> [Reference Number: <%= @document.reference_number %>]</small><br />
+      <br />
+      <%= render :partial => "shared/social_share"%> 
+      <span class="btn btn-mini" style="position:relative;left:4px; top: 3px;">Views: <%= @document.views+1 %></span>
+
+    </div>  
+
+    <div class="span6">
+	    <% if !@document.blank? && !@document.document_photos.blank? %>
+	      <ul class="thumbnails">
+          <li class="span12"><%= image_tag @document.default_image.photo.url(:large) ,:class=>"thumbnail"%></li> 
+          <% if @document.document_photos.count > 1 %>
+            <% @document.document_photos.each do |photo|  %>
+              <li class="span2" style="">
+                <% if current_user %>
+                  <a href="<%= photo.photo.url(:large) %>" class='thumbnail' rel="lightbox"><%= image_tag photo.photo.url(:small)%></a>
+                <%else%>
+                  <a href="javascript:login_message('Please login to view large images')"><%= image_tag photo.photo.url(:small)%></a>
+                <%end%>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
+
+  <% unless @document.comment.blank? %>
+    <hr />
+    <div class="row-fluid">
+      <div class="span11"><h4>Item Description</h4></div>
+      <div class="span1 pull-right" style="margin-top:10px;">(<a href="javascript:toggle_div(item_description, 'show', 'hide', 'viewdescription')" id="viewdescription">hide</i></a>)</div>
+    </div>
+    <div class="row-fluid" id="item_description">  
+      <%= @document.try(:comment).html_safe %>
+      <br /><br />
+    </div>
+  <%end%>
+
+  <% if !current_user %>
+    <hr>
+    <div class="hero-unit">
+
+      <div class="row-fluid">
+        <center><h4 class="text-error">
+            You must be a member of pastonpaper.com to see extended details<br />
+            or to add comments
+        </h4></center>
+      </div>
+      <br />
+      <div class="row-fluid">
+        <center><h3>This item mentions <%= @document.people.count %> individuals and <%= @document.locations.count %> locations</h3></center>
+
+        <% if @document.people.any? %>
+          <div>
+            <center><h4>
+              <% if @document.people.count == 1 %>
+                The Surname listed is <%= @document.last_name_list %>. 
+              <%else%>
+                Surnames listed are <%= @document.last_name_list %>. 
+              <%end%>
+            </h4></center>
+          </div>
+        <%end%>
+
+        <% if @document.earliest_fact_year != 0 && @document.latest_fact_year != 0 %>
+          <div>
+            <center><h4>
+              <% if @document.earliest_fact_year == @document.latest_fact_year %>
+                Events are covered from <%= @document.earliest_fact_year %>.
+              <% else %>
+                Events are covered from <%= @document.earliest_fact_year %> to <%= @document.latest_fact_year %>.
+              <%end%>
+            </h4></center>
+          </div>
+        <%end%>
+        
+      </div>
+
+
+      <div class="row-fluid">
+        <center>
+          <h5>Please <a class="text-error" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a>
+          or <%= link_to "Register",register_path, :class=>"text-error", :id=>"registerUser", :style => "text-error"%></h5>
+        </center> 
+      </div>      
+      <div class="row-fluid">
+        <div class="span6 offset3">
+          Registration is free, and gives you unlimited access to our database of genealogical data.  You can also buy, sell and make offers on any item listed on our site</blockquote>
+        </div>
+      </div>
+    </div>
+
+  <%else%>
+
+    <div>
+      <hr>
+     	<%= render 'document_people_details' %>
+    </div>
+
+    <div>
+      <hr>
+      <%= render 'document_location_details' %>
+    </div>
+
+
+
+  <%end%>
+
+  <div class="row-fluid">
+    <hr>
+    <% if @document.comments.any? %>
+      <h4> Member Comments</h4>
+      <div class="span6">
+        <%= render @document.comments %>
+      </div>
+    <% else %>
+      <h4>There are no Member Comments for this item yet<h4>  
+      <% if !current_user%>
+        <h5>
+          You must <a class="text-error" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a>
+          or <%= link_to "Register",register_path, :class=>"text-error", :id=>"registerUser", :style => "text-error"%> to Leave a Comment
+        </h5>
+      <%end%>
+    <%end%> 
+  </div>
+
+<div>
