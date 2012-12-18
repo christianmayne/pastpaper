@@ -334,27 +334,30 @@
       <hr>
       <%= render 'document_location_details' %>
     </div>
-
-
-
   <%end%>
 
-  <div class="row-fluid">
+  <div class="row">
     <hr>
-    <% if @document.comments.any? %>
-      <h4> Member Comments</h4>
-      <div class="span6">
+    <div class="span6">
+      <h4>Member Comments</h4>
+      <% if @document.comments.any? %>
         <%= render @document.comments %>
-      </div>
-    <% else %>
-      <h4>There are no Member Comments for this item yet<h4>  
-      <% if !current_user%>
-        <h5>
+      <% else %>
+        <div class="hero-unit">There are no comments yet.</div>
+      <%end%>  
+    </div>
+    <div class="span5 pull-right">
+      <h4>Add a Comment</h4>
+      <% if current_user %>
+        <%= render :file => 'comments/new' %> 
+      <%else%>
+        <div class="hero-unit">  
           You must <a class="text-error" href="#loginModal" data-backdrop="static" data-toggle="modal" data-backdrop="static">Login</a>
           or <%= link_to "Register",register_path, :class=>"text-error", :id=>"registerUser", :style => "text-error"%> to Leave a Comment
-        </h5>
-      <%end%>
-    <%end%> 
+        </div>
+      <%end%>  
+    </div>  
+    
   </div>
 
 <div>

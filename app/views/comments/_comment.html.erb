@@ -1,7 +1,7 @@
 <div class="commentbox">
-  	<%= comment.comment %><br />
+  	<%= comment.comment.html_safe %><br />
 </div>
 <div class="commentfooter">
-	<%= comment.user.username %> <%= comment.created_at %>  
+	posted by <%= comment.user.username %> at <%= comment.date_and_time %>  
 	<%#= link_to 'delete', [@document,@comment], :confirm => 'Are You Sure?', :method => :delete %>
 </div>
