@@ -17,11 +17,11 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
   end
 
   @surnames.each do |surname|
-    #sn=surname.last_name.force_encoding('ASCII-8BIT')
-    sn=surname.last_name
+    sn=surname.last_name.force_encoding('ASCII-8BIT')
+    #sn=surname.last_name
     xml.url do
-      #xml.loc @url+'/surnames/'+URI::encode(sn)
-      xml.loc @url+'/surnames/'+sn
+      xml.loc @url+'/surnames/'+URI::encode(sn)
+      #xml.loc @url+'/surnames/'+sn
       xml.priority 0.8
     end
   end
