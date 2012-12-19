@@ -23,14 +23,17 @@ class DocumentsController < ApplicationController
 	end
 
 	def show
-		view = DocumentView.new
-		if !current_user
-			view.user_id = 0
-		else
-			view.user_id = current_user.id
-		end	
-		view.document_id = @document.id
-		view.save
+		if !request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+			view = DocumentView.new
+			if !current_user
+				view.user_id = 0
+			else
+				view.user_id = current_user.id
+			end	
+			view.document_id = @document.id
+			view.useragent = request.env["HTTP_USER_AGENT"]
+			view.save
+		end
 	end
 
 	def new
