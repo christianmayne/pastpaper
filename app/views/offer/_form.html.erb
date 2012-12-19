@@ -1,17 +1,14 @@
 <div class="form-horizontal">
-	
 	<%= form_tag(offer_create_path,:remote=>true,:method=>:post,:id=>"make_offer_form") do %>
-	Hello <strong><%= current_user.first_name%> <%= current_user.last_name%></strong><br />
-You are about to make an offer on <strong><%= @document.display_name%></strong>
- 
-<br />
-Your details will be sent to the owner of the item, who will be in touch to discuss your offer
-  <hr />
-  Please enter your offer amount
-  <%= hidden_field_tag :document_id,params[:document_id]%> &nbsp;
-     <strong> &pound;</strong> <%= number_field_tag :amount , nil,{ :class => "input-small" }%>
-    
-      <%= submit_tag "Submit" , { :class => "btn btn-warning",:data=>{:disable_with=>"Processing..."} }%>
-   
-  <% end %>
+		Hello <strong><%= current_user.first_name%> <%= current_user.last_name%></strong><br />
+		You are about to make an offer on <strong><%= @document.display_name%></strong>
+		<br />
+		Your details will be sent to the owner of the item, who will be in touch to discuss your offer
+		<hr />
+		Please enter your offer amount
+		<%= hidden_field_tag :document_id,params[:document_id]%> &nbsp;
+		<strong> &pound;</strong> <%= number_field_tag :amount , nil,{ :class => "input-small" }%>
+
+		<%= submit_tag "Submit" , { :class => "btn btn-warning",:data=>{:disable_with=>"Processing..."} }%>
+	<% end %>
 </div>

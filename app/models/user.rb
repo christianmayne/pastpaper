@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
 	has_many :documents
 	has_many :gedcom_documents, :dependent => :destroy
 	has_many :comments, :dependent => :destroy
+	has_many :searches
+	has_many :offers
 
 	belongs_to :location_country
 
