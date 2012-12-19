@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219130527) do
+ActiveRecord::Schema.define(:version => 20121219153349) do
 
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20121219130527) do
     t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "useragent"
   end
 
   create_table "documents", :force => true do |t|
