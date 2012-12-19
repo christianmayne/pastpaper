@@ -23,7 +23,11 @@ class HomeController < ApplicationController
 
 		# search class used to save searches to db.  This is a bit messy and needs tidying up
 		search=Search.new
-		search.user_id = current_user.id
+		if !current_user
+			search.user_id = 0
+		else	
+			search.user_id = current_user.id
+		end	
 
 		if !params[:search_document].blank?
 			session[:search_params] = params[:search_document]
