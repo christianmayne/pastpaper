@@ -22,6 +22,17 @@ class DocumentsController < ApplicationController
 		@documents = current_user.documents.where(conditions).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
 	end
 
+	def show
+		view = DocumentView.new
+		if !current_user
+			view.user_id = 0
+		else
+			view.user_id = current_user.id
+		end	
+		view.document_id = @document.id
+		view.save
+	end
+
 	def new
 		@document = current_user.documents.new
 	end

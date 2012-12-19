@@ -7,6 +7,7 @@ class Document < ActiveRecord::Base
 	has_many :document_facts
 	has_many :facts, :through => :people
 	has_many :comments, :dependent => :destroy
+	has_many :document_views
 
 	belongs_to :document_type
 	belongs_to :status

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219111841) do
+ActiveRecord::Schema.define(:version => 20121219130527) do
 
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(:version => 20121219111841) do
     t.datetime "updated_at"
     t.boolean  "paper",       :default => true
     t.boolean  "stone",       :default => true
+  end
+
+  create_table "document_views", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "document_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "documents", :force => true do |t|

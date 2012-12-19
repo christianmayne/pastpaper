@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy
 	has_many :searches
 	has_many :offers
+	has_many :document_views
 
 	belongs_to :location_country
 
