@@ -106,6 +106,11 @@ Pastpaper::Application.routes.draw do
 
 	root :to => 'home#index'
 
+	match "/sitemap.:format",
+     :controller => "home",
+     :action => "sitemap",
+     :conditions => { :method => :get }
+
 	# Error handling
 	# To test in development, remove condition
   unless Rails.application.config.consider_all_requests_local

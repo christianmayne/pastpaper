@@ -1,16 +1,16 @@
 <% @pagetitle = "Browse all Surnames" %>
 <%   
 	@people = Person.all
-  @male_people = Person.where("UPPER(sex) = ?","MALE".upcase)
-  @female_people = Person.where("UPPER(sex) = ?","FEMALE".upcase)
-  @unknown_people = Person.where("UPPER(sex) = ?","UNKNOWN".upcase)
+	@male_people = Person.where("UPPER(sex) = ?","MALE".upcase)
+	@female_people = Person.where("UPPER(sex) = ?","FEMALE".upcase)
+	@unknown_people = Person.where("UPPER(sex) = ?","UNKNOWN".upcase)
 	@surnames = Person.select("last_name,count(*) as last_name_count").group("last_name").where("last_name != ?","").order("last_name") 
-  @surnames_count = @surnames.to_a.size
+	@surnames_count = @surnames.to_a.size
 %>
 
 <div class="well">
 	<div class="row-fluid">
-			<h4><%= @pagetitle %></h4>
+		<h4><%= @pagetitle %></h4>
 	</div>
 </div>
 

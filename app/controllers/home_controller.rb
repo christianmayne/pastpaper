@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
 
+	def sitemap
+		@url = "#{request.protocol}#{request.host_with_port}"
+		@documents = Document.all
+		@surnames = Person.select("distinct last_name")
+	end
+
 	def index
 		@pagetitle = "Home"
 		@meta_description = "The Past on Paper links researchers of Genealogy, Family History, Local History and Home History with original historic documents in the posession of antique dealers or private individuals available to buy or view."
