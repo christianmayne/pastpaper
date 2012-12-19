@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218111202) do
+ActiveRecord::Schema.define(:version => 20121219100644) do
 
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
@@ -236,6 +236,23 @@ ActiveRecord::Schema.define(:version => 20121218111202) do
     t.integer  "event_year"
     t.integer  "event_month"
     t.integer  "event_day"
+  end
+
+  create_table "searches", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "search_type"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "town"
+    t.string   "county"
+    t.string   "state"
+    t.integer  "country_id"
+    t.string   "country"
+    t.integer  "results"
+    t.integer  "document_type_id"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shipping_zone_prices", :force => true do |t|
