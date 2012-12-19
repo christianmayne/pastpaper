@@ -24,12 +24,49 @@ class Person < ActiveRecord::Base
 		end
 	end
 
+	def ancestry_link
+		cj_pid         = "6185997" #commission junction referral id
+		first_name     = self.first_name
+		middle_name    = self.middle_name
+		last_name      = self.last_name
+		birth_year     = self.event_year("birth")
+		birth_location = self.event_location("birth")
+		residence_location = self.event_location("residence")
+		death_year     = self.event_year("death")
+		death_location = self.event_location("death")
+
+		# Determine which gender to exclude
+		#if self.sex = "Male"
+		#	ref_gender = "&_83004003-n_xcl=m"
+		#elsif self.sex = "Female"
+		#	ref_gender = "&_83004003-n_xcl=f"
+		#else
+			ref_gender = ""	
+		#end	
+
+		cj_url              = "http://www.dpbolvw.net/click-#{cj_pid}-10505988"
+		ref_url             = "?url=http://search.ancestry.co.uk/cgi-bin/sse.dll?gl=ROOT_CATEGORY&rank=1&new=1&so=3&MSAV=1&msT=1&gss=ms_f-2_s"
+		ref_first_name      = "&gsfn=#{first_name}+#{middle_name}"
+		ref_last_name       = "&gsln=#{last_name}"
+		ref_other_last_name = "&gsln_x=XO"
+		ref_birth_year      = "&msbdy=#{birth_year}"
+		ref_birth_location  = "&msbpn__ftp=#{birth_location}"
+		ref_residence_location = "&msrpn__ftp=#{residence_location}"
+		ref_death_year      = "&msddy=#{death_year}"
+		ref_death_location  = "&msdpn__ftp=#{death_location}"
+		ref_collection_priority = "&cp=0"
+		other_params        = "&cpxt=1&catBucket=r&uidh=r62"
+
+		return cj_url+ref_url+ref_first_name+ref_last_name+ref_other_last_name+ref_birth_year+ref_birth_location+ref_death_year+ref_death_location+ref_residence_location+ref_gender+ref_collection_priority+other_params
+	end
+
+
 	def event_year(event)
 		unless self.facts.blank?
 			event = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
 			return event.try(:fact_year)
-		else
-			return "?"	
+		#else
+		#	return "?"	
 		end  
 	end
 
@@ -45,8 +82,10 @@ class Person < ActiveRecord::Base
 	def event_location(event)
 		unless self.facts.blank?
 			fact = self.facts.find(:first, :joins => :event_type, :conditions => ["UPPER(event_types.name) = '#{event}'"])
-			if fact.location
-				fact.location.full_location
+			if !fact.nil?
+				if fact.location
+					fact.location.full_location
+				end	
 			end
 		end           
 	end

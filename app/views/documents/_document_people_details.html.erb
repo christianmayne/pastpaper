@@ -11,7 +11,8 @@
         <div class="span3"><strong>Name</strong></div>
         <div class="span3"><strong>Born</strong></div>
         <div class="span3"><strong>Died</strong></div>
-        <div class="span1"><small><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></small></div>
+        <div class="span2"><small class="pull-right"><a href="javascript:expandAllPdetail()" id="expandallpdetail">Expand All</a></small></div>
+        <div class="span1"><small>Partners</small></div>
     </div>
 
     <% @document.people.order("last_name asc, first_name asc").each do |person|  %>
@@ -23,11 +24,12 @@
           <div class="span3"><%= person.event_year("birth") rescue '' %><br /><small><%= person.event_county("birth") rescue '' %></small></div>
           <div class="span3"><%= person.event_year("death") rescue '' %><br /><small><%= person.event_county("death") rescue '' %></small></div>
 
-          <div class="span3">
+          <div class="span2">
             <%unless person.person_events_all.nil? %>
               <span class="pull-right"><%= person.person_events_all.count %> events listed <a href="javascript:hideshowpdetail('<%= person.id %>')" id="viewlink_<%=person.id%>" class="viewlink" ><i class="icon-zoom-in"></i></a></span>
             <%end%>
           </div>
+          <div class="span1">[<a href="<%= person.ancestry_link %>" target="_BLANK">Ancestry</a>]</div>
         </div>
 
         <%if !person.person_events_all.nil?%>

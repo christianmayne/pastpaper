@@ -9,9 +9,10 @@
 		<div class="row-fluid">
 			<div class="span1">Image</div>
 			<div class="span4">Person</div>
-			<div class="span5">Item Name</div>
+			<div class="span4">Item Name</div>
 			<div class="span1">Type</div>
 			<div class="span1">Status</div>
+			<div class="span1">Partners</div>
 		</div>
 	</div>
 	<% @people.each do |person| %>
@@ -27,7 +28,7 @@
 						</small>
 					</div>	
 				</div>
-				<div class="span5"> 
+				<div class="span4"> 
 					<% if person.document.name.blank? %>
 						<%= link_to person.document.title, document_path(person.document) %>
 					<% else %>  
@@ -36,6 +37,7 @@
 				</div>
 				<div class="span1"><%= link_to person.document.document_type_name, document_path(person.document) %></div>
 				<div class="span1"><%= link_to person.document.document_status, document_path(person.document) %></div>
+				<div class="span1">[<a href="<%= person.ancestry_link %>" target="_BLANK">Ancestry</a>]</div>
 			</div>
 		</div>
 	<% end %>
