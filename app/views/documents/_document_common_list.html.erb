@@ -32,6 +32,9 @@
 							<% if document.document_type.name != "Map" || document.document_type.name == "Directory" || document.document_type.name == "Newspaper"%>
 								<%= document.last_name_list %><br />
 							<%end%>	
+							<% if document.document_type.name == "Newspaper" %>
+								<%= document.publication_date %><br />
+							<%end%>	
 							<%# if document.document_type.name == "Map" || document.document_type.name == "Postcard"  %>
 								<%#= document.county_list %>
 							<%#end %>	

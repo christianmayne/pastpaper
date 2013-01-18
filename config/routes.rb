@@ -48,11 +48,16 @@ Pastpaper::Application.routes.draw do
 	
 	resources :home do 
 		collection do
-			get 'document_search','simple_location_search','date_search','simple_people_search','simple_organisation_search','document_filter'
-			get 'search_results'
-			post 'search_results'
-			get 'search_results_person'
-			post 'search_results_person'
+			#get 'document_search','simple_location_search','date_search','simple_people_search','simple_organisation_search','document_filter'
+			#get 'search_results'
+			#post 'search_results'
+			get 'search_people'
+			get 'search_locations'
+			get 'search_publications'
+			get 'search_dates'
+			#post 'search_people'
+			#get 'search_results_person'
+			#post 'search_results_person'
 		end
 	end
 

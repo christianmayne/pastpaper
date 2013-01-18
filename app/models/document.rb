@@ -136,7 +136,6 @@ class Document < ActiveRecord::Base
 		end
 	end
 
-
 	def self.simple_search(search_param)
 		condition  = ""
 		condition += "documents.document_type_id = '#{search_param[:document_type_id]}' OR " unless search_param[:document_type_id].blank?
@@ -174,6 +173,10 @@ class Document < ActiveRecord::Base
 												LEFT JOIN locations ON locations.document_id = documents.id
 												WHERE #{condition}")
 		end
+	end
+
+	def search_people_new(search_params,page,per_page=10)
+		self.where(document_type_id: search_params[:firstname, :lastname]).paginate(:per_page=> per_page,:page=>page)		
 	end
 
 
@@ -244,6 +247,8 @@ class Document < ActiveRecord::Base
 	end
 
 
+
+
 	def self.search_location(search_params,page,per_page=50)
 		condition_str  = ""
 
@@ -287,7 +292,7 @@ class Document < ActiveRecord::Base
 
 
 
-	def self.search_date(search_params,page,per_page=50)
+	def self.search_dates(search_params,page,per_page=50)
 		condition_str  = ""
 
 		if !search_params[:dd].blank?
@@ -314,17 +319,49 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+	def publication_date
+		published = self.document_attributes.find_by_attribute_type_id(2)
+		year = sprintf '%04d', published.attribute_year rescue "0000"
+		month = sprintf '%02d',published.attribute_month rescue "00"
+		day = sprintf '%02d',published.attribute_day rescue "00"
+		return "#{year}#{month}#{day}"
+	end
+
+	#def publication_date
+	#  published = self.document_attributes.find_by_attribute_type_id(2)
+	#  return DateTime.parse('0000-00-00') if published.nil?
+	#  y = published.attribute_year || '0000'
+	#  m = published.attribute_month || '00'
+	#  d = published.attribute_day || '00'
+	#  DateTime.parse("#{y}-#{m}-#{d}")
+	#end
+
+	def self.search_publications(search_params,page,per_page=10)
+		#document_type_id = search_params[:document_type_id]
+		self.where(document_type_id: search_params[:document_type_id]).paginate(:per_page=> per_page,:page=>page)
+		#publications = self.where("document_type_id = #{search_params[:document_type_id]}")
+		#publications = publications.sort{ |a,b| a.publication_date <=> b.publication_date }
+		#publications = publications.sort_by &:publication_date
+		#publications.paginate(:per_page=> per_page,:page=>page)
+	end
 
 
-	def self.search_publication(search_params,page,per_page=50)
+	# ###
+	# Deprecated - really don't need all this gubbins
+	# ###
+	def self.search_publications_old(search_params,page,per_page=10)
 		condition  = ""
 
-		if !search_params[:date_from].blank?
-			date_from = search_params[:date_from].to_i
-		end
-		if !search_params[:date_to].blank?
-			date_to = search_params[:date_to].to_i
-		end
+		#if search_params[:document_type_id] == 4
+			order = "order by documents.stock_number desc"
+		#end	 
+
+		#if !search_params[:date_from].blank?
+		#	date_from = search_params[:date_from].to_i
+		#end
+		#if !search_params[:date_to].blank?
+		#	date_to = search_params[:date_to].to_i
+		#end
 
 		condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
 		condition += "attribute_types.name = 'Publisher' AND UPPER(document_attributes.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
@@ -350,15 +387,17 @@ class Document < ActiveRecord::Base
 												LEFT JOIN facts ON facts.person_id = people.id
 												LEFT JOIN event_types ON event_types.id = facts.event_type_id
 												LEFT JOIN locations ON locations.document_id = documents.id
-												WHERE #{condition} ",:per_page => per_page,:page => page)
+												WHERE #{condition}",:per_page => per_page,:page => page)
 		else
 			self.where("1=0").paginate(:per_page=>1,:page=>page)
 		end
 	end
 
+
 	def people_list(firstname, lastname)
 		self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
 	end
+
 
 	def default_image
 		unless self.document_photos.nil?

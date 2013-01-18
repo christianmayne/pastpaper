@@ -133,12 +133,11 @@ class Person < ActiveRecord::Base
 	end
 
 
+
 	def self.search_people(search_params,page,per_page=50)
 		condition  = ""
 		condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
-		#condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
 		condition += "SOUNDEX(people.last_name) = SOUNDEX('#{search_params[:last_name]}') AND " unless search_params[:last_name].blank?
-		# 
 		unless condition.blank?
 			condition += " status_id != 7 and is_deleted is false"
 			self.paginate_by_sql("SELECT DISTINCT people.* FROM people

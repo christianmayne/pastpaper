@@ -1,6 +1,6 @@
 <% personsearch = capture do %>
 	<div id="person" class="">
-		<%= form_for :search_people, :url => search_results_home_index_path, :method=>'get', :html => {:class=>""} do |f| %>
+		<%= form_for :search_people, :url => search_people_home_index_path, :method=>'get', :html => {:class=>""} do |f| %>
 			<%= f.hidden_field :search_type, :value=>1 , :class=>"input-small"%>
 			<%= f.text_field :first_name,{:placeholder => "First Name",:size=>25, :class=>"input-medium"} %>
 			<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>25, :class=>"input-medium"} %>

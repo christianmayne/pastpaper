@@ -1,6 +1,6 @@
 <% placesearch = capture do %>
 	<div id="place" class="">
-		<%= form_for :search_place, :url => search_results_home_index_path, :method=>'get', :html => {:class=>""} do |f| %>
+		<%= form_for :search_place, :url => search_locations_home_index_path, :method=>'get', :html => {:class=>""} do |f| %>
 			<%= f.hidden_field :search_type, :value=>2 %>
 			<!-- Search place -->
 			<%= f.text_field :city,{:placeholder => "Town", :class=>"input-small"} %>
