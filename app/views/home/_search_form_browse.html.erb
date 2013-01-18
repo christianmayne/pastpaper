@@ -14,10 +14,6 @@
 	<div id="place" class="">
 		<%= form_for :search_dates, :url => search_dates_home_index_path, :method=>'get', :html => {:class=>"form-inline"} do |f| %>
 			<%= f.hidden_field :search_type, :value=>4 %>
-			<!-- Search place -->
-			<%#= f.text_field :dd,{:placeholder=>"DD", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
-			<%#= f.text_field :mm,{:placeholder=>"MM", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
-			<%#= f.text_field :yyyy,{:placeholder=>"YYYY", :size => 10, :style =>'width:70px;', :class=>"search_input_date input-mini"} %>
       <%= f.select(:yyyy, @fact_years.map(&:fact_year), {:include_blank => 'Select a Year'}, :class=>"search-query input-medium") %>
   		<%= f.submit "",:class=>"btn button btn-primary pull-right",:id=>"searchbyplacebtn", :value=>"Search" %>
 		<%end%>

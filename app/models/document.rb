@@ -34,9 +34,7 @@ class Document < ActiveRecord::Base
 	scope :show_featured_documents,joins(:status).where(:is_featured => ["1"], :statuses => {:show_featured_items => ["1"]})
 	scope :has_photos, joins(:document_photos).group("document_id")
 
-	def self.per_page
-		50
-	end
+
 
 	def display_name
 		self.name ? self.name : self.title
@@ -50,6 +48,7 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+
 	def is_on_sale?
 		if self.status.blank?
 			return false
@@ -62,6 +61,7 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+
 	def document_type_name
 		unless self.document_type.blank?
 			self.document_type.name
@@ -70,6 +70,7 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+
 	def reference_number
 		if self.stock_number.blank?
 			return self.id.to_s
@@ -77,6 +78,7 @@ class Document < ActiveRecord::Base
 			return self.id.to_s + "/" + self.stock_number
 		end
 	end
+
 
 	def shipping_price
 		doc_id = self.id
@@ -92,8 +94,10 @@ class Document < ActiveRecord::Base
 		return shipping_price
 	end
 
+
 	def shipping_price_new
 	end
+
 
 	def last_name_list
 		list = self.people.select("DISTINCT last_name").order("last_name ASC")
@@ -102,6 +106,7 @@ class Document < ActiveRecord::Base
 		return list_string.reverse.sub(/,/, ' dna ').reverse
 	end
 
+
 	def county_list
 		# This currently includes duplicates which is not good
 		list = self.locations.order("country, county, town asc")
@@ -109,13 +114,13 @@ class Document < ActiveRecord::Base
 		return list_string.reverse.sub(/,/, ' dna ').reverse
 	end
 
+
 	def town_list
 		# This currently includes duplicates which is not good
 		list = self.locations.order("country, county, town asc")
 		list_string = list.map { |f| f.full_town }.join '; '
 		return list_string.reverse.sub(/,/, ' dna ').reverse
 	end
-
 
 
 	def earliest_fact_year
@@ -127,6 +132,7 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+
 	def latest_fact_year
 		max = self.facts.where("fact_year > 0").first(:order => 'fact_year desc');
 		if max.nil?
@@ -136,160 +142,32 @@ class Document < ActiveRecord::Base
 		end
 	end
 
-	def self.simple_search(search_param)
-		condition  = ""
-		condition += "documents.document_type_id = '#{search_param[:document_type_id]}' OR " unless search_param[:document_type_id].blank?
-		condition += "documents.status = '#{search_param[:socument_status_id]}' OR " unless search_param[:document_status_id].blank?
-		condition += "documents.title LIKE '%#{search_param[:document_title]}%' OR " unless search_param[:document_title].blank?
-		condition += "attribute_types.name = 'publisher' AND document_attributes.value = '#{search_param[:document_publisher]}' OR " unless search_param[:document_publisher].blank?
-		condition += "attribute_types.name = 'author' AND document_attributes.value = '#{search_param[:document_author]}' OR " unless search_param[:document_author].blank?
-		condition += "people.name_first = '#{search_param[:firstname]}' OR " unless search_param[:firstname].blank?
-		condition += "people.name_maiden = '#{search_param[:lastname]}' OR " unless search_param[:lastname].blank?
-		condition += "YEAR(person_events.date_event) >= '#{search_param[:date_birth_from]}'
-									AND YEAR(person_events.date_event) >= '#{search_param[:date_birth_to]}'
-									AND event_types.name = 'Birth' OR " unless search_param[:date_birth_from].blank? && search_param[:date_birth_to].blank?
-		condition += "person_events.city = '#{search_param[:city]}' AND event_types.name = 'Birth' OR " unless search_param[:city].blank?
-		condition += "person_events.county = '#{search_param[:county]}' AND event_types.name = 'Birth' OR " unless search_param[:county].blank?
-		condition += "person_events.country = '#{search_param[:country]}' AND event_types.name = 'Birth' OR " unless search_param[:country].blank?
-		condition += "YEAR(person_events.date_event) = '#{search_param[:date_death_from]}'
-									AND event_types.name = 'Death' OR " unless search_param[:date_death_from].blank?
-		condition += "YEAR(person_events.date_event) >= '#{search_param[:date_other_from]}'
-									AND YEAR(person_events.date_event) <= '#{search_param[:date_other_to]}'
-									AND event_types.name <> 'Birth' AND event_types.name <> 'Death' OR " unless search_param[:date_other_from].blank? && search_param[:date_other_to].blank?
-		condition += "locations.city = '#{search_param[:city]}' OR " unless search_param[:city].blank?
-		condition += "locations.city = '#{search_param[:county]}' OR " unless search_param[:county].blank?
-		condition += "locations.city = '#{search_param[:country]}' OR " unless search_param[:country].blank?
-		unless condition.blank?
-			condition += " 1 = 1 "
-			self.find_by_sql("SELECT DISTINCT documents.* FROM documents
-												LEFT JOIN users ON users.id = documents.user_id
-												LEFT JOIN document_types ON document_types.id = documents.document_type_id
-												LEFT JOIN document_statuses ON document_statuses.id = documents.document_status_id
-												LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
-												LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
-												LEFT JOIN people ON people.document_id = documents.id
-												LEFT JOIN person_events ON person_events.person_id = people.id
-												LEFT JOIN event_types ON event_types.id = person_events.event_type_id
-												LEFT JOIN locations ON locations.document_id = documents.id
-												WHERE #{condition}")
-		end
-	end
 
-	def search_people_new(search_params,page,per_page=10)
-		self.where(document_type_id: search_params[:firstname, :lastname]).paginate(:per_page=> per_page,:page=>page)		
+	def publication_date
+		published = self.document_attributes.find_by_attribute_type_id(2)
+		year = sprintf '%04d', published.attribute_year rescue "0000"
+		month = sprintf '%02d',published.attribute_month rescue "00"
+		day = sprintf '%02d',published.attribute_day rescue "00"
+		return "#{year}#{month}#{day}"
 	end
 
 
-	def self.search_people(search_params,page,per_page=50)
+	def people_list(firstname, lastname)
+		self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
+	end
 
-		#Work out search birth date range
-		search_params[:date_birth_to] = '0' if search_params[:date_birth_to].blank?
-		if !search_params[:date_birth_from].blank?
-			date_birth_from = search_params[:date_birth_from].to_i
-			unless search_params[:date_birth_to] == '0'
-				date_birth_from = search_params[:date_birth_from].to_i - search_params[:date_birth_to].to_i
-				date_birth_to = search_params[:date_birth_from].to_i + search_params[:date_birth_to].to_i
+
+	def default_image
+		unless self.document_photos.nil?
+			primary_image = self.document_photos.find(:first,:conditions=>["is_primary is true"])
+			if primary_image.nil?
+				return self.document_photos.first
+			else
+				return primary_image
 			end
 		end
-
-		# Work out search death dates to search from and to 
-		search_params[:date_death_to] = '0' if search_params[:date_death_to].blank?
-		if !search_params[:date_death_from].blank?
-			date_death_from = search_params[:date_death_from].to_i
-			unless search_params[:date_death_to] == '0'
-				date_death_from = search_params[:date_death_from].to_i - search_params[:date_death_to].to_i
-				date_death_to = search_params[:date_death_from].to_i + search_params[:date_death_to].to_i
-			end
-		end
-
-		condition  = ""
-		condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
-		condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
-
-		if !date_birth_from.blank? && !date_birth_to.blank?
-			condition += " facts.fact_year >= '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH'  AND "
-			condition += " facts.fact_year <= '#{date_birth_to}' AND UPPER(event_types.name) = 'BIRTH'  AND "
-		elsif !date_birth_from.blank? && date_birth_to.blank?
-			condition += " facts.fact_year = '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH' AND "
-		end
-
-		if !date_death_from.blank? && !date_death_to.blank?
-			condition += " facts.fact_year >= '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH'  AND "
-			condition += " facts.fact_year <= '#{date_death_to}' AND UPPER(event_types.name) = 'DEATH' AND "
-		elsif !date_death_from.blank? && date_death_to.blank?
-			condition += " facts.fact_year = '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH' AND "
-		end
-
-		if !search_params[:document_type_id].blank?
-			condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
-		end
-
-		if !search_params[:document_status].blank?
-			condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
-		end
-
-		unless condition.blank?
-			condition += " status_id != 7 and is_deleted is false"
-			self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
-												LEFT JOIN users ON users.id = documents.user_id
-												LEFT JOIN document_types ON document_types.id = documents.document_type_id
-												LEFT JOIN statuses ON statuses.id = documents.status_id
-												LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
-												LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
-												LEFT JOIN people ON people.document_id = documents.id
-												LEFT JOIN facts ON facts.person_id = people.id
-												LEFT JOIN event_types ON event_types.id = facts.event_type_id
-												WHERE #{condition} ",:per_page=>per_page,:page=>page)
-		else
-			self.where("1=0").paginate(:per_page=>1,:page=>page)
-		end
-
+		return nil
 	end
-
-
-
-
-	def self.search_location(search_params,page,per_page=50)
-		condition_str  = ""
-
-		# work out from and to dates
-		if !search_params[:date_from].blank?
-			date_from = search_params[:date_from].to_i
-		end
-		if !search_params[:date_to].blank?
-			date_to = search_params[:date_to].to_i
-		end
-
-		condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(locations.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
-		condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(locations.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
-		condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
-
-		condition_str += "(extract(year FROM facts.fact_year) >= '#{date_from}' AND extract(year FROM facts.fact_year) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
-		if !search_params[:document_type_id].blank?
-			condition_str += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
-		end
-		if !search_params[:document_status].blank?
-			condition_str += " documents.status_id = '#{search_params[:document_status]}'  AND "
-		end
-
-		unless condition_str.blank?
-			condition_str += " status_id != 7 and is_deleted is false"
-			self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
-												LEFT JOIN users ON users.id = documents.user_id
-												LEFT JOIN document_types ON document_types.id = documents.document_type_id
-												LEFT JOIN statuses ON statuses.id = documents.status_id
-												LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
-												LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
-												LEFT JOIN people ON people.document_id = documents.id
-												LEFT JOIN facts ON facts.person_id = people.id
-												LEFT JOIN event_types ON event_types.id = facts.event_type_id
-												LEFT JOIN locations ON locations.document_id = documents.id
-												WHERE #{condition_str} ",:per_page => per_page,:page => page)
-		else
-			self.where("1=0").paginate(:per_page=>1,:page=>page)
-		end
-	end
-
 
 
 	def self.search_dates(search_params,page,per_page=50)
@@ -319,95 +197,232 @@ class Document < ActiveRecord::Base
 		end
 	end
 
-	def publication_date
-		published = self.document_attributes.find_by_attribute_type_id(2)
-		year = sprintf '%04d', published.attribute_year rescue "0000"
-		month = sprintf '%02d',published.attribute_month rescue "00"
-		day = sprintf '%02d',published.attribute_day rescue "00"
-		return "#{year}#{month}#{day}"
-	end
-
-	#def publication_date
-	#  published = self.document_attributes.find_by_attribute_type_id(2)
-	#  return DateTime.parse('0000-00-00') if published.nil?
-	#  y = published.attribute_year || '0000'
-	#  m = published.attribute_month || '00'
-	#  d = published.attribute_day || '00'
-	#  DateTime.parse("#{y}-#{m}-#{d}")
-	#end
 
 	def self.search_publications(search_params,page,per_page=10)
-		#document_type_id = search_params[:document_type_id]
 		self.where(document_type_id: search_params[:document_type_id]).paginate(:per_page=> per_page,:page=>page)
-		#publications = self.where("document_type_id = #{search_params[:document_type_id]}")
-		#publications = publications.sort{ |a,b| a.publication_date <=> b.publication_date }
 		#publications = publications.sort_by &:publication_date
 		#publications.paginate(:per_page=> per_page,:page=>page)
 	end
 
-
-	# ###
-	# Deprecated - really don't need all this gubbins
-	# ###
-	def self.search_publications_old(search_params,page,per_page=10)
-		condition  = ""
-
-		#if search_params[:document_type_id] == 4
-			order = "order by documents.stock_number desc"
-		#end	 
-
-		#if !search_params[:date_from].blank?
-		#	date_from = search_params[:date_from].to_i
-		#end
-		#if !search_params[:date_to].blank?
-		#	date_to = search_params[:date_to].to_i
-		#end
-
-		condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
-		condition += "attribute_types.name = 'Publisher' AND UPPER(document_attributes.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
-		condition += "attribute_types.name = 'Author' AND UPPER(document_attributes.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
-		if !search_params[:document_type_id].blank?
-			condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
-		end
-		if !search_params[:document_status].blank?
-			condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
-		end
-		#puts condition
-		unless condition.blank?
-			condition += " status_id != 7 and is_deleted is false"
-
-			# this need to be changed later for hidden status_id=7
-			self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
-												LEFT JOIN users ON users.id = documents.user_id
-												LEFT JOIN document_types ON document_types.id = documents.document_type_id
-												LEFT JOIN statuses ON statuses.id = documents.status_id
-												LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
-												LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
-												LEFT JOIN people ON people.document_id = documents.id
-												LEFT JOIN facts ON facts.person_id = people.id
-												LEFT JOIN event_types ON event_types.id = facts.event_type_id
-												LEFT JOIN locations ON locations.document_id = documents.id
-												WHERE #{condition}",:per_page => per_page,:page => page)
-		else
-			self.where("1=0").paginate(:per_page=>1,:page=>page)
-		end
-	end
-
-
-	def people_list(firstname, lastname)
-		self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
-	end
-
-
-	def default_image
-		unless self.document_photos.nil?
-			primary_image = self.document_photos.find(:first,:conditions=>["is_primary is true"])
-			if primary_image.nil?
-				return self.document_photos.first
-			else
-				return primary_image
-			end
-		end
-		return nil
-	end
 end
+
+
+
+
+
+## Old Code
+
+#def self.per_page
+#	50
+#end
+
+#def publication_date
+#  published = self.document_attributes.find_by_attribute_type_id(2)
+#  return DateTime.parse('0000-00-00') if published.nil?
+#  y = published.attribute_year || '0000'
+#  m = published.attribute_month || '00'
+#  d = published.attribute_day || '00'
+#  DateTime.parse("#{y}-#{m}-#{d}")
+#end
+
+# ###
+# Deprecated - really don't need all this gubbins
+# ###
+#def self.search_publications_old(search_params,page,per_page=10)
+#	condition  = ""
+
+#if search_params[:document_type_id] == 4
+#		order = "order by documents.stock_number desc"
+#end	 
+
+#	if !search_params[:date_from].blank?
+#		date_from = search_params[:date_from].to_i
+#	end
+#	if !search_params[:date_to].blank?
+#		date_to = search_params[:date_to].to_i
+#	end
+
+#	condition += "UPPER(documents.title) like '%#{search_params[:document_title].upcase}%' AND " unless search_params[:document_title].blank?
+#	condition += "attribute_types.name = 'Publisher' AND UPPER(document_attributes.value) like '%#{search_params[:document_publisher].upcase}%' AND " unless search_params[:document_publisher].blank?
+#	condition += "attribute_types.name = 'Author' AND UPPER(document_attributes.value) like '%#{search_params[:document_author].upcase}%' AND " unless search_params[:document_author].blank?
+#	if !search_params[:document_type_id].blank?
+#		condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
+#	end
+#	if !search_params[:document_status].blank?
+#		condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
+#	end
+#puts condition
+#	unless condition.blank?
+#		condition += " status_id != 7 and is_deleted is false"
+
+	# this need to be changed later for hidden status_id=7
+#		self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
+#											LEFT JOIN users ON users.id = documents.user_id
+#											LEFT JOIN document_types ON document_types.id = documents.document_type_id
+#											LEFT JOIN statuses ON statuses.id = documents.status_id
+#											LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+#											LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
+#											LEFT JOIN people ON people.document_id = documents.id
+#											LEFT JOIN facts ON facts.person_id = people.id
+#											LEFT JOIN event_types ON event_types.id = facts.event_type_id
+#											LEFT JOIN locations ON locations.document_id = documents.id
+#											WHERE #{condition}",:per_page => per_page,:page => page)
+#	else
+#		self.where("1=0").paginate(:per_page=>1,:page=>page)
+#	end
+#end
+
+
+# def self.simple_search(search_param)
+# 	condition  = ""
+# 	condition += "documents.document_type_id = '#{search_param[:document_type_id]}' OR " unless search_param[:document_type_id].blank?
+# 	condition += "documents.status = '#{search_param[:socument_status_id]}' OR " unless search_param[:document_status_id].blank?
+# 	condition += "documents.title LIKE '%#{search_param[:document_title]}%' OR " unless search_param[:document_title].blank?
+# 	condition += "attribute_types.name = 'publisher' AND document_attributes.value = '#{search_param[:document_publisher]}' OR " unless search_param[:document_publisher].blank?
+# 	condition += "attribute_types.name = 'author' AND document_attributes.value = '#{search_param[:document_author]}' OR " unless search_param[:document_author].blank?
+# 	condition += "people.name_first = '#{search_param[:firstname]}' OR " unless search_param[:firstname].blank?
+# 	condition += "people.name_maiden = '#{search_param[:lastname]}' OR " unless search_param[:lastname].blank?
+# 	condition += "YEAR(person_events.date_event) >= '#{search_param[:date_birth_from]}'
+# 								AND YEAR(person_events.date_event) >= '#{search_param[:date_birth_to]}'
+# 								AND event_types.name = 'Birth' OR " unless search_param[:date_birth_from].blank? && search_param[:date_birth_to].blank?
+# 	condition += "person_events.city = '#{search_param[:city]}' AND event_types.name = 'Birth' OR " unless search_param[:city].blank?
+# 	condition += "person_events.county = '#{search_param[:county]}' AND event_types.name = 'Birth' OR " unless search_param[:county].blank?
+# 	condition += "person_events.country = '#{search_param[:country]}' AND event_types.name = 'Birth' OR " unless search_param[:country].blank?
+# 	condition += "YEAR(person_events.date_event) = '#{search_param[:date_death_from]}'
+# 								AND event_types.name = 'Death' OR " unless search_param[:date_death_from].blank?
+# 	condition += "YEAR(person_events.date_event) >= '#{search_param[:date_other_from]}'
+# 								AND YEAR(person_events.date_event) <= '#{search_param[:date_other_to]}'
+# 								AND event_types.name <> 'Birth' AND event_types.name <> 'Death' OR " unless search_param[:date_other_from].blank? && search_param[:date_other_to].blank?
+# 	condition += "locations.city = '#{search_param[:city]}' OR " unless search_param[:city].blank?
+# 	condition += "locations.city = '#{search_param[:county]}' OR " unless search_param[:county].blank?
+# 	condition += "locations.city = '#{search_param[:country]}' OR " unless search_param[:country].blank?
+# 	unless condition.blank?
+# 		condition += " 1 = 1 "
+# 		self.find_by_sql("SELECT DISTINCT documents.* FROM documents
+# 											LEFT JOIN users ON users.id = documents.user_id
+# 											LEFT JOIN document_types ON document_types.id = documents.document_type_id
+# 											LEFT JOIN document_statuses ON document_statuses.id = documents.document_status_id
+# 											LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+# 											LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
+# 											LEFT JOIN people ON people.document_id = documents.id
+# 											LEFT JOIN person_events ON person_events.person_id = people.id
+# 											LEFT JOIN event_types ON event_types.id = person_events.event_type_id
+# 											LEFT JOIN locations ON locations.document_id = documents.id
+# 											WHERE #{condition}")
+# 	end
+# end
+
+#def search_people_new(search_params,page,per_page=10)
+#	self.where(document_type_id: search_params[:firstname, :lastname]).paginate(:per_page=> per_page,:page=>page)		
+#end
+
+
+#def self.search_people(search_params,page,per_page=50)
+
+#Work out search birth date range
+#	search_params[:date_birth_to] = '0' if search_params[:date_birth_to].blank?
+#	if !search_params[:date_birth_from].blank?
+#		date_birth_from = search_params[:date_birth_from].to_i
+#		unless search_params[:date_birth_to] == '0'
+#			date_birth_from = search_params[:date_birth_from].to_i - search_params[:date_birth_to].to_i
+#			date_birth_to = search_params[:date_birth_from].to_i + search_params[:date_birth_to].to_i
+#		end
+#	end
+#
+#		# Work out search death dates to search from and to 
+#		search_params[:date_death_to] = '0' if search_params[:date_death_to].blank?
+#		if !search_params[:date_death_from].blank?
+#			date_death_from = search_params[:date_death_from].to_i
+#			unless search_params[:date_death_to] == '0'
+#				date_death_from = search_params[:date_death_from].to_i - search_params[:date_death_to].to_i
+#				date_death_to = search_params[:date_death_from].to_i + search_params[:date_death_to].to_i
+#			end
+#		end
+#
+#		condition  = ""
+#		condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
+#		condition += "UPPER(people.last_name) like '%#{search_params[:last_name].upcase}%' AND " unless search_params[:last_name].blank?
+#
+#		if !date_birth_from.blank? && !date_birth_to.blank?
+#			condition += " facts.fact_year >= '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH'  AND "
+#			condition += " facts.fact_year <= '#{date_birth_to}' AND UPPER(event_types.name) = 'BIRTH'  AND "
+#		elsif !date_birth_from.blank? && date_birth_to.blank?
+#			condition += " facts.fact_year = '#{date_birth_from}' AND UPPER(event_types.name) = 'BIRTH' AND "
+#		end
+#
+#		if !date_death_from.blank? && !date_death_to.blank?
+#			condition += " facts.fact_year >= '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH'  AND "
+#			condition += " facts.fact_year <= '#{date_death_to}' AND UPPER(event_types.name) = 'DEATH' AND "
+#		elsif !date_death_from.blank? && date_death_to.blank?
+#			condition += " facts.fact_year = '#{date_death_from}' AND UPPER(event_types.name) = 'DEATH' AND "
+#		end
+#
+#		if !search_params[:document_type_id].blank?
+#			condition += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
+#		end
+#
+#		if !search_params[:document_status].blank?
+#			condition += " documents.status_id = '#{search_params[:document_status]}'  AND "
+#		end
+
+#		unless condition.blank?
+#			condition += " status_id != 7 and is_deleted is false"
+#			self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
+#												LEFT JOIN users ON users.id = documents.user_id
+#												LEFT JOIN document_types ON document_types.id = documents.document_type_id
+#												LEFT JOIN statuses ON statuses.id = documents.status_id
+#												LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+#												LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
+#												LEFT JOIN people ON people.document_id = documents.id
+#												LEFT JOIN facts ON facts.person_id = people.id
+#												LEFT JOIN event_types ON event_types.id = facts.event_type_id
+#												WHERE #{condition} ",:per_page=>per_page,:page=>page)
+#		else
+#			self.where("1=0").paginate(:per_page=>1,:page=>page)
+#		end
+#
+#	end
+
+
+
+
+#	def self.search_location(search_params,page,per_page=50)
+#		condition_str  = ""
+#
+#		# work out from and to dates
+#		if !search_params[:date_from].blank?
+#			date_from = search_params[:date_from].to_i
+#		end
+#		if !search_params[:date_to].blank?
+#			date_to = search_params[:date_to].to_i
+#		end
+#
+#		condition_str += "(UPPER(locations.town) like '%#{search_params[:city].upcase}%' OR UPPER(locations.town) like '%#{search_params[:city].upcase}%') AND " unless search_params[:city].blank?
+#		condition_str += "(UPPER(locations.county) like '%#{search_params[:county].upcase}%' OR UPPER(locations.county) like '%#{search_params[:county].upcase}%') AND " unless search_params[:county].blank?
+#		condition_str += "(UPPER(locations.country) like '%#{search_params[:country].upcase}%' OR UPPER(locations.country) like '%#{search_params[:country].upcase}%') AND " unless search_params[:country].blank?
+#
+#		condition_str += "(extract(year FROM facts.fact_year) >= '#{date_from}' AND extract(year FROM facts.fact_year) <= '#{date_to}') AND " if !date_from.blank? && !date_to.blank?
+#		if !search_params[:document_type_id].blank?
+#			condition_str += " documents.document_type_id = '#{search_params[:document_type_id]}'  AND "
+#		end
+#		if !search_params[:document_status].blank?
+#			condition_str += " documents.status_id = '#{search_params[:document_status]}'  AND "
+#		end
+#
+#		unless condition_str.blank?
+#			condition_str += " status_id != 7 and is_deleted is false"
+#			self.paginate_by_sql("SELECT DISTINCT documents.* FROM documents
+#												LEFT JOIN users ON users.id = documents.user_id
+#												LEFT JOIN document_types ON document_types.id = documents.document_type_id
+#												LEFT JOIN statuses ON statuses.id = documents.status_id
+#												LEFT JOIN document_attributes ON document_attributes.document_id = documents.id
+#												LEFT JOIN attribute_types ON attribute_types.id = document_attributes.attribute_type_id
+#												LEFT JOIN people ON people.document_id = documents.id
+#												LEFT JOIN facts ON facts.person_id = people.id
+#												LEFT JOIN event_types ON event_types.id = facts.event_type_id
+#												LEFT JOIN locations ON locations.document_id = documents.id
+#												WHERE #{condition_str} ",:per_page => per_page,:page => page)
+#		else
+#			self.where("1=0").paginate(:per_page=>1,:page=>page)
+#		end
+#	end
