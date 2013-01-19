@@ -37,7 +37,7 @@
 		</div>
 
 		<% @documents.each do |document| %>
-			<% unless document.is_deleted %>
+			<% unless document.is_deleted || document.is_hidden? %>
 				<div class="well well-small" style="margin: 2px 0;">
 					<div class="row-fluid">
 						<div class="span1">

@@ -61,6 +61,17 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+	def is_hidden?
+		if self.status.blank?
+			return false
+		else
+			if self.status.name == "Hidden" 
+				return true
+			else
+				return false
+			end
+		end
+	end	
 
 	def document_type_name
 		unless self.document_type.blank?

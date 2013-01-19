@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<% @documents.each do |document| %>
-		<% unless document.is_deleted %>
+		<% unless document.is_deleted || document.is_hidden? %>
 			<div class="well well-small" style="margin: 2px 0;">
 				<div class="row-fluid">
 					<div class="span1"><%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document),:class=>"thumbnail" unless document.default_image.nil? %></div>
