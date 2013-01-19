@@ -10,8 +10,8 @@ class HomeController < ApplicationController
 		@pagetitle = "Home"
 		@meta_description = "The Past on Paper links researchers of Genealogy, Family History, Local History and Home History with original historic documents in the posession of antique dealers or private individuals available to buy or view."
 		@user = current_user unless current_user.blank?
+		@fact_years = Fact.find :all, :order=>"fact_year ASC", :select => "DISTINCT fact_year"
 	end
-
 
 	def search_people
 		per_page=50
@@ -45,16 +45,20 @@ class HomeController < ApplicationController
 
 
 	def search_publications
-		per_page=50
-		session[:search_params] = params[:search_publications]	
-		@documents = Document.search_publications(params[:search_publications], params[:page])
+		if params[:search_publications][:document_type_id] == '4'
+			redirect_to :controller=>'documents', :action=>'newspapers'
+		else
+			per_page=50
+			session[:search_params] = params[:search_publications]	
+			@documents = Document.search_publications(params[:search_publications], params[:page])
 
-		# save search to db
-		Search.create(:user_id           => (!current_user ? 0 : current_user.id),
-		              :search_type       => "Publication", 
-		              :document_type_id  => params[:search_publications][:document_type_id], 
-		              :results     => @documents.total_entries )
-		render "search_results"
+			# save search to db
+			Search.create(:user_id           => (!current_user ? 0 : current_user.id),
+			              :search_type       => "Publication", 
+			              :document_type_id  => params[:search_publications][:document_type_id], 
+			              :results     => @documents.total_entries )
+			render "search_results"
+		end	
 	end
 
 

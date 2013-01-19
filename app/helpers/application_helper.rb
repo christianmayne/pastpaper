@@ -52,4 +52,5 @@ module ApplicationHelper
 		Location.find :all, :order=>"country ASC", :select => "DISTINCT country"
 	end
 
+
 end

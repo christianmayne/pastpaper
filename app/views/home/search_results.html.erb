@@ -2,17 +2,11 @@
 
 <div class="alert alert-info">
   <div class="lead">
-    
-    <%= page_entries_info @documents, {:entry_name=>'item',:plural_name=>'items'} %>
-    <% if session[:search_params][:search_type].to_i == 1 %>
-      with people matching your search criteria
-    <%elsif session[:search_params][:search_type].to_i == 2 %>
-      with locations matching your search criteria
-    <%elsif session[:search_params][:search_type].to_i == 3 %>
-      publications matching your search criteria	
-    <%else%>
-      Items matching your search criteria
-    <%end%>
+      <% if @documents.empty? %>
+        Sorry, Nothing Found matching your search criteria
+      <% else %>
+        <%= @documents.total_entries %> <%= @documents.first.class.name.sub("Controller", "").pluralize %> Found
+      <% end %>  
   </div>
 </div>
 
@@ -36,7 +30,7 @@
     <% else %>
       <div class="row-fluid" style="margin-bottom:10px;">
         <div class="pull-right">
-          <%= banner_ads[rand(banner_ads.count)].html_safe %>
+          <%= banner_ad %>
         </div>
       </div>
     <%end%>

@@ -70,7 +70,6 @@ class Document < ActiveRecord::Base
 		end
 	end
 
-
 	def reference_number
 		if self.stock_number.blank?
 			return self.id.to_s
@@ -98,6 +97,10 @@ class Document < ActiveRecord::Base
 	def shipping_price_new
 	end
 
+
+	def people_list(firstname, lastname)
+		self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
+	end
 
 	def last_name_list
 		list = self.people.select("DISTINCT last_name").order("last_name ASC")
@@ -142,6 +145,9 @@ class Document < ActiveRecord::Base
 		end
 	end
 
+	def publisher
+		self.document_attributes.find_by_attribute_type_id(2)
+	end
 
 	def publication_date
 		published = self.document_attributes.find_by_attribute_type_id(2)
@@ -151,10 +157,24 @@ class Document < ActiveRecord::Base
 		return "#{year}#{month}#{day}"
 	end
 
-
-	def people_list(firstname, lastname)
-		self.people.find(:all, :conditions => ["name_first =? AND name_last =? ", "#{firstname}", "#{lastname}"]) unless self.people.blank?
+	def publication_date_format
+		published = self.document_attributes.find_by_attribute_type_id(2)
+		year = sprintf '%04d', published.attribute_year rescue "0000"
+		month = sprintf '%02d',published.attribute_month rescue "00"
+		day = sprintf '%02d',published.attribute_day rescue "00"
+		date = DateTime.parse("#{year}-#{month}-#{day}")
+		formatted_date = date.strftime('%d %B %Y (%a)')
 	end
+
+
+	def dimensions
+		if !self.length.blank? || !self.width.blank? || !self.depth.blank?       	
+			# Join elements with a ' x ', but only if elements exist
+      [("#{self.try(:length)}mm" unless self.length.blank?),("#{self.try(:width)}mm" unless self.width.blank?),("#{self.try(:depth)}mm" unless self.depth.blank?)].delete_if{|ad_elem| ad_elem.blank?}.join(' x ')
+		else
+    	return "No dimensions have been provided for this item"
+    end
+	end	
 
 
 	def default_image
@@ -204,6 +224,20 @@ class Document < ActiveRecord::Base
 		#publications.paginate(:per_page=> per_page,:page=>page)
 	end
 
+	def self.display_newspapers(page,per_page=10)
+			self.paginate_by_sql("
+				SELECT 
+				documents.*
+				FROM documents
+			  LEFT JOIN document_attributes on document_attributes.document_id = documents.id
+		    LEFT JOIN attribute_types on document_attributes.attribute_type_id = attribute_types.id
+			  LEFT JOIN document_types on documents.document_type_id = document_types.id
+			  WHERE attribute_types.name = 'Publisher'
+			  AND document_types.name = 'Newspaper'
+			  GROUP BY documents.id 
+			  ORDER BY document_attributes.attribute_year, document_attributes.attribute_month,document_attributes.attribute_day",
+				:per_page=> per_page,:page=>page)
+	end		
 end
 
 

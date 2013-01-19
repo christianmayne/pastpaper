@@ -8,8 +8,6 @@
 	</div>
 <%end%>	
 
-
-<% @fact_years = Fact.find :all, :order=>"fact_year ASC", :select => "DISTINCT fact_year" %>
 <% datesearch = capture do %>
 	<div id="place" class="">
 		<%= form_for :search_dates, :url => search_dates_home_index_path, :method=>'get', :html => {:class=>"form-inline"} do |f| %>

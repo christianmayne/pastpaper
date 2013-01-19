@@ -17,6 +17,10 @@ class DocumentAttribute < ActiveRecord::Base
 		[self.street1, self.street2, self.town, self.county, self.state, self.country].delete_if{|ad_elem| ad_elem.blank?}.join(', ')
 	end
 
+	def short_details
+		[self.value, self.town, self.county, self.country].delete_if{|ad_elem| ad_elem.blank?}.join(', ')
+	end	
+
 	def full_date
 		date_string = ""
 		date_string += self.date_modifier unless self.date_modifier.nil?

@@ -201,8 +201,7 @@ class DocumentsController < ApplicationController
 	def newspapers
 		@pagetitle = "Browse all Newspapers"
 		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
-		@documents = Document.where(:document_type_id => 4).paginate(:page =>params[:page], :order =>'name asc', :per_page =>50)
-		render "documents/index"
+		@documents = Document.display_newspapers(params[:page], 40)
 	end
 
 	def notebooks

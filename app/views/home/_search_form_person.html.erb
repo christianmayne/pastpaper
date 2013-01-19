@@ -2,15 +2,11 @@
 	<div id="person" class="">
 		<%= form_for :search_people, :url => search_people_home_index_path, :method=>'get', :html => {:class=>""} do |f| %>
 			<%= f.hidden_field :search_type, :value=>1 , :class=>"input-small"%>
-			<%= f.text_field :first_name,{:placeholder => "First Name",:size=>25, :class=>"input-medium"} %>
-			<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>25, :class=>"input-medium"} %>
-      <% if site.preview_mode = false %>
-        <br />
-			  <label>DOB FROM</label>
-			  <%= f.text_field :date_birth_from, :size => 10, :class => 'input-mini' , :placeholder=>"YYYY"%>
-			  <label>DOB TO</label>
-			  <%= f.text_field :date_death_from,  :size => 10, :class => 'input-mini' ,:placeholder=>"YYYY"%>
-      <% end %>
+			<%= f.text_field :first_name,{:placeholder => "First Name",:size=>25, :class=>"input-small"} %>
+			<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>25, :class=>"input-small"} %>
+      <br />
+		  <%= f.select(:date_from, @fact_years.map(&:fact_year), {:include_blank => 'From'}, :class=>"search-query input-small") %>
+		  <%= f.select(:date_to, @fact_years.map(&:fact_year), {:include_blank => 'To'}, :class=>"search-query input-small") %>
 			<%= f.submit "",:class=>"btn btn-primary pull-right",:id=>"searchbyperson", :value=>"Search" %>
 		<% end %>
 	</div>
