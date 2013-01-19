@@ -163,7 +163,7 @@ class Document < ActiveRecord::Base
 		month = sprintf '%02d',published.attribute_month rescue "00"
 		day = sprintf '%02d',published.attribute_day rescue "00"
 		date = DateTime.parse("#{year}-#{month}-#{day}")
-		formatted_date = date.strftime('%d %B %Y (%a)')
+		formatted_date = date.strftime("#{date.day.ordinalize} %B %Y (%a)")
 	end
 
 
