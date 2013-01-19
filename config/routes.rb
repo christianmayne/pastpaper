@@ -108,6 +108,7 @@ Pastpaper::Application.routes.draw do
 	match 'photos' => 'documents#photos'
 	match 'postcards' => 'documents#postcards'
 	match 'wills' => 'documents#wills'
+	match 'search_newspapers' => 'documents#search_newspapers'
 
 	root :to => 'home#index'
 

@@ -204,10 +204,18 @@ class DocumentsController < ApplicationController
 		@documents = Document.display_newspapers(params[:page], 40)
 	end
 
+	def search_newspapers
+		@pagetitle = "Browse all Newspapers"
+		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
+		@documents = Document.search_newspapers(params[:search_newspapers], params[:page], 10)
+		render "documents/newspapers"
+	end	
+
 	def notebooks
 		@pagetitle = "Browse all Notebooks"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 7).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+		#@published_years = @documents.document_attributes :all, :order=>"attribute_year ASC", :select => "DISTINCT attribute_year"
 		render "documents/index"
 	end
 

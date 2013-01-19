@@ -235,7 +235,8 @@ class Document < ActiveRecord::Base
 		#publications.paginate(:per_page=> per_page,:page=>page)
 	end
 
-	def self.display_newspapers(page,per_page=10)
+
+	def self.display_newspapers(page,per_page=25)
 			self.paginate_by_sql("
 				SELECT 
 				documents.*
@@ -249,6 +250,37 @@ class Document < ActiveRecord::Base
 			  ORDER BY document_attributes.attribute_year, document_attributes.attribute_month,document_attributes.attribute_day",
 				:per_page=> per_page,:page=>page)
 	end		
+
+	def self.search_newspapers(search_params,page,per_page=25)
+		condition_str=""
+		if !search_params[:day].blank?
+			day = search_params[:day].to_i
+			condition_str += "AND document_attributes.attribute_day = #{day} "
+		end
+		if !search_params[:month].blank?
+			month = search_params[:month].to_i
+			condition_str += "AND document_attributes.attribute_month = #{month} "
+		end
+		if !search_params[:year].blank?
+			year = search_params[:year].to_i
+			condition_str += "AND document_attributes.attribute_year = #{year}"
+		end
+		self.paginate_by_sql("
+			SELECT 
+			documents.*
+			FROM documents
+		  LEFT JOIN document_attributes on document_attributes.document_id = documents.id
+	    LEFT JOIN attribute_types on document_attributes.attribute_type_id = attribute_types.id
+		  LEFT JOIN document_types on documents.document_type_id = document_types.id
+		  WHERE attribute_types.name = 'Publisher'
+		  AND document_types.name = 'Newspaper'
+		  #{condition_str}
+		  GROUP BY documents.id 
+		  ORDER BY document_attributes.attribute_year, document_attributes.attribute_month,document_attributes.attribute_day",
+			:per_page=> per_page,:page=>page)
+	end	
+
+
 end
 
 
