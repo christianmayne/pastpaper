@@ -1,7 +1,7 @@
 <%= form_for :search_newspapers, :url => search_newspapers_path, :method=>'get', :html => {:class=>"form-inline"} do |f| %>
 	<%#= Day %>
-	<%= f.select(:day, Array(1..31), :prompt => "Day", :type=>"text", :class=>"span1") %>
-	<%= f.select(:month, Array(1..12), :prompt => "Month") %>
-	<%= f.select(:year, Array(1870..1945), :prompt => "Year") %>
+	<%= f.select(:day, Array(1..31), :prompt => "Day", :type=>"text", :size=>"2") %>
+	<%= f.select(:month, month_array, {:include_blank => "Month"}) %>
+	<%= f.select(:year, @newspaper_years.map(&:attribute_year), {:include_blank => 'Year'}, :class=>"search-query input-medium") %>
 	<%= f.submit "Go",:class=>"btn btn-primary"%>
 <%end%>
