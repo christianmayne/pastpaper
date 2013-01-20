@@ -7,6 +7,56 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(:first_name=>"admin" ,:last_name=>"admin",:username=>"adminuser",:email=>"admin@pastonpaper.com",:password=>"123456",:password_confirmation=>"123456")
 
+AttributeType.create[{:id=>1, :name=>"Printer"},
+                     {:id=>2, :name=>"Publisher"},
+                     {:id=>3, :name=>"Seller"},
+                     {:id=>4, :name=>"Photographer"},
+                     {:id=>5, :name=>"Studio"},
+                     {:id=>6, :name=>"Author"},
+                     {:id=>7, :name=>"Artist"}]
+
+DocumentType.create[{:id=>1, :name=>"Bible"},
+                    {:id=>2, :name=>"Photograph (physical)"},
+                    {:id=>3, :name=>"Postcard"},
+                    {:id=>4, :name=>"Newspaper"},
+                    {:id=>5, :name=>"Directory"},
+                    {:id=>6, :name=>"Book"},
+                    {:id=>7, :name=>"Notebook"},
+                    {:id=>8, :name=>"Diary"},
+                    {:id=>9, :name=>"Certificate"},
+                    {:id=>10, :name=>"Marriage Settlement"},
+                    {:id=>11, :name=>"Letter"},
+                    {:id=>12, :name=>"Photograph (digital)"},
+                    {:id=>13, :name=>"Ephemera"},
+                    {:id=>14, :name=>"Magazine"},
+                    {:id=>15, :name=>"Journal"},
+                    {:id=>16, :name=>"Will"},
+                    {:id=>17, :name=>"Deed"},
+                    {:id=>18, :name=>"Indenture"},
+                    {:id=>19, :name=>"Map"},
+                    {:id=>20, :name=>"Gravestone or Memorial Plaque (Photograph)"},
+                    {:id=>21, :name=>"Sign (Digital Photograph)"},
+                    {:id=>22, :name=>"War Memorial"},
+                    {:id=>23, :name=>"Other"},
+                    {:id=>24, :name=>"Photo Album"},
+                    {:id=>25, :name=>"Print"}]
+
+EventType.create[{:id=>1, :name="Birth"},
+                 {:id=>2, :name="Death"},
+                 {:id=>3, :name="Marriage"},
+                 {:id=>4, :name="Baptism"},
+                 {:id=>5, :name="Burial"},
+                 {:id=>6, :name="Residence"},
+                 {:id=>7, :name="Photographed"},
+                 {:id=>8, :name="Marriage Settlement"},
+                 {:id=>9, :name="Active Service"},
+                 {:id=>10, :name="Employed"}]
+
+Status.create[{:name=>"For Sale", :description=>"Items in this category will be made available for sale on the site"},
+              {:name=>"Sold", :description=>"Items that are not offered for sale on the site.  These items are still searchable."},
+              {:name=>"Display Only", :description=>"Item not offered for sale, but searchable on site."},
+              {:name=>"Hidden", :description=>"Items that are hidden from view and are not searchable on the site"}]
+
 ShippingZone.create[{:name=>"UK Zone 1", :description=>"UK to UK"},
                       {:name=>"UK Zone 2", :description=>"UK to EU, not including islands"},
                       {:name=>"UK Zone 3", :description=>"UK to EU Islands"}]                      
