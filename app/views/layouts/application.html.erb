@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% @fb_dimg = 'http://pastonpaper.com/logo.jpg' %>
   <meta property="og:title" content="<%= @pagetitle || "www.pastonpaper.com "   %>"/>
-  <meta property="og:image" content=" <%= @fb_img  || @fb_dimg %>"/>
-  <meta property="og:url" content="<%= @share_url || 'http://www.pastonpaper.com'%>" />
+  <meta property="og:image" content=" <%= @fb_img  || fb_dimg %>"/>
+  <meta property="og:url" content="<%= @share_url || current_url %>" />
   <meta property="og:site_name" content="pastonpaper.com"/>
-  <meta property="og:description" content = "<%= @share_description || "Item on www.pastonpaper.com"%>" />
+  <meta property="og:description" content = "<%= @share_description || @meta_description || ""%>" />
   <meta property="fb:app_id" content="354188527987106" />
   <meta charset="utf-8"/>
   <meta description="<%= @meta_description %>" />

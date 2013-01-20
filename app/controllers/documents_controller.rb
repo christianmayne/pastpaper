@@ -202,14 +202,12 @@ class DocumentsController < ApplicationController
 		@pagetitle = "Browse all Newspapers"
 		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
 		@documents = Document.display_newspapers(params[:page], 50)
-		@newspaper_years = DocumentAttribute.find_all_by_attribute_type_id(2, :joins=> :document, :conditions => "documents.document_type_id=4", :select=>"distinct attribute_year", :order=>"attribute_year ASC")
 	end
 
 	def search_newspapers
 		@pagetitle = "Browse all Newspapers"
 		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
 		@documents = Document.search_newspapers(params[:search_newspapers], params[:page], 50)
-		@newspaper_years = DocumentAttribute.find_all_by_attribute_type_id(2, :joins=> :document, :conditions => "documents.document_type_id=4", :select=>"distinct attribute_year", :order=>"attribute_year ASC")
 		render "documents/newspapers"
 	end	
 

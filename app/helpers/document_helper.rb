@@ -38,16 +38,22 @@ module DocumentHelper
 		Document.increment_counter(:views, @document.id)
 	end
 
+	##
+	# Returns an Array of order distinct publication years for the Document type named
+	def publication_years(publication_type)
+		publication_type_id = DocumentType.find_by_name(publication_type).id
+		condition= ""
+		DocumentAttribute.find_all_by_attribute_type_id(2, :joins=> :document, :conditions => "documents.document_type_id = #{publication_type_id}", :select=>"distinct attribute_year", :order=>"attribute_year ASC")
+	end
+
+	##
+	# returns url of current document for facebook
 	def share_url
 		return document_url(@document)
 	end
 
-	def fb_img
-		if !@document.blank? && !@document.document_photos.blank?
-			@fb_img = @document.default_image.photo.url(:thumb)
-		end
-	end
-
+	##
+	# Returns data for current document for sharing
 	def share_data
 		if @document.name.blank?
 			share_data['data']= @document.try(:title)
@@ -58,5 +64,16 @@ module DocumentHelper
 		end
 		return share_data
 	end
+
+	##
+	# Returns thumbnail image url
+	def fb_img
+		if !@document.blank? && !@document.document_photos.blank?
+			@fb_img = @document.default_image.photo.url(:thumb)
+		end
+	end
+
+
+
 
 end
