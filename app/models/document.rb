@@ -177,6 +177,10 @@ class Document < ActiveRecord::Base
 		formatted_date = date.strftime("#{date.day.ordinalize} %B %Y (%a)")
 	end
 
+	def publication_year
+		published = self.document_attributes.find_by_attribute_type_id(2)
+		year = sprintf '%04d', published.attribute_year rescue ""
+	end
 
 	def dimensions
 		if !self.length.blank? || !self.width.blank? || !self.depth.blank?       	
@@ -229,10 +233,54 @@ class Document < ActiveRecord::Base
 	end
 
 
+	def self.search_publication(type, search_params,page,per_page=25)
+		condition_str=""
+		if !search_params[:day].blank?
+			day = search_params[:day].to_i
+			condition_str += "AND document_attributes.attribute_day = #{day} "
+		end
+		if !search_params[:month].blank?
+			month = search_params[:month].to_i
+			condition_str += "AND document_attributes.attribute_month = #{month} "
+		end
+		if !search_params[:year].blank?
+			year = search_params[:year].to_i
+			condition_str += "AND document_attributes.attribute_year = #{year}"
+		end
+		self.paginate_by_sql("
+			SELECT 
+			documents.*
+			FROM documents
+		  LEFT JOIN document_attributes on document_attributes.document_id = documents.id
+	    LEFT JOIN attribute_types on document_attributes.attribute_type_id = attribute_types.id
+		  LEFT JOIN document_types on documents.document_type_id = document_types.id
+		  WHERE attribute_types.name = 'Publisher'
+		  AND document_types.name = '#{type}'
+		  #{condition_str}
+		  GROUP BY documents.id 
+		  ORDER BY document_attributes.attribute_year, document_attributes.attribute_month,document_attributes.attribute_day",
+			:per_page=> per_page,:page=>page)
+	end	
+
 	def self.search_publications(search_params,page,per_page=10)
 		self.where(document_type_id: search_params[:document_type_id]).paginate(:per_page=> per_page,:page=>page)
 		#publications = publications.sort_by &:publication_date
 		#publications.paginate(:per_page=> per_page,:page=>page)
+	end
+
+	def self.display_publications(type,page,per_page=25)
+			self.paginate_by_sql("
+				SELECT 
+				documents.*
+				FROM documents
+			  LEFT JOIN document_attributes on document_attributes.document_id = documents.id
+		    LEFT JOIN attribute_types on document_attributes.attribute_type_id = attribute_types.id
+			  LEFT JOIN document_types on documents.document_type_id = document_types.id
+			  WHERE attribute_types.name = 'Publisher'
+			  AND document_types.name = '#{type}'
+			  GROUP BY documents.id 
+			  ORDER BY document_attributes.attribute_year, document_attributes.attribute_month,document_attributes.attribute_day",
+				:per_page=> per_page,:page=>page)
 	end
 
 

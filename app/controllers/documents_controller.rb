@@ -112,12 +112,22 @@ class DocumentsController < ApplicationController
 		@meta_description = "Browse our entire stock of Antique Family Bibles, Large Leatherbound Family Bibles, Victorian Family Bibles, Georgian Family Bibles, Edwardian Family Bibles"
 		@documents = Document.where(:document_type_id => 1).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
 		render "documents/index"
+		#@documents = Document.display_publications("Bible", params[:page], 50)
+		#render "documents/publications"
+	end
+
+	def bibles_list
+		@pagetitle = "Browse all Family Bibles"
+		@meta_description = "Browse our entire stock of Antique Family Bibles, Large Leatherbound Family Bibles, Victorian Family Bibles, Georgian Family Bibles, Edwardian Family Bibles"
+		@documents = Document.display_publications("Bible", params[:page], 50)
+		render "documents/publications"
 	end
 
 	def books
 		@pagetitle = "Browse all Books"
 		@meta_description = ""
-		@documents = Document.where(:document_type_id => 6).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+		#@documents = Document.where(:document_type_id => 6).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+		@documents = Document.display_publications("Book", params[:page], 50)
 		render "documents/index"
 	end
 
@@ -145,9 +155,17 @@ class DocumentsController < ApplicationController
 	def directories
 		@pagetitle = "Browse all Directories"
 		@meta_description = "Browse all listed antique trade directories for genealogists, Kelly's Directory, Pigot's Directory, White's Directory."
-		@documents = Document.where(:document_type_id => 5).paginate(:page =>params[:page], :order =>'title asc', :per_page =>50)
-		render "documents/index"
+		#@documents = Document.where(:document_type_id => 5).paginate(:page =>params[:page], :order =>'title asc', :per_page =>50)
+		@documents = Document.display_publications("Directory", params[:page], 50)
+		render "documents/publications"
 	end
+
+	def search_directories
+		@pagetitle = "Browse all Directories"
+		@meta_description = "Browse all listed antique trade directories for genealogists, Kelly's Directory, Pigot's Directory, White's Directory."
+		@documents = Document.search_publications("Directory", params[:search_newspapers], params[:page], 50)
+		render "documents/publications"
+	end	
 
 	def ephemera
 		@pagetitle = "Browse all Ephemera"
@@ -210,6 +228,7 @@ class DocumentsController < ApplicationController
 		@documents = Document.search_newspapers(params[:search_newspapers], params[:page], 50)
 		render "documents/newspapers"
 	end	
+
 
 	def notebooks
 		@pagetitle = "Browse all Notebooks"

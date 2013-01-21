@@ -33,7 +33,7 @@
 						<div class="span1">
 							<%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document),:class=>"thumbnail" unless document.default_image.nil? %>
 						</div>
-						<div class="span2"><small><%= link_to document.publication_date_format, document_path(document) %></small></div>
+						<div class="span2"><small><%= link_to document.publication_date_format, document_path(document) rescue "" %></small></div>
 						<div class="span2">
 							<% if document.title.blank? %>
 								<%= link_to document.name, document_path(document) %>

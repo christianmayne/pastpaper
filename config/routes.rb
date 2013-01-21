@@ -91,6 +91,7 @@ Pastpaper::Application.routes.draw do
 	match 'surnames/:last_name' => 'people#surname_search'
 
 	match 'bibles' => 'documents#bibles'
+	match 'bibles_list' => 'documents#bibles_list'
 	match 'books' => 'documents#books'
 	match 'certificates' => 'documents#certificates'
 	match 'deeds' => 'documents#deeds'
@@ -109,6 +110,8 @@ Pastpaper::Application.routes.draw do
 	match 'postcards' => 'documents#postcards'
 	match 'wills' => 'documents#wills'
 	match 'search_newspapers' => 'documents#search_newspapers'
+	match 'search_directories' => 'documents#search_directories'
+	match 'search_publications' => 'documents#search_directories'
 
 	root :to => 'home#index'
 
