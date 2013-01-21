@@ -16,7 +16,7 @@ people/_form.html.erb
   <%= render :partial => "fact_fields", :locals => {:f => fact} %>
 <% end %>
 <br />
-<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
+<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts, :add %></span>
 
 <div class="field">
   <label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>

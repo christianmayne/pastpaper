@@ -5,6 +5,8 @@ gem 'rails', '3.1.8'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'gedcom'
+
 gem 'mysql2'
 
 gem "execjs"
@@ -51,6 +53,7 @@ group :development do
   gem 'annotate', '2.4.0'
   gem 'sqlite3'
   gem 'capybara'
+  gem 'debugger'
 end
 
 group :test do

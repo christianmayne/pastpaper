@@ -6,8 +6,9 @@
     Date: <%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
           <%= f.select :fact_month,[["Jan",1],["Feb",2],["Mar",3],["Apr",4],["May",5],["Jun",6],["Jul",7],["Aug",8],["Sep",9],["Oct",10],["Nov",11],["Dec",12]],:include_blank=>"month", :class=>""%>
           <%= f.text_field :fact_year, :placeholder=>"yyyy", :class=>"person-date-yyyy" %>
-    <%= link_to_remove_fields image_tag("deleteicon.png"), f %>
+    <%= link_to_remove_fields image_tag("deleteicon.png"), f, :remove %>
     <%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"miniselect"} %>
+	<%= link_to_add_fields "<span class='button'>New Location</span>".html_safe, f, :location, :replace_with %></span>
   </div>
 </div>
 
