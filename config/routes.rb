@@ -37,7 +37,14 @@ Pastpaper::Application.routes.draw do
 		resources :comments
 
 	end
-	
+
+	get 'locations/autocomplete_location_street1'
+	get 'locations/autocomplete_location_street2'
+	get 'locations/autocomplete_location_town'
+	get 'locations/autocomplete_location_county'
+	get 'locations/autocomplete_location_state'
+	get 'locations/autocomplete_location_country'
+
 	#resources :people do
 	#	resources :documents
 	#end	

@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui-1.8.19.custom.min
+//= require autocomplete-rails
 
 //= require modernizr.custom.16753
 //= require selectivizr

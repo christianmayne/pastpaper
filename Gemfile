@@ -19,6 +19,7 @@ gem "paperclip", "~> 2.3"
 #gem "s3", :git => "git://github.com/qoobaa/s3.git"
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'rails3-jquery-autocomplete'
 
 # Gems used only for assets and not required
 # in production environments by default.
