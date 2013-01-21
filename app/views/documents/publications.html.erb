@@ -1,0 +1,66 @@
+<div class="alert alert-info">
+	<div class="lead ">
+		<div class="span7"><%= @pagetitle %></div>
+		<div class="span5 pull-right"><%#= page_entries_info @documents %></div>
+	</div>
+</div>
+
+<div class="search_results_container">
+	<div class="row-fluid">
+		<div class="span2 pull-left"><%= link_to "Home" ,root_path,:class=>"btn"%></div>
+		<div class="pull-right"><%= render :partial=>"documents/publications_date_filter"%></div>
+		<!-- Container -->
+	</div>	
+
+	<% unless @documents.count == 0 %>
+		<div class="well well-small" style="margin: 2px 0;">
+			<div class="row-fluid">
+				<div class="span1"></div>
+				<div class="span2"><strong>Date</strong></div>
+				<div class="span3"><strong>Title</strong></div>
+				<div class="span2"><strong>Publisher</strong></div>
+				<div class="span1"><strong>Pages</strong></div>
+				<div class="span2"><strong>Size</strong></div>
+				<div class="span1"><strong>Status</strong></div>
+			</div>
+		</div>
+	<%end%>
+
+		<% @documents.each do |document| %>
+			<% unless document.is_deleted || document.is_hidden? %>
+				<div class="well well-small" style="margin: 2px 0;">
+					<div class="row-fluid">
+						<div class="span1">
+							<%= link_to image_tag(document.default_image.photo.url(:small)), document_path(document),:class=>"thumbnail" unless document.default_image.nil? %>
+						</div>
+						<div class="span2"><small><%= link_to document.publication_date(@date_format), document_path(document) rescue "no date" %></small></div>
+						<div class="span3">
+							<% if document.title.blank? %>
+								<%= link_to document.name, document_path(document) %>
+							<% else %>  
+								<%= link_to document.title, document_path(document) %>
+							<% end %>
+						</div>
+						<div class="span2"><%= document.publisher.short_details %></div>
+						<div class="span1"><%= document.pages %></div>
+						<div class="span2"><%= document.dimensions %></div>
+						<div class="span1"><%= link_to document.document_status, document_path(document) %></div>
+					</div>
+				</div>
+			<%end%> 
+		<% end %>
+		<%= will_paginate @documents ,:renderer => BootstrapLinkRenderer %>
+
+		<div class="well" style="margin-bottom:10px; margin-top:20px; text-align:center;">
+			<%if @documents.count==0%><h3 class="text-error">Sorry, no <%=@publication_type.pluralize %> matching that date were found</h3><%end%>
+			<h4>Search our Partners for Historic Newspapers</h4>
+			<br />
+			<script language="javascript" type="text/javascript">
+				var myTarget='http://track.webgains.com/click.html?wglinkid=243675&wgcampaignid=122233&js=0';
+				var uri = 'http://track.webgains.com/link.html?wglinkid=243675&wgcampaignid=122233';
+				document.write('<a href="'+myTarget+'" target="_blank" onMouseOver="window.status=\'http://www.historic-newspapers.co.uk\';return true;" onMouseOut="window.status=\'\'"><img src="'+uri+'" width="728" height="90" border="0" alt="Historic Newspapers - Original Newspaper Gifts"/></a>');
+			</script>
+		</div>
+
+	</div>
+</div>	
