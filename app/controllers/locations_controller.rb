@@ -9,6 +9,16 @@ class LocationsController < ApplicationController
 	autocomplete :location, :county
 	autocomplete :location, :state
 	autocomplete :location, :country
+	
+	def get_autocomplete_items(parameters)
+       model = parameters[:model]
+       method = parameters[:method]
+       options = parameters[:options]
+       term = parameters[:term]
+       is_full_search = options[:full]
+	   
+	   Location.select("DISTINCT #{method}").where(["#{method} LIKE ?", "#{term}%"]).order("#{method}")
+	end
 
 	def index
 		@locations = @document.locations.order("id asc")
