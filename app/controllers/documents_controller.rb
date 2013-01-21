@@ -152,21 +152,6 @@ class DocumentsController < ApplicationController
 		render "documents/index"
 	end
 
-	def directories
-		@pagetitle = "Browse all Directories"
-		@meta_description = "Browse all listed antique trade directories for genealogists, Kelly's Directory, Pigot's Directory, White's Directory."
-		#@documents = Document.where(:document_type_id => 5).paginate(:page =>params[:page], :order =>'title asc', :per_page =>50)
-		@documents = Document.display_publications("Directory", params[:page], 50)
-		render "documents/publications"
-	end
-
-	def search_directories
-		@pagetitle = "Browse all Directories"
-		@meta_description = "Browse all listed antique trade directories for genealogists, Kelly's Directory, Pigot's Directory, White's Directory."
-		@documents = Document.search_publications("Directory", params[:search_newspapers], params[:page], 50)
-		render "documents/publications"
-	end	
-
 	def ephemera
 		@pagetitle = "Browse all Ephemera"
 		@meta_description = "Browse our collection of ephemera.  Antique documents, receipts, vintage advertisements, trade posters, property sale posters, and lots more."
@@ -216,19 +201,62 @@ class DocumentsController < ApplicationController
 		render "documents/index"
 	end
 
-	def newspapers
-		@pagetitle = "Browse all Newspapers"
-		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
-		@documents = Document.display_newspapers(params[:page], 50)
+	def search_directories
+		@publication_type = "Directory"
+		@search_url = "search_directories"
+		@pagetitle = "Browse all Directories"
+		@date_format = "year"
+		@meta_description = "Browse all listed antique trade directories for genealogists, Kelly's Directory, Pigot's Directory, White's Directory."
+		if params[:search_publications].nil?
+			@documents = Document.display_publications(@publication_type, params[:page], 50)
+		else
+			@documents = Document.search_publications(@publication_type, params[:search_publications], params[:page], 50)
+		end	
+		Search.create(:user_id           => (!current_user ? 0 : current_user.id),
+		              :search_type       => "Publication", 
+		              :document_type_id  => 5, 
+		              :year              => (params[:search_publications][:year] rescue '0000'),
+		              :results     => @documents.total_entries )
+		render "documents/publications"
+	end	
+
+	def search_maps
+		@publication_type = "Map"
+		@search_url = "search_maps"
+		@pagetitle = "Browse all Antique Maps"
+		@date_format = "year"
+		@meta_description = "Browse our collection of antique and vintage road maps, street maps, town plans, county maps and country maps from John Speed, Carrington Bowles, Emmanuel Bowen and many more"
+		if params[:search_publications].nil?
+			@documents = Document.display_publications(@publication_type, params[:page], 50)
+		else
+			@documents = Document.search_publications(@publication_type, params[:search_publications], params[:page], 50)
+		end	
+		Search.create(:user_id           => (!current_user ? 0 : current_user.id),
+		              :search_type       => "Publication", 
+		              :document_type_id  => 19, 
+		              :year              => (params[:search_publications][:year] rescue '0000'),
+		              :results     => @documents.total_entries )
+		render "documents/publications"
 	end
 
 	def search_newspapers
+		@publication_type = "Newspaper"
+		@search_url = "search_newspapers"
 		@pagetitle = "Browse all Newspapers"
+		@date_format = "full"
 		@meta_description = "Browse our stock of old antique and vintage newspapers, 1700s, 1800s & 1900s. Georgian, Victorian, and Edwardian Historic Newspapers.  The Times, The Guardian, The Telegraph, The Daily Mail, The Daily Express"
-		@documents = Document.search_newspapers(params[:search_newspapers], params[:page], 50)
-		render "documents/newspapers"
+		if params[:search_publications].nil?
+			@documents = Document.display_publications(@publication_type, params[:page], 50)
+		else
+			@documents = Document.search_publications(@publication_type, params[:search_publications], params[:page], 50)
+		end	
+		Search.create(:user_id           => (!current_user ? 0 : current_user.id),
+		              :search_type       => "Publication", 
+		              :document_type_id  => 4, 
+		              :year              => (params[:search_publications][:year] rescue '0000'),
+		              :results     => @documents.total_entries )
+		render "documents/publications"
 	end	
-
 
 	def notebooks
 		@pagetitle = "Browse all Notebooks"

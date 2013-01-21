@@ -43,15 +43,23 @@ class HomeController < ApplicationController
 		render "search_results"
 	end
 
-
+	## 
+	# TODO This is all a total fudge at the moment
 	def search_publications
-		if params[:search_publications][:document_type_id] == '4'
-			redirect_to :controller=>'documents', :action=>'newspapers'
+		type=DocumentType.find(params[:search_publications][:document_type_id]).name
+		if type == "Newspaper"
+			params[:search_publications][:from_home_page] = true
+			redirect_to :controller=>'documents', :action=>'search_newspapers'
+		elsif type == "Directory"
+			params[:search_publications][:from_home_page] = true
+			redirect_to :controller=>'documents', :action=>'search_directories'
+		elsif type == "Map"
+			params[:search_publications][:from_home_page] = true
+			redirect_to :controller=>'documents', :action=>'search_maps'	
 		else
 			per_page=50
 			session[:search_params] = params[:search_publications]	
-			@documents = Document.search_publications(params[:search_publications], params[:page])
-
+			@documents = Document.search_publications(type, params[:search_publications], params[:page])
 			# save search to db
 			Search.create(:user_id           => (!current_user ? 0 : current_user.id),
 			              :search_type       => "Publication", 

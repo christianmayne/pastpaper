@@ -160,26 +160,27 @@ class Document < ActiveRecord::Base
 		self.document_attributes.find_by_attribute_type_id(2)
 	end
 
-	def publication_date
+	#def publication_date
+	#	published = self.document_attributes.find_by_attribute_type_id(2)
+	#	year = sprintf '%04d', published.attribute_year rescue "0000"
+	#	month = sprintf '%02d',published.attribute_month rescue "00"
+	#	day = sprintf '%02d',published.attribute_day rescue "00"
+	#	return "#{year}#{month}#{day}"
+	#end
+
+	def publication_date(format="")
 		published = self.document_attributes.find_by_attribute_type_id(2)
 		year = sprintf '%04d', published.attribute_year rescue "0000"
 		month = sprintf '%02d',published.attribute_month rescue "00"
 		day = sprintf '%02d',published.attribute_day rescue "00"
-		return "#{year}#{month}#{day}"
-	end
-
-	def publication_date_format
-		published = self.document_attributes.find_by_attribute_type_id(2)
-		year = sprintf '%04d', published.attribute_year rescue "0000"
-		month = sprintf '%02d',published.attribute_month rescue "00"
-		day = sprintf '%02d',published.attribute_day rescue "00"
-		date = DateTime.parse("#{year}-#{month}-#{day}")
-		formatted_date = date.strftime("#{date.day.ordinalize} %B %Y (%a)")
-	end
-
-	def publication_year
-		published = self.document_attributes.find_by_attribute_type_id(2)
-		year = sprintf '%04d', published.attribute_year rescue ""
+		if format=="full"
+			date = DateTime.parse("#{year}-#{month}-#{day}")
+			date.strftime("#{date.day.ordinalize} %B %Y (%a)")
+		elsif format="year"
+			sprintf '%04d', published.attribute_year rescue ""
+		else
+			"#{year}#{month}#{day}"
+		end		
 	end
 
 	def dimensions
@@ -233,7 +234,7 @@ class Document < ActiveRecord::Base
 	end
 
 
-	def self.search_publication(type, search_params,page,per_page=25)
+	def self.search_publications(type,search_params,page,per_page=25)
 		condition_str=""
 		if !search_params[:day].blank?
 			day = search_params[:day].to_i
@@ -262,11 +263,11 @@ class Document < ActiveRecord::Base
 			:per_page=> per_page,:page=>page)
 	end	
 
-	def self.search_publications(search_params,page,per_page=10)
-		self.where(document_type_id: search_params[:document_type_id]).paginate(:per_page=> per_page,:page=>page)
+	#def self.search_publications(search_params,page,per_page=10)
+		#self.where(document_type_id: search_params[:document_type_id]).paginate(:per_page=> per_page,:page=>page)
 		#publications = publications.sort_by &:publication_date
 		#publications.paginate(:per_page=> per_page,:page=>page)
-	end
+	#end
 
 	def self.display_publications(type,page,per_page=25)
 			self.paginate_by_sql("
