@@ -1,0 +1,12 @@
+<%= form_for :search_publications, :url => @search_url, :method=>'get', :html => {:class=>"form-inline" } do |f| %>
+	<% if params[:search_publications].nil? || params[:search_publications][:from_home_page] %>
+		<%= f.select(:day, Array(1..31), :include_blank=>"All Days") %>
+		<%= f.select(:month, month_array, :include_blank=>"All Months" ) %>
+		<%= f.select(:year, publication_years(@publication_type).map(&:attribute_year), :include_blank=>"All Years") %>
+	<% else %>
+		<%= f.select(:day, Array(1..31), :include_blank=>"All Days", :selected=>params[:search_publications][:day])%>
+		<%= f.select(:month, month_array, :include_blank=>"All Months", :selected=>params[:search_publications][:month] ) %>
+		<%= f.select(:year, publication_years(@publication_type).map(&:attribute_year), :include_blank=>"All Years", :selected=>params[:search_publications][:year]) %>
+	<%end%>		
+	<%= f.submit "Go",:class=>"btn btn-primary"%>
+<%end%>
