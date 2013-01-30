@@ -5452,3 +5452,427 @@ Rendered layouts/_footer_menu.html.erb (2.1ms)
 Rendered layouts/_footer.html.erb (2.7ms)
 Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  ROLLBACK
+Unable to load attribute_document, underlying cause No such file to load -- attribute_document 
+
+ /home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:306:in `rescue in depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:301:in `depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:214:in `require_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:809:in `try_to_load_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:824:in `block in require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:804:in `fixtures'
+/home/christian/development/pastpaper/test/test_helper.rb:10:in `<class:TestCase>'
+/home/christian/development/pastpaper/test/test_helper.rb:5:in `<top (required)>'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `require'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `<top (required)>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `require'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `block (2 levels) in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `block in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `select'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `<main>'
+  [1m[36m (0.4ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+Unable to load attribute_document, underlying cause No such file to load -- attribute_document 
+
+ /home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:306:in `rescue in depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:301:in `depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:214:in `require_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:809:in `try_to_load_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:824:in `block in require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:804:in `fixtures'
+/home/christian/development/pastpaper/test/test_helper.rb:10:in `<class:TestCase>'
+/home/christian/development/pastpaper/test/test_helper.rb:5:in `<top (required)>'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `require'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `<top (required)>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `require'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `block (2 levels) in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `block in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `select'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `<main>'
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `locations` (`address1`, `address2`, `city`, `county`, `postcode`, `country`, `document_id`, `additional_info`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2013-01-27 18:56:03', '2013-01-27 18:56:03', 980190962)[0m
+Mysql2::Error: Unknown column 'address1' in 'field list': INSERT INTO `locations` (`address1`, `address2`, `city`, `county`, `postcode`, `country`, `document_id`, `additional_info`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, 'MyString', '2013-01-27 18:56:03', '2013-01-27 18:56:03', 980190962)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+Unable to load attribute_document, underlying cause No such file to load -- attribute_document 
+
+ /home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:306:in `rescue in depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:301:in `depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:214:in `require_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:809:in `try_to_load_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:824:in `block in require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:804:in `fixtures'
+/home/christian/development/pastpaper/test/test_helper.rb:10:in `<class:TestCase>'
+/home/christian/development/pastpaper/test/test_helper.rb:5:in `<top (required)>'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `require'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `<top (required)>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `require'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `block (2 levels) in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `block in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `select'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `<main>'
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+Unable to load attribute_document, underlying cause No such file to load -- attribute_document 
+
+ /home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:306:in `rescue in depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:301:in `depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:214:in `require_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:809:in `try_to_load_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:824:in `block in require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:804:in `fixtures'
+/home/christian/development/pastpaper/test/test_helper.rb:10:in `<class:TestCase>'
+/home/christian/development/pastpaper/test/test_helper.rb:5:in `<top (required)>'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `require'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `<top (required)>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `require'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `block (2 levels) in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `block in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `select'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `<main>'
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:12:19', '2013-01-27 19:12:19', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:12:19', '2013-01-27 19:12:19', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `event_types`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:12:19', '2013-01-27 19:12:19', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:12:19', '2013-01-27 19:12:19', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `person_events`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:12:19', '2013-01-27 19:12:19', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:12:19', '2013-01-27 19:12:19', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `statuses`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:12:19', '2013-01-27 19:12:19', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:12:19', '2013-01-27 19:12:19', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `isactive`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:12:19', '2013-01-27 19:12:19', 980190962)[0m
+Mysql2::Error: Unknown column 'isactive' in 'field list': INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `isactive`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:12:19', '2013-01-27 19:12:19', 980190962)
+  [1m[35m (275.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+Unable to load attribute_document, underlying cause No such file to load -- attribute_document 
+
+ /home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:306:in `rescue in depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:301:in `depend_on'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activesupport-3.1.8/lib/active_support/dependencies.rb:214:in `require_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:809:in `try_to_load_dependency'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:824:in `block in require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:821:in `require_fixture_classes'
+/home/christian/.rvm/gems/ruby-1.9.3-p327/gems/activerecord-3.1.8/lib/active_record/fixtures.rb:804:in `fixtures'
+/home/christian/development/pastpaper/test/test_helper.rb:10:in `<class:TestCase>'
+/home/christian/development/pastpaper/test/test_helper.rb:5:in `<top (required)>'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `require'
+/home/christian/development/pastpaper/test/unit/attribute_document_test.rb:1:in `<top (required)>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `require'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:10:in `block (2 levels) in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `each'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:9:in `block in <main>'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `select'
+/home/christian/.rvm/gems/ruby-1.9.3-p327@global/gems/rake-10.0.3/lib/rake/rake_test_loader.rb:4:in `<main>'
+  [1m[36m (0.4ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:13:31', '2013-01-27 19:13:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:13:31', '2013-01-27 19:13:31', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `event_types`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:13:31', '2013-01-27 19:13:31', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:13:31', '2013-01-27 19:13:31', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `person_events`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:13:31', '2013-01-27 19:13:31', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:13:31', '2013-01-27 19:13:31', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `statuses`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:13:31', '2013-01-27 19:13:31', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:13:31', '2013-01-27 19:13:31', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `users`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:13:31', '2013-01-27 19:13:31', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:13:31', '2013-01-27 19:13:31', 298486374)
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM `attribute_documents`[0m
+Mysql2::Error: Table 'pastonpaper_test.attribute_documents' doesn't exist: DELETE FROM `attribute_documents`
+  [1m[35m (253.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `document_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `people`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `documents`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:15:23', '2013-01-27 19:15:23', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:15:23', '2013-01-27 19:15:23', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `attribute_types`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:15:24', '2013-01-27 19:15:24', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:15:24', '2013-01-27 19:15:24', 298486374)[0m
+  [1m[35m (337.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `document_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `people`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `documents`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `attribute_types`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:16:57', '2013-01-27 19:16:57', 298486374)[0m
+  [1m[35m (232.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `document_types`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `people`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `documents`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `attribute_types`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:25:26', '2013-01-27 19:25:26', 298486374)[0m
+  [1m[35m (209.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `document_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `people`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `documents`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `attribute_types`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:26:52', '2013-01-27 19:26:52', 298486374)[0m
+  [1m[35m (322.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.3ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `document_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `people`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `documents`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `attribute_types`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 980190962)
+  [1m[36mFixture Insert (1.2ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-27 19:27:58', '2013-01-27 19:27:58', 298486374)[0m
+  [1m[35m (206.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testadmin', 'testuser2@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '1', '1', 'Test', 'Admin', 231, '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `document_types`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `people`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `documents`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `attribute_types`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:22:47', '2013-01-28 19:22:47', 298486374)[0m
+  [1m[35m (216.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.1ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `locations`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `locations` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `document_attributes`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `document_attributes` (`document_id`, `attribute_type_id`, `value`, `on_date`, `created_at`, `updated_at`, `id`) VALUES (1, 1, 'MyString', '2011-11-22', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `event_types`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `event_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `person_events`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `person_events` (`person_id`, `event_type_id`, `date_event`, `street1`, `street2`, `city`, `town`, `county`, `country`, `created_at`, `updated_at`, `id`) VALUES (1, 1, '2011-11-22', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `statuses`
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `statuses` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testuser', 'testuser@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '0', '1', 'Test', 'User', 231, '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`username`, `email`, `crypted_password`, `salt`, `is_admin`, `is_active`, `first_name`, `last_name`, `location_country_id`, `created_at`, `updated_at`, `id`) VALUES ('testadmin', 'testuser2@pastonpaper.com', '$2a$10$KV680WGuh7rpkslDtSAWreO4GH8SrEJRgxp2NGUH6ZHJiUjFRnTMq', 'Lrbq3kjGMUKCq7jxHDdq', '1', '1', 'Test', 'Admin', 231, '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM `comments`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `comments` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `comments` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `document_types`[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `document_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES (NULL, 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `people`
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `people` (`title`, `first_name`, `middle_name`, `last_name`, `maiden_name`, `sex`, `document_id`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', 'MyString', 1, '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM `documents`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `documents` (`created_at`, `updated_at`, `id`) VALUES ('2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM `attribute_types`
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `attribute_types` (`name`, `description`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyText', '2013-01-28 19:33:39', '2013-01-28 19:33:39', 298486374)
+  [1m[36m (176.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK

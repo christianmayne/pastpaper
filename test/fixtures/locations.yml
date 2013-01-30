@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
-  address1: MyString
-  address2: MyString
-  city: MyString
-  county: MyString
-  postcode: MyString
-  country: MyString
-  document_id: 1
-  additional_info: MyString
+one: {}
+  #address1: MyString
+  #address2: MyString
+  #city: MyString
+  #county: MyString
+  #postcode: MyString
+  #country: MyString
+  #document_id: 1
+  #additional_info: MyString
 
-two:
-  address1: MyString
-  address2: MyString
-  city: MyString
-  county: MyString
-  postcode: MyString
-  country: MyString
-  document_id: 1
-  additional_info: MyString
+two: {}
+  #address1: MyString
+  #address2: MyString
+  #city: MyString
+  #county: MyString
+  #postcode: MyString
+  #country: MyString
+  #document_id: 1
+  #additional_info: MyString

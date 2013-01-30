@@ -18,6 +18,8 @@ gem "paperclip", "~> 2.3"
 gem 'aws-s3'
 gem 'aws-sdk'
 
+gem 'acts-as-taggable-on', '~> 2.3.1'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
