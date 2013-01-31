@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219153349) do
+ActiveRecord::Schema.define(:version => 20130131133739) do
 
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20121219153349) do
     t.boolean  "is_deleted",                                      :default => false
     t.boolean  "is_featured",                                     :default => false
     t.integer  "views",                                           :default => 0
+    t.boolean  "published",                                       :default => false
   end
 
   create_table "event_types", :force => true do |t|
