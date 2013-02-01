@@ -176,7 +176,7 @@ class Document < ActiveRecord::Base
 		if format=="full"
 			date = DateTime.parse("#{year}-#{month}-#{day}")
 			date.strftime("#{date.day.ordinalize} %B %Y (%a)")
-		elsif format="year"
+		elsif format=="year"
 			sprintf '%04d', published.attribute_year rescue ""
 		else
 			"#{year}#{month}#{day}"

@@ -25,14 +25,15 @@ class PeopleController < ApplicationController
 				end
 				f.second.except!(:location)
 			end
-		end
+		end unless person[:facts_attributes].nil?
 		person
 	end
 	
 	def create
-		@person = @document.people.build(add_locations(params[:person]))
+		#@person = @document.people.build(add_locations(params[:person]))
+		@person = @document.people.build(params[:person])
 		if @person.save
-		redirect_to document_people_url(@document)
+			redirect_to document_people_url(@document)
 		else
 			render "new"
 		end
