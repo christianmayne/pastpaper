@@ -24,17 +24,18 @@
 					<li class="active"><a>Item Images</a></li>
 				<% end %>	
 
+				<% unless current_page?(document_people_path(@document)) %>
+					<li><%= link_to("People & Events", document_people_path(@document)) %></li>
+				<% else %>
+					<li class="active"><a>People & Events</a></li>
+				<% end %>	
+
 				<% unless current_page?(document_locations_path(@document)) %>
 					<li><%= link_to("Locations", document_locations_path(@document)) %></li>
 				<% else %>
 					<li class="active"><a>Locations</a></li>
 				<% end %>	
 
-				<% unless current_page?(document_people_path(@document)) %>
-					<li><%= link_to("People & Events", document_people_path(@document)) %></li>
-				<% else %>
-					<li class="active"><a>People & Events</a></li>
-				<% end %>	
 			<% else %>
 				<li class="active"><a href="#">Item Details</a></li>
 				<!--

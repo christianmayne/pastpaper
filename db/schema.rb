@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131133739) do
+ActiveRecord::Schema.define(:version => 20130131153219) do
 
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
@@ -384,6 +384,7 @@ ActiveRecord::Schema.define(:version => 20130131133739) do
     t.boolean  "dealer_account",                  :default => false
     t.boolean  "is_dealer",                       :default => false
     t.integer  "location_country_id"
+    t.string   "paypal_email"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

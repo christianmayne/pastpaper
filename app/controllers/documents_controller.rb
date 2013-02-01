@@ -49,7 +49,29 @@ class DocumentsController < ApplicationController
 			render :action => 'new'
 		end
 	end
+
+	def publish
+		document = Document.find(params[:id])
+		#ocument.published = 1
+			if document.update_attribute(:published,true)
+				flash[:notice] = "Successfully Published"
+			else
+				flash[:error]  = "There has been an error publishing your item"
+			end
+		redirect_to document_path(document)
+	end
 	
+	def unpublish
+		document = Document.find(params[:id])
+		#ocument.published = 1
+			if document.update_attribute(:published,false)
+				flash[:notice] = "Successfully Unpublished"
+			else
+				flash[:error]  = "There has been an error unpublishing your item"
+			end
+		redirect_to document_path(document)
+	end
+
 	def edit
 	end
 

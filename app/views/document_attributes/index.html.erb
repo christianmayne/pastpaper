@@ -18,7 +18,8 @@
 </div>
 
 <div class="row-fluid" id="helptext">
-  Use the forms below to enter Publication information about your item, such as printer, publisher, seller, photographer, author or artist.  You can also associate exact dates, partial dates or estimated dates and locations with this information.  These details can be particularly useful for people who are researching certain publishers or photographers, for example.  All fields are optional.
+  <h5 class="text-info">Use the forms below to enter Publication information about your item, such as printer, publisher, seller, photographer, author or artist.</h5>
+  You can also associate exact dates, partial dates or estimated dates and locations with this information.  These details can be particularly useful for people who are researching certain publishers or photographers, for example.  All fields are optional.
 </div>
 <hr />
 
@@ -49,3 +50,12 @@
 		<%end%>
 
 	</div> <!-- End Accordion -->
+
+<br />
+
+<div class="row-fluid">
+	<div class="span9"><h5 class="pull-right text-info">When you have finished adding publication information about your item, click the button on the right to add images</h5></div>
+	<div class="span1"><i class="icon-hand-right" style="margin-top:10px;"></i></div> 
+	<div class="span2"><%= link_to("Next >", document_document_photos_path(@document), :class=>"btn") %></div>
+</div>
+	  

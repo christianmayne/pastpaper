@@ -17,7 +17,10 @@ class User < ActiveRecord::Base
 	validates :email,                        
 						:format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }  
 
-	
+	#validates :paypal_email,
+	#					:presence => false,
+  #					:format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }  	
+
 	authenticates_with_sorcery!
 	has_many :documents
 	has_many :gedcom_documents, :dependent => :destroy

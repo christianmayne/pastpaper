@@ -25,6 +25,8 @@ Pastpaper::Application.routes.draw do
 	resources :documents do 
 		collection do 
 			match 'permanent_delete/:id' => 'documents#permanently_delete',:as => :permanent_delete
+			match 'publish/:id' => 'documents#publish',:as => :publish
+			match 'unpublish/:id' => 'documents#unpublish',:as => :unpublish
 		end
 		match '/people_facts_locations' => 'documents#people_facts_locations',:as => :people_facts_loc
 		resources :document_attributes
@@ -35,7 +37,6 @@ Pastpaper::Application.routes.draw do
 		resource :facts
 		resources :document_photos
 		resources :comments
-
 	end
 
 	get 'locations/autocomplete_location_street1'

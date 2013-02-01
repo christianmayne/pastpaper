@@ -5,11 +5,12 @@
 <div class="row-fluid">
   <div class="hero-unit">
     <h3>Hello <%= current_user.first_name %>,</h3><br />
-    <p>This is a summary of the information stored on your Past on paper account.   You can change your personal details at any time using the "Edit Details" button below</p><br />
+    <p>This is a summary of the information stored on your Past on Paper account.   You can change your personal details at any time using the "Edit Details" button below</p><br />
     <div class="row-fluid">
       <div>
         <h4>Username: <%= current_user.username %></h4>
         <h4>Email Address: <%= current_user.email%></h4>
+        <h4>Paypal Address: <%= current_user.paypal_email %></h4>
         <p>Address: <% if !current_user.address1.empty? %><%= current_user.address1 %>, <% end %>
                     <% if !current_user.address2.empty? %><%= current_user.try(:address2) %>, <% end %>
                     <% if !current_user.city.empty? %><%= current_user.city %>, <% end %>

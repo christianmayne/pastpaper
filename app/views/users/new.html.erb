@@ -17,15 +17,12 @@
   <br /> 
 
   <%= form_for(@user)  do |f| %>
-
     <%= render 'user_details_form', :f => f %>
-
+    <%= render 'user_password_form', :f => f %>
     <%= render 'user_interests_form',  :f => f %>
-
     <%= render 'user_terms_form', :f=> f %>
-
+    <button type="submit" class="btn">Submit</button>
   <%end%>
-
   <div style="clear:both; "></div>
 
 </div>
