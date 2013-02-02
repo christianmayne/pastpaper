@@ -1,17 +1,14 @@
-<div class="span12">
-	<div class="fields">
-		<div class="fields form-horizontal">
-			<%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name, {:include_blank => "Event"},{:class=>"span2"} %> 
-			Date: <%= f.select :date_modifier, date_modifiers, {:prompt=>"Exactly", :class => 'span1'} %>
-			<%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
-			<%= f.select :fact_month,month_array,:include_blank=>"month", :class=>""%>
-			<%= f.text_field :fact_year, :placeholder=>"yyyy", :class=>"person-date-yyyy" %>
-			<%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"span3"} %>
-			<%= link_to_add_fields "<span class='button'>Enter New Location</span>".html_safe, f, :location, :replace_with %>
-			<span class="pull-right">
-				<%= link_to_remove_fields "Remove Detail", f, :remove %>
-			</span>	
-		</div>
+<div class="fields">
+	<div class="fields form-horizontal">
+		<%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name, {:include_blank => "Event"},{:class=>"span2"} %> 
+		Date: <%= f.select :date_modifier, date_modifiers, {:prompt=>"Exactly", :class => 'span1'} %>
+		<%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
+		<%= f.select :fact_month,month_array,:include_blank=>"month", :class=>""%>
+		<%= f.text_field :fact_year, :placeholder=>"yyyy", :class=>"person-date-yyyy" %>
+		<%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"span3"} %>
+		<%= link_to_add_fields "New Location", f, :location, :replace_with %> | 
+		<%= link_to_remove_fields "Remove Detail", f, :remove %>
 	</div>
 </div>
+
 

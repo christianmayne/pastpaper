@@ -34,12 +34,14 @@
 	</div>
 
 	<div class="row-fluid">
-		<strong class="shadeGrey">Details about this person</strong>
-		<%= f.fields_for :facts do |fact| %>
-			<%= render :partial => "fact_fields", :locals => {:f => fact} %>
-		<% end %>
-		<br />
-		<span class=""><%= link_to_add_fields "<span class='button'>+ Add More Details</span>".html_safe, f, :facts, :add %></span>
+		<div class="span11 offset1">
+			<strong class="shadeGrey">Details about this person</strong>
+			<%= f.fields_for :facts do |fact| %>
+				<%= render :partial => "fact_fields", :locals => {:f => fact} %>
+			<% end %>
+			<br />
+			<span class=""><%= link_to_add_fields "<span class='button'>+ Add More Details</span>".html_safe, f, :facts, :add %></span>
+		</div>
 	</div>
 <%end%> 	
 <hr />
@@ -54,7 +56,6 @@
 					<em>Gender: <%= person.sex %></em>
 				</div>
 				<div class="span8 userform">
-					<%#= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
 						<%= render :partial => "form", :locals => {:f => f } %>
 				</div>
 				<div class="span1"><%= link_to "Delete",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"btn"  %></div>
@@ -62,11 +63,13 @@
 			</div>
 
 			<div class="row-fluid">
+				<div class="span11 offset1">
 					<strong class="shadeGrey">Details about this person</strong>
 					<%= f.fields_for :facts do |fact| %>
 						<%= render :partial => "fact_fields", :locals => {:f => fact} %>
 					<% end %>
 					<span class=""><%= link_to_add_fields "<span class='button'>+ Add More Details</span>".html_safe, f, :facts, :add %></span>
+				</div>	
 			</div>
 		<%end%>		
 		<hr />
