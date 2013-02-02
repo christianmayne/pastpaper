@@ -80,7 +80,7 @@ module ApplicationHelper
 	## 
 	# Returns an array of Months mapped to their numerical value
 	def month_array
-		[["	January", "1"],["February", "2"], 
+		[["January", "1"],["February", "2"], 
 		["March", "3"],["April",4],
 		["May",5],["June",6],
 		["July",7],["August",8],
@@ -88,5 +88,8 @@ module ApplicationHelper
 		["November",11],["December",12]]
 	end
 
+	def date_modifiers
+		[['Before','BEF'],['After','AFT'],['About','ABT'],['Estimated','EST']]
+	end
 
 end

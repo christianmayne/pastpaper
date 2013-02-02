@@ -1,6 +1,6 @@
 class PersonEvent < ActiveRecord::Base
 
-	DATE_MODIFIERS= [["BEFORE","BEF"],["ABOUT","ABT"],["ESTIMATED","EST"],["AFTER","AFT"]]
+	DATE_MODIFIERS = [["BEFORE","BEF"],["ABOUT","ABT"],["ESTIMATED","EST"],["AFTER","AFT"]]
 	
 	belongs_to :person
 	belongs_to :event_type
