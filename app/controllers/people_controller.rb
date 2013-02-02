@@ -32,6 +32,7 @@ class PeopleController < ApplicationController
 	def create
 		@person = @document.people.build(add_locations(params[:person]))
 		#@person = @document.people.build(params[:person])
+		#@person.save
 		if @person.save
 			redirect_to document_people_url(@document)
 		else
