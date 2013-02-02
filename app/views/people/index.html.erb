@@ -18,21 +18,14 @@
 </div>
 
 <div class="row-fluid" id="helptext">
-  <h5 class="text-info">Use the form below to enter the people referenced by your item.</h5>
-  <div>All name fields are optional.  You can also add facts about the people you enter (eg birth, marriage, death, residence etc.) and associated dates, or approximate dates as well as locations entered on the locations page.  You can add as many people and as many facts as are relevant to your item.  Once you have entered people your item will be searchable on the names you entered as well as dates of facts you have associated with people.</div>
-  <div>A few conventions I have adopted for Locations.  As the website grows, these conventions will be handled in the backend, but in the meantime please observe the following:  
-  <ul>
-  	<li>Please use Title Case where possible.</li>
-  	<li>County and State are distinct, so you can enter the county and the state. Use the sate field for provinces or country subdivisions above county level but below country level (For England, list as a state of United Kingdom, Texas as a State of USA, and New South Wales as a state of Australia).</li>
-  	<li>London is a county, with the suburb listed as a town</li>
-  </ul>	
-	</div>
+  Use the form below to enter the people referenced by your item.  All name fields are optional.  You can also add facts about the people you enter (eg birth, marriage, death, residence etc.) and associated dates, or approximate dates as well as locations entered on the locations page.  You can add as many people and as many facts as are relevant to your item.  Once you have entered people your item will be searchable on the names you entered as well as dates of facts you have associated with people.
 </div>
 <hr />
 
 <div class="row-fluid">
-	 <!-- <div class="accordion" > -->
-		<h5><a href="#">Add New Person For this <%= @document.document_type.name%></a></h5>
+	<div class="accordion" >
+		
+		<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
 		<div>
 			<div class="userform">
 				<% @person = @document.people.new %>
@@ -40,11 +33,11 @@
 					<%= render :partial => "form", :locals => {:f => f } %>
 				<%end%> 
 			</div>
-		</div> 
+		</div>
 
 		<% @people.each do |person| %>
 			<% unless person.new_record? %>
-				<h5><a href="#"><%= person.full_name%>  <em><%= person.sex %></em></a></h5>
+				<h3><a href="#"><%= person.full_name%>  <em><%= person.sex %></em></a></h3>
 				<div>
 					<%@person = person%>
 					<%= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
@@ -56,13 +49,9 @@
 				</div>
 			<% end %>			
 		<%end%>
+
+
 		<br />
 
-	 <!-- </div> --> <!-- End Accordion -->
-</div>
-
-<div class="row-fluid">
-	<div class="span9"><h5 class="pull-right text-info">When you have finished adding information about people listed in your item, Click the button on the right, we're nearly done</h5></div>
-	<div class="span1"><i class="icon-hand-right" style="margin-top:10px;"></i></div> 
-	<div class="span2"><%= link_to("Next >", document_locations_path(@document), :class=>"btn") %></div>
+	</div> <!-- End Accordion -->
 </div>
