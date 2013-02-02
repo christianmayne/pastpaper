@@ -4,14 +4,16 @@
   </div>  
 </div>
 
-<div>
+<br />
+<%= render :partial=>"shared/validationerror" ,:locals=>{:obj=>@user}%>
+<br /> 
 
+<div>
   <%= form_for(@user)  do |f| %>
     <%= render 'user_details_form', :f => f %>
+  	<button type="submit" class="btn">Submit</button>
   <%end%>
-
   <div style="clear:both; "></div>
-
 </div>
 
 

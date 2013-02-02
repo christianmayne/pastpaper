@@ -2,7 +2,7 @@ function remove_fields (link) {
  /* $(link).previous("input[type=hidden]").value = "1";
   $(link).up(".fields").hide();
   */
-  $(link).siblings("input[type=hidden]:first").attr('value', '1');
+  $(link).prevAll("input[type=hidden]:first").attr('value', '1');
 	$(link).parents(".fields:first").hide();
   
 }
@@ -13,6 +13,24 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
+function replace_with_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).prev().hide();
+  $(link).before(content.replace(regexp, new_id));
+  $(link).hide();
+}
+
+function restore_replaced_fields(link) {
+  var h = $(link).prevAll("input[type=hidden]:first");
+  h.prev().show();
+  h.remove(); //attr('value', '1');
+  var f = $(link).siblings(".fields:first");
+  f.next().show();
+  f.remove();
+  $(link).remove();
+  
+}
 
 $(function() {
   	$(".ajaxpaging .pagination a").live("click", function() {

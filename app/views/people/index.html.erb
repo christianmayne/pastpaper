@@ -22,36 +22,56 @@
 </div>
 <hr />
 
-<div class="row-fluid">
-	<div class="accordion" >
-		
-		<h3><a href="#">Add Person For this <%= @document.document_type.name%></a></h3>
-		<div>
-			<div class="userform">
-				<% @person = @document.people.new %>
-				<%= form_for(@person,:url=>:document_people) do |f|%>
-					<%= render :partial => "form", :locals => {:f => f } %>
-				<%end%> 
-			</div>
+
+<% @person = @document.people.new %>
+<%= form_for(@person,:url=>:document_people) do |f|%>
+	<div class="row-fluid well">
+		<div class="span2"><h5>Add New Person</h5></div>
+		<div class="span9 userform">
+				<%= render :partial => "form", :locals => {:f => f } %>
+		</div>	
+		<div class="span1"><%= f.submit "Save",:class=>"btn"%></div>
+	</div>
+
+	<div class="row-fluid">
+		<div class="span11 offset1">
+			<strong class="shadeGrey">Details about this person</strong>
+			<%= f.fields_for :facts do |fact| %>
+				<%= render :partial => "fact_fields", :locals => {:f => fact} %>
+			<% end %>
+			<br />
+			<span class=""><%= link_to_add_fields "<span class='button'>+ Add More Details</span>".html_safe, f, :facts, :add %></span>
 		</div>
+	</div>
+<%end%> 	
+<hr />
 
-		<% @people.each do |person| %>
-			<% unless person.new_record? %>
-				<h3><a href="#"><%= person.full_name%>  <em><%= person.sex %></em></a></h3>
-				<div>
-					<%@person = person%>
-					<%= link_to "Remove this person",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"button"  %>
-					<div class="userform">
-						<%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f| %>
-							<%= render :partial => "form", :locals => {:f => f } %>
-						<% end %>
-					</div>
+<% @people.each do |person| %>
+	<% unless person.new_record? %>
+		<%@person = person%>
+		<%= form_for(@person,:url=>document_person_path(@document,@person),:method=>:put) do |f| %>
+			<div class="row-fluid well">
+				<div class="span2">
+					<h5><%= person.full_name%><br /></h5>
+					<em>Gender: <%= person.sex %></em>
 				</div>
-			<% end %>			
-		<%end%>
+				<div class="span8 userform">
+						<%= render :partial => "form", :locals => {:f => f } %>
+				</div>
+				<div class="span1"><%= link_to "Delete",document_person_path(@person.document.id,@person),:method => :delete, :confirm => "Are you sure to delete?",:class=>"btn"  %></div>
+				<div class="span1"><%= f.submit "Save",:class=>"btn"%></div>
+			</div>
 
-
-		<br />
-
-	</div> <!-- End Accordion -->
-</div>
+			<div class="row-fluid">
+				<div class="span11 offset1">
+					<strong class="shadeGrey">Details about this person</strong>
+					<%= f.fields_for :facts do |fact| %>
+						<%= render :partial => "fact_fields", :locals => {:f => fact} %>
+					<% end %>
+					<span class=""><%= link_to_add_fields "<span class='button'>+ Add More Details</span>".html_safe, f, :facts, :add %></span>
+				</div>	
+			</div>
+		<%end%>		
+		<hr />
+	<% end %>		
+<%end%>

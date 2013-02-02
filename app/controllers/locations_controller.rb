@@ -3,6 +3,23 @@ class LocationsController < ApplicationController
 	before_filter :require_login
 	before_filter :prepare_document
 
+	autocomplete :location, :street1
+	autocomplete :location, :street2
+	autocomplete :location, :town
+	autocomplete :location, :county
+	autocomplete :location, :state
+	autocomplete :location, :country
+	
+	def get_autocomplete_items(parameters)
+       model = parameters[:model]
+       method = parameters[:method]
+       options = parameters[:options]
+       term = parameters[:term]
+       is_full_search = options[:full]
+	   
+	   Location.select("DISTINCT #{method}").where(["#{method} LIKE ?", "#{term}%"]).order("#{method}")
+	end
+
 	def index
 		@locations = @document.locations.order("id asc")
 		@location = @document.locations.new

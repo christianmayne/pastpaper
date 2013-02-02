@@ -1,13 +1,14 @@
-<!-- CM> Duplicated file -->
 <div class="fields">
-  <div class="fields form-horizontal">
-    <div class="fact-label">Fact:</div>
-    <%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name, :class=>"person-fact-type", :include_blank => "Event" %> 
-    Date: <%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
-          <%= f.select :fact_month,[["Jan",1],["Feb",2],["Mar",3],["Apr",4],["May",5],["Jun",6],["Jul",7],["Aug",8],["Sep",9],["Oct",10],["Nov",11],["Dec",12]],:include_blank=>"month", :class=>""%>
-          <%= f.text_field :fact_year, :placeholder=>"yyyy", :class=>"person-date-yyyy" %>
-    <%= link_to_remove_fields image_tag("deleteicon.png"), f %>
-    <%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"miniselect"} %>
-  </div>
+	<div class="fields form-horizontal">
+		<%= f.collection_select :event_type_id, EventType.sorted_all, :id, :name, {:include_blank => "Event"},{:class=>"span2"} %> 
+		Date: <%= f.select :date_modifier, date_modifiers, {:prompt=>"Exactly", :class => 'span1'} %>
+		<%= f.text_field :fact_day, :placeholder=>"dd", :class=>"person-date-dd" %>
+		<%= f.select :fact_month,month_array,:include_blank=>"month", :class=>""%>
+		<%= f.text_field :fact_year, :placeholder=>"yyyy", :class=>"person-date-yyyy" %>
+		<%= f.collection_select :location_id, @document.locations, :id, :full_location,{:include_blank => "Select Location"},{:class=>"span3"} %>
+		<%= link_to_add_fields "New Location", f, :location, :replace_with %> | 
+		<%= link_to_remove_fields "Remove Detail", f, :remove %>
+	</div>
 </div>
+
 

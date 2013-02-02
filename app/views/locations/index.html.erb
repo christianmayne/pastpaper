@@ -18,8 +18,7 @@
 </div>
 
 <div class="row-fluid" id="helptext">
-  Use the forms below to add locations relating to your item.  For example, birth or death places listed in a Family Register, or written on the back of a photograph.All fields are optional, so if only the street is provided, you can enter just that.  These locations will allow people - family or local historians - to search for your item by the location they are interested in.  You can add as many locations as you wish, relevant to the item.
-  <br /><br />
+  <h5 class="text-info">Use the forms below to add additional locations relating to your item, not already attached to a person.</h5>
   A few conventions I have adopted.  As the website grows, these conventions will be handled in the backend, but in the meantime please observe the following:  
   <ul>
   	<li>Please use Title Case where possible.</li>
@@ -57,7 +56,17 @@
 		<%end%>
 
 	</div> <!-- End Accordion -->
-
 </div>
 
-<hr />
+<br />
+
+<div class="row-fluid">
+	<div class="span9"><h5 class="pull-right text-info">All Done?  You can now review your item using the menu above or Publish to the site</h5></div>
+	<div class="span1"><i class="icon-hand-right" style="margin-top:10px;"></i></div> 
+	<div class="span2"><%= link_to("Publish!", publish_documents_path(@document), :class=>"btn") %></div>
+</div>
+
+<%#= link_to image_tag("editicon.gif"), publish_documents_path(@document),:class=>"btn btn-mini" %> 
+<%#= link_to image_tag("deleteicon.png"), document_path(document),:class=>"btn btn-mini", :method => :delete, :confirm => "Are you sure you wish to delete the current document?" if !document.is_deleted? %>
+<%#= link_to "D", permanent_delete_documents_path(document),:title=>"Premanently delete",:class=>"btn btn-mini btn-danger", :method => :delete, :confirm => "Are you sure you wish to permenantly delete the current document?" if document.is_deleted? %>
+<%#= link_to "R", admin_restore_document_path(document),:title=>"Restore",:class=>"btn btn-mini btn-warning" ,:method => :delete, :confirm => "Are you sure to restore this item?" if document.is_deleted? && current_user.is_admin?%>

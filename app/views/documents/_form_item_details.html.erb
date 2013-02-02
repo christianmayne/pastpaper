@@ -4,7 +4,7 @@
 </div>
 
 <div class="row-fluid" id="helptext">
-  Adding an item is a simple 5 step process where you are asked to enter standard details about your item.<br /><br />
+  <h5 class="text-info">Adding an item is a simple 5 step process where you are asked to enter standard details about your item.</h5>
   On this page, you are asked to enter the basic information relating to the physical item, such as the title the weight and the condition, as well as any internal stock numbers and names you may have for the item as well as a description.  You can also enter a comma seperated listof tags.  Most fields are optional, though the weight is used to calculate the postage price if you are listing the item for sale - if you do not enter a weight, the item will be listed as free postage.<br /><br />
   Once you have saved your item below, you can then add further information about your item, including publication information, images, and topographical & genealogical data.
 </div>
@@ -14,9 +14,6 @@
 <div class="controls controls-row">
   <%= f.text_field :stock_number , {:placeholder => "Stock Number" , :class => "span2" }%>
   <%= f.collection_select :status_id, Status.alphabetically, :id, :name, :prompt => "Select Item Status", :class =>"span2"  %>
-</div>
-<br /> 
-<div class="controls controls-row">
   <%= f.collection_select :document_type_id, DocumentType.alphabetically, :id, :name, :prompt =>"Select Item Type", :class =>"span4" %>
 </div>
 <br />

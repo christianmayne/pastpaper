@@ -1,4 +1,3 @@
-people/_form.html.erb
 <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @person}%>
 <div class="fields form-horizontal">
     <div style="margin-left:0px;">
@@ -11,14 +10,5 @@ people/_form.html.erb
 </div>
 <br />
 
-<strong class="shadeGrey">Facts of this person</strong>
-<%= f.fields_for :facts do |fact| %>
-  <%= render :partial => "fact_fields", :locals => {:f => fact} %>
-<% end %>
-<br />
-<span class=""><%= link_to_add_fields "<span class='button'>+ Add Fact</span>".html_safe, f, :facts %></span>
 
-<div class="field">
-  <label>&nbsp;</label><%= f.submit "Save",:class=>"button"%>
-</div>
 

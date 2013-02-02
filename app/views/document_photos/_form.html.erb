@@ -1,18 +1,17 @@
-<%= form_for DocumentPhoto.new, :url=>:document_document_photos, :html => {:class => 'form-horizontal'} do |f| %>
-  <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @document_photo}%>
-  <div class="control-group">
-    <%= f.label :photo, "Upload new images", :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :photo, multiple: true, name: "document_photo[photo]" %>
-      <%# f.submit "Upload" ,:class=>"btn"%>
-    </div>
+<div class="row">
+  <div class="span8 offset2">
+    <%= form_for DocumentPhoto.new, :url=>:document_document_photos, :html => {:class => 'form-horizontal'} do |f| %>
+      <%= render :partial => "shared/validationerror" ,:locals =>{:obj => @document_photo}%>
+      <div class="controls">
+        <%= f.file_field :photo, multiple: true, name: "document_photo[photo]" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <script id="template-upload" type="text/x-tmpl">
-<div class="upload">
-  {%=o.name%}
-  <div class="progress"><div class="bar" style="width: 0%"></div></div>
-</div>
+  <div class="upload">
+    {%=o.name%}
+    <div class="progress progress-striped"><div class="bar"></div></div>
+  </div>
 </script>
-

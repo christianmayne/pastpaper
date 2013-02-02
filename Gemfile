@@ -5,6 +5,8 @@ gem 'rails', '3.1.8'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'gedcom'
+
 gem 'mysql2'
 
 gem "execjs"
@@ -17,6 +19,9 @@ gem "paperclip", "~> 2.3"
 #gem "s3", :git => "git://github.com/qoobaa/s3.git"
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'rails3-jquery-autocomplete'
+
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 gem 'acts-as-taggable-on', '~> 2.3.1'
 
@@ -53,6 +58,7 @@ group :development do
   gem 'annotate', '2.4.0'
   gem 'sqlite3'
   gem 'capybara'
+  gem 'debugger'
 end
 
 group :test do

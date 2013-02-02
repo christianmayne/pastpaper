@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219153349) do
+ActiveRecord::Schema.define(:version => 20130131153219) do
 
   create_table "attribute_types", :force => true do |t|
     t.string   "name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20121219153349) do
     t.boolean  "is_deleted",                                      :default => false
     t.boolean  "is_featured",                                     :default => false
     t.integer  "views",                                           :default => 0
+    t.boolean  "published",                                       :default => false
   end
 
   create_table "event_types", :force => true do |t|
@@ -383,6 +384,7 @@ ActiveRecord::Schema.define(:version => 20121219153349) do
     t.boolean  "dealer_account",                  :default => false
     t.boolean  "is_dealer",                       :default => false
     t.integer  "location_country_id"
+    t.string   "paypal_email"
   end
 
   add_index "users", ["last_logout_at", "last_activity_at"], :name => "index_users_on_last_logout_at_and_last_activity_at"

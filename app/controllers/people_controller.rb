@@ -15,10 +15,24 @@ class PeopleController < ApplicationController
 		end
 	end
 
+	def add_locations(person)
+		for f in person[:facts_attributes]
+			if f.second.include?(:location)
+				l=f.second[:location]
+				unless l.include?(:_destroy) and ActiveRecord::ConnectionAdapters::Column.value_to_boolean(l[:_destroy])
+					_l=@document.locations.build(l.except(:_destroy))
+					f.second[:location_id]=_l.id if _l.save!
+				end
+				f.second.except!(:location)
+			end
+		end unless person[:facts_attributes].nil?
+		person
+	end
+	
 	def create
-		@person = @document.people.build(params[:person])
+		@person = @document.people.build(add_locations(params[:person]))
 		if @person.save
-		redirect_to document_people_url(@document)
+			redirect_to document_people_url(@document)
 		else
 			render "new"
 		end
@@ -35,7 +49,7 @@ class PeopleController < ApplicationController
 	
 	def update
 		@person = @document.people.find(params[:id])
-		if @person.update_attributes(params[:person])
+		if @person.update_attributes(add_locations(params[:person]))
 			redirect_to document_people_url(@document)
 		else
 			render "edit"
