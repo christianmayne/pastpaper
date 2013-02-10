@@ -255,9 +255,9 @@ class Document < ActiveRecord::Base
 		  LEFT JOIN document_attributes on document_attributes.document_id = documents.id
 	    LEFT JOIN attribute_types on document_attributes.attribute_type_id = attribute_types.id
 		  LEFT JOIN document_types on documents.document_type_id = document_types.id
-		  WHERE attribute_types.name = 'Publisher'
-		  AND document_types.name = '#{type}'
+		  WHERE document_types.name = '#{type}'
 		  #{condition_str}
+		  #AND attribute_types.name = 'Publisher'
 		  GROUP BY documents.id 
 		  ORDER BY document_attributes.attribute_year, document_attributes.attribute_month,document_attributes.attribute_day",
 			:per_page=> per_page,:page=>page)
