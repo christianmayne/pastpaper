@@ -7,6 +7,7 @@ class HomeController < ApplicationController
 	end
 
 	def index
+		@tags = Document.tag_counts_on(:tags)
 		@pagetitle = "Home"
 		@meta_description = "The Past on Paper links researchers of Genealogy, Family History, Local History and Home History with original historic documents in the posession of antique dealers or private individuals available to buy or view."
 		@user = current_user unless current_user.blank?

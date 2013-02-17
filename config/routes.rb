@@ -37,6 +37,7 @@ Pastpaper::Application.routes.draw do
 		resource :facts
 		resources :document_photos
 		resources :comments
+
 	end
 
 	get 'locations/autocomplete_location_street1'
@@ -73,6 +74,8 @@ Pastpaper::Application.routes.draw do
 	match 'documents/make_primary_image/:id' => 'document_photos#make_primary_image',:as => :make_primary_image
 	match 'person_detail/:id' => 'documents#person_detail',:as=>'person_detail'
 
+	match 'warmemorial' => 'documents#warmemorial_new'
+
 	#static pages
 	match 'about', :to=> 'pages#about'
 	match 'contact', :to => 'pages#contact'
@@ -97,6 +100,8 @@ Pastpaper::Application.routes.draw do
 	# Browse Links
 	match 'surnames' => 'people#surnames'
 	match 'surnames/:last_name' => 'people#surname_search'
+	match 'tags' => 'documents#tags'
+	match 'documents/tag/:id' => 'documents#tag'
 
 	match 'bibles' => 'documents#bibles'
 	match 'bibles_list' => 'documents#bibles_list'

@@ -55,6 +55,7 @@
                 <li class="divider"></li>
                 <% if site.listing_enabled && current_user.is_dealer %>
                   <li><%= link_to "Add New Item", new_document_path%> </li>	
+                  <li><%= link_to "Add War Memorial", "warmemorial_new" %> </li> 
                 <%end%>
             		<li><%= link_to 'Add New Gedcom', new_gedcom_document_path %></li>
               <li class="divider"></li>

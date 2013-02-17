@@ -128,6 +128,13 @@ class DocumentsController < ApplicationController
 		@location = @document.locations.new
 	end
 
+	def warmemorial_new
+		@document = current_user.documents.new
+		@document.document_type_id = 22
+		@document.status_id = 6
+		@location = Location.new
+		render "documents/warmemorial_new"
+	end
 
 	def bibles
 		@pagetitle = "Browse all Family Bibles"
@@ -220,6 +227,19 @@ class DocumentsController < ApplicationController
 		@pagetitle = "Browse all Marriage Settlements"
 		@meta_description = ""
 		@documents = Document.where(:document_type_id => 10).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+		render "documents/index"
+	end
+
+	def tags
+		@pagetitle = "Browse Documents by Tags"
+		@tags = Document.tag_counts_on(:tags)
+		@tags.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+		render "documents/tags"
+	end
+
+	def tag
+		@pagetitle = "Items tagged \"#{params[:id]}\""
+		@documents = Document.tagged_with(params[:id]).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
 		render "documents/index"
 	end
 
