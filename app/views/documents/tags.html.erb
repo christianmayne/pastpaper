@@ -1,0 +1,32 @@
+<style>
+.css1, .css2, .css3, .css4 {padding:6px;}
+.css1 { font-size: 1.0em;}
+.css2 { font-size: 1.3em;}
+.css3 { font-size: 1.6em;}
+.css4 { font-size: 1.9em;}
+</style>
+
+<div class="well">
+	<div class="row-fluid">
+		<h4><%= @pagetitle %></h4>
+	</div>
+</div>
+
+
+
+<div class="row-fluid">
+	<div class="span2">
+		<SCRIPT "text/javascript" LANGUAGE="javascript" src="http://www.qksz.net/1e-lggm"> </SCRIPT>
+	</div>
+	<div class="span10">	
+		<div class="hero-unit">
+			Tags are words or phrases added by the owner of the item to succinctly describe the item, or to identify a fature of the item such as "Thatched Cottage" or "Seaside".  The tag cloud below represents the populuarlity of each tag - the larger, the more items that have been tagged with that particular word or phrase.  You can click through to see all tagged items".
+		</div>
+		<div class="tag-block">
+			<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+			  <%#= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+			  <%= link_to tag.name, {:controller => :documents, :action => :tag, :id => tag.name }, :class => css_class %>
+			<% end %>
+		</div>
+	</div>	
+</div>

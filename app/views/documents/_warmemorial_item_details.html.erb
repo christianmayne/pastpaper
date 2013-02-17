@@ -1,0 +1,27 @@
+<div class="row-fluid">
+  <div class="span11"><h4>Item Details</h4></div>
+  <div class="span1" style="margin-top:10px;">(<a href="javascript:toggle_div(helptext, 'show', 'hide', 'viewhelptext')" id="viewhelptext">hide</i></a>)</div>
+</div>
+
+<div class="row-fluid" id="helptext">
+  <h5 class="text-info"></h5>
+<div>
+<hr />
+
+<br />
+
+<div class="controls controls-row">
+  <b>War Memorial Location here - this will be used to create a name for it, so the name field has been removed</b>
+  <%#= f.text_field :name , {:placeholder => "War Memorial Name (eg WWI War memorial, Cambrige, England)" , :class => "span9" }%>
+</div>
+
+<br />
+<div class="controls controls-row">
+  <%= f.text_area :comment, {:placeholder=>"Item Details",:class => 'textarea span9'} %>
+</div>
+<br />
+<div class="controls controls-row">
+  <%= f.text_field :tag_list,  {:placeholder=>"Enter some tags, seperated by commas (eg Victorian, Humour, Seaside)",:class => 'textarea span9'} %>
+</div>
+
+

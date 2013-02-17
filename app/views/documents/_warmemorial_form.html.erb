@@ -1,0 +1,18 @@
+<div class="row-fluid">
+	<%= render :partial => "warmemorial_menu"%>
+</div>
+
+<%= form_for @document, :html=>{ :multipart => true}  do |f| %>
+	<div class="row-fluid form-horizontal">
+			<%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@document}%>
+			<%= render :partial => 'warmemorial_item_details', :locals => {:f => f}  %>
+	</div>		
+	<br />
+
+	<div class="row-fluid">
+		<div class="span9"><h5 class="pull-right text-info">When you have finished adding information about your item, click the button on the right to continue</h5></div>
+		<div class="span1"><i class="icon-hand-right" style="margin-top:10px;"></i></div> 
+		<div class="span2">	  <%= f.submit "Next >" ,:class=>"btn" %></div>
+	</div>
+
+<% end %>

@@ -1,0 +1,33 @@
+<div class="navbar">
+	<div class="navbar-inner">
+
+		<ul class="nav nav-bar">
+			<% unless @document.new_record? %>
+				<li><%= link_to_unless_current("View Item", document_path(@document))  %></li>
+				<% unless current_page?(edit_document_path(@document)) %>
+					<li><%= link_to_unless_current("Item Details", edit_document_path(@document)) %></li>
+				<% else %>
+					<li class="active"><a>Item Details</a></li>
+				<% end %>	
+			<% end %>
+
+			<% unless @document.new_record? %>
+
+				<% unless current_page?(document_document_photos_path(@document)) %>
+					<li><%= link_to("Item Images", document_document_photos_path(@document)) %></li>
+				<% else %>
+					<li class="active"><a>Item Images</a></li>
+				<% end %>	
+
+				<% unless current_page?(document_people_path(@document)) %>
+					<li><%= link_to("People & Events", document_people_path(@document)) %></li>
+				<% else %>
+					<li class="active"><a>People & Events</a></li>
+				<% end %>	
+			<% else %>
+				<li class="active"><a href="#">Item Details</a></li>
+			<%end%>
+		</ul>
+
+	</div>
+</div>
