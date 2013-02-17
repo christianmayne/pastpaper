@@ -250,9 +250,20 @@ color: #4A4A4A;
         Full details about individuals and locations mentioned are available below to registered users. 
       </div>
      
+      <%# if @document.tag_list.present? %>
+        <small><strong>Tags: </strong><%#= @document.tag_list %></small>
+      <%#end%>
+
       <% if @document.tag_list.present? %>
-        <small><strong>Tags: </strong><%= @document.tag_list %></small>
+        <% @tags = @document.tags %>
+        <style>.css1, .css2, .css3, .css4 {padding:3px;}</style>
+        <small>
+          <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+            <%= link_to tag.name, {:controller => :documents, :action => :tag, :id => tag.name }, :class => css_class %>
+          <% end %>
+        </small>  
       <%end%>
+
       <br />
       <br />
       <small>Listed by <%= @document.user.username %> on <%= @document.created_at.strftime("%d/%m/%Y")%> [Reference Number: <%= @document.reference_number %>]</small><br />
