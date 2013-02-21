@@ -74,7 +74,7 @@ Pastpaper::Application.routes.draw do
 	match 'documents/make_primary_image/:id' => 'document_photos#make_primary_image',:as => :make_primary_image
 	match 'person_detail/:id' => 'documents#person_detail',:as=>'person_detail'
 
-	match 'warmemorial' => 'documents#warmemorial_new'
+	#match 'warmemorial' => 'documents#warmemorial_new'
 
 	#static pages
 	match 'about', :to=> 'pages#about'
@@ -124,6 +124,7 @@ Pastpaper::Application.routes.draw do
 	match 'notebooks' => 'documents#notebooks'
 	match 'photos' => 'documents#photos'
 	match 'postcards' => 'documents#postcards'
+	match 'warmemorials' => 'documents#warmemorials'
 	match 'wills' => 'documents#wills'
 	
 	

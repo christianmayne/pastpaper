@@ -322,6 +322,13 @@ class DocumentsController < ApplicationController
 		render "documents/index"
 	end
 
+	def warmemorials
+		@pagetitle = "Browse all War memorials"
+		@meta_description = "Browse our collection of War Memorials from World War One, World War Two, The Gulf Wars, The Boer War, The Korean War and others"
+		@documents = Document.where(:document_type_id => 22).paginate(:page =>params[:page], :order =>'id desc', :per_page =>50)
+		render "documents/index"
+	end
+
 	def wills
 		@pagetitle = "Browse all Wills"
 		@meta_description = "Browse our collection of old vellum Wills and Probate documents, 1600s, 1700s, 1800s, and 1900s"
