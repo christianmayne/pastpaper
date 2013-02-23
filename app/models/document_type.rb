@@ -1,6 +1,7 @@
 class DocumentType < ActiveRecord::Base
 
 	has_many :documents
+	has_many :people, :through => :documents
 
 	scope :alphabetically, :order => "name ASC"
 	scope :paper, where("paper = 1")

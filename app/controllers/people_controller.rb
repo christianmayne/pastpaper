@@ -5,6 +5,14 @@ class PeopleController < ApplicationController
 	def index
 		@people =  @document.people
 	end
+
+	def rollofhonour
+		wm = DocumentType.find(22)
+		documents = wm.people
+		@documents=documents.sort_by {|doc| doc.last_name}
+		render '_person_common_list'
+	end
+		
 	
 	def new
 		@document_photo =  @document.document_photos.new

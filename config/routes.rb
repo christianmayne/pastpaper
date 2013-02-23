@@ -126,6 +126,8 @@ Pastpaper::Application.routes.draw do
 	match 'postcards' => 'documents#postcards'
 	match 'warmemorials' => 'documents#warmemorials'
 	match 'wills' => 'documents#wills'
+
+	match 'rollofhonour' => 'people#rollofhonour'
 	
 	
 	#match 'search_publications' => 'documents#search_publications'
