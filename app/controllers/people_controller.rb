@@ -8,8 +8,10 @@ class PeopleController < ApplicationController
 
 	def rollofhonour
 		wm = DocumentType.find(22)
-		documents = wm.people
-		@documents=documents.sort_by {|doc| doc.last_name}
+		@documents = wm.people.paginate(:page =>params[:page], :order =>'last_name, first_name asc', :per_page =>50)
+		#@documents=documents.sort_by {|doc| doc.last_name}
+		@pagetitle = "Roll of Honour"
+		@page_description = "All names listed on War Memorials in the Past on Paper database"
 		render '_person_common_list'
 	end
 		
