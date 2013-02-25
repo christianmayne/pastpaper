@@ -73,7 +73,4 @@ module DocumentHelper
 		end
 	end
 
-
-
-
 end

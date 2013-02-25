@@ -5,8 +5,8 @@
 			<%= f.text_field :first_name,{:placeholder => "First Name",:size=>25, :class=>"input-small"} %>
 			<%= f.text_field :last_name,{:placeholder => "Last Name",:size=>25, :class=>"input-small"} %>
       <br />
-		  <%= f.select(:date_from, @fact_years.map(&:fact_year), {:include_blank => 'From'}, :class=>"search-query input-small") %>
-		  <%= f.select(:date_to, @fact_years.map(&:fact_year), {:include_blank => 'To'}, :class=>"search-query input-small") %>
+		  <%#= f.select(:date_from, @fact_years.map(&:fact_year), {:include_blank => 'From'}, :class=>"search-query input-small") %>
+		  <%#= f.select(:date_to, @fact_years.map(&:fact_year), {:include_blank => 'To'}, :class=>"search-query input-small") %>
 			<%= f.submit "",:class=>"btn btn-primary pull-right",:id=>"searchbyperson", :value=>"Search" %>
 		<% end %>
 	</div>

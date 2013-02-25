@@ -60,8 +60,13 @@ module ApplicationHelper
 	# Returns the latest documents with photos
 	#
 	# TODO: Enable the return of items regardless of photo exitence
-	def latest_items(items)
-		latest_items = Document.show_latest_documents.has_photos.last(items)
+	def latest_paper(items)
+		#latest_items = Document.has_photos.last(items)
+		latest_items = Document.has_photos.joins(:document_type).where("document_types.paper = ?", true).limit(12).order('id desc')
+	end	
+
+	def latest_stone(items)
+		latest_items = Document.has_photos.joins(:document_type).where("document_types.stone = ?", true).limit(12).order('id desc')
 	end	
 
 
