@@ -137,11 +137,11 @@ class Person < ActiveRecord::Base
 	def self.search_people(search_params,page,per_page=50)
 
 		# If from date is higher than to date, swap over
-		if search_params[:date_from] > search_params[:date_to]
-			temp = search_params[:date_from]
-			search_params[:date_from] = search_params[:date_to]
-			search_params[:date_to] = temp
-		end	
+		#if search_params[:date_from] > search_params[:date_to]
+		#	temp = search_params[:date_from]
+		#	search_params[:date_from] = search_params[:date_to]
+		#	search_params[:date_to] = temp
+		#end	
 
 		condition  = ""
 		condition += "UPPER(people.first_name) like  '%#{search_params[:first_name].upcase}%' AND " unless search_params[:first_name].blank?
