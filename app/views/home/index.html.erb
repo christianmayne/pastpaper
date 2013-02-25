@@ -1,4 +1,5 @@
 <%= render 'latest_paper' %>
+<%= render 'latest_stone' %>
 <% if !current_user %>
   <div class="row">
     <div class="hero-unit .hidden-phone">
@@ -14,8 +15,6 @@
   <%= render 'search_form_place' %>
   <%#= render 'search_form_browse' %>
 </div>
-
-<%= render 'latest_stone' %>
 
 <div class="row well">
   <center><%= banner_ad %></center>
