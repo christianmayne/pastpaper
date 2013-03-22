@@ -1,8 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "Past on Paper <info@pastonpaper.com>"
-
   
-    def registration_notification(user)
+    def registration_notification_user(user)
       @user = user
       @url  = root_url
       mail(
@@ -10,13 +9,24 @@ class UserMailer < ActionMailer::Base
         :subject => "Thank you for your registration on Pastonpaper.com"
       )
     end
+
+    def registration_notification_admin(user)
+      admin_user = User.find_by_username("administrator")
+      @user = user
+      @url  = root_url
+      mail(
+        :to => admin_user.email,
+        :subject => "A new user has signed up to Pastonpaper.com"
+      )
+    end
+
   
   
   def reset_password_email(user)
     @user = user
-    @url  = "http://www.pastpaper.com/password_resets/#{user.reset_password_token}/edit"
+    @url  = "http://www.pastonpaper.com/password_resets/#{user.reset_password_token}/edit"
     mail(:to => user.email,
-       :subject => "Your password has been reset")
+       :subject => "Pastonpaper.com Password Reset Instructions")
 
   end
   

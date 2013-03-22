@@ -14,7 +14,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
-			UserMailer.registration_notification(@user).deliver
+			UserMailer.registration_notification_user(@user).deliver
+			UserMailer.registration_notification_admin(@user).deliver
 			auto_login(@user)
 			redirect_back_or_to root_url, :notice => "Registration successful!  You are now logged in."
 		else
@@ -60,7 +61,6 @@ class UsersController < ApplicationController
 			flash[:notice] = "Your account have been deactivated. In future if you need this account, please contact us."         
 			redirect_to root_url
 		else
-			flash[:notice] = "Operation couldnot not be completed. Please try again "         
 			redirect_to user_home_path
 		end
 	end  
