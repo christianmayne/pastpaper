@@ -27,8 +27,15 @@ class UserMailer < ActionMailer::Base
     @url  = "http://www.pastonpaper.com/password_resets/#{user.reset_password_token}/edit"
     mail(:to => user.email,
        :subject => "Pastonpaper.com Password Reset Instructions")
-
   end
+
+  def reset_password_confirmation(user)
+    @user = user
+    mail(:to => user.email,
+       :subject => "Pastonpaper.com Password Successfully Changed")
+  end
+
+
   
   #not implememnted
   def purchase_order_notification(order)
