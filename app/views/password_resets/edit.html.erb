@@ -1,5 +1,17 @@
 <!-- Container -->
-<div>
-	<div class="introduction_block">Change Your Password</div>
+<% @pagetitle = "Reset Your Password" %>
+
+<%= render :partial => "shared/validationerror" ,:locals=>{:obj=>@user}%>
+<div class="well">
+  <div class="row-fluid">
+      <h4>Change Your Password</h4>
+  </div>
+</div>
+
+<div style="text-align:center">Choose a New Password.  Passwords must be at least 6 characters long and contain at least one letter and one number</div><br /><br />
+
+<div class="span4"></div>
+<div class="span4">
 	<%= render 'form' %>
 </div>
+<div class="span4"></div>
