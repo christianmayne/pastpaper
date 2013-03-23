@@ -55,6 +55,7 @@ class DocumentsController < ApplicationController
 		#ocument.published = 1
 			if document.update_attribute(:published,true)
 				flash[:notice] = "Successfully Published"
+				UserMailer.document_publish_confirmation(document.user).deliver
 			else
 				flash[:error]  = "There has been an error publishing your item"
 			end
@@ -66,6 +67,7 @@ class DocumentsController < ApplicationController
 		#ocument.published = 1
 			if document.update_attribute(:published,false)
 				flash[:notice] = "Successfully Unpublished"
+				UserMailer.document_unpublish_confirmation(document.user).deliver
 			else
 				flash[:error]  = "There has been an error unpublishing your item"
 			end

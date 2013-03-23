@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
 	def create
 		@comment = @document.comments.new(params[:comment])
 		@comment.user = current_user
-
 		if @comment.save
 			redirect_to @document, :notice=> 'Thank you for your comment'
+			UserMailer.document_comment_notification(@document.user, @document).deliver
 		else
 			redirect_to @document, :alert=> 'Sorry, we were unable to add your comment'
 		end

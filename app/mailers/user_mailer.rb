@@ -1,27 +1,26 @@
 class UserMailer < ActionMailer::Base
   default from: "Past on Paper <info@pastonpaper.com>"
-  
-    def registration_notification_user(user)
-      @user = user
-      @url  = root_url
-      mail(
-        :to => user.email,
-        :subject => "Thank you for your registration on Pastonpaper.com"
-      )
-    end
 
-    def registration_notification_admin(user)
-      admin_user = User.find_by_username("administrator")
-      @user = user
-      @url  = root_url
-      mail(
-        :to => admin_user.email,
-        :subject => "A new user has signed up to Pastonpaper.com"
-      )
-    end
+  # User Emails
+  def registration_notification_user(user)
+    @user = user
+    @url  = root_url
+    mail(
+      :to => user.email,
+      :subject => "Thank you for your registration on Pastonpaper.com"
+    )
+  end
 
-  
-  
+  def registration_notification_admin(user)
+    admin_user = User.find_by_username("administrator")
+    @user = user
+    @url  = root_url
+    mail(
+      :to => admin_user.email,
+      :subject => "A new user has signed up to Pastonpaper.com"
+    )
+  end
+
   def reset_password_email(user)
     @user = user
     @url  = "http://www.pastonpaper.com/password_resets/#{user.reset_password_token}/edit"
@@ -36,8 +35,28 @@ class UserMailer < ActionMailer::Base
   end
 
 
-  
-  #not implememnted
+  # Document Emails
+  def document_publish_confirmation(user)
+    @user = user
+    mail(:to => user.email,
+         :subject => "You have successfully published your item on pastonpaper.com")
+  end
+
+  def document_unpublish_confirmation(user)
+    @user = user
+    mail(:to => user.email,
+         :subject => "You have unpublished your item on pastonpaper.com")
+  end
+
+  def document_comment_notification(user, document)
+    @user = user
+    @document= document
+    mail(:to => user.email,
+         :subject => "A Comment has been left on your item at pastonpaper.com")
+  end
+
+
+  # Offer and Order Emails
   def purchase_order_notification(order)
     @order= order
     
@@ -47,17 +66,7 @@ class UserMailer < ActionMailer::Base
     )
     
   end
-  
-  #not implememnted
-  def activation_notification(user)
-    @user = user
-    @url  = user_activation_url(user.activation_token)
-    mail(
-      :to => user.email,
-      :subject => "Thank you for your registration on Pastonpaper.com"
-    )
-  end
-  
+
   def offer_notification_owner(user,document,amount)
     @user = user
     @document = document
@@ -79,5 +88,17 @@ class UserMailer < ActionMailer::Base
       :subject => "you have made an offer on #{@document.display_name}"
     )
   end
+
+  
+  #not implememnted
+  def activation_notification(user)
+    @user = user
+    @url  = user_activation_url(user.activation_token)
+    mail(
+      :to => user.email,
+      :subject => "Thank you for your registration on Pastonpaper.com"
+    )
+  end
+  
     
 end
